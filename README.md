@@ -41,7 +41,7 @@ At the moment, test projects do not contain any tests. Since I wanted to write n
 Well, I'm not surprised, it's a young project. Just pass me a bug report or, if possible, fix the bug and do a pull request.
 
 ### License
-Copyright © 2018, Daniel Hentzschel.
+Copyright © 2018, [Daniel Hentzschel](AUTHOR.md).
 
 Since I do not know how to continue (except further development on these projects), I do NOT grant a commercial use. Use it for private/open source and free projects, you may publish parts or the whole source code but without removing a license and copyright notice.
 
@@ -67,4 +67,4 @@ If you have ideas to implement a feature or fix a bug, please contact me or try 
  - _Continue working on SimpleGraphics_
  - _Maybe implement UDP protocol in for SimpleNetwork_
  - _Continue working on SimpleGui_
-
+ - Add extern LICENSE file
