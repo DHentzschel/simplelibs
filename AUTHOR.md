@@ -8,7 +8,7 @@ The intention of this project was to simplify writing code in C++, now it is con
 - [Twitter](https://twitter.com/DanielHentz_)  
 - [E-Mail](mailto:dhentz@gmx.de)  
 
-![DiscordTag](https://i.imgur.com/iuMlF6W.png)
+[![DiscordTag](https://i.imgur.com/iuMlF6W.png)](https://discordapp.com/)
 
 If you want to, I would be very thankful if you support my project. ♥
 
