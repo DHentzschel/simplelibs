@@ -50,7 +50,7 @@ There may be a licensing model in the future for commercial projects but until t
 ### Installation
 
 SimpleLibs require Windows 10.0.17134.0 or above to compile. I use [Microsoft Visual Studio 2017](https://visualstudio.microsoft.com/) which works fine.
-
+The required language standard is c++17. All versions before are deprecated and not usable.
 Also it is required to download and install [MySQL server](https://dev.mysql.com/downloads/windows/installer/8.0.html). It is recommended to use the tested MySQL server version 8.0 or above.
 
 **Important notes:** Both projects SimpleGraphics and SimpleMySql contain x64 binaries (dll and lib).  
