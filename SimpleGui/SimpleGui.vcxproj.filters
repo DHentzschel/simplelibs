@@ -5,5 +5,30 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="src\Form">
+      <UniqueIdentifier>{81dd8d0e-b99d-4815-b521-a87d775bc9dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Internal">
+      <UniqueIdentifier>{c8ca244f-d2c8-447a-9040-10729e06f972}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="form.cpp">
+      <Filter>src\Form</Filter>
+    </ClCompile>
+    <ClCompile Include="pslmain.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="pprinf.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="form.h">
+      <Filter>src\Form</Filter>
+    </ClInclude>
+    <ClInclude Include="pprinf.h">
+      <Filter>src\Internal</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

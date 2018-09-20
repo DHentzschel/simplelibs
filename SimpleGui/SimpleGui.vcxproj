@@ -98,6 +98,10 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <SubSystem>
+      </SubSystem>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -131,6 +135,15 @@
     <ProjectReference Include="..\SimpleCore\SimpleCore.vcxproj">
       <Project>{870473c8-979d-42ad-9499-922c9d1a551a}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="form.h" />
+    <ClInclude Include="pprinf.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="form.cpp" />
+    <ClCompile Include="pprinf.cpp" />
+    <ClCompile Include="pslmain.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
