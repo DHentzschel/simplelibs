@@ -3,6 +3,9 @@
 ## SimpleLibs
 
 ### A project to simplify developing in C++ STL
+If you want to, I would be very thankful if you support my project. ♥
+
+[![Buy me a coffee](https://i.imgur.com/Z1FmtML.png)](https://www.buymeacoffee.com/GRZ9x0mKe)
 
 ##### What SimpleLibs is
 SimpleLibs is considered to be kind of a framework assisting software developers by providing multiple core classes and functions for developing in C++ (and STL). It can be only used on Windows 10.0.17134.0 or later. 
