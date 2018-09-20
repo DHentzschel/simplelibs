@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\AdvancedSTL">
+      <UniqueIdentifier>{4d637536-7c98-47c8-92ff-f865d218ed4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Console">
+      <UniqueIdentifier>{60139aec-4d81-441c-826d-27dca1fa784a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Logger">
+      <UniqueIdentifier>{b52fd60c-cc3f-451f-aeef-908b1182a9db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\DateTime">
+      <UniqueIdentifier>{11193cd0-0274-42f0-a8d8-3739087ca2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem">
+      <UniqueIdentifier>{b8a5abe6-ae9d-4a0d-bf1b-32c31f37587a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Hash">
+      <UniqueIdentifier>{8faacce4-605c-49a2-be2c-87d709b28c2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Hash\Chocobo1">
+      <UniqueIdentifier>{4b94a1d2-b7a8-4ef9-bd3d-208faea522b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Hash\Chocobo1\gsl">
+      <UniqueIdentifier>{5cfcdf07-8837-4309-84cb-ba9718125089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Hash\Chocobo1\program">
+      <UniqueIdentifier>{787b9522-be17-4a00-8a82-da399f2c71c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Hash\Chocobo1\unfinished">
+      <UniqueIdentifier>{0c8e739c-781a-4f48-a8b0-1dd8d7880b0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Hash\Stephan_Brumme">
+      <UniqueIdentifier>{1b5b1e3f-f4de-4cea-a553-22943b2598f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem\FileTypes">
+      <UniqueIdentifier>{4c3cde5d-6070-4f9a-9335-052c8e0c359e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem\FileTypes\IniFile">
+      <UniqueIdentifier>{26555567-562e-497a-8853-cf7660afd85b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem\FileTypes\RapidXml">
+      <UniqueIdentifier>{e19d2478-7353-46cc-b828-9de3cdc55f30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem\FileTypes\RapidJson">
+      <UniqueIdentifier>{8a5052fc-8643-46fe-bd16-5553a9cee379}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem\FileTypes\RapidJson\error">
+      <UniqueIdentifier>{eca7648f-0024-4a4e-9da1-47f898d5ad9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem\FileTypes\RapidJson\internal">
+      <UniqueIdentifier>{f9d014ba-7ffa-47b1-a1d5-60b68a6eba76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem\FileTypes\RapidJson\msinttypes">
+      <UniqueIdentifier>{79b2f888-2534-42ea-b87a-a1644c5924cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem\File">
+      <UniqueIdentifier>{15fc72c7-cc2f-4fee-acc1-98b5b18a3ae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem\Dir">
+      <UniqueIdentifier>{cc35ecb7-ba7a-446e-8817-e30f18cfec15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\AdvancedSTL\StringVector">
+      <UniqueIdentifier>{3bc87153-88f1-4d1f-8685-426bcddd0c16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\AdvancedSTL\String">
+      <UniqueIdentifier>{7e8ea5f4-b78b-4b8a-bc17-7b77dcfd86a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\AdvancedSTL\Vector">
+      <UniqueIdentifier>{504adc8f-f496-4bbc-bd13-0c9c11679e05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\AdvancedSTL\List">
+      <UniqueIdentifier>{14a014f3-d3fe-4537-bacb-f15353a96c06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\AdvancedSTL\Char">
+      <UniqueIdentifier>{22d33d04-8a50-436c-bc91-7ba8fcea1fd3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\AdvancedSTL\ByteArray">
+      <UniqueIdentifier>{7a3ac35e-34f1-4844-aa5c-ac74433d6b4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mathematics">
+      <UniqueIdentifier>{c0f5acd8-715d-42a5-8f97-54548ce2bdb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mathematics\MathUtils">
+      <UniqueIdentifier>{639afa42-7c25-458a-8dc2-77d4b836d05d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mathematics\Vectors">
+      <UniqueIdentifier>{677df401-26a4-4fe8-889c-912857bc3531}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mathematics\Vectors\Vector2">
+      <UniqueIdentifier>{8c703a49-32c7-42b9-b9a5-e22de03f6a3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Mathematics\Vectors\Vector2f">
+      <UniqueIdentifier>{9a020723-a2fd-4830-a18a-83827dabb335}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileSystem\File\OpenMode">
+      <UniqueIdentifier>{381e054d-92cd-4530-b37a-92afb93c31e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Internal">
+      <UniqueIdentifier>{ec43cffd-3698-4fe2-8275-23a7c56baa8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Console\ConsoleColor">
+      <UniqueIdentifier>{a9a5113b-e0ba-47d9-a5c9-f5c40bf56a24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\AdvancedSTL\CaseSensitivity">
+      <UniqueIdentifier>{da27224f-d0eb-4b26-9448-3f5c9f0b531e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\IEncryption">
+      <UniqueIdentifier>{2bd7a7f1-c74a-4719-a4be-d89cbd42fb21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\General">
+      <UniqueIdentifier>{be0a250c-db2d-4bd9-a472-6df828ab2e75}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bytearray.cpp">
+      <Filter>src\AdvancedSTL\ByteArray</Filter>
+    </ClCompile>
+    <ClCompile Include="console.cpp">
+      <Filter>src\Console</Filter>
+    </ClCompile>
+    <ClCompile Include="logger.cpp">
+      <Filter>src\Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="datetime.cpp">
+      <Filter>src\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="stopwatch.cpp">
+      <Filter>src\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="inifile.cpp">
+      <Filter>src\FileSystem\FileTypes\IniFile</Filter>
+    </ClCompile>
+    <ClCompile Include="file.cpp">
+      <Filter>src\FileSystem\File</Filter>
+    </ClCompile>
+    <ClCompile Include="dir.cpp">
+      <Filter>src\FileSystem\Dir</Filter>
+    </ClCompile>
+    <ClCompile Include="stephan_brumme\sha1.cpp">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClCompile>
+    <ClCompile Include="stephan_brumme\sha3.cpp">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClCompile>
+    <ClCompile Include="stephan_brumme\sha256.cpp">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClCompile>
+    <ClCompile Include="stephan_brumme\crc32.cpp">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClCompile>
+    <ClCompile Include="stephan_brumme\keccak.cpp">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClCompile>
+    <ClCompile Include="stephan_brumme\md5.cpp">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClCompile>
+    <ClCompile Include="stringvector.cpp">
+      <Filter>src\AdvancedSTL\StringVector</Filter>
+    </ClCompile>
+    <ClCompile Include="astring.cpp">
+      <Filter>src\AdvancedSTL\String</Filter>
+    </ClCompile>
+    <ClCompile Include="mathutils.cpp">
+      <Filter>src\Mathematics\MathUtils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bytearray.h">
+      <Filter>src\AdvancedSTL\ByteArray</Filter>
+    </ClInclude>
+    <ClInclude Include="console.h">
+      <Filter>src\Console</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>src\Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="datetime.h">
+      <Filter>src\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="date.h">
+      <Filter>src\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="datetimeinfo.h">
+      <Filter>src\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="stopwatch.h">
+      <Filter>src\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="inifile.h">
+      <Filter>src\FileSystem\FileTypes\IniFile</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\blake1_512.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\blake2.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\blake2s.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\crc_32.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\cshake.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\has_160.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\md2.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\md4.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\md5.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\ripemd_128.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\ripemd_160.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\ripemd_256.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\ripemd_320.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\sha1.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\sha2_224.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\sha2_256.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\sha2_384.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\sha2_512.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\sha2_512_224.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\sha2_512_256.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\sha3.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\sm3.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\tiger.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\tuple_hash.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\whirlpool.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\blake1_224.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\blake1_256.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\blake1_384.h">
+      <Filter>src\Hash\Chocobo1</Filter>
+    </ClInclude>
+    <ClInclude Include="chocobo1\unfinished\has_v_320.h">
+      <Filter>src\Hash\Chocobo1\program</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\document.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\encodedstream.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\encodings.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\filereadstream.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\filewritestream.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\fwd.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\istreamwrapper.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\memorybuffer.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\memorystream.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\ostreamwrapper.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\pointer.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\prettywriter.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\rapidjson.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\reader.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\schema.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\stream.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\stringbuffer.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\writer.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\allocators.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\cursorstreamwrapper.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\error\error.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\error</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\error\en.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\error</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\dtoa.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\ieee754.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\itoa.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\meta.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\pow10.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\regex.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\stack.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\strfunc.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\strtod.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\swap.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\biginteger.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\internal\diyfp.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\msinttypes\inttypes.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\msinttypes</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\msinttypes\stdint.h">
+      <Filter>src\FileSystem\FileTypes\RapidJson\msinttypes</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml\rapidxml_print.hpp">
+      <Filter>src\FileSystem\FileTypes\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml\rapidxml_utils.hpp">
+      <Filter>src\FileSystem\FileTypes\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml\rapidxml.hpp">
+      <Filter>src\FileSystem\FileTypes\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml\rapidxml_iterators.hpp">
+      <Filter>src\FileSystem\FileTypes\RapidXml</Filter>
+    </ClInclude>
+    <ClInclude Include="file.h">
+      <Filter>src\FileSystem\File</Filter>
+    </ClInclude>
+    <ClInclude Include="dir.h">
+      <Filter>src\FileSystem\Dir</Filter>
+    </ClInclude>
+    <ClInclude Include="stephan_brumme\md5.h">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClInclude>
+    <ClInclude Include="stephan_brumme\sha1.h">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClInclude>
+    <ClInclude Include="stephan_brumme\sha3.h">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClInclude>
+    <ClInclude Include="stephan_brumme\sha256.h">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClInclude>
+    <ClInclude Include="stephan_brumme\sha512.h">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClInclude>
+    <ClInclude Include="stephan_brumme\crc32.h">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClInclude>
+    <ClInclude Include="stephan_brumme\hmac.h">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClInclude>
+    <ClInclude Include="stephan_brumme\keccak.h">
+      <Filter>src\Hash\Stephan_Brumme</Filter>
+    </ClInclude>
+    <ClInclude Include="stringvector.h">
+      <Filter>src\AdvancedSTL\StringVector</Filter>
+    </ClInclude>
+    <ClInclude Include="astring.h">
+      <Filter>src\AdvancedSTL\String</Filter>
+    </ClInclude>
+    <ClInclude Include="avector.h">
+      <Filter>src\AdvancedSTL\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="alist.h">
+      <Filter>src\AdvancedSTL\List</Filter>
+    </ClInclude>
+    <ClInclude Include="char.h">
+      <Filter>src\AdvancedSTL\Char</Filter>
+    </ClInclude>
+    <ClInclude Include="mathutils.h">
+      <Filter>src\Mathematics\MathUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2.h">
+      <Filter>src\Mathematics\Vectors\Vector2</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2f.h">
+      <Filter>src\Mathematics\Vectors\Vector2f</Filter>
+    </ClInclude>
+    <ClInclude Include="openmode.h">
+      <Filter>src\FileSystem\File\OpenMode</Filter>
+    </ClInclude>
+    <ClInclude Include="plogtp.h">
+      <Filter>src\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="consolecolor.h">
+      <Filter>src\Console\ConsoleColor</Filter>
+    </ClInclude>
+    <ClInclude Include="casesensitivity.h">
+      <Filter>src\AdvancedSTL\CaseSensitivity</Filter>
+    </ClInclude>
+    <ClInclude Include="iencryption.h">
+      <Filter>src\IEncryption</Filter>
+    </ClInclude>
+    <ClInclude Include="functions.h">
+      <Filter>src\General</Filter>
+    </ClInclude>
+    <ClInclude Include="types.h">
+      <Filter>src\General</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="chocobo1\gsl\gsl_assert">
+      <Filter>src\Hash\Chocobo1\gsl</Filter>
+    </None>
+    <None Include="chocobo1\gsl\gsl_byte">
+      <Filter>src\Hash\Chocobo1\gsl</Filter>
+    </None>
+    <None Include="chocobo1\gsl\gsl_util">
+      <Filter>src\Hash\Chocobo1\gsl</Filter>
+    </None>
+    <None Include="chocobo1\gsl\LICENSE">
+      <Filter>src\Hash\Chocobo1\gsl</Filter>
+    </None>
+    <None Include="chocobo1\gsl\multi_span">
+      <Filter>src\Hash\Chocobo1\gsl</Filter>
+    </None>
+    <None Include="chocobo1\gsl\pointers">
+      <Filter>src\Hash\Chocobo1\gsl</Filter>
+    </None>
+    <None Include="chocobo1\gsl\span">
+      <Filter>src\Hash\Chocobo1\gsl</Filter>
+    </None>
+    <None Include="chocobo1\gsl\string_span">
+      <Filter>src\Hash\Chocobo1\gsl</Filter>
+    </None>
+    <None Include="chocobo1\gsl\gsl">
+      <Filter>src\Hash\Chocobo1\gsl</Filter>
+    </None>
+    <None Include="chocobo1\gsl\gsl_algorithm">
+      <Filter>src\Hash\Chocobo1\gsl</Filter>
+    </None>
+    <None Include="chocobo1\program\meson.build">
+      <Filter>src\Hash\Chocobo1\unfinished</Filter>
+    </None>
+    <None Include="chocobo1\program\build_win32.bat">
+      <Filter>src\Hash\Chocobo1\unfinished</Filter>
+    </None>
+  </ItemGroup>
+</Project>

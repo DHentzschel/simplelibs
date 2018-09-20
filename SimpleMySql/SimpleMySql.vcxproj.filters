@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\Internal">
+      <UniqueIdentifier>{e1ae3f59-1b1e-484a-b9d4-f01ab9d610e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\SqlQuery">
+      <UniqueIdentifier>{ea85c0de-eb4a-4d67-9967-07dc8d3c0339}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\SqlDatabase">
+      <UniqueIdentifier>{8ec78e93-6dfc-4d27-9441-4a2c50fc390d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\SqlVariant">
+      <UniqueIdentifier>{a19627f6-16ba-41ed-81e7-2e89f992fd10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\SqlUtils">
+      <UniqueIdentifier>{b87e7ef5-43dd-4501-95c2-322bd556828b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{cfe53d37-02d0-4577-b4a1-186fca22ee33}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sqlquery.cpp">
+      <Filter>src\SqlQuery</Filter>
+    </ClCompile>
+    <ClCompile Include="sqldatabase.cpp">
+      <Filter>src\SqlDatabase</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlvariant.cpp">
+      <Filter>src\SqlVariant</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlutils.cpp">
+      <Filter>src\SqlUtils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pparsedq.h">
+      <Filter>src\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="psqlcol.h">
+      <Filter>src\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="psqltbl.h">
+      <Filter>src\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="psqltp.h">
+      <Filter>src\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="psqlvarparam.h">
+      <Filter>src\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlquery.h">
+      <Filter>src\SqlQuery</Filter>
+    </ClInclude>
+    <ClInclude Include="sqldatabase.h">
+      <Filter>src\SqlDatabase</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlvariant.h">
+      <Filter>src\SqlVariant</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlutils.h">
+      <Filter>src\SqlUtils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libmysql.dll">
+      <Filter>lib</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="libmysql.lib">
+      <Filter>lib</Filter>
+    </Library>
+  </ItemGroup>
+</Project>

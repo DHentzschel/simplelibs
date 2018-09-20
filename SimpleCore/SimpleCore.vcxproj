@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{870473C8-979D-42AD-9499-922C9D1A551A}</ProjectGuid>
+    <RootNamespace>SimpleCore</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(ProjectName)-d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)-d</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="astring.cpp" />
+    <ClCompile Include="bytearray.cpp" />
+    <ClCompile Include="console.cpp" />
+    <ClCompile Include="datetime.cpp" />
+    <ClCompile Include="dir.cpp" />
+    <ClCompile Include="file.cpp" />
+    <ClCompile Include="inifile.cpp" />
+    <ClCompile Include="logger.cpp" />
+    <ClCompile Include="mathutils.cpp" />
+    <ClCompile Include="stephan_brumme\crc32.cpp" />
+    <ClCompile Include="stephan_brumme\keccak.cpp" />
+    <ClCompile Include="stephan_brumme\md5.cpp" />
+    <ClCompile Include="stephan_brumme\sha1.cpp" />
+    <ClCompile Include="stephan_brumme\sha256.cpp" />
+    <ClCompile Include="stephan_brumme\sha3.cpp" />
+    <ClCompile Include="stopwatch.cpp" />
+    <ClCompile Include="stringvector.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="alist.h" />
+    <ClInclude Include="astring.h" />
+    <ClInclude Include="avector.h" />
+    <ClInclude Include="bytearray.h" />
+    <ClInclude Include="casesensitivity.h" />
+    <ClInclude Include="char.h" />
+    <ClInclude Include="chocobo1\blake1_224.h" />
+    <ClInclude Include="chocobo1\blake1_256.h" />
+    <ClInclude Include="chocobo1\blake1_384.h" />
+    <ClInclude Include="chocobo1\blake1_512.h" />
+    <ClInclude Include="chocobo1\blake2.h" />
+    <ClInclude Include="chocobo1\blake2s.h" />
+    <ClInclude Include="chocobo1\crc_32.h" />
+    <ClInclude Include="chocobo1\cshake.h" />
+    <ClInclude Include="chocobo1\has_160.h" />
+    <ClInclude Include="chocobo1\md2.h" />
+    <ClInclude Include="chocobo1\md4.h" />
+    <ClInclude Include="chocobo1\md5.h" />
+    <ClInclude Include="chocobo1\ripemd_128.h" />
+    <ClInclude Include="chocobo1\ripemd_160.h" />
+    <ClInclude Include="chocobo1\ripemd_256.h" />
+    <ClInclude Include="chocobo1\ripemd_320.h" />
+    <ClInclude Include="chocobo1\sha1.h" />
+    <ClInclude Include="chocobo1\sha2_224.h" />
+    <ClInclude Include="chocobo1\sha2_256.h" />
+    <ClInclude Include="chocobo1\sha2_384.h" />
+    <ClInclude Include="chocobo1\sha2_512.h" />
+    <ClInclude Include="chocobo1\sha2_512_224.h" />
+    <ClInclude Include="chocobo1\sha2_512_256.h" />
+    <ClInclude Include="chocobo1\sha3.h" />
+    <ClInclude Include="chocobo1\sm3.h" />
+    <ClInclude Include="chocobo1\tiger.h" />
+    <ClInclude Include="chocobo1\tuple_hash.h" />
+    <ClInclude Include="chocobo1\unfinished\has_v_320.h" />
+    <ClInclude Include="chocobo1\whirlpool.h" />
+    <ClInclude Include="console.h" />
+    <ClInclude Include="consolecolor.h" />
+    <ClInclude Include="date.h" />
+    <ClInclude Include="datetime.h" />
+    <ClInclude Include="datetimeinfo.h" />
+    <ClInclude Include="dir.h" />
+    <ClInclude Include="file.h" />
+    <ClInclude Include="functions.h" />
+    <ClInclude Include="iencryption.h" />
+    <ClInclude Include="inifile.h" />
+    <ClInclude Include="logger.h" />
+    <ClInclude Include="mathutils.h" />
+    <ClInclude Include="openmode.h" />
+    <ClInclude Include="plogtp.h" />
+    <ClInclude Include="rapidjson\allocators.h" />
+    <ClInclude Include="rapidjson\cursorstreamwrapper.h" />
+    <ClInclude Include="rapidjson\document.h" />
+    <ClInclude Include="rapidjson\encodedstream.h" />
+    <ClInclude Include="rapidjson\encodings.h" />
+    <ClInclude Include="rapidjson\error\en.h" />
+    <ClInclude Include="rapidjson\error\error.h" />
+    <ClInclude Include="rapidjson\filereadstream.h" />
+    <ClInclude Include="rapidjson\filewritestream.h" />
+    <ClInclude Include="rapidjson\fwd.h" />
+    <ClInclude Include="rapidjson\internal\biginteger.h" />
+    <ClInclude Include="rapidjson\internal\diyfp.h" />
+    <ClInclude Include="rapidjson\internal\dtoa.h" />
+    <ClInclude Include="rapidjson\internal\ieee754.h" />
+    <ClInclude Include="rapidjson\internal\itoa.h" />
+    <ClInclude Include="rapidjson\internal\meta.h" />
+    <ClInclude Include="rapidjson\internal\pow10.h" />
+    <ClInclude Include="rapidjson\internal\regex.h" />
+    <ClInclude Include="rapidjson\internal\stack.h" />
+    <ClInclude Include="rapidjson\internal\strfunc.h" />
+    <ClInclude Include="rapidjson\internal\strtod.h" />
+    <ClInclude Include="rapidjson\internal\swap.h" />
+    <ClInclude Include="rapidjson\istreamwrapper.h" />
+    <ClInclude Include="rapidjson\memorybuffer.h" />
+    <ClInclude Include="rapidjson\memorystream.h" />
+    <ClInclude Include="rapidjson\msinttypes\inttypes.h" />
+    <ClInclude Include="rapidjson\msinttypes\stdint.h" />
+    <ClInclude Include="rapidjson\ostreamwrapper.h" />
+    <ClInclude Include="rapidjson\pointer.h" />
+    <ClInclude Include="rapidjson\prettywriter.h" />
+    <ClInclude Include="rapidjson\rapidjson.h" />
+    <ClInclude Include="rapidjson\reader.h" />
+    <ClInclude Include="rapidjson\schema.h" />
+    <ClInclude Include="rapidjson\stream.h" />
+    <ClInclude Include="rapidjson\stringbuffer.h" />
+    <ClInclude Include="rapidjson\writer.h" />
+    <ClInclude Include="rapidxml\rapidxml.hpp" />
+    <ClInclude Include="rapidxml\rapidxml_iterators.hpp" />
+    <ClInclude Include="rapidxml\rapidxml_print.hpp" />
+    <ClInclude Include="rapidxml\rapidxml_utils.hpp" />
+    <ClInclude Include="stephan_brumme\crc32.h" />
+    <ClInclude Include="stephan_brumme\hmac.h" />
+    <ClInclude Include="stephan_brumme\keccak.h" />
+    <ClInclude Include="stephan_brumme\md5.h" />
+    <ClInclude Include="stephan_brumme\sha1.h" />
+    <ClInclude Include="stephan_brumme\sha256.h" />
+    <ClInclude Include="stephan_brumme\sha3.h" />
+    <ClInclude Include="stephan_brumme\sha512.h" />
+    <ClInclude Include="stopwatch.h" />
+    <ClInclude Include="stringvector.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="vector2.h" />
+    <ClInclude Include="vector2f.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="chocobo1\gsl\gsl" />
+    <None Include="chocobo1\gsl\gsl_algorithm" />
+    <None Include="chocobo1\gsl\gsl_assert" />
+    <None Include="chocobo1\gsl\gsl_byte" />
+    <None Include="chocobo1\gsl\gsl_util" />
+    <None Include="chocobo1\gsl\LICENSE" />
+    <None Include="chocobo1\gsl\multi_span" />
+    <None Include="chocobo1\gsl\pointers" />
+    <None Include="chocobo1\gsl\span" />
+    <None Include="chocobo1\gsl\string_span" />
+    <None Include="chocobo1\program\build_win32.bat" />
+    <None Include="chocobo1\program\meson.build" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="src\TcpSocket">
+      <UniqueIdentifier>{947ed2e9-0876-464b-a8fa-ec202c58b646}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TcpSocket\LocalTcpSocket">
+      <UniqueIdentifier>{5853b27c-14bd-4bb6-8765-7a3a5b22fc34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TcpServer">
+      <UniqueIdentifier>{7d975ae7-434a-4e41-bea7-b0585949b9ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TcpServer\LocalTcpServer">
+      <UniqueIdentifier>{bbb9f5f1-b997-4ce7-b925-19a53debf8fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TcpEventListener">
+      <UniqueIdentifier>{150f56f7-bbd5-4488-9ae0-119b0a343d7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TcpEventListener\TcpClientEventListener">
+      <UniqueIdentifier>{fd96cadb-0f3a-4a24-9e53-9d993c3a98eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TcpEventListener\TcpServerEventListener">
+      <UniqueIdentifier>{02660870-8124-4170-a274-badb64034223}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="tcpsocket.cpp">
+      <Filter>src\TcpSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="localtcpsocket.cpp">
+      <Filter>src\TcpSocket\LocalTcpSocket</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpserver.cpp">
+      <Filter>src\TcpServer</Filter>
+    </ClCompile>
+    <ClCompile Include="localtcpserver.cpp">
+      <Filter>src\TcpServer\LocalTcpServer</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpeventlistener.cpp">
+      <Filter>src\TcpEventListener</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpclienteventlistener.cpp">
+      <Filter>src\TcpEventListener\TcpClientEventListener</Filter>
+    </ClCompile>
+    <ClCompile Include="tcpservereventlistener.cpp">
+      <Filter>src\TcpEventListener\TcpServerEventListener</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tcpsocket.h">
+      <Filter>src\TcpSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="localtcpsocket.h">
+      <Filter>src\TcpSocket\LocalTcpSocket</Filter>
+    </ClInclude>
+    <ClInclude Include="tcpserver.h">
+      <Filter>src\TcpServer</Filter>
+    </ClInclude>
+    <ClInclude Include="localtcpserver.h">
+      <Filter>src\TcpServer\LocalTcpServer</Filter>
+    </ClInclude>
+    <ClInclude Include="tcpeventlistener.h">
+      <Filter>src\TcpEventListener</Filter>
+    </ClInclude>
+    <ClInclude Include="tcpclienteventlistener.h">
+      <Filter>src\TcpEventListener\TcpClientEventListener</Filter>
+    </ClInclude>
+    <ClInclude Include="tcpservereventlistener.h">
+      <Filter>src\TcpEventListener\TcpServerEventListener</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
