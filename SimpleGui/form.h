@@ -46,6 +46,16 @@ protected:
 
     virtual void formShownEvent(bool isShown) {}
 
+    virtual void formMaximizedEvent(const Vector2& size) {}
+
+    virtual void formMinimizedEvent(const Vector2& size) {}
+
+    virtual void formRestoredEvent(const Vector2& size) {}
+
+    virtual void formPositionChangedEvent(const Vector2& position) {}
+
+    virtual void formPositionChangingEvent(const Vector2& position) {}
+
     virtual void initializeComponents() = 0;
 
 private:

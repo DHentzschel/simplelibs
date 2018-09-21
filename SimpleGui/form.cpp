@@ -42,6 +42,8 @@ public:
 
     void invokeFormResizedEvent();
 
+    void invokeFormSizeEvent(WPARAM wParam, LPARAM lParam);
+
     void invokeFormGainedFocusEvent();
 
     void invokeFormLostFocusEvent();
@@ -49,6 +51,10 @@ public:
     void invokeFormClosedEvent();
 
     void invokeFormShownEvent(WPARAM wParam);
+
+    void invokeFormPositionChangedEvent(LPARAM lParam);
+
+    void invokeFormPositionChangingEvent(LPARAM lParam);
 
     /* WINAPI attributes */
     MSG msg;
@@ -248,6 +254,23 @@ void FormPrivate::invokeFormResizedEvent()
     form->formResizedEvent(previousSize, size);
 }
 
+void FormPrivate::invokeFormSizeEvent(WPARAM wParam, LPARAM lParam)
+{
+    auto size = Vector2(STATIC_CAST(int, lParam) & 0xFFFF, STATIC_CAST(int, lParam) >> 16);
+
+    switch (wParam) {
+    case SIZE_MAXIMIZED:
+        form->formMaximizedEvent(size);
+        break;
+    case SIZE_MINIMIZED:
+        form->formMinimizedEvent(size);
+        break;
+    case SIZE_RESTORED:
+        form->formRestoredEvent(size);
+        break;
+    }
+}
+
 void FormPrivate::invokeFormGainedFocusEvent()
 {
     form->formGainedFocusEvent();
@@ -266,6 +289,18 @@ void FormPrivate::invokeFormClosedEvent()
 void FormPrivate::invokeFormShownEvent(WPARAM wParam)
 {
     form->formShownEvent(STATIC_CAST(bool, wParam));
+}
+
+void FormPrivate::invokeFormPositionChangedEvent(LPARAM lParam)
+{
+    WINDOWPOS& windowPos = *(WINDOWPOS*)lParam;
+    form->formPositionChangedEvent(Vector2(windowPos.x, windowPos.y));
+}
+
+void FormPrivate::invokeFormPositionChangingEvent(LPARAM lParam)
+{
+    WINDOWPOS& windowPos = *(WINDOWPOS*)lParam;
+    form->formPositionChangingEvent(Vector2(windowPos.x, windowPos.y));
 }
 
 FormPrivate* FormPrivate::get(HWND hwnd)
@@ -293,8 +328,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
         case WM_MOVE:
             formPrivate->invokeFormMovedEvent();
             break;
-        case WM_SIZE:
+        case WM_SIZING:
             formPrivate->invokeFormResizedEvent();
+            break;
+        case WM_SIZE:
+            formPrivate->invokeFormSizeEvent(wParam, lParam);
             break;
         case WM_SETFOCUS:
             formPrivate->invokeFormGainedFocusEvent();
@@ -307,6 +345,12 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
             break;
         case WM_SHOWWINDOW:
             formPrivate->invokeFormShownEvent(wParam);
+            break;
+        case WM_WINDOWPOSCHANGED:
+            formPrivate->invokeFormPositionChangedEvent(lParam);
+            break;
+        case WM_WINDOWPOSCHANGING:
+            formPrivate->invokeFormPositionChangingEvent(lParam);
             break;
         }
     }
