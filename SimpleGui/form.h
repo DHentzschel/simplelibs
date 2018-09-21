@@ -33,11 +33,18 @@ public:
 
 protected:
     // controls
-    virtual void formClosedEvent() {}
 
     virtual void formMovedEvent(const Vector2& previousPosition, const Vector2& position) {}
 
     virtual void formResizedEvent(const Vector2& previousSize, const Vector2& size) {}
+
+    virtual void formGainedFocusEvent() {}
+
+    virtual void formLostFocusEvent() {}
+
+    virtual void formClosedEvent() {}
+
+    virtual void formShownEvent(bool isShown) {}
 
     virtual void initializeComponents() = 0;
 

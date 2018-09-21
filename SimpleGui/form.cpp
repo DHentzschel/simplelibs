@@ -40,7 +40,15 @@ public:
 
     void invokeFormMovedEvent();
 
-    void invokeFormResizedEvent(LPARAM highLowOrder);
+    void invokeFormResizedEvent();
+
+    void invokeFormGainedFocusEvent();
+
+    void invokeFormLostFocusEvent();
+
+    void invokeFormClosedEvent();
+
+    void invokeFormShownEvent(WPARAM wParam);
 
     /* WINAPI attributes */
     MSG msg;
@@ -206,7 +214,6 @@ void FormPrivate::show()
     ShowWindow(hwnd, (isMaximized ? SW_SHOWMAXIMIZED : (isMinimized ? SW_SHOWMINIMIZED : SW_SHOWDEFAULT)));
     UpdateWindow(hwnd);
     isShown = true;
-
     processEvents();
 }
 
@@ -229,15 +236,36 @@ void FormPrivate::invokeFormMovedEvent()
     form->formMovedEvent(previousPosition, newPosition);
 }
 
-void FormPrivate::invokeFormResizedEvent(LPARAM rectPtr)
+void FormPrivate::invokeFormResizedEvent()
 {
-    RECT& windowRect = *(RECT*)rectPtr;
+    RECT windowRect;
+    GetWindowRect(hwnd, &windowRect);
 
     Vector2 newSize(windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
     previousSize = size;
     size = newSize;
 
     form->formResizedEvent(previousSize, size);
+}
+
+void FormPrivate::invokeFormGainedFocusEvent()
+{
+    form->formGainedFocusEvent();
+}
+
+void FormPrivate::invokeFormLostFocusEvent()
+{
+    form->formLostFocusEvent();
+}
+
+void FormPrivate::invokeFormClosedEvent()
+{
+    form->formClosedEvent();
+}
+
+void FormPrivate::invokeFormShownEvent(WPARAM wParam)
+{
+    form->formShownEvent(STATIC_CAST(bool, wParam));
 }
 
 FormPrivate* FormPrivate::get(HWND hwnd)
@@ -262,25 +290,23 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
             // dtor
             PostQuitMessage(0);
             break;
-            /* Form Move event */
         case WM_MOVE:
             formPrivate->invokeFormMovedEvent();
             break;
-        case WM_SIZING: // or use WM_SIZE?
-            // OutputBox::information("Window resized", "Information");
-            formPrivate->invokeFormResizedEvent(lParam);
+        case WM_SIZE:
+            formPrivate->invokeFormResizedEvent();
             break;
         case WM_SETFOCUS:
-            // form gained focus event ?
+            formPrivate->invokeFormGainedFocusEvent();
             break;
         case WM_KILLFOCUS:
-            // form lost focus event ?
+            formPrivate->invokeFormLostFocusEvent();
             break;
         case WM_CLOSE:
-            // form close event ?
+            formPrivate->invokeFormClosedEvent();
             break;
         case WM_SHOWWINDOW:
-            // form show event ?
+            formPrivate->invokeFormShownEvent(wParam);
             break;
         }
     }

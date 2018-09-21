@@ -35,10 +35,6 @@ private:
     {
     }
 
-    void formMovedEvent(const Vector2& previousPosition, const Vector2& position) override
-    {
-        //OutputBox::information("Window moved, new position: " + TO_STRING(position.x) + ", " + TO_STRING(position.y) + "!", "Something happened!");
-    }
 };
 
 void testForm()
