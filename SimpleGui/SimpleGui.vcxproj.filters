@@ -63,9 +63,6 @@
     <ClInclude Include="closecallback.h">
       <Filter>src\Callbacks</Filter>
     </ClInclude>
-    <ClInclude Include="mbicons.h">
-      <Filter>src\MessageBox\MbIcons</Filter>
-    </ClInclude>
     <ClInclude Include="mbbuttons.h">
       <Filter>src\MessageBox\MbButtons</Filter>
     </ClInclude>
@@ -76,7 +73,10 @@
       <Filter>src\MessageBox\MbDefaultButton</Filter>
     </ClInclude>
     <ClInclude Include="mbresult.h">
-      <Filter>src\MessageBox\MbDefaultButton</Filter>
+      <Filter>src\MessageBox\MbResult</Filter>
+    </ClInclude>
+    <ClInclude Include="mbicon.h">
+      <Filter>src\MessageBox\MbIcons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

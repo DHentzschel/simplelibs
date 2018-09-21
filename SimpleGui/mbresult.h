@@ -14,7 +14,7 @@ enum class MbResult {
 };
 
 namespace MbResultUtils {
-    MbResult get(int value) {
+    inline MbResult get(int value) {
         if (value >= STATIC_CAST(int, MbResult::Ok) && value <= STATIC_CAST(int, MbResult::No) ||
             value >= STATIC_CAST(int, MbResult::TryAgain) && value <= STATIC_CAST(int, MbResult::Continue)) {
             return STATIC_CAST(MbResult, value);

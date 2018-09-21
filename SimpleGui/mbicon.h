@@ -3,7 +3,7 @@
 
 #include <types.h>
 
-enum class MbIcons : byte {
+enum class MbIcon : byte {
     None = 0x00,
     Error = 0x10,
     Question = 0x20,

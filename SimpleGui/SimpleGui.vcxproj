@@ -141,7 +141,7 @@
     <ClInclude Include="form.h" />
     <ClInclude Include="mbdefaultbutton.h" />
     <ClInclude Include="mbbuttons.h" />
-    <ClInclude Include="mbicons.h" />
+    <ClInclude Include="mbicon.h" />
     <ClInclude Include="mbresult.h" />
     <ClInclude Include="msgbox.h" />
     <ClInclude Include="pprinf.h" />
