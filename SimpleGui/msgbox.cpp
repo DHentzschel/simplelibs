@@ -46,6 +46,7 @@ void MsgBox::setDefaultButton(MbDefaultButton value)
 
 MbResult MsgBox::show()
 {
+    // TODO: Implement parent ptr
     return MbResultUtils::get(MessageBoxA(/*parent*/ 0, text_.toCString(), title_.toCString(),
         STATIC_CAST(int, buttons_) | STATIC_CAST(int, defaultButton_) | STATIC_CAST(int, icon_)));
 }
@@ -53,31 +54,19 @@ MbResult MsgBox::show()
 MbResult MsgBox::error(const AString& text, const AString& title, MbButtons buttons, MbDefaultButton defaultButton)
 {
     return MsgBox(text, title, MbIcon::Error, buttons, defaultButton).show();
-    // TODO: Implement parent ptr
-    return MbResultUtils::get(MessageBoxA(/*parent*/ 0, text.toCString(), title.toCString(),
-        STATIC_CAST(int, buttons) | STATIC_CAST(int, defaultButton) | STATIC_CAST(int, MbIcon::Error)));
 }
 
 MbResult MsgBox::information(const AString& text, const AString& title, MbButtons buttons, MbDefaultButton defaultButton)
 {
     return MsgBox(text, title, MbIcon::Information, buttons, defaultButton).show();
-    // TODO: Implement parent ptr
-    return MbResultUtils::get(MessageBoxA(/*parent*/ 0, text.toCString(), title.toCString(),
-        STATIC_CAST(int, buttons) | STATIC_CAST(int, defaultButton) | STATIC_CAST(int, MbIcon::Information)));
 }
 
 MbResult MsgBox::question(const AString& text, const AString& title, MbButtons buttons, MbDefaultButton defaultButton)
 {
     return MsgBox(text, title, MbIcon::Question, buttons, defaultButton).show();
-    // TODO: Implement parent ptr
-    return MbResultUtils::get(MessageBoxA(/*parent*/ 0, text.toCString(), title.toCString(),
-        STATIC_CAST(int, buttons) | STATIC_CAST(int, defaultButton) | STATIC_CAST(int, MbIcon::Question)));
 }
 
 MbResult MsgBox::warning(const AString& text, const AString& title, MbButtons buttons, MbDefaultButton defaultButton)
 {
     return MsgBox(text, title, MbIcon::Warning, buttons, defaultButton).show();
-    // TODO: Implement parent ptr
-    return MbResultUtils::get(MessageBoxA(/*parent*/ 0, text.toCString(), title.toCString(),
-        STATIC_CAST(int, buttons) | STATIC_CAST(int, defaultButton) | STATIC_CAST(int, MbIcon::Warning)));
 }
