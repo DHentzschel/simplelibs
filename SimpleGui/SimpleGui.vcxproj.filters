@@ -14,9 +14,6 @@
     <Filter Include="src\Screen">
       <UniqueIdentifier>{88608c67-0d86-4a65-9c40-fd7b5532db8b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Callbacks">
-      <UniqueIdentifier>{df281786-a9c5-4287-b830-da51aeba26a1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\MessageBox">
       <UniqueIdentifier>{7cc6c387-c0d0-4060-b60e-aa402a9b1537}</UniqueIdentifier>
     </Filter>
@@ -59,9 +56,6 @@
     </ClInclude>
     <ClInclude Include="screen.h">
       <Filter>src\Screen</Filter>
-    </ClInclude>
-    <ClInclude Include="closecallback.h">
-      <Filter>src\Callbacks</Filter>
     </ClInclude>
     <ClInclude Include="obresult.h">
       <Filter>src\MessageBox\OutputBoxResult</Filter>

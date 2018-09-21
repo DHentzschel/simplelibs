@@ -6,21 +6,22 @@
 #include <functions.h>
 #include <vector2.h>
 
-#include "closecallback.h"
 #include "pprinf.h"
 #include "screen.h"
+
+#include "outputbox.h"
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 class FormPrivate {
 public:
-    FormPrivate();
+    FormPrivate(Form* form);
 
     void initialize();
 
     void setPosition(int x, int y);
 
-    void setCenteredToScreen();
+    void centerToScreen();
 
     void setSize(int x, int y);
 
@@ -34,7 +35,12 @@ public:
 
     void show();
 
+    /* Events */
     void processEvents();
+
+    void invokeFormMovedEvent();
+
+    void invokeFormResizedEvent(LPARAM highLowOrder);
 
     /* WINAPI attributes */
     MSG msg;
@@ -44,7 +50,11 @@ public:
     WNDCLASSW wc;
 
     /* Attributes */
+    Vector2 previousPosition;
+
     Vector2 position;
+
+    Vector2 previousSize;
 
     Vector2 size;
 
@@ -54,8 +64,7 @@ public:
 
     bool isMinimized;
 
-    /* Callbacks */
-    CloseCallback* closeCallback;
+    Form* form;
 
     static FormPrivate* get(HWND hwnd);
 
@@ -65,7 +74,7 @@ public:
 AList<Form*> FormPrivate::formList_;
 
 Form::Form() :
-    private_(new FormPrivate())
+    private_(new FormPrivate(this))
 {
     private_->formList_.append(this);
 }
@@ -110,14 +119,10 @@ void Form::show() {
     private_->show();
 }
 
-void Form::setCloseCallback(CloseCallback* value)
-{
-    private_->closeCallback = value;
-}
-
-FormPrivate::FormPrivate() :
+FormPrivate::FormPrivate(Form* form) :
     position(Vector2(100, 100)),
-    size(Vector2(100, 100))
+    size(Vector2(100, 100)),
+    form(form)
 {
     initialize();
 }
@@ -148,15 +153,15 @@ void FormPrivate::setPosition(int x, int y)
     MoveWindow(hwnd, position.x, position.y, size.x, size.y, true);
 }
 
-void FormPrivate::setCenteredToScreen()
+void FormPrivate::centerToScreen()
 {
     const auto screenSize = Screen::getSize();
-    setPosition((screenSize.x - size.x) * 0.5F, (screenSize.y - size.y) * 0.5F);
+    setPosition(STATIC_CAST(int, (screenSize.x - size.x) * 0.5F), STATIC_CAST(int, (screenSize.y - size.y) * 0.5F));
 }
 
-void Form::setCenteredToScreen()
+void Form::centerToScreen()
 {
-    private_->setCenteredToScreen();
+    private_->centerToScreen();
 }
 
 void FormPrivate::setSize(int x, int y)
@@ -173,10 +178,6 @@ void FormPrivate::setIsMaximized(bool value)
     if (isShown) {
         ShowWindow(hwnd, (isMaximized ? SW_SHOWMAXIMIZED : SW_SHOWDEFAULT));
     }
-    //WINDOWPLACEMENT windowPlacement;
-    //windowPlacement.showCmd = (isMinimized ? SW_SHOWMAXIMIZED : SW_RESTORE);
-
-    //SetWindowPlacement(hwnd, &windowPlacement);
 }
 
 void FormPrivate::setIsMinimized(bool value)
@@ -186,10 +187,6 @@ void FormPrivate::setIsMinimized(bool value)
     if (isShown) {
         ShowWindow(hwnd, (isMinimized ? SW_SHOWMAXIMIZED : SW_SHOWDEFAULT));
     }
-    //WINDOWPLACEMENT windowPlacement;
-    //windowPlacement.showCmd = (isMinimized ? SW_SHOWMINIMIZED : SW_RESTORE);
-
-    //SetWindowPlacement(hwnd, &windowPlacement);
 }
 
 void FormPrivate::setWindowTitle(const AString& title)
@@ -220,6 +217,29 @@ void FormPrivate::processEvents()
     }
 }
 
+void FormPrivate::invokeFormMovedEvent()
+{
+    RECT windowRect;
+    GetWindowRect(hwnd, &windowRect);
+
+    Vector2 newPosition(windowRect.left, windowRect.top);
+    previousPosition = position;
+    position = newPosition;
+
+    form->formMovedEvent(previousPosition, newPosition);
+}
+
+void FormPrivate::invokeFormResizedEvent(LPARAM rectPtr)
+{
+    RECT& windowRect = *(RECT*)rectPtr;
+
+    Vector2 newSize(windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
+    previousSize = size;
+    size = newSize;
+
+    form->formResizedEvent(previousSize, size);
+}
+
 FormPrivate* FormPrivate::get(HWND hwnd)
 {
     for (auto* form : formList_) {
@@ -232,14 +252,37 @@ FormPrivate* FormPrivate::get(HWND hwnd)
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     auto* formPrivate = FormPrivate::get(hwnd);
-
-    switch (msg) {
-    case WM_DESTROY:
-        if (formPrivate->closeCallback != nullptr) {
-            formPrivate->closeCallback->invoke();
+    if (formPrivate != nullptr) {
+        switch (msg) {
+        case WM_CREATE:
+            OutputBox::information("", "");
+            // form create event ?
+            break;
+        case WM_DESTROY:
+            // dtor
+            PostQuitMessage(0);
+            break;
+            /* Form Move event */
+        case WM_MOVE:
+            formPrivate->invokeFormMovedEvent();
+            break;
+        case WM_SIZING: // or use WM_SIZE?
+            // OutputBox::information("Window resized", "Information");
+            formPrivate->invokeFormResizedEvent(lParam);
+            break;
+        case WM_SETFOCUS:
+            // form gained focus event ?
+            break;
+        case WM_KILLFOCUS:
+            // form lost focus event ?
+            break;
+        case WM_CLOSE:
+            // form close event ?
+            break;
+        case WM_SHOWWINDOW:
+            // form show event ?
+            break;
         }
-        PostQuitMessage(0);
-        break;
     }
     return DefWindowProcW(hwnd, msg, wParam, lParam);
 }

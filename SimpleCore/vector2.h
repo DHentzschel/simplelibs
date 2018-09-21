@@ -2,7 +2,9 @@
 #define VECTOR2_H
 
 struct Vector2 {
-    Vector2() = default;
+    Vector2() :
+        x(0),
+        y(0) {}
 
     Vector2(const Vector2& vector) :
         x(vector.x),

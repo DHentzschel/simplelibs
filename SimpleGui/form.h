@@ -2,6 +2,7 @@
 #define FORM_H
 
 #include <astring.h>
+#include <vector2.h>
 
 class CloseCallback;
 
@@ -16,7 +17,7 @@ public:
 
     void setPosition(int x, int y);
 
-    void setCenteredToScreen();
+    void centerToScreen();
 
     void setSize(int x, int y);
 
@@ -30,7 +31,15 @@ public:
 
     void show();
 
-    void setCloseCallback(CloseCallback* value);
+protected:
+    // controls
+    virtual void formClosedEvent() {}
+
+    virtual void formMovedEvent(const Vector2& previousPosition, const Vector2& position) {}
+
+    virtual void formResizedEvent(const Vector2& previousSize, const Vector2& size) {}
+
+    virtual void initializeComponents() = 0;
 
 private:
     FormPrivate* private_;

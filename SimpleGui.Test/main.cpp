@@ -23,15 +23,37 @@ void testMessageBox()
     outputBox2.show();
 }
 
+class FormTest : public Form {
+public:
+    FormTest()
+    {
+        initializeComponents();
+    }
+
+private:
+    void initializeComponents() override
+    {
+    }
+
+    void formMovedEvent(const Vector2& previousPosition, const Vector2& position) override
+    {
+        //OutputBox::information("Window moved, new position: " + TO_STRING(position.x) + ", " + TO_STRING(position.y) + "!", "Something happened!");
+    }
+};
+
+void testForm()
+{
+
+    FormTest formTest;
+    formTest.setSize(480, 300);
+    formTest.centerToScreen();
+    formTest.setWindowTitle("Test title Some umlauts: äÄöÖüÜßáÁàÀâÂéÉèÈêÊíÍìÌîÎóÓòÒôÔúÚùÙûÛ²³€@");
+    formTest.show();
+}
+
 int main(int argc, char** argv)
 {
-    testMessageBox();
-
-    Form f;
-    f.setSize(800, 800);
-    f.setCenteredToScreen();
-    f.setWindowTitle("Test title");
-    f.show();
-
+    //testMessageBox();
+    testForm();
     return 0;
 }

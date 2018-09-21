@@ -8,11 +8,10 @@ public:
 
     Vector2 getSize();
 
-    static RECT desktopSize;
-
+    static Vector2 desktopSize;
 };
 
-RECT ScreenPrivate::desktopSize;
+Vector2 ScreenPrivate::desktopSize;
 
 Screen Screen::screenInitializer_;
 
@@ -35,10 +34,11 @@ Screen::~Screen()
 
 ScreenPrivate::ScreenPrivate()
 {
-    GetWindowRect(GetDesktopWindow(), &desktopSize);
+    desktopSize.x = GetSystemMetrics(SM_CXSCREEN);
+    desktopSize.y = GetSystemMetrics(SM_CYSCREEN);
 }
 
 Vector2 ScreenPrivate::getSize()
 {
-    return Vector2(desktopSize.right, desktopSize.bottom);
+    return desktopSize;
 }
