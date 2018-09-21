@@ -1,26 +1,26 @@
 #include <pslmain.cpp>
 #include <form.h>
 #include <screen.h>
-#include <msgbox.h>
+#include <outputbox.h>
 
 void testMessageBox()
 {
     /* Static functions */
-    MsgBox::error("Houston we have a problem!", "A Problem!", MbButtons::RetryCancel, MbDefaultButton::Button1);
-    MsgBox::information("You look good, man!", "Important fact", MbButtons::Ok);
-    MsgBox::question("Are you fine?", "QOTD", MbButtons::YesNo, MbDefaultButton::Button1);
-    MsgBox::warning("You may think great about these libraries.", "I warn you", MbButtons::AbortRetryIgnore, MbDefaultButton::Button3);
+    OutputBox::error("Houston we have a problem!", "A Problem!", ObButtons::RetryCancel, ObDefaultButton::Button1);
+    OutputBox::information("You look good, man!", "Important fact", ObButtons::Ok);
+    OutputBox::question("Are you fine?", "QOTD", ObButtons::YesNo, ObDefaultButton::Button1);
+    OutputBox::warning("You may think great about these libraries.", "I warn you", ObButtons::AbortRetryIgnore, ObDefaultButton::Button3);
 
     /* MsgBox instances */
-    MsgBox msgBox;
-    msgBox.setText("I love it!");
-    msgBox.setTitle("My thoughts");
-    msgBox.setIcon(MbIcon::Information);
-    msgBox.setButtons(MbButtons::Ok);
-    msgBox.show();
+    OutputBox outputBox;
+    outputBox.setText("I love it!");
+    outputBox.setTitle("My thoughts");
+    outputBox.setIcon(ObIcon::Information);
+    outputBox.setButtons(ObButtons::Ok);
+    outputBox.show();
 
-    MsgBox msgBox2("If I should make another coffee.. ?", "My thoughts #2", MbIcon::Question);
-    msgBox2.show();
+    OutputBox outputBox2("If I should make another coffee.. ?", "My thoughts #2", ObIcon::Question);
+    outputBox2.show();
 }
 
 int main(int argc, char** argv)

@@ -139,17 +139,17 @@
   <ItemGroup>
     <ClInclude Include="closecallback.h" />
     <ClInclude Include="form.h" />
-    <ClInclude Include="mbdefaultbutton.h" />
-    <ClInclude Include="mbbuttons.h" />
-    <ClInclude Include="mbicon.h" />
-    <ClInclude Include="mbresult.h" />
-    <ClInclude Include="msgbox.h" />
+    <ClInclude Include="obdefaultbutton.h" />
+    <ClInclude Include="obbuttons.h" />
+    <ClInclude Include="obicon.h" />
+    <ClInclude Include="obresult.h" />
+    <ClInclude Include="outputbox.h" />
     <ClInclude Include="pprinf.h" />
     <ClInclude Include="screen.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="form.cpp" />
-    <ClCompile Include="msgbox.cpp" />
+    <ClCompile Include="outputbox.cpp" />
     <ClCompile Include="pprinf.cpp" />
     <ClCompile Include="pslmain.cpp" />
     <ClCompile Include="screen.cpp" />

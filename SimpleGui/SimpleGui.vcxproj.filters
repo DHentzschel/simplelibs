@@ -20,17 +20,17 @@
     <Filter Include="src\MessageBox">
       <UniqueIdentifier>{7cc6c387-c0d0-4060-b60e-aa402a9b1537}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\MessageBox\MbButtons">
-      <UniqueIdentifier>{82220b1e-69f1-49f0-913c-257f1556b3b6}</UniqueIdentifier>
+    <Filter Include="src\MessageBox\OutputBoxResult">
+      <UniqueIdentifier>{71e13bd4-fe7f-49b8-b252-2bcb2c32d82f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\MessageBox\MbIcons">
+    <Filter Include="src\MessageBox\OutputBoxIcon">
       <UniqueIdentifier>{30b2b359-fc20-4880-8589-30a57307d700}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\MessageBox\MbDefaultButton">
+    <Filter Include="src\MessageBox\OutputBoxDefaultButton">
       <UniqueIdentifier>{5013b349-9edb-47e3-b62d-c3ed91f315ba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\MessageBox\MbResult">
-      <UniqueIdentifier>{71e13bd4-fe7f-49b8-b252-2bcb2c32d82f}</UniqueIdentifier>
+    <Filter Include="src\MessageBox\OutputBoxButtons">
+      <UniqueIdentifier>{82220b1e-69f1-49f0-913c-257f1556b3b6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,7 +46,7 @@
     <ClCompile Include="screen.cpp">
       <Filter>src\Screen</Filter>
     </ClCompile>
-    <ClCompile Include="msgbox.cpp">
+    <ClCompile Include="outputbox.cpp">
       <Filter>src\MessageBox</Filter>
     </ClCompile>
   </ItemGroup>
@@ -63,20 +63,20 @@
     <ClInclude Include="closecallback.h">
       <Filter>src\Callbacks</Filter>
     </ClInclude>
-    <ClInclude Include="mbbuttons.h">
-      <Filter>src\MessageBox\MbButtons</Filter>
+    <ClInclude Include="obresult.h">
+      <Filter>src\MessageBox\OutputBoxResult</Filter>
     </ClInclude>
-    <ClInclude Include="msgbox.h">
+    <ClInclude Include="obicon.h">
+      <Filter>src\MessageBox\OutputBoxIcon</Filter>
+    </ClInclude>
+    <ClInclude Include="obdefaultbutton.h">
+      <Filter>src\MessageBox\OutputBoxDefaultButton</Filter>
+    </ClInclude>
+    <ClInclude Include="obbuttons.h">
+      <Filter>src\MessageBox\OutputBoxButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="outputbox.h">
       <Filter>src\MessageBox</Filter>
-    </ClInclude>
-    <ClInclude Include="mbdefaultbutton.h">
-      <Filter>src\MessageBox\MbDefaultButton</Filter>
-    </ClInclude>
-    <ClInclude Include="mbresult.h">
-      <Filter>src\MessageBox\MbResult</Filter>
-    </ClInclude>
-    <ClInclude Include="mbicon.h">
-      <Filter>src\MessageBox\MbIcons</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

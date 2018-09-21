@@ -1,9 +1,9 @@
-#ifndef MBICONS_H
-#define MBICONS_H
+#ifndef OBICONS_H
+#define OBICONS_H
 
 #include <types.h>
 
-enum class MbIcon : byte {
+enum class ObIcon : byte {
     None = 0x00,
     Error = 0x10,
     Question = 0x20,
@@ -11,4 +11,4 @@ enum class MbIcon : byte {
     Information = 0x40,
 };
 
-#endif // MBICONS_H
+#endif // OBICONS_H

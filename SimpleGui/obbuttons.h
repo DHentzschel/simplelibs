@@ -1,9 +1,9 @@
-#ifndef MBBUTTONS_H
-#define MBBUTTONS_H
+#ifndef OBBUTTONS_H
+#define OBBUTTONS_H
 
 #include <types.h>
 
-enum class MbButtons : ushort {
+enum class ObButtons : ushort {
     Ok = 0x0000,
     OkCancel = 0x0001,
     AbortRetryIgnore = 0x0002,
@@ -14,4 +14,4 @@ enum class MbButtons : ushort {
     Help = 0x4000
 };
 
-#endif // MBBUTTONS_H
+#endif // OBBUTTONS_H
