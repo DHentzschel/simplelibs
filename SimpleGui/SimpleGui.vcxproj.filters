@@ -11,16 +11,43 @@
     <Filter Include="src\Internal">
       <UniqueIdentifier>{c8ca244f-d2c8-447a-9040-10729e06f972}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Screen">
+      <UniqueIdentifier>{88608c67-0d86-4a65-9c40-fd7b5532db8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Callbacks">
+      <UniqueIdentifier>{df281786-a9c5-4287-b830-da51aeba26a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MessageBox">
+      <UniqueIdentifier>{7cc6c387-c0d0-4060-b60e-aa402a9b1537}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MessageBox\MbButtons">
+      <UniqueIdentifier>{82220b1e-69f1-49f0-913c-257f1556b3b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MessageBox\MbIcons">
+      <UniqueIdentifier>{30b2b359-fc20-4880-8589-30a57307d700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MessageBox\MbDefaultButton">
+      <UniqueIdentifier>{5013b349-9edb-47e3-b62d-c3ed91f315ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MessageBox\MbResult">
+      <UniqueIdentifier>{71e13bd4-fe7f-49b8-b252-2bcb2c32d82f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="form.cpp">
       <Filter>src\Form</Filter>
     </ClCompile>
-    <ClCompile Include="pslmain.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="pprinf.cpp">
-      <Filter>src</Filter>
+      <Filter>src\Internal</Filter>
+    </ClCompile>
+    <ClCompile Include="pslmain.cpp">
+      <Filter>src\Internal</Filter>
+    </ClCompile>
+    <ClCompile Include="screen.cpp">
+      <Filter>src\Screen</Filter>
+    </ClCompile>
+    <ClCompile Include="msgbox.cpp">
+      <Filter>src\MessageBox</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -29,6 +56,27 @@
     </ClInclude>
     <ClInclude Include="pprinf.h">
       <Filter>src\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="screen.h">
+      <Filter>src\Screen</Filter>
+    </ClInclude>
+    <ClInclude Include="closecallback.h">
+      <Filter>src\Callbacks</Filter>
+    </ClInclude>
+    <ClInclude Include="mbicons.h">
+      <Filter>src\MessageBox\MbIcons</Filter>
+    </ClInclude>
+    <ClInclude Include="mbbuttons.h">
+      <Filter>src\MessageBox\MbButtons</Filter>
+    </ClInclude>
+    <ClInclude Include="msgbox.h">
+      <Filter>src\MessageBox</Filter>
+    </ClInclude>
+    <ClInclude Include="mbdefaultbutton.h">
+      <Filter>src\MessageBox\MbDefaultButton</Filter>
+    </ClInclude>
+    <ClInclude Include="mbresult.h">
+      <Filter>src\MessageBox\MbDefaultButton</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
