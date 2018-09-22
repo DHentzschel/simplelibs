@@ -140,6 +140,7 @@
     <ClInclude Include="form.h" />
     <ClInclude Include="key.h" />
     <ClInclude Include="keyboard.h" />
+    <ClInclude Include="label.h" />
     <ClInclude Include="mouse.h" />
     <ClInclude Include="obdefaultbutton.h" />
     <ClInclude Include="obbuttons.h" />
@@ -153,6 +154,7 @@
   <ItemGroup>
     <ClCompile Include="form.cpp" />
     <ClCompile Include="keyboard.cpp" />
+    <ClCompile Include="label.cpp" />
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="outputbox.cpp" />
     <ClCompile Include="pprinf.cpp" />

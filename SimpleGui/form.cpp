@@ -407,10 +407,11 @@ FormPrivate* FormPrivate::get(HWND hwnd)
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     auto* formPrivate = FormPrivate::get(hwnd);
     if (formPrivate != nullptr) {
+        HDC hdc;
+        PAINTSTRUCT paintstruct;
         switch (msg) {
         case WM_CREATE:
-            OutputBox::information("", "");
-            // form create event ?
+            // ?
             break;
         case WM_DESTROY:
             formPrivate->invokeFormClosedEvent();
@@ -506,6 +507,12 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
         case WM_NCMBUTTONUP:
         case WM_NCXBUTTONUP:
             formPrivate->invokeMouseButtonUpEvent(wParam, lParam, false, false);
+            break;
+        case WM_PAINT:
+            //hdc = BeginPaint(hwnd, &paintstruct);
+            //TextOut(hdc, 20, 20, "Test", 20);
+            //EndPaint(hwnd, &paintstruct);
+            // paint any controls
             break;
         }
     }

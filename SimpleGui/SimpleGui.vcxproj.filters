@@ -44,6 +44,12 @@
     <Filter Include="src\Input\Mouse">
       <UniqueIdentifier>{a3554665-7d01-43de-90fb-6b02ec4b1923}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Controls">
+      <UniqueIdentifier>{4a771675-1741-4513-bc7f-126af1aef442}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Controls\Label">
+      <UniqueIdentifier>{d2d83ff0-2823-4855-8a38-f987e8ebb06e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="form.cpp">
@@ -66,6 +72,9 @@
     </ClCompile>
     <ClCompile Include="keyboard.cpp">
       <Filter>src\Input\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="label.cpp">
+      <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -105,5 +114,6 @@
     <ClInclude Include="keyboard.h">
       <Filter>src\Input\Keyboard</Filter>
     </ClInclude>
+    <ClInclude Include="label.h" />
   </ItemGroup>
 </Project>
