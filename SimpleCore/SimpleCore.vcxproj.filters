@@ -101,9 +101,6 @@
     <Filter Include="src\FileSystem\File\OpenMode">
       <UniqueIdentifier>{381e054d-92cd-4530-b37a-92afb93c31e5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Internal">
-      <UniqueIdentifier>{ec43cffd-3698-4fe2-8275-23a7c56baa8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Console\ConsoleColor">
       <UniqueIdentifier>{a9a5113b-e0ba-47d9-a5c9-f5c40bf56a24}</UniqueIdentifier>
     </Filter>
@@ -115,6 +112,9 @@
     </Filter>
     <Filter Include="src\General">
       <UniqueIdentifier>{be0a250c-db2d-4bd9-a472-6df828ab2e75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Logger\LogType">
+      <UniqueIdentifier>{ec43cffd-3698-4fe2-8275-23a7c56baa8d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -460,7 +460,7 @@
       <Filter>src\FileSystem\File\OpenMode</Filter>
     </ClInclude>
     <ClInclude Include="plogtp.h">
-      <Filter>src\Internal</Filter>
+      <Filter>src\Logger\LogType</Filter>
     </ClInclude>
     <ClInclude Include="consolecolor.h">
       <Filter>src\Console\ConsoleColor</Filter>

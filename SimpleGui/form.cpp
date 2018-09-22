@@ -1,11 +1,14 @@
 #include "form.h"
 
 #include <Windows.h>
+#include <Windowsx.h>
 
 #include <alist.h>
 #include <functions.h>
 #include <vector2.h>
 
+#include "keyboard.h"
+#include "mouse.h"
 #include "pprinf.h"
 #include "screen.h"
 
@@ -38,9 +41,11 @@ public:
     /* Events */
     void processEvents();
 
-    void invokeFormMovedEvent();
+    void invokeFormMovedEvent(LPARAM lParam);
 
-    void invokeFormResizedEvent();
+    void invokeFormMovingEvent(LPARAM lParam);
+
+    void invokeFormResizingEvent(WPARAM wParam, LPARAM lParam);
 
     void invokeFormSizeEvent(WPARAM wParam, LPARAM lParam);
 
@@ -50,14 +55,28 @@ public:
 
     void invokeFormClosedEvent();
 
+    void invokeFormClosingEvent();
+
     void invokeFormShownEvent(WPARAM wParam);
 
     void invokeFormPositionChangedEvent(LPARAM lParam);
 
-    void invokeFormPositionChangingEvent(LPARAM lParam);
+    void invokeFormKeyEvent(WPARAM wParam, LPARAM lParam, bool isKeyDown);
+
+    void invokeMouseEnteringEvent(bool inClientArea);
+
+    void invokeMouseLeavingEvent(bool inClientArea);
+
+    void invokeMouseMovingEvent(LPARAM lParam, bool inClientArea);
+
+    void invokeMouseScrollingEvent(WPARAM wParam, LPARAM lParam);
+
+    void invokeMouseButtonDownEvent(WPARAM wParam, LPARAM lParam, bool isDoubleClick, bool inClientArea);
+
+    void invokeMouseButtonUpEvent(WPARAM wParam, LPARAM lParam, bool isDoubleClick, bool inClientArea);
 
     /* WINAPI attributes */
-    MSG msg;
+    MSG message;
 
     HWND hwnd;
 
@@ -82,8 +101,12 @@ public:
 
     static FormPrivate* get(HWND hwnd);
 
+    static bool* keys_;
+
     static AList<Form*> formList_;
 };
+
+bool* FormPrivate::keys_ = nullptr;
 
 AList<Form*> FormPrivate::formList_;
 
@@ -143,11 +166,15 @@ FormPrivate::FormPrivate(Form* form) :
 
 void FormPrivate::initialize()
 {
-    HINSTANCE hinstance = PrivateProcessInformation::getHInstance();
+    if (keys_ == nullptr) {
+        keys_ = CONST_CAST(bool*, Keyboard::getKeyArray());
+    }
+
+    const auto hinstance = PrivateProcessInformation::getHInstance();
     wc.style = CS_VREDRAW | CS_HREDRAW;
     wc.cbClsExtra = 0;
     wc.cbWndExtra = 0;
-    wc.lpszClassName = L"className";
+    wc.lpszClassName = L"className"; /* Todo class name */
     wc.hInstance = STATIC_CAST(HINSTANCE, hinstance);
     wc.hbrBackground = GetSysColorBrush(COLOR_3DFACE);
     wc.lpszMenuName = NULL;
@@ -225,38 +252,37 @@ void FormPrivate::show()
 
 void FormPrivate::processEvents()
 {
-    while (GetMessage(&msg, NULL, 0, 0)) {
-        DispatchMessage(&msg);
+    while (GetMessage(&message, NULL, 0, 0)) {
+        DispatchMessage(&message);
     }
 }
 
-void FormPrivate::invokeFormMovedEvent()
+void FormPrivate::invokeFormMovedEvent(LPARAM lParam)
 {
-    RECT windowRect;
-    GetWindowRect(hwnd, &windowRect);
-
-    Vector2 newPosition(windowRect.left, windowRect.top);
     previousPosition = position;
-    position = newPosition;
-
-    form->formMovedEvent(previousPosition, newPosition);
+    position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    form->formMovedEvent(previousPosition, position);
 }
 
-void FormPrivate::invokeFormResizedEvent()
+void FormPrivate::invokeFormMovingEvent(LPARAM lParam)
 {
-    RECT windowRect;
-    GetWindowRect(hwnd, &windowRect);
+    const auto& windowRect = *(RECT*)lParam;
+    previousPosition = position;
+    position = Vector2(windowRect.left, windowRect.top);
+    form->formMovingEvent(previousPosition, position);
+}
 
-    Vector2 newSize(windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
+void FormPrivate::invokeFormResizingEvent(WPARAM wParam, LPARAM lParam)
+{
+    const auto& windowRect = *(RECT*)lParam;
     previousSize = size;
-    size = newSize;
-
-    form->formResizedEvent(previousSize, size);
+    size = Vector2(windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
+    form->formResizingEvent(previousSize, size, STATIC_CAST(WindowEdge, wParam));
 }
 
 void FormPrivate::invokeFormSizeEvent(WPARAM wParam, LPARAM lParam)
 {
-    auto size = Vector2(STATIC_CAST(int, lParam) & 0xFFFF, STATIC_CAST(int, lParam) >> 16);
+    auto size = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
 
     switch (wParam) {
     case SIZE_MAXIMIZED:
@@ -286,6 +312,11 @@ void FormPrivate::invokeFormClosedEvent()
     form->formClosedEvent();
 }
 
+void FormPrivate::invokeFormClosingEvent()
+{
+    form->formClosingEvent();
+}
+
 void FormPrivate::invokeFormShownEvent(WPARAM wParam)
 {
     form->formShownEvent(STATIC_CAST(bool, wParam));
@@ -293,14 +324,74 @@ void FormPrivate::invokeFormShownEvent(WPARAM wParam)
 
 void FormPrivate::invokeFormPositionChangedEvent(LPARAM lParam)
 {
-    WINDOWPOS& windowPos = *(WINDOWPOS*)lParam;
+    const WINDOWPOS& windowPos = *(WINDOWPOS*)lParam;
     form->formPositionChangedEvent(Vector2(windowPos.x, windowPos.y));
 }
 
-void FormPrivate::invokeFormPositionChangingEvent(LPARAM lParam)
+void FormPrivate::invokeFormKeyEvent(WPARAM wParam, LPARAM lParam, bool isKeyDown)
 {
-    WINDOWPOS& windowPos = *(WINDOWPOS*)lParam;
-    form->formPositionChangingEvent(Vector2(windowPos.x, windowPos.y));
+    const Key key = STATIC_CAST(Key, wParam);
+
+    const ushort repeatCount = lParam & 0b1111'1111'1111;
+    lParam >>= 16;
+    const byte scanCode = lParam & 0b1111'1111;
+    lParam >>= 8;
+    const bool isExtendedKey = lParam & 0b1;
+    lParam >>= 5;
+    const bool contextCode = lParam & 0b1;
+    lParam >>= 1;
+    const bool wasAlreadyDown = lParam & 0b1;
+    lParam >>= 1;
+    const bool transitionState = lParam & 0b1;
+
+    keys_[STATIC_CAST(int, key)] = isKeyDown;
+
+    if (isKeyDown) {
+        form->formKeyDownEvent(key, repeatCount, scanCode, isExtendedKey, wasAlreadyDown);
+    }
+    else {
+        form->formKeyUpEvent(key, repeatCount, scanCode, isExtendedKey, wasAlreadyDown);
+    }
+}
+
+void FormPrivate::invokeMouseEnteringEvent(bool inClientArea)
+{
+    form->formMouseEnteringEvent(Mouse::getPosition(), inClientArea);
+}
+
+void FormPrivate::invokeMouseLeavingEvent(bool inClientArea)
+{
+    form->formMouseLeavingEvent(inClientArea);
+}
+
+void FormPrivate::invokeMouseMovingEvent(LPARAM lParam, bool inClientArea)
+{
+    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    Vector2& mousePosition = Mouse::getPosition();
+    mousePosition.x = position.x;
+    mousePosition.y = position.y;
+    form->formMouseMovingEvent(position, inClientArea);
+}
+
+void FormPrivate::invokeMouseScrollingEvent(WPARAM wParam, LPARAM lParam)
+{
+    const auto wheelDelta = GET_WHEEL_DELTA_WPARAM(wParam);
+    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    form->formMouseScrollingEvent(wheelDelta, position);
+}
+
+void FormPrivate::invokeMouseButtonDownEvent(WPARAM wParam, LPARAM lParam, bool isDoubleClick, bool inClientArea)
+{
+    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    /* TODO: cast is unsafe for another keys */
+    form->formMouseButtonDown(STATIC_CAST(Key, wParam), position, isDoubleClick, inClientArea);
+}
+
+void FormPrivate::invokeMouseButtonUpEvent(WPARAM wParam, LPARAM lParam, bool isDoubleClick, bool inClientArea)
+{
+    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    /* TODO: cast is unsafe for another keys */
+    form->formMouseButtonUp(STATIC_CAST(Key, wParam), position, inClientArea);
 }
 
 FormPrivate* FormPrivate::get(HWND hwnd)
@@ -322,14 +413,17 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
             // form create event ?
             break;
         case WM_DESTROY:
-            // dtor
+            formPrivate->invokeFormClosedEvent();
             PostQuitMessage(0);
             break;
         case WM_MOVE:
-            formPrivate->invokeFormMovedEvent();
+            formPrivate->invokeFormMovedEvent(lParam);
+            break;
+        case WM_MOVING:
+            formPrivate->invokeFormMovingEvent(lParam);
             break;
         case WM_SIZING:
-            formPrivate->invokeFormResizedEvent();
+            formPrivate->invokeFormResizingEvent(wParam, lParam);
             break;
         case WM_SIZE:
             formPrivate->invokeFormSizeEvent(wParam, lParam);
@@ -341,7 +435,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
             formPrivate->invokeFormLostFocusEvent();
             break;
         case WM_CLOSE:
-            formPrivate->invokeFormClosedEvent();
+            formPrivate->invokeFormClosingEvent();
             break;
         case WM_SHOWWINDOW:
             formPrivate->invokeFormShownEvent(wParam);
@@ -349,8 +443,69 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
         case WM_WINDOWPOSCHANGED:
             formPrivate->invokeFormPositionChangedEvent(lParam);
             break;
-        case WM_WINDOWPOSCHANGING:
-            formPrivate->invokeFormPositionChangingEvent(lParam);
+        case WM_KEYDOWN:
+        case WM_KEYUP:
+            formPrivate->invokeFormKeyEvent(wParam, lParam, msg == WM_KEYDOWN);
+            break;
+            /* TODO: Following code is not reachable, the events won't get invoked. What to do? */
+            /*
+            case WM_MOUSEHOVER:
+                formPrivate->invokeMouseEnteringEvent(true); // not invoked
+                break;
+            case WM_NCMOUSEHOVER:
+                formPrivate->invokeMouseEnteringEvent(false); // not invoked
+                break;
+            case WM_MOUSELEAVE:
+                formPrivate->invokeMouseLeavingEvent(true); // not invoked
+                break; */
+        case WM_NCMOUSELEAVE:
+            formPrivate->invokeMouseLeavingEvent(false);
+            formPrivate->invokeMouseEnteringEvent(true);
+            break;
+        case WM_MOUSEMOVE:
+            formPrivate->invokeMouseMovingEvent(lParam, true);
+            break;
+        case WM_NCMOUSEMOVE:
+            formPrivate->invokeMouseMovingEvent(lParam, false);
+            break;
+        case WM_MOUSEWHEEL:
+            formPrivate->invokeMouseScrollingEvent(wParam, lParam);
+            break;
+        case WM_LBUTTONDOWN:
+        case WM_RBUTTONDOWN:
+        case WM_MBUTTONDOWN:
+        case WM_XBUTTONDOWN:
+            formPrivate->invokeMouseButtonDownEvent(wParam, lParam, false, true);
+            break;
+        case WM_NCLBUTTONDOWN:
+        case WM_NCRBUTTONDOWN:
+        case WM_NCMBUTTONDOWN:
+        case WM_NCXBUTTONDOWN:
+            formPrivate->invokeMouseButtonDownEvent(wParam, lParam, false, false);
+            break;
+        case WM_LBUTTONDBLCLK:
+        case WM_RBUTTONDBLCLK:
+        case WM_MBUTTONDBLCLK:
+        case WM_XBUTTONDBLCLK:
+            formPrivate->invokeMouseButtonDownEvent(wParam, lParam, true, true);
+            break;
+        case WM_NCLBUTTONDBLCLK:
+        case WM_NCRBUTTONDBLCLK:
+        case WM_NCMBUTTONDBLCLK:
+        case WM_NCXBUTTONDBLCLK:
+            formPrivate->invokeMouseButtonDownEvent(wParam, lParam, true, false);
+            break;
+        case WM_LBUTTONUP:
+        case WM_RBUTTONUP:
+        case WM_MBUTTONUP:
+        case WM_XBUTTONUP:
+            formPrivate->invokeMouseButtonUpEvent(wParam, lParam, false, true);
+            break;
+        case WM_NCLBUTTONUP:
+        case WM_NCRBUTTONUP:
+        case WM_NCMBUTTONUP:
+        case WM_NCXBUTTONUP:
+            formPrivate->invokeMouseButtonUpEvent(wParam, lParam, false, false);
             break;
         }
     }

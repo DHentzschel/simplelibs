@@ -29,6 +29,21 @@
     <Filter Include="src\MessageBox\OutputBoxButtons">
       <UniqueIdentifier>{82220b1e-69f1-49f0-913c-257f1556b3b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Form\WindowEdge">
+      <UniqueIdentifier>{5eb83b36-92ea-4c98-a693-bd49e8579e32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input">
+      <UniqueIdentifier>{8ac24c58-5a96-41aa-b52f-1213469824c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input\Keyboard">
+      <UniqueIdentifier>{57ec3f3c-07c5-4abf-88e2-c676c094f227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input\Keyboard\Key">
+      <UniqueIdentifier>{695385e0-e525-43d9-8b6a-f7ca1a002794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input\Mouse">
+      <UniqueIdentifier>{a3554665-7d01-43de-90fb-6b02ec4b1923}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="form.cpp">
@@ -45,6 +60,12 @@
     </ClCompile>
     <ClCompile Include="outputbox.cpp">
       <Filter>src\MessageBox</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse.cpp">
+      <Filter>src\Input\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="keyboard.cpp">
+      <Filter>src\Input\Keyboard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +92,18 @@
     </ClInclude>
     <ClInclude Include="outputbox.h">
       <Filter>src\MessageBox</Filter>
+    </ClInclude>
+    <ClInclude Include="windowedge.h">
+      <Filter>src\Form\WindowEdge</Filter>
+    </ClInclude>
+    <ClInclude Include="key.h">
+      <Filter>src\Input\Keyboard\Key</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse.h">
+      <Filter>src\Input\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="keyboard.h">
+      <Filter>src\Input\Keyboard</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

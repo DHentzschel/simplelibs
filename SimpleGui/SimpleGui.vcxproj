@@ -138,6 +138,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="form.h" />
+    <ClInclude Include="key.h" />
+    <ClInclude Include="keyboard.h" />
+    <ClInclude Include="mouse.h" />
     <ClInclude Include="obdefaultbutton.h" />
     <ClInclude Include="obbuttons.h" />
     <ClInclude Include="obicon.h" />
@@ -145,9 +148,12 @@
     <ClInclude Include="outputbox.h" />
     <ClInclude Include="pprinf.h" />
     <ClInclude Include="screen.h" />
+    <ClInclude Include="windowedge.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="form.cpp" />
+    <ClCompile Include="keyboard.cpp" />
+    <ClCompile Include="mouse.cpp" />
     <ClCompile Include="outputbox.cpp" />
     <ClCompile Include="pprinf.cpp" />
     <ClCompile Include="pslmain.cpp" />
