@@ -137,6 +137,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="control.h" />
     <ClInclude Include="form.h" />
     <ClInclude Include="key.h" />
     <ClInclude Include="keyboard.h" />
@@ -152,6 +153,7 @@
     <ClInclude Include="windowedge.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="control.cpp" />
     <ClCompile Include="form.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="label.cpp" />

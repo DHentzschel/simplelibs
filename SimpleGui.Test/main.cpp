@@ -168,6 +168,8 @@ private:
 
     void initializeComponents() override
     {
+        SHARED_PTR(Control) control = MAKE_SHARED(Control, Control());
+        addControl(control);
     }
 
     void testSerialization()

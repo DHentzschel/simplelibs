@@ -4,6 +4,7 @@
 #include <astring.h>
 #include <vector2.h>
 
+#include "control.h"
 #include "key.h"
 #include "windowedge.h"
 
@@ -31,6 +32,8 @@ public:
     void hide();
 
     void show();
+
+    void addControl(SHARED_PTR(Control) control);
 
 protected:
     virtual void formMovedEvent(const Vector2& previousPosition, const Vector2& position) {}

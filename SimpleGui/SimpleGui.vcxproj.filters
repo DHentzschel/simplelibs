@@ -50,6 +50,9 @@
     <Filter Include="src\Controls\Label">
       <UniqueIdentifier>{d2d83ff0-2823-4855-8a38-f987e8ebb06e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Controls\Control">
+      <UniqueIdentifier>{397e9d20-5620-4139-a20f-37a0f6e5b71b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="form.cpp">
@@ -75,6 +78,9 @@
     </ClCompile>
     <ClCompile Include="label.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="control.cpp">
+      <Filter>src\Controls\Control</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -115,5 +121,8 @@
       <Filter>src\Input\Keyboard</Filter>
     </ClInclude>
     <ClInclude Include="label.h" />
+    <ClInclude Include="control.h">
+      <Filter>src\Controls\Control</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,14 @@
 #include "form.h"
 
+#pragma comment(linker, "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#pragma comment(lib, "comctl32.lib")
+#pragma comment(lib, "shlwapi.lib")
+#pragma comment(lib, "msimg32.lib")
+
 #include <Windows.h>
 #include <Windowsx.h>
+#include <commctrl.h>
+#include <shlwapi.h>
 
 #include <alist.h>
 #include <functions.h>
@@ -99,6 +106,8 @@ public:
 
     Form* form;
 
+    AList<SHARED_PTR(Control)> controls;
+
     static FormPrivate* get(HWND hwnd);
 
     static bool* keys_;
@@ -156,6 +165,13 @@ void Form::show() {
     private_->show();
 }
 
+void Form::addControl(SHARED_PTR(Control) control)
+{
+    private_->controls.append(control);
+    control->setHwnd(private_->hwnd);
+    control->create();
+}
+
 FormPrivate::FormPrivate(Form* form) :
     position(Vector2(100, 100)),
     size(Vector2(100, 100)),
@@ -183,8 +199,7 @@ void FormPrivate::initialize()
     wc.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
     RegisterClassW(&wc);
-    hwnd = CreateWindowW(wc.lpszClassName, L"Form",
-        WS_OVERLAPPEDWINDOW | WS_VISIBLE, position.x, position.y, size.x, size.y, NULL, NULL, hinstance, NULL);
+    hwnd = CreateWindowW(wc.lpszClassName, L"Form", WS_OVERLAPPEDWINDOW | WS_VISIBLE, position.x, position.y, size.x, size.y, NULL, NULL, hinstance, NULL);
 }
 
 void FormPrivate::setPosition(int x, int y)
@@ -237,16 +252,21 @@ void FormPrivate::setWindowTitle(const AString& title)
 
 void FormPrivate::hide()
 {
+    isShown = false;
     ShowWindow(hwnd, SW_HIDE);
     UpdateWindow(hwnd);
-    isShown = false;
 }
 
 void FormPrivate::show()
 {
+    isShown = true;
     ShowWindow(hwnd, (isMaximized ? SW_SHOWMAXIMIZED : (isMinimized ? SW_SHOWMINIMIZED : SW_SHOWDEFAULT)));
     UpdateWindow(hwnd);
-    isShown = true;
+
+    for (auto control : controls) {
+        control->show();
+    }
+
     processEvents();
 }
 
@@ -282,7 +302,7 @@ void FormPrivate::invokeFormResizingEvent(WPARAM wParam, LPARAM lParam)
 
 void FormPrivate::invokeFormSizeEvent(WPARAM wParam, LPARAM lParam)
 {
-    auto size = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto size = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
 
     switch (wParam) {
     case SIZE_MAXIMIZED:
@@ -324,17 +344,17 @@ void FormPrivate::invokeFormShownEvent(WPARAM wParam)
 
 void FormPrivate::invokeFormPositionChangedEvent(LPARAM lParam)
 {
-    const WINDOWPOS& windowPos = *(WINDOWPOS*)lParam;
+    const auto& windowPos = *REINTERPRET_CAST(WINDOWPOS*, lParam);
     form->formPositionChangedEvent(Vector2(windowPos.x, windowPos.y));
 }
 
 void FormPrivate::invokeFormKeyEvent(WPARAM wParam, LPARAM lParam, bool isKeyDown)
 {
-    const Key key = STATIC_CAST(Key, wParam);
+    const auto key = STATIC_CAST(Key, wParam);
 
-    const ushort repeatCount = lParam & 0b1111'1111'1111;
+    const auto repeatCount = STATIC_CAST(ushort, lParam & 0b1111'1111'1111);
     lParam >>= 16;
-    const byte scanCode = lParam & 0b1111'1111;
+    const auto scanCode = STATIC_CAST(byte, lParam & 0b1111'1111);
     lParam >>= 8;
     const bool isExtendedKey = lParam & 0b1;
     lParam >>= 5;
@@ -367,7 +387,7 @@ void FormPrivate::invokeMouseLeavingEvent(bool inClientArea)
 void FormPrivate::invokeMouseMovingEvent(LPARAM lParam, bool inClientArea)
 {
     const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
-    Vector2& mousePosition = Mouse::getPosition();
+    auto& mousePosition = Mouse::getPosition();
     mousePosition.x = position.x;
     mousePosition.y = position.y;
     form->formMouseMovingEvent(position, inClientArea);
@@ -383,14 +403,14 @@ void FormPrivate::invokeMouseScrollingEvent(WPARAM wParam, LPARAM lParam)
 void FormPrivate::invokeMouseButtonDownEvent(WPARAM wParam, LPARAM lParam, bool isDoubleClick, bool inClientArea)
 {
     const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
-    /* TODO: cast is unsafe for another keys */
+    /* TODO: cast is unsafe for foreign keys */
     form->formMouseButtonDown(STATIC_CAST(Key, wParam), position, isDoubleClick, inClientArea);
 }
 
 void FormPrivate::invokeMouseButtonUpEvent(WPARAM wParam, LPARAM lParam, bool isDoubleClick, bool inClientArea)
 {
     const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
-    /* TODO: cast is unsafe for another keys */
+    /* TODO: cast is unsafe for foreign keys */
     form->formMouseButtonUp(STATIC_CAST(Key, wParam), position, inClientArea);
 }
 
@@ -407,11 +427,11 @@ FormPrivate* FormPrivate::get(HWND hwnd)
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     auto* formPrivate = FormPrivate::get(hwnd);
     if (formPrivate != nullptr) {
-        HDC hdc;
-        PAINTSTRUCT paintstruct;
+        //HDC hdc;
+        //PAINTSTRUCT paintstruct;
         switch (msg) {
         case WM_CREATE:
-            // ?
+            // not fired
             break;
         case WM_DESTROY:
             formPrivate->invokeFormClosedEvent();
@@ -441,9 +461,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
         case WM_SHOWWINDOW:
             formPrivate->invokeFormShownEvent(wParam);
             break;
-        case WM_WINDOWPOSCHANGED:
+        case WM_WINDOWPOSCHANGED: {
             formPrivate->invokeFormPositionChangedEvent(lParam);
-            break;
+            RECT rc;
+            GetClientRect(hwnd, &rc);
+            HDWP hDWP = BeginDeferWindowPos(1);
+            hDWP = DeferWindowPos(hDWP, GetDlgItem(hwnd, 100), NULL,
+                rc.right - 110, 10, 100, 25, SWP_NOZORDER | SWP_NOREDRAW);
+            break; }
         case WM_KEYDOWN:
         case WM_KEYUP:
             formPrivate->invokeFormKeyEvent(wParam, lParam, msg == WM_KEYDOWN);
@@ -509,9 +534,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
             formPrivate->invokeMouseButtonUpEvent(wParam, lParam, false, false);
             break;
         case WM_PAINT:
-            //hdc = BeginPaint(hwnd, &paintstruct);
-            //TextOut(hdc, 20, 20, "Test", 20);
-            //EndPaint(hwnd, &paintstruct);
+            /*hdc = BeginPaint(hwnd, &paintstruct);
+            TextOutW(hdc, 20, 20, L"Test", 10);
+            EndPaint(hwnd, &paintstruct);*/
             // paint any controls
             break;
         }

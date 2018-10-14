@@ -18,8 +18,12 @@ File::File() :
  * \brief Constructs instance by setting params for filepath (passed by param) and openMode(NotOpen)
  * \param filepath filepath to use
  */
-File::File(const AString& filepath) : filepath_(filepath), openMode_(NotOpen)
-{}
+File::File(const AString& filepath) :
+    filepath_(filepath),
+    openMode_(NotOpen)
+{
+    filepath_.replaceAll("\\", "/");
+}
 
 /**
  * \brief Destroys instance after closing current filestream.
@@ -105,7 +109,13 @@ bool File::exists(const AString& filepath)
  */
 AString File::getDirectory() const
 {
+    // TODO: Return absolute directory from relative
     auto lastIndexOfSlash = filepath_.lastIndexOf('/');
+
+    if (lastIndexOfSlash == STATIC_CAST(uint64, -1)) {
+        return AString();
+    }
+
     auto copy = filepath_;
     copy.erase(STATIC_CAST(size_t, lastIndexOfSlash), copy.size() - 1);
     return copy;
