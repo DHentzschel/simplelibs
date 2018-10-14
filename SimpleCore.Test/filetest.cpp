@@ -70,7 +70,7 @@ public:
     TEST_METHOD(testReadAllBytes)
     {
         const char byteArray[]{ 0xC0, 0xDE, 0xBA, 0x5E, 0x00, 0xC0, 0xFF, 0xEE, 0x00, 0xF0, 0x0D, 0x00, 0xFE, 0xED, 0x00, 0xFF };
-        Assert::IsTrue(ByteArray(file2_.readAllBytes()).isEqual(byteArray, 16));
+        Assert::IsTrue(file2_.readAllBytes().isEqual(byteArray, 16));
     }
 
     TEST_METHOD(testReadLineByLine)

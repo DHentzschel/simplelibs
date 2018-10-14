@@ -286,19 +286,16 @@ ByteArray File::readAllBytes()
     }
     if (!open(ReadOnly | Binary | AtTheEnd)) {
         Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
-        return AVector<char>();
+        return ByteArray();
     }
     const size_t pos = STATIC_CAST(size_t, fstream_.tellg());
 
-    char* buffer = new char[pos];
+    SHARED_PTR(char) buffer = SHARED_PTR(char)(new char[pos], [](const char* buffer) { delete[] buffer; });
     fstream_.seekg(0, std::ios::beg);
-    fstream_.read(buffer, pos);
+    fstream_.read(buffer.get(), pos);
     close();
 
-    ByteArray result = ByteArray(buffer, pos);
-    delete[] buffer;
-
-    return result;
+    return ByteArray(buffer.get(), pos);
 }
 
 /**
