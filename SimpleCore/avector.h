@@ -225,7 +225,7 @@ void AVector<T>::removeDuplicates()
     for (T& t : *this) {
         set.insert(t);
     }
-    assign(set.begin(), set.end());
+    STVECTOR::assign(set.begin(), set.end());
     std::sort(STVECTOR::begin(), STVECTOR::end());
 }
 

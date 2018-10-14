@@ -8,8 +8,6 @@
 #include <list>
 #include <vector>
 
-#include <unordered_set>
-
 #include "functions.h"
 
 template<class T>
@@ -239,12 +237,8 @@ void AList<T>::replace(const int i, const T& value)
 template<class T>
 void AList<T>::removeDuplicates()
 {
-    std::unordered_set<T> set(IT_BEGIN, IT_END);
-    for (T& t : *this) {
-        set.insert(t);
-    }
-    assign(IT_BEGIN, IT_END);
-    std::sort(IT_BEGIN, IT_END);
+    STLIST::sort();
+    STLIST::unique();
 }
 
 template<class T>
