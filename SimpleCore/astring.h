@@ -129,6 +129,8 @@ public:
 
     long double toLongDouble() const;
 
+    std::string toStdString() const;
+
     static AString toString(bool n, bool inLetters = false);
 
     static AString toString(char n);

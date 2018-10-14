@@ -11,66 +11,66 @@ using namespace OpenMode;
 
 class File {
 public:
-	File();
+    File();
 
-	explicit File(const AString& filename);
+    explicit File(const AString& filename);
 
-	~File();
+    ~File();
 
-	bool create(bool recursively = true) const;
+    bool create(bool recursively = true) const;
 
-	static bool create(const AString& filepath, bool recursively = true);
+    static bool create(const AString& filepath, bool recursively = true);
 
-	bool erase() const;
+    bool erase() const;
 
-	static bool erase(const AString& filepath);
+    static bool erase(const AString& filepath);
 
-	bool exists() const;
+    bool exists() const;
 
-	static bool exists(const AString& filepath);
+    static bool exists(const AString& filepath);
 
-	AString getDirectory() const;
+    AString getDirectory() const;
 
     AString getFilename() const;
 
-	AString getFilepath() const;
+    AString getFilepath() const;
 
-	void setFilePath(const AString& filepath);
+    void setFilePath(const AString& filepath);
 
-	bool isOpen() const;
+    bool isOpen() const;
 
-	bool open(int openMode = NotOpen);
+    bool open(int openMode = NotOpen);
 
-	void close();
+    void close();
 
-	std::fstream& operator<<(const AString& string);
+    std::fstream& operator<<(const AString& string);
 
-	void append(const AString& string);
+    void append(const AString& string);
 
-	AString readAllText();
+    AString readAllText();
 
-	void writeAllText(const AString& text);
+    void writeAllText(const AString& text);
 
-	AVector<char> readAllBytes();
+    ByteArray readAllBytes();
 
-	void writeAllBytes(const AVector<char>& bytes);
+    void writeAllBytes(const AVector<char>& bytes);
 
-	AString readLine();
+    AString readLine();
 
-	bool atEnd() const;
+    bool atEnd() const;
 
 private:
-	AString filepath_;
+    AString filepath_;
 
-	std::fstream fstream_;
+    std::fstream fstream_;
 
-	int openMode_;
+    int openMode_;
 
-	bool printFileOpen() const;
+    bool printFileOpen() const;
 
-	bool printFlagReadOnly() const;
+    bool printFlagReadOnly() const;
 
-	bool printFlagWriteOnly() const;
+    bool printFlagWriteOnly() const;
 };
 
 #endif   // FILE_H

@@ -520,6 +520,11 @@ const char* AString::toCString() const
     return c_str();
 }
 
+std::string AString::toStdString() const
+{
+    return *this;
+}
+
 AString AString::toString(const bool n, const bool inLetters)
 {
     return inLetters ? (n ? "true" : "false") : (n ? "1" : "0");

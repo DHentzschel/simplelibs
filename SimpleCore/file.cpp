@@ -70,7 +70,7 @@ bool File::create(const AString& filepath, const bool recursively)
  */
 bool File::erase() const
 {
-    return remove(filepath_.toCString());
+    return !remove(filepath_.toCString());
 }
 
 /**
@@ -251,9 +251,11 @@ AString File::readAllText()
         close();
     }
     open(ReadOnly);
-    std::stringstream stringstream;
-    stringstream << fstream_.rdbuf();
-    return AString(stringstream.str());
+    AString result((std::istreambuf_iterator<char>(fstream_)), std::istreambuf_iterator<char>());
+    //std::stringstream stringstream;
+    //stringstream << fstream_.rdbuf();
+    //return AString(stringstream.str());
+    return result;
 }
 
 /**
@@ -277,7 +279,7 @@ void File::writeAllText(const AString& text)
  * \brief Reads complete filestream in binary and returns new vector.
  * \return byte array
  */
-AVector<char> File::readAllBytes()
+ByteArray File::readAllBytes()
 {
     if (isOpen()) {
         close();
@@ -287,10 +289,14 @@ AVector<char> File::readAllBytes()
         return AVector<char>();
     }
     const size_t pos = STATIC_CAST(size_t, fstream_.tellg());
-    AVector<char> result(pos);
 
+    char* buffer = new char[pos];
     fstream_.seekg(0, std::ios::beg);
-    fstream_.read(&result[0], pos);
+    fstream_.read(buffer, pos);
+    close();
+
+    ByteArray result = ByteArray(buffer, pos);
+    delete[] buffer;
 
     return result;
 }

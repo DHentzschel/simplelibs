@@ -6,11 +6,26 @@
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="res">
-      <UniqueIdentifier>{f2a5175c-e791-4e71-84c3-dafa0aae2087}</UniqueIdentifier>
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src\StdAfx">
+      <UniqueIdentifier>{2277cd7a-e0d7-4197-b11e-15bf1bab1ca8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClInclude Include="targetver.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>src\StdAfx</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src\StdAfx</Filter>
+    </ClCompile>
+    <ClCompile Include="filetest.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -18,5 +33,10 @@
     <Text Include="testfile.txt">
       <Filter>res</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="testfile2.bin">
+      <Filter>res</Filter>
+    </None>
   </ItemGroup>
 </Project>
