@@ -221,12 +221,12 @@ void AVector<T>::pop_front()
 template<class T>
 void AVector<T>::removeDuplicates()
 {
-    std::unordered_set<T> set;
-    for (T& t : *this) {
-        set.insert(t);
-    }
-    STVECTOR::assign(set.begin(), set.end());
-    std::sort(STVECTOR::begin(), STVECTOR::end());
+    //std::unordered_set<T> set;
+    //for (T& t : *this) {
+    //    set.insert(t);
+    //}
+    //STVECTOR::assign(set.begin(), set.end());
+    //std::sort(STVECTOR::begin(), STVECTOR::end());
 }
 
 template<class T>

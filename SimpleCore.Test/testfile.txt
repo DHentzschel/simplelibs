@@ -1,2 +1,2 @@
-This an example 
+This is an example 
 for a text file

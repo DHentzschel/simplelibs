@@ -109,6 +109,10 @@ bool File::exists(const AString& filepath)
  */
 AString File::getDirectory() const
 {
+    if (filepath_.count("/") == 0 && filepath_.count("\\") == 0) {
+        return Dir::getApplicationDir() + filepath_;
+    }
+
     // TODO: Return absolute directory from relative
     auto lastIndexOfSlash = filepath_.lastIndexOf('/');
 
@@ -331,7 +335,7 @@ AString File::readLine()
  */
 bool File::atEnd() const
 {
-    return fstream_.eof();
+    return isOpen() && fstream_.eof();
 }
 
 /**

@@ -1,31 +1,38 @@
 #include <console.h>
+#include <datetime.h>
+#include <logger.h>
 #include <file.h>
 
 void testFile()
 {
-    File file("C:\\Users\\Test\\Documents\\filename.ext");
+    Logger::info("Executing testFile():");
+
+    File file("testfile.txt");
+    const AString exampleFileContent = "This is an example for a text file";
 
     /* Read line by line */
-    if (!file.open(ReadOnly)) {
+    if (file.open(ReadOnly)) {
+        AString fileContent;
         while (!file.atEnd()) {
-            Console::print(file.readLine());
+            fileContent += file.readLine();
         }
+
+        if (fileContent != exampleFileContent) {
+            AString message = "Did not read file correctly. Expected: " + fileContent + " Actually: " + exampleFileContent;
+            Logger::error(message.replaceAll("\n", "\\n").replaceAll("\r", "\\r"));
+        }
+        else {
+            Logger::info("test open(), atEnd() and readLine() successful!");
+        }
+    }
+    else {
+        Logger::error("Could not open file " + file.getFilename());
     }
 
     /* Read all as string */
-    const AVector<AString> contentString = file.readAllText().split("\n");
+    const AString contentString = file.readAllText();
+    
 
-    AVector<AString> container;
-
-    /* Example to deserialize */
-    for (auto it = contentString.begin(); it != contentString.end(); ++it) {
-        if ((*it).startsWith("Example") || (*it).isFloatNumber()) {
-            container.append(AString(*it).removeAll("."));
-        }
-    }
-
-    /* Call this to remove duplicate entries */
-    container.removeDuplicates();
 
     /* Read all as byte array */
     const ByteArray contentArray = file.readAllBytes();
@@ -33,6 +40,7 @@ void testFile()
 
 int main(int argc, char** argv)
 {
+    Logger::prepareLogFile("SimpleCore.Test-" + DateTime::getCurrentTimestamp());
     testFile();
     return 0;
 }

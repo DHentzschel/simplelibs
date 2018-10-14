@@ -237,8 +237,8 @@ void AList<T>::replace(const int i, const T& value)
 template<class T>
 void AList<T>::removeDuplicates()
 {
-    STLIST::sort();
-    STLIST::unique();
+   /* STLIST::sort();
+    STLIST::unique();*/
 }
 
 template<class T>
