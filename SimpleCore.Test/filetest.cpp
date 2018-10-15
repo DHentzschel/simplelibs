@@ -35,11 +35,16 @@ public:
 
     TEST_METHOD(testExists)
     {
+        File file(Dir::getDesktopDir() + "\\testfile2.txt");
+        if (file.exists()) {
+            file.erase();
+        }
+
         /* This file should exist */
         Assert::IsTrue(File(Dir::getDesktopDir() + "\\testfile.txt").exists());
 
         /* This file should NOT exist */
-        Assert::IsFalse(File(Dir::getDesktopDir() + "\\testfile2.txt").exists());
+        Assert::IsTrue(!File(Dir::getDesktopDir() + "\\testfile2.txt").exists());
     }
 
     TEST_METHOD(testCreate)
@@ -78,8 +83,14 @@ public:
     TEST_METHOD(testWriteAllText)
     {
         File file(Dir::getDesktopDir() + "\\testfile2.txt");
+        if (file.exists()) {
+            file.erase();
+            file.create();
+        }
+
         file.writeAllText(exampleFileContent_);
         Assert::IsTrue(file.readAllText() == exampleFileContent_);
+        file.erase();
     }
 
     TEST_METHOD(testReadAllBytes)
@@ -90,8 +101,14 @@ public:
     TEST_METHOD(testWriteAllBytes)
     {
         File file(Dir::getDesktopDir() + "\\testfile2.txt");
+        if (file.exists()) {
+            file.erase();
+            file.create();
+        }
+
         file.writeAllBytes(byteArray_);
         Assert::IsTrue(file.readAllBytes().isEqual(byteArray_.data(), byteArray_.size()));
+        file.erase();
     }
 
     TEST_METHOD(testReadLineByLine)
@@ -119,6 +136,7 @@ public:
         const AString appendable = "Appendable text";
         file << appendable;
         Assert::IsTrue(appendable == file.readAllText());
+        file.erase();
     }
 
     TEST_METHOD(testGetDirectory)
