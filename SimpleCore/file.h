@@ -13,6 +13,10 @@ class File {
 public:
     File();
 
+    File(const File& file);
+
+    File(File&& file);
+
     explicit File(const AString& filename);
 
     ~File();
@@ -35,13 +39,15 @@ public:
 
     AString getFilepath() const;
 
-    void setFilePath(const AString& filepath);
+    void setFilepath(const AString& filepath);
 
     bool isOpen() const;
 
     bool open(int openMode = NotOpen);
 
     void close();
+
+    void operator=(const File& file);
 
     std::fstream& operator<<(const AString& string);
 
@@ -53,7 +59,7 @@ public:
 
     ByteArray readAllBytes();
 
-    void writeAllBytes(const AVector<char>& bytes);
+    void writeAllBytes(const ByteArray& bytes);
 
     AString readLine();
 

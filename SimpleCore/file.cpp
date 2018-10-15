@@ -14,6 +14,21 @@ File::File() :
     openMode_(NotOpen)
 {}
 
+File::File(const File& file)
+{
+    filepath_ = file.filepath_;
+    openMode_ = file.openMode_;
+
+    if (file.isOpen()) {
+        open(openMode_);
+    }
+}
+
+File::File(File&& file) :
+    File(file)
+{
+}
+
 /**
  * \brief Constructs instance by setting params for filepath (passed by param) and openMode(NotOpen)
  * \param filepath filepath to use
@@ -110,7 +125,7 @@ bool File::exists(const AString& filepath)
 AString File::getDirectory() const
 {
     if (filepath_.count("/") == 0 && filepath_.count("\\") == 0) {
-        return Dir::getApplicationDir() + filepath_;
+        return Dir::getApplicationDir();
     }
 
     // TODO: Return absolute directory from relative
@@ -130,6 +145,9 @@ AString File::getFilename() const
     auto lastIndexOfSlash = filepath_.lastIndexOf('/');
     if (lastIndexOfSlash == -1) {
         lastIndexOfSlash = filepath_.lastIndexOf('\\');
+        if (lastIndexOfSlash == -1) {
+            return filepath_;
+        }
     }
 
     auto copy = filepath_;
@@ -150,7 +168,7 @@ AString File::getFilepath() const
  * \brief Sets file path for the next filestream.
  * \param filepath filepath for filestream
  */
-void File::setFilePath(const AString& filepath)
+void File::setFilepath(const AString& filepath)
 {
     filepath_ = filepath;
     filepath_.replaceAll("\\", "/");
@@ -189,6 +207,16 @@ bool File::open(const int openMode)
 void File::close()
 {
     fstream_.close();
+}
+
+void File::operator=(const File& file)
+{
+    filepath_ = file.filepath_;
+    openMode_ = file.openMode_;
+
+    if (file.isOpen()) {
+        open(openMode_);
+    }
 }
 
 /**
@@ -302,7 +330,7 @@ ByteArray File::readAllBytes()
  * \brief Clears filestream and writes all bytes existing in param bytes.
  * \param bytes byte array
  */
-void File::writeAllBytes(const AVector<char>& bytes)
+void File::writeAllBytes(const ByteArray& bytes)
 {
     if (isOpen()) {
         close();
