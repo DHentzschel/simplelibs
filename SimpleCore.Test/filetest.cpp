@@ -54,7 +54,7 @@ public:
         Assert::IsTrue(File(Dir::getDesktopDir() + "\\testfile3.txt").create());
 
         /* Test recursive file creation */
-        const AString recursiveFilePath = Dir::getDesktopDir() + "\\test_level1\\test_level2\\test_level3\\testfile.txt";
+        const auto recursiveFilePath = Dir::getDesktopDir() + "\\test_level1\\test_level2\\test_level3\\testfile.txt";
         Assert::IsTrue(File(recursiveFilePath).create(true) && File::erase(recursiveFilePath));
 
         /* Remove folder from recursive creation test for cleanup, true test of functionality is in extra class dirtest */
@@ -169,9 +169,11 @@ public:
 
     TEST_METHOD(testSetFilepath)
     {
-        File file("");
-        file.setFilepath("C:\\Users\\test\\test.txt");
-        Assert::IsTrue(file.getFilepath() == "C:/Users/test/test.txt");
+        AString filepath = "C:\\Users\\test\\test.txt";
+
+        /* setFilePath() is being invoked in the ctor */
+        File file(filepath);
+        Assert::IsTrue(filepath.replaceAll("\\", "/") == file.getFilepath());
     }
 
 private:
