@@ -116,13 +116,12 @@ public:
     {
         Assert::IsTrue(file_.open(ReadOnly));
 
-        const AString fileContent = "This is an examplefor a text file";
         AString buffer;
         while (!file_.atEnd()) {
             buffer += file_.readLine();
         }
 
-        Assert::IsTrue(fileContent == buffer);
+        Assert::IsTrue(AString(exampleFileContent_).removeAll("\\n") == buffer);
     }
 
     TEST_METHOD(testAppend)
@@ -143,21 +142,24 @@ public:
 
     TEST_METHOD(testGetDirectory)
     {
+        const AString directory = "C:/Users/test/";
+        const auto* filename = "test.txt";
+
         /* Testing absolute path. */
-        const auto* directory = "C:/Users/test";
-        File file("C:/Users/test/test.txt");
-        Assert::IsTrue(directory == file.getDirectory());
+        File file(directory + filename);
+        Assert::IsTrue(directory.left(directory.size() - 1) == file.getDirectory());
 
         /* Testing relative path. All relative paths will be concatenated at the end with the sub path of the VS test unit */
-        file = File("test.txt");
+        file = File(filename);
         Assert::IsTrue(file.getDirectory().contains("\\COMMON7\\IDE\\EXTENSIONS\\TESTPLATFORM", CaseInsensitive));
     }
 
     TEST_METHOD(testGetFilename)
     {
-        File file("C:/Users/test/test.txt");
-        auto assertFilenameEqualsExpected = [](const AString& filename) {
-            Assert::IsTrue(filename == "test.txt");
+        const AString filename = "test.txt";
+        File file("C:/Users/test/" + filename);
+        auto assertFilenameEqualsExpected = [filename](const AString& comparable) {
+            Assert::IsTrue(filename == comparable);
         };
 
         assertFilenameEqualsExpected(file.getFilename());
