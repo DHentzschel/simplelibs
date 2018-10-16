@@ -46,12 +46,18 @@ public:
 
     TEST_METHOD(testCreate)
     {
+        File file(Dir::getDesktopDir() + "\\testfile4.txt");
+        if (file.exists()) {
+            file.erase();
+        }
+
         /* Test simple file creation */
-        Assert::IsTrue(File(Dir::getDesktopDir() + "\\testfile3.txt").create());
+        Assert::IsTrue(file.create());
 
         /* Test recursive file creation */
         const auto recursiveFilePath = Dir::getDesktopDir() + "\\test_level1\\test_level2\\test_level3\\testfile.txt";
-        Assert::IsTrue(File(recursiveFilePath).create(true) && File::erase(recursiveFilePath));
+        Assert::IsTrue(File(recursiveFilePath).create(true));
+        Assert::IsTrue(File(recursiveFilePath).erase());
 
         /* Remove folder from recursive creation test for cleanup, true test of functionality is in extra class dirtest */
         Assert::IsTrue(Dir(Dir::getDesktopDir() + "\\test_level1").erase());

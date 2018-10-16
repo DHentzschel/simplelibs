@@ -10,29 +10,35 @@ class Dir {
 public:
     Dir();
 
-    explicit Dir(const AString& path);
+    Dir(const Dir& dir);
+
+    Dir(Dir&& dir);
+
+    explicit Dir(const AString& getPath);
 
     ~Dir();
 
-    AString path() const;
+    AString getPath() const;
 
     void setPath(const AString& path);
 
     bool create(bool overrideIfExisting = false) const;
 
-    static bool create(const AString& path, bool overrideIfExisting = false);
+    static bool create(const AString& getPath, bool overrideIfExisting = false);
 
     bool exists() const;
 
-    static bool exists(const AString& path);
+    static bool exists(const AString& getPath);
 
     bool erase(bool recursively = true) const;
 
     int64 getFileCount();
 
+    void operator=(const Dir& right);
+
     const AVector<std::filesystem::directory_entry>& getFiles();
 
-    static bool erase(const AString& path, bool recursively = true);
+    static bool erase(const AString& getPath, bool recursively = true);
 
     static AString getApplicationDir();
 
