@@ -121,7 +121,7 @@ public:
             buffer += file_.readLine();
         }
 
-        Assert::IsTrue(AString(exampleFileContent_).removeAll("\\n") == buffer);
+        Assert::IsTrue(AString(exampleFileContent_).removeAll('\n') == buffer);
     }
 
     TEST_METHOD(testAppend)
