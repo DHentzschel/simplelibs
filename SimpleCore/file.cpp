@@ -34,10 +34,9 @@ File::File(File&& file) :
  * \param filepath filepath to use
  */
 File::File(const AString& filepath) :
-    filepath_(filepath),
     openMode_(NotOpen)
 {
-    filepath_.replaceAll("\\", "/");
+    setFilepath(filepath);
 }
 
 /**
@@ -125,7 +124,7 @@ bool File::exists(const AString& filepath)
 AString File::getDirectory() const
 {
     if (filepath_.count("/") == 0 && filepath_.count("\\") == 0) {
-        return Dir::getApplicationDir();
+        return AString(Dir::getApplicationDir()).replaceAll("\\", "/");
     }
 
     // TODO: Return absolute directory from relative

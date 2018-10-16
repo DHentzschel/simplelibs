@@ -155,7 +155,7 @@ public:
 
         /* Testing relative path. All relative paths will be concatenated at the end with the sub path of the VS test unit */
         file = File(filename);
-        Assert::IsTrue(file.getDirectory().contains("\\COMMON7\\IDE\\EXTENSIONS\\TESTPLATFORM", CaseInsensitive));
+        Assert::IsTrue(file.getDirectory().contains("/COMMON7/IDE/EXTENSIONS/TESTPLATFORM", CaseInsensitive));
     }
 
     TEST_METHOD(testGetFilename)
