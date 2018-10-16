@@ -9,24 +9,36 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="src\StdAfx">
+    <Filter Include="src\FileTest">
+      <UniqueIdentifier>{92769561-0011-4d7c-8f49-015440930f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TestSystem">
+      <UniqueIdentifier>{f532948a-e3ac-4f25-96eb-d8d47630be86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TestSystem\StdAfx">
       <UniqueIdentifier>{2277cd7a-e0d7-4197-b11e-15bf1bab1ca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\DirTest">
+      <UniqueIdentifier>{70e61150-2470-4a79-8f8d-4d56490050f3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="targetver.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>src\StdAfx</Filter>
+      <Filter>src\TestSystem\StdAfx</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>src\TestSystem</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>src\StdAfx</Filter>
+      <Filter>src\TestSystem\StdAfx</Filter>
     </ClCompile>
     <ClCompile Include="filetest.cpp">
-      <Filter>src</Filter>
+      <Filter>src\FileTest</Filter>
+    </ClCompile>
+    <ClCompile Include="dirtest.cpp">
+      <Filter>src\DirTest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

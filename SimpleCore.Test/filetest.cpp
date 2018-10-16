@@ -23,10 +23,6 @@ public:
         file2_.close();
     }
 
-    TEST_METHOD_INITIALIZE(setUp)
-    {
-    }
-
     TEST_METHOD(testOpen)
     {
         /* This file should exists on desktop path*/
@@ -91,6 +87,7 @@ public:
 
         file.writeAllText(exampleFileContent_);
         Assert::IsTrue(file.readAllText() == exampleFileContent_);
+        file.close();
         file.erase();
     }
 
@@ -109,6 +106,7 @@ public:
 
         file.writeAllBytes(byteArray_);
         Assert::IsTrue(file.readAllBytes().isEqual(byteArray_.data(), byteArray_.size()));
+        file.close();
         file.erase();
     }
 
