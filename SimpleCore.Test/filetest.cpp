@@ -35,7 +35,8 @@ public:
 
     TEST_METHOD(testExists)
     {
-        File file(Dir::getDesktopDir() + "\\testfile2.txt");
+        const auto filename2 = Dir::getDesktopDir() + "\\testfile2.txt";
+        File file(filename2);
         if (file.exists()) {
             file.erase();
         }
@@ -44,7 +45,7 @@ public:
         Assert::IsTrue(File(Dir::getDesktopDir() + "\\testfile.txt").exists());
 
         /* This file should NOT exist */
-        Assert::IsTrue(!File(Dir::getDesktopDir() + "\\testfile2.txt").exists());
+        Assert::IsTrue(!File(filename2).exists());
     }
 
     TEST_METHOD(testCreate)
@@ -136,6 +137,7 @@ public:
         const AString appendable = "Appendable text";
         file << appendable;
         Assert::IsTrue(appendable == file.readAllText());
+        file.close();
         file.erase();
     }
 
@@ -154,10 +156,13 @@ public:
     TEST_METHOD(testGetFilename)
     {
         File file("C:/Users/test/test.txt");
-        Assert::IsTrue(file.getFilename() == "test.txt");
+        auto assertFilenameEqualsExpected = [](const AString& filename) {
+            Assert::IsTrue(filename == "test.txt");
+        };
 
+        assertFilenameEqualsExpected(file.getFilename());
         file = File(file.getFilename());
-        Assert::IsTrue(file.getFilename() == "test.txt");
+        assertFilenameEqualsExpected(file.getFilename());
     }
 
     TEST_METHOD(testSetFilepath)
