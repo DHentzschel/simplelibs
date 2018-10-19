@@ -3,7 +3,7 @@
 ByteArray::ByteArray()
 {}
 
-ByteArray::ByteArray(const char* byteArray, uint size)
+ByteArray::ByteArray(const char* byteArray, size_t size)
 {
     reserve(size);
     for (uint i = 0; i < size; ++i) {
@@ -17,7 +17,7 @@ ByteArray::ByteArray(const AVector<char> & vector) : AVector<char>(vector)
 ByteArray::~ByteArray()
 {}
 
-bool ByteArray::isEqual(const char* byteArray, uint size)
+bool ByteArray::isEqual(const char* byteArray, size_t size)
 {
     if (this->size() != size) {
         return false;

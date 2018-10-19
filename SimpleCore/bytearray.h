@@ -7,13 +7,13 @@ class ByteArray : public AVector<char> {
 public:
     ByteArray();
 
-    ByteArray(const char* byteArray, uint size);
+    ByteArray(const char* byteArray, size_t size);
 
     ByteArray(const AVector<char>& vector);
 
     ~ByteArray();
-    
-    bool isEqual(const char* byteArray, uint size);
+
+    bool isEqual(const char* byteArray, size_t size);
 
     ByteArray& operator+=(const char character);
 

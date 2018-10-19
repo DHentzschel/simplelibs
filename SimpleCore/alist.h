@@ -9,22 +9,28 @@
 #include <vector>
 
 #include "functions.h"
+#include "types.h"
 
 template<class T>
 class AList : public STLIST {
 public:
     using std::list<T>::list;
+
     AList();
 
-    explicit AList(unsigned long long size);
+    explicit AList(uint64 size);
 
     AList(const AList& vector);
 
     ~AList();
 
-    T& at(int i);
+    T& at(uint64 i);
 
-    const T& at(int i) const;
+    const T& at(uint64 i) const;
+
+    T& operator[](uint64 i);
+
+    const T& operator[](uint64 i) const;
 
     void append(const T& value);
 
@@ -42,19 +48,19 @@ public:
 
     bool isEmpty() const;
 
-    int count(const T& value) const;
+    uint64 count(const T& value) const;
 
-    int firstIndexOf(const T& value) const;
+    uint64 firstIndexOf(const T& value) const;
 
-    int indexOf(const T& value) const;
+    uint64 indexOf(const T& value) const;
 
-    int lastIndexOf(const T& value) const;
+    uint64 lastIndexOf(const T& value) const;
 
-    void replace(int i, const T& value);
+    void replace(uint64 i, const T& value);
 
     void removeDuplicates();
 
-    void removeAt(int i);
+    void removeAt(uint64 i);
 
     void removeFirst();
 
@@ -66,9 +72,9 @@ public:
 
     void removeAll(const T& value);
 
-    AList<T> mid(int pos, int length = -1) const;
+    AList<T> mid(uint64 pos, uint64 length = -1) const;
 
-    void move(int from, int to);
+    void move(uint64 from, uint64 to);
 
     std::vector<T> toVector() const;
 
@@ -80,7 +86,7 @@ public:
 
     const T& last() const;
 
-    T takeAt(int i);
+    T takeAt(uint64 i);
 
     T takeFirst();
 
@@ -92,7 +98,7 @@ AList<T>::AList() : STLIST()
 {}
 
 template<class T>
-AList<T>::AList(const unsigned long long size) : STLIST(size)
+AList<T>::AList(uint64 size) : STLIST(size)
 {}
 
 template<class T>
@@ -104,7 +110,7 @@ AList<T>::~AList()
 {}
 
 template<class T>
-T& AList<T>::at(const int i)
+T& AList<T>::at(const uint64 i)
 {
     auto it = IT_BEGIN;
     for (auto c = 0; it != IT_END; ++c, ++it) {
@@ -116,15 +122,28 @@ T& AList<T>::at(const int i)
 }
 
 template<class T>
-const T& AList<T>::at(const int i) const
+const T& AList<T>::at(const uint64 i) const
 {
     auto it = IT_BEGIN;
-    for (auto c = 0; it != IT_END; ++c, ++it) {
+    for (long double c = 0; it != IT_END; ++c, ++it) {
         if (c == i) {
             return *it;
         }
     }
+    throw std::out_of_range("Invalid index i (" + TO_STRING(i) + ")");
     return T();
+}
+
+template<class T>
+inline T& AList<T>::operator[](uint64 i)
+{
+    return at(i);
+}
+
+template<class T>
+inline const T & AList<T>::operator[](uint64 i) const
+{
+    return at(i);
 }
 
 template<class T>
@@ -181,11 +200,10 @@ bool AList<T>::isEmpty() const
 }
 
 template<class T>
-int AList<T>::count(const T& value) const
+uint64 AList<T>::count(const T& value) const
 {
-    auto it = IT_BEGIN;
     auto c = 0;
-    for (; it != IT_END; ++it) {
+    for (auto it = IT_BEGIN; it != IT_END; ++it) {
         if (*it == value) {
             ++c;
         }
@@ -194,16 +212,16 @@ int AList<T>::count(const T& value) const
 }
 
 template<class T>
-int AList<T>::firstIndexOf(const T& value) const
+uint64 AList<T>::firstIndexOf(const T& value) const
 {
     return indexOf(value);
 }
 
 template<class T>
-int AList<T>::indexOf(const T& value) const
+uint64 AList<T>::indexOf(const T& value) const
 {
     auto it = IT_BEGIN;
-    for (auto i = 0; it != IT_END; ++i, ++it) {
+    for (uint64 i = 0; it != IT_END; ++i, ++it) {
         if (*it == value) {
             return i;
         }
@@ -212,7 +230,7 @@ int AList<T>::indexOf(const T& value) const
 }
 
 template<class T>
-int AList<T>::lastIndexOf(const T& value) const
+uint64 AList<T>::lastIndexOf(const T& value) const
 {
     auto it = IT_END;
     for (auto i = 0; it != IT_BEGIN; ++i, --it) {
@@ -224,7 +242,7 @@ int AList<T>::lastIndexOf(const T& value) const
 }
 
 template<class T>
-void AList<T>::replace(const int i, const T& value)
+void AList<T>::replace(const uint64 i, const T& value)
 {
     auto it = IT_BEGIN;
     for (auto c = 0; it != IT_END; ++c, ++it) {
@@ -237,12 +255,12 @@ void AList<T>::replace(const int i, const T& value)
 template<class T>
 void AList<T>::removeDuplicates()
 {
-   /* STLIST::sort();
-    STLIST::unique();*/
+    /* STLIST::sort();
+     STLIST::unique();*/
 }
 
 template<class T>
-void AList<T>::removeAt(const int i)
+void AList<T>::removeAt(const uint64 i)
 {
     auto it = IT_BEGIN;
     for (auto c = 0; it != IT_END; ++c, ++it) {
@@ -298,10 +316,10 @@ void AList<T>::removeAll(const T& value)
 }
 
 template<class T>
-AList<T> AList<T>::mid(const int pos, const int length) const
+AList<T> AList<T>::mid(const uint64 pos, const uint64 length) const
 {
-    AList<T> result;
-    int limit = length == -1 ? STLIST::size() : pos + length;
+    List<T> result;
+    uint64 limit = length == -1 ? STLIST::size() : pos + length;
     auto it = IT_BEGIN;
     for (auto i = pos; i < limit; ++i) {
         result.append(*it);
@@ -310,7 +328,7 @@ AList<T> AList<T>::mid(const int pos, const int length) const
 }
 
 template<class T>
-void AList<T>::move(const int from, const int to)
+void AList<T>::move(const uint64 from, const uint64 to)
 {
     T copyFrom = at(from);
     T copyTo = at(to);
@@ -356,7 +374,7 @@ const T& AList<T>::last() const
 }
 
 template<class T>
-T AList<T>::takeAt(int i)
+T AList<T>::takeAt(uint64 i)
 {
     T result = at(i);
     removeAt(i);

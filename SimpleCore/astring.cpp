@@ -33,23 +33,23 @@ AString AString::arg(const AString& value)
     return copy;
 }
 
-AString AString::left(const uint n) const
+AString AString::left(const size_t n) const
 {
     AString result;
     if (n < size()) {
-        for (uint64 i = 0; i < n; ++i) {
+        for (long double i = 0; i < n; ++i) {
             result += at(STATIC_CAST(uint, i));
         }
     }
     return result;
 }
 
-AString AString::right(const uint n) const
+AString AString::right(const size_t n) const
 {
     AString result;
     if (n < size()) {
-        for (auto i = size() - n; i < size(); ++i) {
-            result += at(i);
+        for (long double i = STATIC_CAST(long double, size() - n); i < size(); ++i) {
+            result += at(STATIC_CAST(size_t, i));
         }
     }
     return result;
@@ -67,7 +67,7 @@ AString& AString::append(const AString& string)
     return *this;
 }
 
-AString& AString::fill(const char c, const int size)
+AString& AString::fill(const char c, const size_t size)
 {
     if (size == -1) {
         for (auto& i : *this) {
@@ -76,7 +76,7 @@ AString& AString::fill(const char c, const int size)
     }
     else {
         clear();
-        for (auto i = 0; i < size; ++i) {
+        for (long double i = 0; i < size; ++i) {
             *this += c;
         }
     }

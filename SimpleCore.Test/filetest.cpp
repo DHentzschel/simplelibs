@@ -16,8 +16,12 @@ public:
         file_(Dir::getDesktopDir() + "\\testfile.txt"),
         file2_(Dir::getDesktopDir() + "\\testfile2.bin")
     {
+#pragma warning(disable : 4309)
+#pragma warning(disable : 4838)
         const char byteArray[] = { 0xC0, 0xDE, 0xBA, 0x5E, 0x00, 0xC0, 0xFF, 0xEE,
-                                    0x00, 0xF0, 0x0D, 0x00, 0xFE, 0xED, 0x00, 0xFF };
+            0x00, 0xF0, 0x0D, 0x00, 0xFE, 0xED, 0x00, 0xFF };
+#pragma warning(default : 4309)
+#pragma warning(default : 4838)
         byteArray_ = ByteArray(byteArray, 16);
     }
 
