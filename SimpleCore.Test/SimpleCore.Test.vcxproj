@@ -168,6 +168,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="filetest.cpp" />
+    <ClCompile Include="vectortest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleCore\SimpleCore.vcxproj">
@@ -178,6 +179,8 @@
     <Text Include="testfile.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cleanup.bat" />
+    <None Include="setup.bat" />
     <None Include="testfile2.bin" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

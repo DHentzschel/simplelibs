@@ -1,6 +1,9 @@
 #include "CppUnitTest.h"
 #include "stdafx.h"
 
+#include <chrono>
+#include <thread>
+
 #include "../SimpleCore/file.h"
 #include "../SimpleCore/dir.h"
 
@@ -13,7 +16,8 @@ public:
         file_(Dir::getDesktopDir() + "\\testfile.txt"),
         file2_(Dir::getDesktopDir() + "\\testfile2.bin")
     {
-        const char byteArray[] = { 0xC0, 0xDE, 0xBA, 0x5E, 0x00, 0xC0, 0xFF, 0xEE, 0x00, 0xF0, 0x0D, 0x00, 0xFE, 0xED, 0x00, 0xFF };
+        const char byteArray[] = { 0xC0, 0xDE, 0xBA, 0x5E, 0x00, 0xC0, 0xFF, 0xEE,
+                                    0x00, 0xF0, 0x0D, 0x00, 0xFE, 0xED, 0x00, 0xFF };
         byteArray_ = ByteArray(byteArray, 16);
     }
 
@@ -53,6 +57,7 @@ public:
 
         /* Test simple file creation */
         Assert::IsTrue(file.create());
+        Assert::IsTrue(file.erase());
 
         /* Test recursive file creation */
         const auto recursiveFilePath = Dir::getDesktopDir() + "\\test_level1\\test_level2\\test_level3\\testfile.txt";
@@ -65,10 +70,8 @@ public:
 
     TEST_METHOD(testDelete)
     {
-        const AString filepath = Dir::getDesktopDir() + "\\testfile3.txt";
-
         /* Make sure the file exists */
-        File file(filepath);
+        File file(Dir::getDesktopDir() + "\\testfile3.txt");
         if (!file.exists()) {
             Assert::IsTrue(file.create());
         }
@@ -185,7 +188,7 @@ private:
 
     File file2_;
 
-    const char* exampleFileContent_ = "This is an example\nfor a text file";
+    const char* exampleFileContent_ = "This is an example\nfor a text file\n";
 
     ByteArray byteArray_;
 

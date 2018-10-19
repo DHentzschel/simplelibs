@@ -21,6 +21,9 @@
     <Filter Include="src\DirTest">
       <UniqueIdentifier>{70e61150-2470-4a79-8f8d-4d56490050f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\VectorTest">
+      <UniqueIdentifier>{1ee81cfb-132a-454d-b5d7-25eb7b414768}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -40,6 +43,9 @@
     <ClCompile Include="dirtest.cpp">
       <Filter>src\DirTest</Filter>
     </ClCompile>
+    <ClCompile Include="vectortest.cpp">
+      <Filter>src\VectorTest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="testfile.txt">
@@ -48,6 +54,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="testfile2.bin">
+      <Filter>res</Filter>
+    </None>
+    <None Include="cleanup.bat">
+      <Filter>res</Filter>
+    </None>
+    <None Include="setup.bat">
       <Filter>res</Filter>
     </None>
   </ItemGroup>
