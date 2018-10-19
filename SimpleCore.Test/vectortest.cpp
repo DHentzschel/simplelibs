@@ -280,11 +280,12 @@ public:
 
     TEST_METHOD(testToList)
     {
-        List<int> list = List(vector_.toList());
+        auto list = vector_.toList();
         Assert::IsTrue(list.size() == vector_.size());
 
-        for (byte i = 0; i < list.size(); ++i) {
-            Assert::IsTrue(vector_[i] == list[i]);
+        auto i = 0;
+        for (auto it = list.begin(); it != list.end(); ++it, ++i) {
+            Assert::IsTrue(*it == vector_[i]);
         }
     }
 

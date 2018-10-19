@@ -180,7 +180,7 @@ long double AVector<T>::indexOf(const T& value) const
 {
     for (long double i = 0; i < STVECTOR::size(); ++i) {
         if (value == STVECTOR::at(STATIC_CAST(size_t, i))) {
-            return STATIC_CAST(size_t, i);
+            return i;
         }
     }
     return -1;
@@ -189,7 +189,7 @@ long double AVector<T>::indexOf(const T& value) const
 template<class T>
 long double AVector<T>::lastIndexOf(const T& value) const
 {
-    for (int i = STVECTOR::size() - 1; i >= 0; --i) {
+    for (long double i = STVECTOR::size() - 1; i >= 0; --i) {
         if (value == STVECTOR::at(i)) {
             return i;
         }
@@ -354,7 +354,7 @@ std::list<T> AVector<T>::toList() const
 {
     std::list<T> result;
     for (auto it = IT_BEGIN; it != IT_END; ++it) {
-        result.append(*it);
+        result.push_back(*it);
     }
     return result;
 }

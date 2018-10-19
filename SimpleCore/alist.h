@@ -20,7 +20,9 @@ public:
 
     explicit AList(uint64 size);
 
-    AList(const AList& vector);
+    AList(const AList& list);
+
+    AList(AList&& list);
 
     ~AList();
 
@@ -104,6 +106,11 @@ AList<T>::AList(uint64 size) : STLIST(size)
 template<class T>
 AList<T>::AList(const AList& vector) : STLIST(vector)
 {}
+
+template<class T>
+AList<T>::AList(AList && vector) : AList<T>(vector)
+{
+}
 
 template<class T>
 AList<T>::~AList()
@@ -318,7 +325,7 @@ void AList<T>::removeAll(const T& value)
 template<class T>
 AList<T> AList<T>::mid(const uint64 pos, const uint64 length) const
 {
-    List<T> result;
+    AList<T> result;
     uint64 limit = length == -1 ? STLIST::size() : pos + length;
     auto it = IT_BEGIN;
     for (auto i = pos; i < limit; ++i) {
