@@ -3,6 +3,7 @@
 #include <GLFW/glfw3.h>
 
 #include "gfxutils.h"
+#include "keycallback.h"
 #include <logger.h>
 
 #pragma comment(lib, "opengl32")
@@ -20,12 +21,17 @@ Window::~Window()
 
 bool Window::getIsRunning() const
 {
-    return glfwWindowShouldClose(window_);
+    return !glfwWindowShouldClose(window_);
 }
 
 void Window::setIsRunning(const bool isRunning) const
 {
-    glfwSetWindowShouldClose(window_, isRunning);
+    glfwSetWindowShouldClose(window_, !isRunning);
+}
+
+void Window::setKeyCallback(KeyCallback* keyCallback)
+{
+    glfwSetKeyCallback(window_, keyCallback->invokeCallback);
 }
 
 void Window::initialize()
@@ -49,7 +55,9 @@ void Window::initialize()
         exit(EXIT_FAILURE);
     }
 
-    //    glfwSetKeyCallback(window_, keyCallback);
+    GLFW_KEY_UNKNOWN;
+
+    //glfwSetKeyCallback(window_, keyCallback);
 
     glfwMakeContextCurrent(window_);
     glfwSwapInterval(1); // vsync

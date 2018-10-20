@@ -5,8 +5,9 @@
 
 class KeyCallback {
 public:
-    void invoke(GLFWwindow* window, int key, int scancode, int action, int mods) const;
+    void invokeCallback(GLFWwindow* window, int key, int scancode, int action, int mods) const;
 
+    virtual void invoke(GLFWwindow* window, int key, int scancode, int action, int mods) const;
 private:
     static AVector<bool> keys_;
 };

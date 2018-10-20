@@ -17,6 +17,12 @@
     <Filter Include="src\Window">
       <UniqueIdentifier>{a54f422e-3dcc-4c79-ad27-2c3dfe501996}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Input">
+      <UniqueIdentifier>{d80cd389-a843-4e81-bea5-f7b001918fa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input\Keyboard">
+      <UniqueIdentifier>{7a4de2a6-1964-4197-97c4-0ec0222a85f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gfxutils.h">
@@ -27,6 +33,9 @@
     </ClInclude>
     <ClInclude Include="window.h">
       <Filter>src\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="key.h">
+      <Filter>src\Input\Keyboard</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

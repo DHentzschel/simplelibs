@@ -4,6 +4,8 @@
 struct GLFWwindow;
 typedef struct GLFWwindow GLFWwindow;
 
+class KeyCallback;
+
 class Window {
 public:
     Window();
@@ -14,8 +16,12 @@ public:
 
     void setIsRunning(bool isRunning) const;
 
-public:
+    void setKeyCallback(KeyCallback* keyCallback);
+
+private:
     GLFWwindow* window_;
+
+    KeyCallback* keyCallback_;
 
     void initialize();
 
