@@ -8,40 +8,40 @@
 
 class Console {
 public:
-	Console();
+    Console();
 
-	static void print(const AString& string,
-		bool newLine = true,
-		ConsoleColor color = LightGray,
-		ConsoleColor backgroundColor = Black,
-		bool centered = false);
+    static void print(const AString& string,
+        bool newLine = true,
+        ConsoleColor color = LightGray,
+        ConsoleColor backgroundColor = Black,
+        bool centered = false);
 
-	static void printLine(ConsoleColor color = LightGray, ConsoleColor backgroundColor = Black);
+    static void printLine(ConsoleColor color = LightGray, ConsoleColor backgroundColor = Black);
 
-	static void keep();
+    static void keep();
 
-	static void disableCloseButton();
+    static void disableCloseButton();
 
-	static void setConsoleTitle(const AString& title);
+    static void setConsoleTitle(const AString& title);
 
-	static int getConsoleWidth();
+    static int getConsoleWidth();
 
-	static int getConsoleHeight();
+    static int getConsoleHeight();
 
     static void printColorExample();
 
 private:
-	static CONSOLE_SCREEN_BUFFER_INFO consoleBufferInfo_;
+    static CONSOLE_SCREEN_BUFFER_INFO consoleBufferInfo_;
 
-	static Console consoleInitializer_;
+    static Console consoleInitializer_;
 
-	inline static HANDLE inputHandle_ = GetStdHandle(STD_INPUT_HANDLE);
+    static HANDLE inputHandle_;
 
-	inline static HANDLE outputHandle_ = GetStdHandle(STD_OUTPUT_HANDLE);
+    static HANDLE outputHandle_;
 
-	inline static int defaultColor_ = static_cast<int>(LightGray);
+    static int defaultColor_;
 
-	static void setControlEventHandler();
+    static void setControlEventHandler();
 };
 
 #endif // CONSOLE_H

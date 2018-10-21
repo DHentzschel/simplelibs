@@ -8,15 +8,26 @@
     <Filter Include="res">
       <UniqueIdentifier>{f6c3cc0c-1802-4ec1-bbcd-31d364f19e60}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\KeyCallback">
+      <UniqueIdentifier>{f9727bd3-bd80-4e92-877c-d283295d00c4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="keycallbacktest.cpp">
+      <Filter>src\KeyCallback</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="glfw3.dll">
       <Filter>res</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="keycallbacktest.h">
+      <Filter>src\KeyCallback</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

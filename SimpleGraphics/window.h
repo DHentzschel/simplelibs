@@ -4,7 +4,7 @@
 struct GLFWwindow;
 typedef struct GLFWwindow GLFWwindow;
 
-class KeyCallback;
+class IKeyCallback;
 
 class Window {
 public:
@@ -16,14 +16,20 @@ public:
 
     void setIsRunning(bool isRunning) const;
 
-    void setKeyCallback(KeyCallback* keyCallback);
+    void setKeyCallback(IKeyCallback* keyCallback);
+
+    void swapBuffers();
+
+    void pollEvents();
 
 private:
     GLFWwindow* window_;
 
-    KeyCallback* keyCallback_;
+    static IKeyCallback* keyCallback_;
 
     void initialize();
+
+    static void invokeCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
     static void errorCallback(int errorCode, const char* description);
 };

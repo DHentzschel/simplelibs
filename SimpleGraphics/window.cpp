@@ -3,11 +3,13 @@
 #include <GLFW/glfw3.h>
 
 #include "gfxutils.h"
-#include "keycallback.h"
+#include "ikeycallback.h"
 #include <logger.h>
 
 #pragma comment(lib, "opengl32")
 #pragma comment(lib, "glu32")
+
+IKeyCallback* Window::keyCallback_ = nullptr;
 
 Window::Window()
 {
@@ -17,6 +19,7 @@ Window::Window()
 Window::~Window()
 {
     glfwDestroyWindow(window_);
+    glfwTerminate();
 }
 
 bool Window::getIsRunning() const
@@ -29,9 +32,27 @@ void Window::setIsRunning(const bool isRunning) const
     glfwSetWindowShouldClose(window_, !isRunning);
 }
 
-void Window::setKeyCallback(KeyCallback* keyCallback)
+void Window::invokeCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-    glfwSetKeyCallback(window_, keyCallback->invokeCallback);
+    if (keyCallback_ != nullptr) {
+        keyCallback_->invokeCallback(window, key, scancode, action, mods);
+    }
+}
+
+void Window::setKeyCallback(IKeyCallback* keyCallback)
+{
+    keyCallback_ = keyCallback;
+    glfwSetKeyCallback(window_, invokeCallback);
+}
+
+void Window::swapBuffers()
+{
+    glfwSwapBuffers(window_);
+}
+
+void Window::pollEvents()
+{
+    glfwPollEvents();
 }
 
 void Window::initialize()
@@ -49,15 +70,11 @@ void Window::initialize()
     glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
 
     window_ = glfwCreateWindow(1280, 720, "Test", /*glfwGetPrimaryMonitor() <-- Fullscreen*/ nullptr, nullptr);
-    if (!window_) {
+    if (window_ == nullptr) {
         Logger::error("Couldn't create glfw window.");
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
-
-    GLFW_KEY_UNKNOWN;
-
-    //glfwSetKeyCallback(window_, keyCallback);
 
     glfwMakeContextCurrent(window_);
     glfwSwapInterval(1); // vsync

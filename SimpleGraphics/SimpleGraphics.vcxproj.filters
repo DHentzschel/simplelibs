@@ -5,53 +5,57 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="lib">
-      <UniqueIdentifier>{c4c557ea-555a-4786-985d-b2c50d595f41}</UniqueIdentifier>
+    <Filter Include="res">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
     <Filter Include="src\GfxUtils">
-      <UniqueIdentifier>{7a899b29-252c-4a44-ac8a-72846c9b76d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\KeyCallback">
-      <UniqueIdentifier>{cf36c9be-744c-469c-83ee-c3598eda3c17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Window">
-      <UniqueIdentifier>{a54f422e-3dcc-4c79-ad27-2c3dfe501996}</UniqueIdentifier>
+      <UniqueIdentifier>{41b5e7a3-4fec-4b02-a167-2bbbbcf8fca0}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Input">
-      <UniqueIdentifier>{d80cd389-a843-4e81-bea5-f7b001918fa5}</UniqueIdentifier>
+      <UniqueIdentifier>{e21c4b0e-e2cf-4d6b-a8d8-afca786e7669}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Input\Keyboard">
-      <UniqueIdentifier>{7a4de2a6-1964-4197-97c4-0ec0222a85f8}</UniqueIdentifier>
+    <Filter Include="src\Input\IKeyCallback">
+      <UniqueIdentifier>{4899a0b5-3dd5-4765-badd-77ca313ad21c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Window">
+      <UniqueIdentifier>{4823d243-2d93-46c1-9455-c5bb4596c896}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="glew32.dll">
+      <Filter>res</Filter>
+    </None>
+    <None Include="glfw3.dll">
+      <Filter>res</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gfxutils.h">
       <Filter>src\GfxUtils</Filter>
     </ClInclude>
-    <ClInclude Include="keycallback.h">
-      <Filter>src\KeyCallback</Filter>
+    <ClInclude Include="ikeycallback.h">
+      <Filter>src\Input\IKeyCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="inputaction.h">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="inputmod.h">
+      <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="key.h">
+      <Filter>src\Input</Filter>
     </ClInclude>
     <ClInclude Include="window.h">
       <Filter>src\Window</Filter>
     </ClInclude>
-    <ClInclude Include="key.h">
-      <Filter>src\Input\Keyboard</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="glew32.dll">
-      <Filter>lib</Filter>
-    </None>
-    <None Include="glfw3.dll">
-      <Filter>lib</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gfxutils.cpp">
       <Filter>src\GfxUtils</Filter>
     </ClCompile>
-    <ClCompile Include="keycallback.cpp">
-      <Filter>src\KeyCallback</Filter>
+    <ClCompile Include="ikeycallback.cpp">
+      <Filter>src\Input\IKeyCallback</Filter>
     </ClCompile>
     <ClCompile Include="window.cpp">
       <Filter>src\Window</Filter>

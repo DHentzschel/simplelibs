@@ -1,15 +1,18 @@
-#include "../SimpleGraphics/window.h"
-#include "../SimpleGraphics/keycallback.h"
+#include <window.h>
+#include "keycallbacktest.h"
 
 int main()
 {
+    KeyCallbackTest kcb;
+
     Window window;
     window.setIsRunning(true);
-    KeyCallback keycb;
-    window.setKeyCallback(&keycb);
+
+    window.setKeyCallback(&kcb);
 
     while (window.getIsRunning()) {
-
+        window.swapBuffers();
+        window.pollEvents();
     }
 
     return 0;

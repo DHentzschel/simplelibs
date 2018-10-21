@@ -6,11 +6,20 @@ Console Console::consoleInitializer_ = Console();
 
 CONSOLE_SCREEN_BUFFER_INFO Console::consoleBufferInfo_;
 
+HANDLE Console::inputHandle_;
+
+HANDLE Console::outputHandle_;
+
+int Console::defaultColor_;
+
 /**
  * \brief Constructs instance by calling intializing control event handler.
  */
 Console::Console()
 {
+    inputHandle_ = GetStdHandle(STD_INPUT_HANDLE);
+    outputHandle_ = GetStdHandle(STD_OUTPUT_HANDLE);
+    defaultColor_ = static_cast<int>(LightGray);
     //   setControlEventHandler();
 }
 

@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{87D713F9-6347-4DB1-9D02-4A0AA746E8A8}</ProjectGuid>
+    <ProjectGuid>{16F8CEF4-76FB-4C6D-A371-0E50BB288FB9}</ProjectGuid>
     <RootNamespace>SimpleGraphics</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -70,24 +70,24 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)\OpenGL\glew-2.1.0\include;$(SolutionDir)\OpenGL\glfw-3.2.1\include;$(SolutionDir)\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(SolutionDir)\OpenGL\glew-2.1.0\lib\x86;$(SolutionDir)\OpenGL\glfw-3.2.1\lib\x86;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
     <TargetName>$(ProjectName)-d</TargetName>
-    <IncludePath>$(SolutionDir)\OpenGL\glfw-3.2.1\include;$(SolutionDir)\OpenGL\glew-2.1.0\include;$(SolutionDir)\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>$(SolutionDir)\OpenGL\glfw-3.2.1\lib\x86;$(SolutionDir)\OpenGL\glew-2.1.0\lib\x86;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <TargetName>$(ProjectName)-d</TargetName>
-    <IncludePath>$(SolutionDir)\OpenGL\glfw-3.2.1\include;$(SolutionDir)\OpenGL\glew-2.1.0\include;$(SolutionDir)\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>$(SolutionDir)$\OpenGL\glfw-3.2.1-x64\lib\x64;(SolutionDir)\OpenGL\glew-2.1.0\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)\OpenGL\glfw-3.2.1\include;$(SolutionDir)\OpenGL\glew-2.1.0\include;$(SolutionDir)\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>$(SolutionDir)\OpenGL\glfw-3.2.1\lib\x86;$(SolutionDir)\OpenGL\glew-2.1.0\lib\x86;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+    <IncludePath>$(SolutionDir)\OpenGL\glew-2.1.0\include;$(SolutionDir)\OpenGL\glfw-3.2.1\include;$(SolutionDir)\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>$(SolutionDir)\OpenGL\glew-2.1.0\lib\x86;$(SolutionDir)\OpenGL\glfw-3.2.1\lib\x86;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>..\OpenGL\glew-2.1.0\include;..\OpenGL\glfw-3.2.1\include;..\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>..\OpenGL\glew-2.1.0\lib\x64;..\OpenGL\glfw-3.2.1\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)\OpenGL\glfw-3.2.1\include;$(SolutionDir)\OpenGL\glew-2.1.0\include;$(SolutionDir)\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>$(SolutionDir)$\OpenGL\glfw-3.2.1-x64\lib\x64;(SolutionDir)\OpenGL\glew-2.1.0\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
+    <IncludePath>..\OpenGL\glew-2.1.0\include;..\OpenGL\glfw-3.2.1\include;..\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>..\OpenGL\glew-2.1.0\lib\x64;..\OpenGL\glfw-3.2.1\lib\x64;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64</LibraryPath>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
@@ -96,7 +96,7 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
@@ -136,24 +136,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="gfxutils.h" />
-    <ClInclude Include="key.h" />
-    <ClInclude Include="keycallback.h" />
-    <ClInclude Include="window.h" />
+    <ProjectReference Include="..\SimpleCore\SimpleCore.vcxproj">
+      <Project>{870473c8-979d-42ad-9499-922c9d1a551a}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="glew32.dll" />
     <None Include="glfw3.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="gfxutils.cpp" />
-    <ClCompile Include="keycallback.cpp" />
-    <ClCompile Include="window.cpp" />
+    <ClInclude Include="gfxutils.h" />
+    <ClInclude Include="ikeycallback.h" />
+    <ClInclude Include="inputaction.h" />
+    <ClInclude Include="inputmod.h" />
+    <ClInclude Include="key.h" />
+    <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SimpleCore\SimpleCore.vcxproj">
-      <Project>{870473c8-979d-42ad-9499-922c9d1a551a}</Project>
-    </ProjectReference>
+    <ClCompile Include="gfxutils.cpp" />
+    <ClCompile Include="ikeycallback.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
