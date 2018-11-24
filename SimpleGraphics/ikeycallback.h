@@ -1,22 +1,19 @@
-﻿#ifndef KEYCALLBACK_H
-#define KEYCALLBACK_H
+﻿#ifndef IKEYCALLBACK_H
+#define IKEYCALLBACK_H
+
+#include <types.h>
 
 #include "inputaction.h"
 #include "key.h"
-#include "window.h"
-#include <types.h>
+
+struct GLFWwindow;
+typedef struct GLFWwindow GLFWwindow;
 
 class IKeyCallback {
 public:
-    IKeyCallback();
-
-    ~IKeyCallback();
-
     void invokeCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
-    virtual void invoke(GLFWwindow* window, Key key, int scancode, InputAction action, byte mods);
+    virtual void invoke(GLFWwindow* window, Key key, int scancode, InputAction action, byte mods) {}
 
-private:
-    static bool* keys_;
 };
-#endif // KEYCALLBACK_H
+#endif // IKEYCALLBACK_H

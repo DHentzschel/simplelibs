@@ -70,13 +70,13 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)\OpenGL\glew-2.1.0\include;$(SolutionDir)\OpenGL\glfw-3.2.1\include;$(SolutionDir)\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>$(SolutionDir)\OpenGL\glew-2.1.0\lib\x86;$(SolutionDir)\OpenGL\glfw-3.2.1\lib\x86;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+    <IncludePath>..\Vulkan;..\OpenGL\glew-2.1.0\include;..\OpenGL\glfw-3.2.1\include;..\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>..\OpenGL\glew-2.1.0\lib\x86;..\OpenGL\glfw-3.2.1\lib\x86;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
     <TargetName>$(ProjectName)-d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)\OpenGL\glew-2.1.0\include;$(SolutionDir)\OpenGL\glfw-3.2.1\include;$(SolutionDir)\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>$(SolutionDir)\OpenGL\glew-2.1.0\lib\x86;$(SolutionDir)\OpenGL\glfw-3.2.1\lib\x86;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
+    <IncludePath>..\Vulkan;..\OpenGL\glew-2.1.0\include;..\OpenGL\glfw-3.2.1\include;..\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>..\OpenGL\glew-2.1.0\lib\x86;..\OpenGL\glfw-3.2.1\lib\x86;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>..\OpenGL\glew-2.1.0\include;..\OpenGL\glfw-3.2.1\include;..\SimpleCore;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
@@ -146,15 +146,37 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="gfxutils.h" />
+    <ClInclude Include="ifiledropcallback.h" />
     <ClInclude Include="ikeycallback.h" />
+    <ClInclude Include="imaximizewindowcallback.h" />
+    <ClInclude Include="iminimizewindowcallback.h" />
+    <ClInclude Include="imousebuttoncallback.h" />
+    <ClInclude Include="imousemovingcallback.h" />
+    <ClInclude Include="imouseentercallback.h" />
+    <ClInclude Include="imousescrollingcallback.h" />
     <ClInclude Include="inputaction.h" />
     <ClInclude Include="inputmod.h" />
+    <ClInclude Include="iresizewindowcallback.h" />
     <ClInclude Include="key.h" />
+    <ClInclude Include="keyboard.h" />
+    <ClInclude Include="monitor.h" />
+    <ClInclude Include="mouse.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gfxutils.cpp" />
+    <ClCompile Include="ifiledropcallback.cpp" />
     <ClCompile Include="ikeycallback.cpp" />
+    <ClCompile Include="imaximizewindowcallback.cpp" />
+    <ClCompile Include="iminimizewindowcallback.cpp" />
+    <ClCompile Include="imousebuttoncallback.cpp" />
+    <ClCompile Include="imousemovingcallback.cpp" />
+    <ClCompile Include="imouseentercallback.cpp" />
+    <ClCompile Include="imousescrollingcallback.cpp" />
+    <ClCompile Include="iresizewindowcallback.cpp" />
+    <ClCompile Include="keyboard.cpp" />
+    <ClCompile Include="monitor.cpp" />
+    <ClCompile Include="mouse.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -5,21 +5,59 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="res">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="src\GfxUtils">
       <UniqueIdentifier>{41b5e7a3-4fec-4b02-a167-2bbbbcf8fca0}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Input">
       <UniqueIdentifier>{e21c4b0e-e2cf-4d6b-a8d8-afca786e7669}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Input\IKeyCallback">
-      <UniqueIdentifier>{4899a0b5-3dd5-4765-badd-77ca313ad21c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Window">
       <UniqueIdentifier>{4823d243-2d93-46c1-9455-c5bb4596c896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ICallbacks">
+      <UniqueIdentifier>{fd368106-e93c-4ae2-9b58-1cc827f753f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ICallbacks\IKeyCallback">
+      <UniqueIdentifier>{4899a0b5-3dd5-4765-badd-77ca313ad21c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ICallbacks\IMouseButtonCallback">
+      <UniqueIdentifier>{27b61531-d461-4e01-a9bb-cf9bc7efb9e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{b549c824-b9f7-454f-b468-c5a834634e5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ICallbacks\IMouseScrollingCallback">
+      <UniqueIdentifier>{09e4088f-c082-4b3c-b05c-df97c6884f48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input\Keyboard">
+      <UniqueIdentifier>{f86690c6-3fa9-49d7-8c71-f5165db7c9cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input\Mouse">
+      <UniqueIdentifier>{8752ee1c-9249-4613-9d06-2d21a3579162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Input\Internal">
+      <UniqueIdentifier>{e775c73d-5610-4a5c-923c-98bb10ab68ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ICallbacks\IMouseMovingCallback">
+      <UniqueIdentifier>{b18c2fee-6aeb-4699-9a60-4dc0bfab69ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ICallbacks\IFileDropCallback">
+      <UniqueIdentifier>{4f7a2a50-a7b0-4ba7-a031-5726d1bfefa1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ICallbacks\IMouseEnterCallback">
+      <UniqueIdentifier>{695e8138-44de-406a-8bec-b49a563b0cb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ICallbacks\IResizeWindowCallback">
+      <UniqueIdentifier>{cee261ca-b20f-41d0-90da-6d9625f25555}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ICallbacks\IMaximizeWindowCallback">
+      <UniqueIdentifier>{0a612842-f96e-404b-af78-a0d81b679cf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ICallbacks\IMinimizeWindowCallback">
+      <UniqueIdentifier>{80d2b360-681f-44b3-893e-355efbb3963a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Monitor">
+      <UniqueIdentifier>{237365b9-22c2-43db-8587-6cbce06d4000}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -35,19 +73,52 @@
       <Filter>src\GfxUtils</Filter>
     </ClInclude>
     <ClInclude Include="ikeycallback.h">
-      <Filter>src\Input\IKeyCallback</Filter>
-    </ClInclude>
-    <ClInclude Include="inputaction.h">
-      <Filter>src\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="inputmod.h">
-      <Filter>src\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="key.h">
-      <Filter>src\Input</Filter>
+      <Filter>src\ICallbacks\IKeyCallback</Filter>
     </ClInclude>
     <ClInclude Include="window.h">
       <Filter>src\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="imousebuttoncallback.h">
+      <Filter>src\ICallbacks\IMouseButtonCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="imousescrollingcallback.h">
+      <Filter>src\ICallbacks\IMouseScrollingCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="keyboard.h">
+      <Filter>src\Input\Keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse.h">
+      <Filter>src\Input\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="inputaction.h">
+      <Filter>src\Input\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="inputmod.h">
+      <Filter>src\Input\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="key.h">
+      <Filter>src\Input\Internal</Filter>
+    </ClInclude>
+    <ClInclude Include="imousemovingcallback.h">
+      <Filter>src\ICallbacks\IMouseMovingCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="ifiledropcallback.h">
+      <Filter>src\ICallbacks\IFileDropCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="imouseentercallback.h">
+      <Filter>src\ICallbacks\IMouseEnterCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="iresizewindowcallback.h">
+      <Filter>src\ICallbacks\IResizeWindowCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="imaximizewindowcallback.h">
+      <Filter>src\ICallbacks\IMaximizeWindowCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="iminimizewindowcallback.h">
+      <Filter>src\ICallbacks\IMinimizeWindowCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="monitor.h">
+      <Filter>src\Monitor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -55,10 +126,43 @@
       <Filter>src\GfxUtils</Filter>
     </ClCompile>
     <ClCompile Include="ikeycallback.cpp">
-      <Filter>src\Input\IKeyCallback</Filter>
+      <Filter>src\ICallbacks\IKeyCallback</Filter>
     </ClCompile>
     <ClCompile Include="window.cpp">
       <Filter>src\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="imousebuttoncallback.cpp">
+      <Filter>src\ICallbacks\IMouseButtonCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="imousescrollingcallback.cpp">
+      <Filter>src\ICallbacks\IMouseScrollingCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="keyboard.cpp">
+      <Filter>src\Input\Keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="mouse.cpp">
+      <Filter>src\Input\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="imousemovingcallback.cpp">
+      <Filter>src\ICallbacks\IMouseMovingCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="ifiledropcallback.cpp">
+      <Filter>src\ICallbacks\IFileDropCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="imouseentercallback.cpp">
+      <Filter>src\ICallbacks\IMouseEnterCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="iresizewindowcallback.cpp">
+      <Filter>src\ICallbacks\IResizeWindowCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="imaximizewindowcallback.cpp">
+      <Filter>src\ICallbacks\IMaximizeWindowCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="iminimizewindowcallback.cpp">
+      <Filter>src\ICallbacks\IMinimizeWindowCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="monitor.cpp">
+      <Filter>src\Monitor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

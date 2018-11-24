@@ -19,14 +19,30 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="filedropcallbacktest.cpp" />
     <ClCompile Include="keycallbacktest.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="maximizewindowcallbacktest.cpp" />
+    <ClCompile Include="minimizewindowcallbacktest.cpp" />
+    <ClCompile Include="mousebuttoncallbacktest.cpp" />
+    <ClCompile Include="mouseentercallbacktest.cpp" />
+    <ClCompile Include="mousemovingcallbacktest.cpp" />
+    <ClCompile Include="mousescrollingcallbacktest.cpp" />
+    <ClCompile Include="resizewindowcallbacktest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glfw3.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="filedropcallbacktest.h" />
     <ClInclude Include="keycallbacktest.h" />
+    <ClInclude Include="maximizewindowcallbacktest.h" />
+    <ClInclude Include="minimizewindowcallbacktest.h" />
+    <ClInclude Include="mousebuttoncallbacktest.h" />
+    <ClInclude Include="mouseentercallbacktest.h" />
+    <ClInclude Include="mousemovingcallbacktest.h" />
+    <ClInclude Include="mousescrollingcallbacktest.h" />
+    <ClInclude Include="resizewindowcallbacktest.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleCore\SimpleCore.vcxproj">

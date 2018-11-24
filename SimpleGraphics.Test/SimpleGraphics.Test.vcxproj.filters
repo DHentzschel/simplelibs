@@ -11,6 +11,30 @@
     <Filter Include="src\KeyCallback">
       <UniqueIdentifier>{f9727bd3-bd80-4e92-877c-d283295d00c4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\MouseButtonCallback">
+      <UniqueIdentifier>{4eeb004b-f399-4566-a91f-e2272c98c339}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MouseScrollingCallback">
+      <UniqueIdentifier>{4210a1c3-fa28-4f68-af80-795ef9b21b38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MouseMovingCallback">
+      <UniqueIdentifier>{12fcd0db-90a9-4400-b438-fe0c8008594e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\FileDropCallback">
+      <UniqueIdentifier>{7215b266-3705-41f2-97f3-0ad5c6dae0b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MouseEnterCallback">
+      <UniqueIdentifier>{69e8b087-ff2d-464b-84db-d70f2829b389}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MaximizeWindowCallback">
+      <UniqueIdentifier>{b12056af-0e86-4670-ba4c-7f690446030c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\ResizeWindowCallback">
+      <UniqueIdentifier>{9abb164a-fa0f-4a7e-8d38-25f48025c371}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\MinimizeWindowCallback">
+      <UniqueIdentifier>{e26d4424-d9eb-463c-80c5-66042f8eeba8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,6 +42,30 @@
     </ClCompile>
     <ClCompile Include="keycallbacktest.cpp">
       <Filter>src\KeyCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="mousebuttoncallbacktest.cpp">
+      <Filter>src\MouseButtonCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="mousescrollingcallbacktest.cpp">
+      <Filter>src\MouseScrollingCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="mousemovingcallbacktest.cpp">
+      <Filter>src\MouseMovingCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="filedropcallbacktest.cpp">
+      <Filter>src\FileDropCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="mouseentercallbacktest.cpp">
+      <Filter>src\MouseEnterCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="resizewindowcallbacktest.cpp">
+      <Filter>src\ResizeWindowCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="maximizewindowcallbacktest.cpp">
+      <Filter>src\MaximizeWindowCallback</Filter>
+    </ClCompile>
+    <ClCompile Include="minimizewindowcallbacktest.cpp">
+      <Filter>src\MinimizeWindowCallback</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +76,30 @@
   <ItemGroup>
     <ClInclude Include="keycallbacktest.h">
       <Filter>src\KeyCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="mousebuttoncallbacktest.h">
+      <Filter>src\MouseButtonCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="mousescrollingcallbacktest.h">
+      <Filter>src\MouseScrollingCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="mousemovingcallbacktest.h">
+      <Filter>src\MouseMovingCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="filedropcallbacktest.h">
+      <Filter>src\FileDropCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="mouseentercallbacktest.h">
+      <Filter>src\MouseEnterCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="resizewindowcallbacktest.h">
+      <Filter>src\ResizeWindowCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="maximizewindowcallbacktest.h">
+      <Filter>src\MaximizeWindowCallback</Filter>
+    </ClInclude>
+    <ClInclude Include="minimizewindowcallbacktest.h">
+      <Filter>src\MinimizeWindowCallback</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

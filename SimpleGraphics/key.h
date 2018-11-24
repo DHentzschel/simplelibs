@@ -142,4 +142,7 @@ enum class Key {
 
     Last = Menu
 };
+
+typedef Key Button;
+
 #endif // KEY_H
