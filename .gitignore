@@ -432,3 +432,4 @@ ASALocalRun/
 
 
 # End of https://www.gitignore.io/api/c,c++,windows,visualstudio
+glm/
