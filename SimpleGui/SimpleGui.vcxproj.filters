@@ -76,11 +76,11 @@
     <ClCompile Include="keyboard.cpp">
       <Filter>src\Input\Keyboard</Filter>
     </ClCompile>
-    <ClCompile Include="label.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="control.cpp">
       <Filter>src\Controls\Control</Filter>
+    </ClCompile>
+    <ClCompile Include="label.cpp">
+      <Filter>src\Controls\Label</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +120,11 @@
     <ClInclude Include="keyboard.h">
       <Filter>src\Input\Keyboard</Filter>
     </ClInclude>
-    <ClInclude Include="label.h" />
     <ClInclude Include="control.h">
       <Filter>src\Controls\Control</Filter>
+    </ClInclude>
+    <ClInclude Include="label.h">
+      <Filter>src\Controls\Label</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

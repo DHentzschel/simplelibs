@@ -25,15 +25,15 @@ public:
 
     AString arg(const AString& value);
 
-    AString left(uint n) const;
+    AString left(size_t n) const;
 
-    AString right(uint n) const;
+    AString right(size_t n) const;
 
     AString& append(char c);
 
     AString& append(const AString& string);
 
-    AString& fill(char c, int size = -1);
+    AString& fill(char c, size_t size = -1);
 
     AString& prepend(char c);
 
@@ -128,6 +128,8 @@ public:
     double toDouble() const;
 
     long double toLongDouble() const;
+
+    std::string toStdString() const;
 
     static AString toString(bool n, bool inLetters = false);
 

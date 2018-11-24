@@ -116,6 +116,9 @@
     <Filter Include="src\Logger\LogType">
       <UniqueIdentifier>{ec43cffd-3698-4fe2-8275-23a7c56baa8d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Mathematics\Vectors\Vector2d">
+      <UniqueIdentifier>{2869a61c-bf5e-4073-9f9d-4d319b09cb1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bytearray.cpp">
@@ -476,6 +479,9 @@
     </ClInclude>
     <ClInclude Include="types.h">
       <Filter>src\General</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2d.h">
+      <Filter>src\Mathematics\Vectors\Vector2d</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

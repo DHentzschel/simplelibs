@@ -11,13 +11,24 @@
  */
 Dir::Dir() = default;
 
+Dir::Dir(const Dir& dir) :
+    path_(dir.path_),
+    fileList_(dir.fileList_)
+{
+}
+
+Dir::Dir(Dir&& dir) :
+    Dir(dir)
+{
+}
+
 /**
  * \brief Constructs instance and sets default value path.
  * \param path directory path
  */
-Dir::Dir(const AString& path)
+Dir::Dir(const AString& getPath)
 {
-    setPath(path);
+    setPath(getPath);
 }
 
 /**
@@ -29,7 +40,7 @@ Dir::~Dir() = default;
  * \brief Returns path as string.
  * \return path
  */
-AString Dir::path() const
+AString Dir::getPath() const
 {
     return path_;
 }
@@ -40,7 +51,13 @@ AString Dir::path() const
  */
 void Dir::setPath(const AString& path)
 {
-    path_ = path;
+    path_.clear();
+
+    if (path.size() > 2 && path[1] != ':') {
+        path_ = Dir::getApplicationDir() + "/";
+    }
+
+    path_ += path;
     path_.replaceAll("\\", "/");
 }
 
@@ -60,6 +77,9 @@ bool Dir::create(const bool overrideIfExisting) const
         }
 
         tempDirString += part + "/";
+        if (part.size() >= 2 && part[1] == ':') {
+            continue;
+        }
         auto tempDir = Dir(tempDirString);
         if (!tempDir.exists()) {
             if (!static_cast<bool>(
@@ -89,9 +109,9 @@ bool Dir::create(const bool overrideIfExisting) const
 * \param overrideIfExisting override if existings
 * \return success
 */
-bool Dir::create(const AString& path, const bool overrideIfExisting)
+bool Dir::create(const AString& getPath, const bool overrideIfExisting)
 {
-    return Dir(path).create(overrideIfExisting);
+    return Dir(getPath).create(overrideIfExisting);
 }
 
 /**
@@ -112,9 +132,9 @@ bool Dir::exists() const
  * \param path directory path
  * \return if existing
  */
-bool Dir::exists(const AString& path)
+bool Dir::exists(const AString& getPath)
 {
-    return Dir(path).exists();
+    return Dir(getPath).exists();
 }
 
 /**
@@ -145,7 +165,7 @@ bool Dir::erase(const bool recursively) const
 int64 Dir::getFileCount()
 {
     using std::filesystem::directory_iterator;
-    return std::distance(directory_iterator(std::string(path_)), directory_iterator {});
+    return std::distance(directory_iterator(std::string(path_)), directory_iterator{});
 }
 
 const AVector<std::filesystem::directory_entry>& Dir::getFiles()
@@ -165,9 +185,9 @@ const AVector<std::filesystem::directory_entry>& Dir::getFiles()
  * \param recursively delete recursivelys
  * \return success
  */
-bool Dir::erase(const AString& path, const bool recursively)
+bool Dir::erase(const AString& getPath, const bool recursively)
 {
-    return Dir(path).erase(recursively);
+    return Dir(getPath).erase(recursively);
 }
 
 /**

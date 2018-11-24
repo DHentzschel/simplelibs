@@ -11,7 +11,7 @@ public:
 	Logger() = default;
 	~Logger();
 
-	static void prepareLogFile(const AString& path);
+	static void prepareLogFile(const AString& getPath);
 
     static void print(const AString& text,
         bool newLine = true,

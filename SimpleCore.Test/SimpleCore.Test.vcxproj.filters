@@ -6,17 +6,61 @@
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="res">
-      <UniqueIdentifier>{f2a5175c-e791-4e71-84c3-dafa0aae2087}</UniqueIdentifier>
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src\FileTest">
+      <UniqueIdentifier>{92769561-0011-4d7c-8f49-015440930f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TestSystem">
+      <UniqueIdentifier>{f532948a-e3ac-4f25-96eb-d8d47630be86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TestSystem\StdAfx">
+      <UniqueIdentifier>{2277cd7a-e0d7-4197-b11e-15bf1bab1ca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\DirTest">
+      <UniqueIdentifier>{70e61150-2470-4a79-8f8d-4d56490050f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\VectorTest">
+      <UniqueIdentifier>{1ee81cfb-132a-454d-b5d7-25eb7b414768}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>src</Filter>
+    <ClInclude Include="stdafx.h">
+      <Filter>src\TestSystem\StdAfx</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>src\TestSystem</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>src\TestSystem\StdAfx</Filter>
+    </ClCompile>
+    <ClCompile Include="filetest.cpp">
+      <Filter>src\FileTest</Filter>
+    </ClCompile>
+    <ClCompile Include="dirtest.cpp">
+      <Filter>src\DirTest</Filter>
+    </ClCompile>
+    <ClCompile Include="vectortest.cpp">
+      <Filter>src\VectorTest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="testfile.txt">
       <Filter>res</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="testfile2.bin">
+      <Filter>res</Filter>
+    </None>
+    <None Include="cleanup.bat">
+      <Filter>res</Filter>
+    </None>
+    <None Include="setup.bat">
+      <Filter>res</Filter>
+    </None>
   </ItemGroup>
 </Project>

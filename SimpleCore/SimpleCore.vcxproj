@@ -244,6 +244,7 @@
     <ClInclude Include="stringvector.h" />
     <ClInclude Include="types.h" />
     <ClInclude Include="vector2.h" />
+    <ClInclude Include="vector2d.h" />
     <ClInclude Include="vector2f.h" />
   </ItemGroup>
   <ItemGroup>

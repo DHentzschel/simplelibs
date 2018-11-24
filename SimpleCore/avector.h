@@ -2,6 +2,8 @@
 #define AVECTOR_H
 
 #define STVECTOR std::vector<T>
+#define IT_BEGIN STVECTOR::begin()
+#define IT_END STVECTOR::end()
 
 #include <list>
 #include <vector>
@@ -37,17 +39,17 @@ public:
 
     bool contains(const T& value) const;
 
-    int count(const T& value) const;
+    uint64 count(const T& value) const;
 
-    int firstIndexOf(const T& value) const;
+    long double firstIndexOf(const T& value) const;
 
-    int indexOf(const T& value) const;
+    long double indexOf(const T& value) const;
 
-    int lastIndexOf(const T& value) const;
+    long double lastIndexOf(const T& value) const;
 
-    void replace(int i, const T& value);
+    void replace(uint64 i, const T& value);
 
-    void removeAt(int i);
+    void removeAt(uint64 i);
 
     void removeFirst();
 
@@ -61,9 +63,9 @@ public:
 
     void removeAll(const T& value);
 
-    AVector<T> mid(int pos, int length = -1) const;
+    AVector<T> mid(uint64 pos, uint64 length = -1) const;
 
-    void move(int from, int to);
+    void move(uint64 from, uint64 to);
 
     T& first();
 
@@ -73,7 +75,7 @@ public:
 
     const T& last() const;
 
-    T takeAt(int i);
+    T takeAt(uint64 i);
 
     T takeFirst();
 
@@ -81,10 +83,14 @@ public:
 
     std::list<T> toList() const;
 
-    AVector<char> toByteArray();
+    AVector<byte> toByteArray();
 
-    static AVector<byte> toByteArray(const char* string, uint length);
+    static AVector<byte> toByteArray(const char* string, uint64 length);
+
 };
+
+template<class T>
+using Vector = AVector<T>;
 
 template<class T>
 void AVector<T>::append(const T& value)
@@ -101,13 +107,13 @@ void AVector<T>::append(T&& value)
 template<class T>
 void AVector<T>::prepend(const T& value)
 {
-    STVECTOR::insert(STVECTOR::begin(), value);
+    STVECTOR::insert(IT_BEGIN, value);
 }
 
 template<class T>
 void AVector<T>::prepend(T&& value)
 {
-    STVECTOR::insert(STVECTOR::begin(), value);
+    STVECTOR::insert(IT_BEGIN, value);
 }
 
 template<class T>
@@ -125,13 +131,13 @@ void AVector<T>::push_front(T&& value)
 template<class T>
 bool AVector<T>::startsWith(const T& value) const
 {
-    return *STVECTOR::begin() == value;
+    return *IT_BEGIN == value;
 }
 
 template<class T>
 bool AVector<T>::endsWith(const T& value) const
 {
-    return *(STVECTOR::end() - 1) == value;
+    return *(IT_END - 1) == value;
 }
 
 template<class T>
@@ -143,8 +149,8 @@ bool AVector<T>::isEmpty() const
 template<class T>
 inline bool AVector<T>::contains(const T& value) const
 {
-    for (int i = 0; i < STVECTOR::size(); ++i) {
-        if (STVECTOR::at(i) == value) {
+    for (long double i = 0; i < STVECTOR::size(); ++i) {
+        if (STVECTOR::at(STATIC_CAST(size_t, i)) == value) {
             return true;
         }
     }
@@ -152,11 +158,11 @@ inline bool AVector<T>::contains(const T& value) const
 }
 
 template<class T>
-int AVector<T>::count(const T& value) const
+uint64 AVector<T>::count(const T& value) const
 {
-    auto c = 0;
-    for (int i = STVECTOR::size() - 1; i >= 0; --i) {
-        if (STVECTOR::at(i) == value) {
+    uint64 c = 0;
+    for (long double i = 0; i < STVECTOR::size(); ++i) {
+        if (STVECTOR::at(STATIC_CAST(uint64, i)) == value) {
             ++c;
         }
     }
@@ -164,15 +170,26 @@ int AVector<T>::count(const T& value) const
 }
 
 template<class T>
-int AVector<T>::firstIndexOf(const T& value) const
+long double AVector<T>::firstIndexOf(const T& value) const
 {
     return indexOf(value);
 }
 
 template<class T>
-int AVector<T>::indexOf(const T& value) const
+long double AVector<T>::indexOf(const T& value) const
 {
-    for (auto i = 0; i < STVECTOR::size(); ++i) {
+    for (long double i = 0; i < STVECTOR::size(); ++i) {
+        if (value == STVECTOR::at(STATIC_CAST(size_t, i))) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+template<class T>
+long double AVector<T>::lastIndexOf(const T& value) const
+{
+    for (long double i = STVECTOR::size() - 1; i >= 0; --i) {
         if (value == STVECTOR::at(i)) {
             return i;
         }
@@ -181,26 +198,15 @@ int AVector<T>::indexOf(const T& value) const
 }
 
 template<class T>
-int AVector<T>::lastIndexOf(const T& value) const
-{
-    for (int i = STVECTOR::size() - 1; i >= 0; --i) {
-        if (value == STVECTOR::at(i)) {
-            return i;
-        }
-    }
-    return -1;
-}
-
-template<class T>
-void AVector<T>::replace(int i, const T& value)
+void AVector<T>::replace(uint64 i, const T& value)
 {
     STVECTOR::data()[i] = value;
 }
 
 template<class T>
-void AVector<T>::removeAt(int i)
+void AVector<T>::removeAt(uint64 i)
 {
-    STVECTOR::erase(STVECTOR::begin() + i);
+    STVECTOR::erase(IT_BEGIN + i);
 }
 
 template<class T>
@@ -209,7 +215,7 @@ void AVector<T>::removeFirst()
     if (STVECTOR::size() == 0) {
         return;
     }
-    STVECTOR::erase(STVECTOR::begin());
+    STVECTOR::erase(IT_BEGIN);
 }
 
 template<class T>
@@ -221,12 +227,15 @@ void AVector<T>::pop_front()
 template<class T>
 void AVector<T>::removeDuplicates()
 {
-    //std::unordered_set<T> set;
-    //for (T& t : *this) {
-    //    set.insert(t);
-    //}
-    //STVECTOR::assign(set.begin(), set.end());
-    //std::sort(STVECTOR::begin(), STVECTOR::end());
+    AVector<T> result;
+    result.reserve(STVECTOR::size());
+
+    for (auto t : *this) {
+        if (!result.contains(t)) {
+            result.append(t);
+        }
+    }
+    *this = result;
 }
 
 template<class T>
@@ -241,8 +250,8 @@ void AVector<T>::removeFirst(const T& value)
     if (STVECTOR::size() == 0) {
         return;
     }
-    auto it = STVECTOR::begin();
-    for (; it != STVECTOR::end(); ++it) {
+    auto it = IT_BEGIN;
+    for (; it != IT_END; ++it) {
         if (*it == value) {
             STVECTOR::erase(it);
             return;
@@ -256,25 +265,24 @@ void AVector<T>::removeAll(const T& value)
     if (STVECTOR::size() == 0) {
         return;
     }
-    auto it = STVECTOR::begin();
-    for (; it != STVECTOR::end(); ++it) {
-        if (*it == value) {
-            it = STVECTOR::erase(it);
-            if (it == STVECTOR::end()) {
-                break;
-            }
+    AVector<T> result;
+    result.reserve(STVECTOR::size() - count(value));
+    for (auto it = IT_BEGIN; it != IT_END; ++it) {
+        if (*it != value) {
+            result.append(*it);
         }
     }
+    *this = result;
 }
 
 template<class T>
-AVector<T> AVector<T>::mid(const int pos, const int length) const
+AVector<T> AVector<T>::mid(const uint64 pos, const uint64 length) const
 {
     if (STVECTOR::size() == 0) {
-        return;
+        return AVector<T>();
     }
     AVector<T> result;
-    int limit = length == -1 ? STVECTOR::size() : pos + length;
+    uint64 limit = length == -1 ? STVECTOR::size() : pos + length;
     for (auto i = pos; i < limit; ++i) {
         result.append(STVECTOR::at(i));
     }
@@ -282,7 +290,7 @@ AVector<T> AVector<T>::mid(const int pos, const int length) const
 }
 
 template<class T>
-void AVector<T>::move(int from, int to)
+void AVector<T>::move(const uint64 from, const uint64 to)
 {
     if (STVECTOR::size() == 0) {
         return;
@@ -318,7 +326,7 @@ const T& AVector<T>::last() const
 }
 
 template<class T>
-T AVector<T>::takeAt(int i)
+T AVector<T>::takeAt(uint64 i)
 {
     T result = STVECTOR::at(i);
     removeAt(i);
@@ -328,7 +336,7 @@ T AVector<T>::takeAt(int i)
 template<class T>
 T AVector<T>::takeFirst()
 {
-    T result = *STVECTOR::begin();
+    T result = *IT_BEGIN;
     removeFirst();
     return result;
 }
@@ -336,7 +344,7 @@ T AVector<T>::takeFirst()
 template<class T>
 T AVector<T>::takeLast()
 {
-    T result = *(STVECTOR::end() - 1);
+    T result = *(IT_END - 1);
     removeLast();
     return result;
 }
@@ -345,30 +353,32 @@ template<class T>
 std::list<T> AVector<T>::toList() const
 {
     std::list<T> result;
-    for (auto it = STVECTOR::begin(); it != STVECTOR::end(); ++it) {
-        result.append(*it);
+    for (auto it = IT_BEGIN; it != IT_END; ++it) {
+        result.push_back(*it);
     }
     return result;
 }
 
 template<class T>
-inline AVector<char> AVector<T>::toByteArray()
+inline AVector<byte> AVector<T>::toByteArray()
 {
-    AVector<char> result;
-    result.assign(STVECTOR::begin(), STVECTOR::end());
+    AVector<byte> result;
+    result.assign(IT_BEGIN, IT_END);
     return result;
 }
 
 template <class T>
-AVector<byte> AVector<T>::toByteArray(const char* string, const uint length)
+AVector<byte> AVector<T>::toByteArray(const char* string, const uint64 length)
 {
     AVector<byte> result;
-    for (uint i = 0; i < length - 1; ++i) {
+    for (long double i = 0; i < length - 1; ++i) {
         result.append(string[i]);
     }
     return result;
 }
 
 #undef STVECTOR
+#undef IT_BEGIN
+#undef IT_END
 
 #endif   // AVECTOR_H

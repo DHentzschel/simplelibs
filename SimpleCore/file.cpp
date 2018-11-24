@@ -14,15 +14,29 @@ File::File() :
     openMode_(NotOpen)
 {}
 
+File::File(const File& file)
+{
+    filepath_ = file.filepath_;
+    openMode_ = file.openMode_;
+
+    if (file.isOpen()) {
+        open(openMode_);
+    }
+}
+
+File::File(File&& file) :
+    File(file)
+{
+}
+
 /**
  * \brief Constructs instance by setting params for filepath (passed by param) and openMode(NotOpen)
  * \param filepath filepath to use
  */
 File::File(const AString& filepath) :
-    filepath_(filepath),
     openMode_(NotOpen)
 {
-    filepath_.replaceAll("\\", "/");
+    setFilepath(filepath);
 }
 
 /**
@@ -70,7 +84,7 @@ bool File::create(const AString& filepath, const bool recursively)
  */
 bool File::erase() const
 {
-    return remove(filepath_.toCString());
+    return !remove(filepath_.toCString());
 }
 
 /**
@@ -110,7 +124,7 @@ bool File::exists(const AString& filepath)
 AString File::getDirectory() const
 {
     if (filepath_.count("/") == 0 && filepath_.count("\\") == 0) {
-        return Dir::getApplicationDir() + filepath_;
+        return AString(Dir::getApplicationDir()).replaceAll("\\", "/");
     }
 
     // TODO: Return absolute directory from relative
@@ -130,6 +144,9 @@ AString File::getFilename() const
     auto lastIndexOfSlash = filepath_.lastIndexOf('/');
     if (lastIndexOfSlash == -1) {
         lastIndexOfSlash = filepath_.lastIndexOf('\\');
+        if (lastIndexOfSlash == -1) {
+            return filepath_;
+        }
     }
 
     auto copy = filepath_;
@@ -150,7 +167,7 @@ AString File::getFilepath() const
  * \brief Sets file path for the next filestream.
  * \param filepath filepath for filestream
  */
-void File::setFilePath(const AString& filepath)
+void File::setFilepath(const AString& filepath)
 {
     filepath_ = filepath;
     filepath_.replaceAll("\\", "/");
@@ -189,6 +206,16 @@ bool File::open(const int openMode)
 void File::close()
 {
     fstream_.close();
+}
+
+void File::operator=(const File& file)
+{
+    filepath_ = file.filepath_;
+    openMode_ = file.openMode_;
+
+    if (file.isOpen()) {
+        open(openMode_);
+    }
 }
 
 /**
@@ -251,9 +278,11 @@ AString File::readAllText()
         close();
     }
     open(ReadOnly);
-    std::stringstream stringstream;
-    stringstream << fstream_.rdbuf();
-    return AString(stringstream.str());
+    AString result((std::istreambuf_iterator<char>(fstream_)), std::istreambuf_iterator<char>());
+    //std::stringstream stringstream;
+    //stringstream << fstream_.rdbuf();
+    //return AString(stringstream.str());
+    return result;
 }
 
 /**
@@ -277,29 +306,30 @@ void File::writeAllText(const AString& text)
  * \brief Reads complete filestream in binary and returns new vector.
  * \return byte array
  */
-AVector<char> File::readAllBytes()
+ByteArray File::readAllBytes()
 {
     if (isOpen()) {
         close();
     }
     if (!open(ReadOnly | Binary | AtTheEnd)) {
         Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
-        return AVector<char>();
+        return ByteArray();
     }
     const size_t pos = STATIC_CAST(size_t, fstream_.tellg());
-    AVector<char> result(pos);
 
+    SHARED_PTR(char) buffer = SHARED_PTR(char)(new char[pos], [](const char* buffer) { delete[] buffer; });
     fstream_.seekg(0, std::ios::beg);
-    fstream_.read(&result[0], pos);
+    fstream_.read(buffer.get(), pos);
+    close();
 
-    return result;
+    return ByteArray(buffer.get(), pos);
 }
 
 /**
  * \brief Clears filestream and writes all bytes existing in param bytes.
  * \param bytes byte array
  */
-void File::writeAllBytes(const AVector<char>& bytes)
+void File::writeAllBytes(const ByteArray& bytes)
 {
     if (isOpen()) {
         close();

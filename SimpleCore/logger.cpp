@@ -19,11 +19,11 @@ Logger::~Logger()
  * \brief Initializes log filestream by opening with param path.
  * \param path file path
  */
-void Logger::prepareLogFile(const AString& path)
+void Logger::prepareLogFile(const AString& getPath)
 {
-    file_.setFilePath(AString(path).replaceAll(":", "-").replaceFirst(" ", "_") + ".log");
+    file_.setFilepath(AString(getPath).replaceAll(":", "-").replaceFirst(" ", "_") + ".log");
     if (!file_.open(WriteOnly | Append)) {
-        warn("Couldn't create logfile '" + path + "'!");
+        warn("Couldn't create logfile '" + getPath + "'!");
     }
 }
 
