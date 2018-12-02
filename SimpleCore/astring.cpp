@@ -37,7 +37,7 @@ AString AString::left(const size_t n) const
 {
     AString result;
     if (n < size()) {
-        for (long double i = 0; i < n; ++i) {
+        for (uint64 i = 0; i < n; ++i) {
             result += at(STATIC_CAST(uint, i));
         }
     }
@@ -48,7 +48,7 @@ AString AString::right(const size_t n) const
 {
     AString result;
     if (n < size()) {
-        for (long double i = STATIC_CAST(long double, size() - n); i < size(); ++i) {
+        for (uint64 i = size() - n; i < size(); ++i) {
             result += at(STATIC_CAST(size_t, i));
         }
     }
@@ -76,7 +76,7 @@ AString& AString::fill(const char c, const size_t size)
     }
     else {
         clear();
-        for (long double i = 0; i < size; ++i) {
+        for (uint64 i = 0; i < size; ++i) {
             *this += c;
         }
     }
@@ -446,7 +446,7 @@ size_t AString::indexOf(const char c) const
 size_t AString::lastIndexOf(const char c) const
 {
 #pragma warning (disable : 4244)
-    for (long double i = size() - 1; i >= 0; --i) {
+    for (uint64 i = size() - 1; i >= 0; --i) {
         if (at(i) == c) {
             return i;
         }

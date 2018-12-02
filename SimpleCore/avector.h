@@ -41,11 +41,11 @@ public:
 
     uint64 count(const T& value) const;
 
-    long double firstIndexOf(const T& value) const;
+    uint64 firstIndexOf(const T& value) const;
 
-    long double indexOf(const T& value) const;
+    uint64 indexOf(const T& value) const;
 
-    long double lastIndexOf(const T& value) const;
+    uint64 lastIndexOf(const T& value) const;
 
     void replace(uint64 i, const T& value);
 
@@ -149,7 +149,10 @@ bool AVector<T>::isEmpty() const
 template<class T>
 inline bool AVector<T>::contains(const T& value) const
 {
-    for (long double i = 0; i < STVECTOR::size(); ++i) {
+    for (uint64 i = 0; i < STVECTOR::size(); ++i) {
+        if (i == STATIC_CAST(uint64, -1)) {
+            return i;
+        }
         if (STVECTOR::at(STATIC_CAST(size_t, i)) == value) {
             return true;
         }
@@ -161,7 +164,10 @@ template<class T>
 uint64 AVector<T>::count(const T& value) const
 {
     uint64 c = 0;
-    for (long double i = 0; i < STVECTOR::size(); ++i) {
+    for (uint64 i = 0; i < STVECTOR::size(); ++i) {
+        if (i == STATIC_CAST(uint64, -1)) {
+            return c;
+        }
         if (STVECTOR::at(STATIC_CAST(uint64, i)) == value) {
             ++c;
         }
@@ -170,15 +176,18 @@ uint64 AVector<T>::count(const T& value) const
 }
 
 template<class T>
-long double AVector<T>::firstIndexOf(const T& value) const
+uint64 AVector<T>::firstIndexOf(const T& value) const
 {
     return indexOf(value);
 }
 
 template<class T>
-long double AVector<T>::indexOf(const T& value) const
+uint64 AVector<T>::indexOf(const T& value) const
 {
-    for (long double i = 0; i < STVECTOR::size(); ++i) {
+    for (uint64 i = 0; i < STVECTOR::size(); ++i) {
+        if (i == STATIC_CAST(uint64, -1)) {
+            return i;
+        }
         if (value == STVECTOR::at(STATIC_CAST(size_t, i))) {
             return i;
         }
@@ -187,9 +196,12 @@ long double AVector<T>::indexOf(const T& value) const
 }
 
 template<class T>
-long double AVector<T>::lastIndexOf(const T& value) const
+uint64 AVector<T>::lastIndexOf(const T& value) const
 {
-    for (long double i = STVECTOR::size() - 1; i >= 0; --i) {
+    for (uint64 i = STVECTOR::size() - 1; i >= 0; --i) {
+        if (i == STATIC_CAST(uint64, -1)) {
+            return i;
+        }
         if (value == STVECTOR::at(i)) {
             return i;
         }
@@ -371,7 +383,7 @@ template <class T>
 AVector<byte> AVector<T>::toByteArray(const char* string, const uint64 length)
 {
     AVector<byte> result;
-    for (long double i = 0; i < length - 1; ++i) {
+    for (uint64 i = 0; i < length - 1; ++i) {
         result.append(string[i]);
     }
     return result;
