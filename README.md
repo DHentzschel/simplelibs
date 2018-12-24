@@ -1,6 +1,7 @@
 ![Simple Libs](https://i.imgur.com/924RJUe.png)
 
 ## SimpleLibs
+### Status
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7795db8d362f487291406195815840e7)](https://app.codacy.com/app/DHentzschel/simplelibs?utm_source=github.com&utm_medium=referral&utm_content=DHentzschel/simplelibs&utm_campaign=Badge_Grade_Dashboard)
 
 ### A project to simplify developing in C++ STL
