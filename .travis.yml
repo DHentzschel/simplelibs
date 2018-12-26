@@ -14,5 +14,4 @@ dist: trusty
 # - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-6 90
 
 script: 
-  - g++ -o output.exe *.cpp
-  - output.exe
+  - g++ -o output.lib -I SimpeLibs/*.cpp SimpleLibs/*/*.cpp
