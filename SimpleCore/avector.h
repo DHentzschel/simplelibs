@@ -372,7 +372,7 @@ AVector<byte> AVector<T>::toByteArray(const char* string, const uint64 length)
 {
     AVector<byte> result;
     for (long double i = 0; i < length - 1; ++i) {
-        result.append(string[i]);
+        result.append(string[STATIC_CAST(uint, i)]);
     }
     return result;
 }
