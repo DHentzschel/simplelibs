@@ -140,7 +140,7 @@ public:
         }
     }
 
-    TEST_METHOD(removeLast)
+    TEST_METHOD(testRemoveLast)
     {
         vector_.clear();
 
@@ -165,7 +165,7 @@ public:
         }
     }
 
-    TEST_METHOD(removeFirstValue)
+    TEST_METHOD(testRemoveFirstValue)
     {
         vector_.clear();
 
@@ -191,7 +191,7 @@ public:
 
     }
 
-    TEST_METHOD(removeAllValues)
+    TEST_METHOD(testRemoveAll)
     {
         vector_.clear();
 
@@ -208,9 +208,6 @@ public:
 
         for (ushort i = 0; i < 100; ++i) {
             if (i == 44) {
-                if (vector_.contains(i) != false) {
-                    int j = 0;
-                }
                 Assert::IsFalse(vector_.contains(i));
             }
             else {
@@ -219,7 +216,7 @@ public:
         }
     }
 
-    TEST_METHOD(mid)
+    TEST_METHOD(testMid)
     {
         auto midVector = vector_.mid(2);
         Assert::IsTrue(midVector.size() == (vector_.size() - 2));

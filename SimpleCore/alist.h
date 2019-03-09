@@ -132,7 +132,7 @@ template<class T>
 const T& AList<T>::at(const uint64 i) const
 {
     auto it = IT_BEGIN;
-    for (long double c = 0; it != IT_END; ++c, ++it) {
+    for (uint64 c = 0; it != IT_END && c != STATIC_CAST(uint64, -1); ++c, ++it) {
         if (c == i) {
             return *it;
         }
