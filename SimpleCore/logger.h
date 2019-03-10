@@ -13,6 +13,8 @@ public:
 
 	static void prepareLogFile(const AString& getPath);
 
+#ifdef _WIN32
+
     static void print(const AString& text,
         bool newLine = true,
         ConsoleColor color = Turquoise,
@@ -37,6 +39,25 @@ public:
 		bool newLine = true,
 		ConsoleColor color = LightGray,
 		ConsoleColor backgroundColor = Black);
+
+#elif __unix__
+
+    static void print(const AString& text,
+        bool newLine = true);
+
+    static void debug(const AString& text,
+        bool newLine = true);
+
+    static void info(const AString& text,
+        bool newLine = true);
+
+    static void error(const AString& text,
+        bool newLine = true);
+
+    static void warn(const AString& text,
+        bool newLine = true);
+
+#endif // __unix__
 
 private:
 	static File file_;

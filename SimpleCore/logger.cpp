@@ -27,6 +27,8 @@ void Logger::prepareLogFile(const AString& getPath)
     }
 }
 
+#ifdef _WIN32
+
 void Logger::print(const AString& text,
     const bool newLine,
     const ConsoleColor color,
@@ -103,3 +105,74 @@ AString Logger::printPrefix(const LogType type)
 
     return result;
 }
+
+#elif __unix__
+
+void Logger::print(const AString& text,
+    const bool newLine)
+{
+    Console::print(text, newLine);
+    if (file_.isOpen()) {
+        file_ << text + (newLine ? "\n" : "");
+    }
+}
+
+void Logger::debug(const AString& text,
+    const bool newLine)
+{
+    printPrefix(Debug);
+    print(text, newLine);
+}
+
+void Logger::info(const AString& text,
+    const bool newLine)
+{
+    printPrefix(Info);
+    print(text, newLine);
+}
+
+void Logger::error(const AString& text,
+    const bool newLine)
+{
+    printPrefix(Error);
+    print(text, newLine);
+}
+
+void Logger::warn(const AString& text,
+    const bool newLine)
+{
+    printPrefix(Warn);
+    print(text, newLine);
+}
+
+AString Logger::printPrefix(const LogType type)
+{
+    AString string = "[" + DateTime::getTimestamp();
+    Console::print(string, false);
+    if (type == Debug) {
+        Console::print(" DBG", false);
+        string += " DBG";
+    }
+    else if (type == Info) {
+        Console::print(" INFO", false);
+        string += " INFO";
+    }
+    else if (type == Error) {
+        Console::print(" ERR", false);
+        string += " ERR";
+    }
+    else if (type == Warn) {
+        Console::print(" WARN", false);
+        string += " WARN";
+    }
+    Console::print("]: ", false);
+    const auto result = string + "]: ";
+
+    if (file_.isOpen()) {
+        file_.append(result);
+    }
+
+    return result;
+}
+
+#endif // __unix__

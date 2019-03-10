@@ -2,8 +2,10 @@
 
 #include <iostream>
 
+
 Console Console::consoleInitializer_ = Console();
 
+#ifdef _WIN32
 CONSOLE_SCREEN_BUFFER_INFO Console::consoleBufferInfo_;
 
 HANDLE Console::inputHandle_;
@@ -11,7 +13,16 @@ HANDLE Console::inputHandle_;
 HANDLE Console::outputHandle_;
 
 int Console::defaultColor_;
+#elif __unix__unsupported
+#include <sys/ioctl.h>
+#include <unistd.h>
 
+winsize Console::terminalSize_;
+
+AString Console::defaultColor_;
+#endif // __unix__
+
+#ifdef _WIN32
 /**
  * \brief Constructs instance by calling intializing control event handler.
  */
@@ -20,7 +31,6 @@ Console::Console()
     inputHandle_ = GetStdHandle(STD_INPUT_HANDLE);
     outputHandle_ = GetStdHandle(STD_OUTPUT_HANDLE);
     defaultColor_ = static_cast<int>(LightGray);
-    //   setControlEventHandler();
 }
 
 /**
@@ -120,9 +130,15 @@ void Console::setConsoleTitle(const AString& title)
  */
 int Console::getConsoleWidth()
 {
+#ifdef _WIN32
     ZeroMemory(&consoleBufferInfo_, sizeof CONSOLE_SCREEN_BUFFER_INFO);
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &consoleBufferInfo_);
     return consoleBufferInfo_.srWindow.Right - consoleBufferInfo_.srWindow.Left + 1;
+#elif __unix__
+    ZeroMemory(&terminalSize_, sizeof winsize);
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &terminalSize_);
+    return terminalSize_.ws_col;
+#endif // __unix__
 }
 
 /**
@@ -131,9 +147,15 @@ int Console::getConsoleWidth()
 */
 int Console::getConsoleHeight()
 {
+#ifdef _WIN32
     ZeroMemory(&consoleBufferInfo_, sizeof CONSOLE_SCREEN_BUFFER_INFO);
     GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &consoleBufferInfo_);
     return consoleBufferInfo_.srWindow.Bottom - consoleBufferInfo_.srWindow.Top + 1;
+#elif __unix__
+    ZeroMemory(&terminalSize_, sizeof winsize);
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &terminalSize_);
+    return terminalSize_.ws_row;
+#endif // __unix__
 }
 
 void Console::printColorExample()
@@ -142,4 +164,28 @@ void Console::printColorExample()
         SetConsoleTextAttribute(outputHandle_, i);
         std::cout << i << "This is a test!" << std::endl;
     }
+    SetConsoleTextAttribute(outputHandle_, ConsoleColor::LightGray);
 }
+
+#elif __unix__
+
+/**
+ * \brief Prints param string to console with new line depending on newLine param.
+ * \param string
+ * \param newLine
+ */
+void Console::print(const AString& string,
+    const bool newLine)
+{
+    std::cout << string << (newLine ? "\n" : "");
+}
+
+/**
+ * \brief Keeps console alive. Cancel by pressing return.
+ */
+void Console::keep()
+{
+    std::cin.get();
+}
+
+#endif // __unix__

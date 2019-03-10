@@ -1,13 +1,16 @@
 ﻿#ifndef CONSOLE_H
 #define CONSOLE_H
 
+#ifdef _WIN32
 #include <Windows.h>
+#include "consolecolor.h"
+#endif // _WIN32
 
 #include "astring.h"
-#include "consolecolor.h"
 
 class Console {
 public:
+#ifdef _WIN32
     Console();
 
     static void print(const AString& string,
@@ -29,8 +32,15 @@ public:
     static int getConsoleHeight();
 
     static void printColorExample();
+#elif __unix__
 
+    static void print(const AString& string, bool newLine = true);
+
+    static void keep();
+
+#endif // __unix__
 private:
+#ifdef _WIN32
     static CONSOLE_SCREEN_BUFFER_INFO consoleBufferInfo_;
 
     static Console consoleInitializer_;
@@ -42,6 +52,9 @@ private:
     static int defaultColor_;
 
     static void setControlEventHandler();
+#elif __unix__unsupported
+    static AString defaultColor_;
+#endif // __unix__unsupported
 };
 
 #endif // CONSOLE_H
