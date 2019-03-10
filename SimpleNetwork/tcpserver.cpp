@@ -1,6 +1,11 @@
 #include "tcpserver.h"
 
+#ifdef _WIN32
 #include <WS2tcpip.h>
+#elif __unix__
+#include <netdb.h>
+#include <netinet/in.h>
+#endif // __unix__
 
 #include <mutex>
 
@@ -25,7 +30,11 @@ TcpServer::TcpServer() :
  */
 TcpServer::~TcpServer()
 {
+#ifdef _WIN32
     closesocket(socket_);
+#elif __unix__
+    close(socket_);
+#endif // __unix__
 }
 
 /**
@@ -36,6 +45,7 @@ TcpServer::~TcpServer()
  */
 bool TcpServer::listen(const AString& hostaddress, const ushort port)
 {
+#ifdef _WIN32
     SOCKADDR_IN server;
     ZEROMEMORY(&server);
 
@@ -55,6 +65,25 @@ bool TcpServer::listen(const AString& hostaddress, const ushort port)
         return false;
     }
 
+#elif __unix__
+    sockaddr_in server;
+    ZEROMEMORY(&server);
+
+    server.sin_famiy = AF_INET;
+    server.sin_addr.s_addr = INADDR_ANY;
+    server.sin_port = htons(port);
+
+    if (::bind(socket_, REINTERPRET_CAST(sockaddr*, &server), sizeof(sockaddr_in)) == SOCKET_ERROR) {
+        Logger::error("bind() failed.");
+        return false;
+    }
+
+    if (::list(socket_, 2)) {
+        Logger::error("listen() failed.");
+        return false;
+    }
+
+#endif // __unix__
     addressLength_ = sizeof(sockaddr_in);
     serverEventListener_ = MAKE_SHARED(TcpServerEventListener, this);
     return true;
@@ -76,6 +105,7 @@ void TcpServer::terminate() const
  */
 void TcpServer::initialize()
 {
+#ifdef _WIN32
     WSADATA wsaData;
     ZeroMemory(&wsaData, sizeof(WSADATA));
 
@@ -87,6 +117,12 @@ void TcpServer::initialize()
         Logger::error("socket() failed. Error code: " + TO_STRING(WSAGetLastError()));
         exit(EXIT_FAILURE);
     }
+#elif __unix__
+    if ((socket_ = ::socket(AF_INT, SOCK_STREAM, IPPROTO_TCP)) < 0) {
+        Logger::error("socket() failed.");
+        exit(EXIT_FAILURE);
+    }
+#endif // __unix__
 
     socketList_.reserve(1024);
 }

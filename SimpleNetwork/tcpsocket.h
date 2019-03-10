@@ -53,8 +53,11 @@ public:
     SOCKET getSocket() const;
 
 protected:
+#ifdef _WIN32
     SOCKET socket_;
-
+#elif __unix__
+    int socket_;
+#endif // __unix__
     AString hostaddress_;
 
     ushort port_;

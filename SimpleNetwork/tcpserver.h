@@ -22,7 +22,7 @@ public:
     void terminate() const;
 
 protected:
-    TcpSocket * currentSocket_;
+    TcpSocket* currentSocket_;
 
     AVector<TcpSocket*> socketList_;
 

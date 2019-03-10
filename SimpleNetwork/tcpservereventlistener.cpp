@@ -5,6 +5,13 @@
 #include "tcpserver.h"
 #include "tcpsocket.h"
 
+#ifdef __unix__
+#include <sys/select.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <unistd.h>
+#endif // __unix__
+
 /**
  * \brief Constructs instance by calling super constructor.
  * \param tcpServer pointer to TcpServer instance
@@ -48,6 +55,9 @@ void TcpServerEventListener::start()
 {
 #ifdef _WIN32
     SOCKADDR_IN address;
+#elif __unix__
+    sockaddr_in address;
+#endif // __unix__
     FD_SET readFdSet;
     int receiveBufferLength;
 
@@ -75,7 +85,7 @@ void TcpServerEventListener::start()
 
                 if (incomingSocket == 0 || incomingSocket == INVALID_SOCKET) {
 #ifdef _DEBUG
-#ifdef _DBG_SOCKERR
+#if defined(_WIN32) && defined(_DBG_SOCKERR)
                     Logger::error("accept() failed. Error code: " +
                         TO_STRING(WSAGetLastError()));
 #endif
@@ -117,7 +127,4 @@ void TcpServerEventListener::start()
     }
     delete[] buffer;
     WSACleanup();
-#elif __unix__
-    
-#endif // __unix__
 }
