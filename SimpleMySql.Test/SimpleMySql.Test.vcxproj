@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{6CFC1D48-27E6-49E5-AEF5-01886956446E}</ProjectGuid>
+    <ProjectGuid>{E0E27853-8CCB-4E71-8260-A4F8A404E7A0}</ProjectGuid>
     <RootNamespace>SimpleMySqlTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

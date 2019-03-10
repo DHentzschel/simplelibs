@@ -46,6 +46,7 @@ void TcpServerEventListener::initialize()
  */
 void TcpServerEventListener::start()
 {
+#ifdef _WIN32
     SOCKADDR_IN address;
     FD_SET readFdSet;
     int receiveBufferLength;
@@ -116,4 +117,7 @@ void TcpServerEventListener::start()
     }
     delete[] buffer;
     WSACleanup();
+#elif __unix__
+    
+#endif // __unix__
 }
