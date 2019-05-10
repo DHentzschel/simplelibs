@@ -24,6 +24,9 @@
     <Filter Include="src\VectorTest">
       <UniqueIdentifier>{1ee81cfb-132a-454d-b5d7-25eb7b414768}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\StopwatchTest">
+      <UniqueIdentifier>{0145c2cf-dd6d-4947-8a52-8cb69742ba5d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -45,6 +48,9 @@
     </ClCompile>
     <ClCompile Include="vectortest.cpp">
       <Filter>src\VectorTest</Filter>
+    </ClCompile>
+    <ClCompile Include="stopwatchtest.cpp">
+      <Filter>src\StopwatchTest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

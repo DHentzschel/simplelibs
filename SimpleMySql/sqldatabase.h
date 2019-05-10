@@ -3,6 +3,7 @@
 
 #include <astring.h>
 #include <avector.h>
+#include <memory>
 #include <types.h>
 
 #include "psqltbl.h"
