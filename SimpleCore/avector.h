@@ -179,7 +179,7 @@ template<class T>
 uint64 AVector<T>::indexOf(const T& value) const
 {
     for (auto i = 0; i != STVECTOR::size(); ++i) {
-        if (operator[](i) == value) {
+        if (STVECTOR::operator[](i) == value) {
             return i;
         }
     }
@@ -190,7 +190,7 @@ template<class T>
 uint64 AVector<T>::lastIndexOf(const T& value) const
 {
     for (auto i = STVECTOR::size() - 1; i >= 0 && i < STVECTOR::size(); --i) {
-        if (operator[](i) == value) {
+        if (STVECTOR::operator[](i) == value) {
             return i;
         }
     }
@@ -261,7 +261,7 @@ template<class T>
 void AVector<T>::removeAll(const T& value)
 {
     for (auto i = STVECTOR::size() - 1; i >= 0 && i < STVECTOR::size(); --i) {
-        if (operator[](i) == value) {
+        if (STVECTOR::operator[](i) == value) {
             removeAt(i);
         }
     }
