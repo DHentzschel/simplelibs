@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/c,c++,linux,macos,windows,visualstudio
 # Edit at https://www.gitignore.io/?templates=c,c++,linux,macos,windows,visualstudio
 
@@ -23,6 +22,9 @@
 
 # Libraries
 *.lib
+!glew32.lib
+!glew32s.lib
+!glfw3dll.lib
 !libmysql.lib
 *.a
 *.la
