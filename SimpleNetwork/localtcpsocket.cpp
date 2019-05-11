@@ -21,7 +21,7 @@ bool LocalTcpSocket::connect(ushort port)
     struct addrinfo* result = nullptr;
 
     if (WSAStartup(MAKEWORD(2, 2), &wsaData)) {
-        Logger::error("WSAStartup() failed. Error code: " + TO_STRING(WSAGetLastError()));
+        Logger::error("WSAStartup() failed. Error code: " + AString::toString(WSAGetLastError()));
         return false;
     }
 
@@ -31,18 +31,18 @@ bool LocalTcpSocket::connect(ushort port)
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
 
-    getaddrinfo(hostaddress_.toCString(), TO_STRING(port_).toCString(), &hints, &result);
+    getaddrinfo(hostaddress_.toCString(), AString::toString(port_).toCString(), &hints, &result);
 
     socket_ = INVALID_SOCKET;
     for (auto* ptr = result; ptr != nullptr; ptr = ptr->ai_next) {
         socket_ = ::socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol);
         if (socket_ == INVALID_SOCKET) {
-            Logger::error("socket() failed. Error code: " + TO_STRING(WSAGetLastError()));
+            Logger::error("socket() failed. Error code: " + AString::toString(WSAGetLastError()));
             WSACleanup();
             return false;
         }
-        if (::connect(socket_, ptr->ai_addr, STATIC_CAST(int, ptr->ai_addrlen)) == SOCKET_ERROR) {
-            Logger::error("connect() failed. Error code: " + TO_STRING(WSAGetLastError()));
+        if (::connect(socket_, ptr->ai_addr, static_cast<int>(ptr->ai_addrlen)) == SOCKET_ERROR) {
+            Logger::error("connect() failed. Error code: " + AString::toString(WSAGetLastError()));
             WSACleanup();
             return false;
         }
@@ -50,11 +50,11 @@ bool LocalTcpSocket::connect(ushort port)
 
     freeaddrinfo(result);
     if (socket_ == INVALID_SOCKET) {
-        Logger::error("connect() failed. Error code: " + TO_STRING(WSAGetLastError()));
+        Logger::error("connect() failed. Error code: " + AString::toString(WSAGetLastError()));
         WSACleanup();
         return false;
     }
 
-    clientEventListener_ = MAKE_SHARED(TcpClientEventListener, this);
+    clientEventListener_ = std::make_shared<TcpClientEventListener>(this);
     return true;
 }

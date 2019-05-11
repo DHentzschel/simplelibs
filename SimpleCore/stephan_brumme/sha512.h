@@ -38,7 +38,8 @@
  // This file was modified and its code formatted by Daniel Hentzschel 
  // in order to make it compatible to SimpleLibs libraries.
 
-#if !defined(SHA512_H)
+#ifndef SHA512_H
+#define SHA512_H
 
 #include <cstdio>
 #include <cstdlib>
@@ -144,14 +145,14 @@ u64 sha512_k[80] = //ULL = u64
 };
 
 
-void sha512_transform(const unsigned char *message, unsigned int block_nb)
+void sha512_transform(const unsigned char* message, unsigned int block_nb)
 {
     u64 w[80];
     u64 wv[8];
     u64 t1, t2;
-    const unsigned char *sub_block;
+    const unsigned char* sub_block;
     int i, j;
-    for (i = 0; i < (int)block_nb; i++) {
+    for (i = 0; i < (int) block_nb; i++) {
         sub_block = message + (i << 7);
         for (j = 0; j < 16; j++) {
             SHA2_PACK64(&sub_block[j << 3], &w[j]);
@@ -196,7 +197,7 @@ void sha512_init()
     sha512.total_length = 0;
 }
 
-void sha512_final(u8 *digest)
+void sha512_final(u8 * digest)
 {
     u32 block_nb;
     u32 pm_len;
@@ -215,11 +216,11 @@ void sha512_final(u8 *digest)
     }
 }
 
-void sha512_update(u8 *message, u32 len)
+void sha512_update(u8 * message, u32 len)
 {
     u32 block_nb;
     u32 new_len, rem_len, tmp_len;
-    const u8 *shifted_message;
+    const u8* shifted_message;
     tmp_len = SHA384_512_BLOCK_SIZE - sha512.length;
     rem_len = len < tmp_len ? len : tmp_len;
     memcpy(&sha512.block[sha512.length], message, rem_len);
@@ -243,7 +244,7 @@ AString sha512_encode(char* input)
     u8 digest[DIGEST_SIZE];
     memset(digest, 0, DIGEST_SIZE);
     sha512_init();
-    sha512_update((u8*)input, STATIC_CAST(u32, strlen((char*)input)));
+    sha512_update((u8*) input, static_cast<u32>(strlen((char*) input)));
     sha512_final(digest);
 
     char buffer[2 * DIGEST_SIZE + 1];
@@ -256,5 +257,4 @@ AString sha512_encode(char* input)
     return NULL;
 }
 
-#define SHA512_H
-#endif
+#endif // !SHA512_H

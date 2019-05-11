@@ -11,7 +11,7 @@ void StringVector::removeEmpties()
 
 void StringVector::removeWhitespaces()
 {
-    for (size_type i = 0; i < size() && i < STATIC_CAST(size_type, -1); ++i) {
+    for (size_type i = 0; i < size() && i < static_cast<size_type>(-1); ++i) {
         if (stringvector_t::operator[](i).isOnlyWhitespaces()) {
             removeAt(i);
         }
@@ -20,7 +20,7 @@ void StringVector::removeWhitespaces()
 
 void StringVector::removeEscapes()
 {
-    for (size_type i = 0; i < size() && i < STATIC_CAST(size_type, -1); ++i) {
+    for (size_type i = 0; i < size() && i < static_cast<size_type>(-1); ++i) {
         if (stringvector_t::operator[](i).isOnlyEscapes()) {
             removeAt(i);
         }

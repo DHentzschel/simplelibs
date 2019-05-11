@@ -11,6 +11,11 @@
 
 #pragma comment(lib, "ws2_32.lib")
 
+TcpSocket::TcpSocket() :
+    socket_(SOCKET()),
+    port_(0)
+{}
+
 /**
  * \brief Constructs instance by copying from passed param.
  * \param tcpSocket copyable socket instance
@@ -74,7 +79,7 @@ bool TcpSocket::connect(const AString& hostaddress, const ushort port)
     struct addrinfo* result = nullptr;
 
     if (WSAStartup(MAKEWORD(2, 2), &wsaData)) {
-        Logger::error("WSAStartup() failed. Error code: " + TO_STRING(WSAGetLastError()));
+        Logger::error("WSAStartup() failed. Error code: " + AString::toString(WSAGetLastError()));
         return false;
     }
 
@@ -84,18 +89,18 @@ bool TcpSocket::connect(const AString& hostaddress, const ushort port)
     hints.ai_socktype = SOCK_STREAM;
     hints.ai_protocol = IPPROTO_TCP;
 
-    getaddrinfo(hostaddress_.toCString(), TO_STRING(port_).toCString(), &hints, &result);
+    getaddrinfo(hostaddress_.toCString(), AString::toString(port_).toCString(), &hints, &result);
 
     socket_ = INVALID_SOCKET;
     for (auto* ptr = result; ptr != nullptr; ptr = ptr->ai_next) {
         socket_ = ::socket(ptr->ai_family, ptr->ai_socktype, ptr->ai_protocol);
         if (socket_ == INVALID_SOCKET) {
-            Logger::error("socket() failed. Error code: " + TO_STRING(WSAGetLastError()));
+            Logger::error("socket() failed. Error code: " + AString::toString(WSAGetLastError()));
             WSACleanup();
             return false;
         }
-        if (::connect(socket_, ptr->ai_addr, STATIC_CAST(int, ptr->ai_addrlen)) == SOCKET_ERROR) {
-            Logger::error("connect() failed. Error code: " + TO_STRING(WSAGetLastError()));
+        if (::connect(socket_, ptr->ai_addr, static_cast<int>(ptr->ai_addrlen)) == SOCKET_ERROR) {
+            Logger::error("connect() failed. Error code: " + AString::toString(WSAGetLastError()));
             WSACleanup();
             return false;
         }
@@ -103,12 +108,12 @@ bool TcpSocket::connect(const AString& hostaddress, const ushort port)
 
     freeaddrinfo(result);
     if (socket_ == INVALID_SOCKET) {
-        Logger::error("connect() failed. Error code: " + TO_STRING(WSAGetLastError()));
+        Logger::error("connect() failed. Error code: " + AString::toString(WSAGetLastError()));
         WSACleanup();
         return false;
     }
 
-    clientEventListener_ = MAKE_SHARED(TcpClientEventListener, this);
+    clientEventListener_ = std::make_shared<TcpClientEventListener>(this);
     return true;
 }
 
@@ -134,12 +139,12 @@ void TcpSocket::disconnect() const
 void TcpSocket::send(const char* packet, const uint length)
 {
     if (::send(socket_, packet, length, 0) == SOCKET_ERROR) {
-        Logger::error("send() failed. Error code: " + TO_STRING(WSAGetLastError()));
+        Logger::error("send() failed. Error code: " + AString::toString(WSAGetLastError()));
     }
     stopwatch_.restart();
 }
 
-bool TcpSocket::isPortAvailable(const AString& hostaddress, const ushort port)
+bool TcpSocket::isPortAvailable(const AString & hostaddress, const ushort port)
 {
     WSADATA wsaData;
     if (WSAStartup(MAKEWORD(2, 2), &wsaData)) {
@@ -154,7 +159,11 @@ bool TcpSocket::isPortAvailable(const AString& hostaddress, const ushort port)
     client.sin_port = htons(port);
 
     auto socket = ::socket(AF_INET, SOCK_STREAM, 0);
-    const auto result = ::connect(socket, (SOCKADDR*) &client, sizeof(SOCKADDR_IN));
+
+#pragma warning(disable : 6385)
+    const auto result = ::connect(socket, (SOCKADDR*) (&client), sizeof(SOCKADDR_IN));
+#pragma warning(disable : 6385)
+
     WSACleanup();
     closesocket(socket);
     return result;

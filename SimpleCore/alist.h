@@ -8,7 +8,7 @@
 #include "types.h"
 
 template<class T>
-class AList : public list_t {
+class AList : public std::list<T> {
 public:
     using std::list<T>::list;
 
@@ -130,13 +130,12 @@ template<class T>
 const T& AList<T>::at(const uint64 i) const
 {
     auto it = list_t::begin();
-    for (uint64 c = 0; it != list_t::end() && c != STATIC_CAST(uint64, -1); ++c, ++it) {
+    for (uint64 c = 0; it != list_t::end() && c != static_cast<uint64>(-1); ++c, ++it) {
         if (c == i) {
             return *it;
         }
     }
-    throw std::out_of_range("Invalid index i (" + TO_STRING(i) + ")");
-    return T();
+    throw std::out_of_range("Invalid index i (" + AString::toString(i) + ")");
 }
 
 template<class T>

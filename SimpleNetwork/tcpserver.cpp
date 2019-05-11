@@ -14,6 +14,7 @@
  * \brief Constructing instance by settin default values.
  */
 TcpServer::TcpServer() :
+    currentSocket_(nullptr),
     addressLength_(0),
     serverEventListener_(nullptr)
 {
@@ -43,20 +44,22 @@ bool TcpServer::listen(const AString& hostaddress, const ushort port)
     server.sin_family = AF_INET;
     server.sin_port = htons(port);
 
-    if (::bind(socket_, REINTERPRET_CAST(sockaddr*, &server), sizeof(SOCKADDR_IN)) == SOCKET_ERROR) {
+#pragma warning(disable : 6385)
+    if (::bind(socket_, (sockaddr*)(&server), sizeof(SOCKADDR_IN)) == SOCKET_ERROR) {
         Logger::error("bind() failed. Error code: " +
-            TO_STRING(WSAGetLastError()));
+            AString::toString(WSAGetLastError()));
         return false;
     }
+#pragma warning(default : 6385)
 
     if (::listen(socket_, 2)) {
         Logger::error("listen() failed. Error code: " +
-            TO_STRING(WSAGetLastError()));
+            AString::toString(WSAGetLastError()));
         return false;
     }
 
     addressLength_ = sizeof(sockaddr_in);
-    serverEventListener_ = MAKE_SHARED(TcpServerEventListener, this);
+    serverEventListener_ = std::make_shared<TcpServerEventListener>(this);
     return true;
 }
 
@@ -80,18 +83,18 @@ void TcpServer::initialize()
     ZeroMemory(&wsaData, sizeof(WSADATA));
 
     if (WSAStartup(MAKEWORD(2, 2), &wsaData)) {
-        Logger::error("WSAStartup() failed. Error code: " + TO_STRING(WSAGetLastError()));
+        Logger::error("WSAStartup() failed. Error code: " + AString::toString(WSAGetLastError()));
         exit(EXIT_FAILURE);
     }
     if ((socket_ = ::socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) == INVALID_SOCKET) {
-        Logger::error("socket() failed. Error code: " + TO_STRING(WSAGetLastError()));
+        Logger::error("socket() failed. Error code: " + AString::toString(WSAGetLastError()));
         exit(EXIT_FAILURE);
     }
 
     socketList_.reserve(1024);
 }
 
-TcpSocket* TcpServer::getSocket(const SOCKET& socket)
+TcpSocket* TcpServer::getSocket(const SOCKET & socket)
 {
     for (auto& tempSocket : socketList_) {
         if (tempSocket->socket_ == socket) {

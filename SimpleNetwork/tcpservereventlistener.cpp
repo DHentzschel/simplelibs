@@ -69,16 +69,12 @@ void TcpServerEventListener::start()
             a.tv_usec = 0;
             select(0, &readFdSet, nullptr, nullptr, &a);
             if (FD_ISSET(server->socket_, &readFdSet)) {
-                auto incomingSocket = accept(server->socket_, REINTERPRET_CAST(sockaddr*, &address),
-                    REINTERPRET_CAST(int*, &server->addressLength_));
+                auto incomingSocket = accept(server->socket_, reinterpret_cast<sockaddr*>(&address),
+                    reinterpret_cast<int*>(&server->addressLength_));
 
                 if (incomingSocket == 0 || incomingSocket == INVALID_SOCKET) {
-#ifdef _DEBUG
-#ifdef _DBG_SOCKERR
                     Logger::error("accept() failed. Error code: " +
-                        TO_STRING(WSAGetLastError()));
-#endif
-#endif
+                        AString::toString(WSAGetLastError()));
                     return true;
                 }
 
@@ -86,7 +82,7 @@ void TcpServerEventListener::start()
                 server->incomingConnection(*server->socketList_.last());
             }
             for (uint i = 0; i < readFdSet.fd_count; ++i) {
-                const auto tempSocket = readFdSet.fd_array[STATIC_CAST(int, i)];
+                const auto tempSocket = readFdSet.fd_array[static_cast<int>(i)];
                 if (server->currentSocket_ = server->getSocket(tempSocket)) {
                     receiveBufferLength = recv(server->currentSocket_->socket_, buffer,
                         bufferLength - 1, 0);

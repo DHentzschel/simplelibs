@@ -168,7 +168,7 @@ private:
 
     void initializeComponents() override
     {
-        SHARED_PTR(Control) control = MAKE_SHARED(Control, Control());
+        std::shared_ptr<Control> control = std::make_shared<Control>(Control());
         addControl(control);
     }
 

@@ -15,9 +15,7 @@ public:
 
     File(const File& file);
 
-    File(File&& file);
-
-    explicit File(const AString& filename);
+    explicit File(const AString& filename) noexcept;
 
     ~File();
 

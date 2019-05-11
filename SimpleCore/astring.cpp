@@ -19,7 +19,7 @@ AString AString::arg(const AString& value)
 {
     AString copy = *this;
     for (auto i = 0; i < 20; ++i) {
-        const auto replacable = "%" + TO_STRING(i);
+        const auto replacable = "%" + AString::toString(i);
         if (copy.contains(replacable)) {
             copy.replaceFirst(replacable, value);
             if (copy.contains(replacable)) {
@@ -37,8 +37,8 @@ AString AString::left(const size_t n) const
 {
     AString result;
     if (n < size()) {
-        for (uint64 i = 0; i < n && i != STATIC_CAST(uint64, -1); ++i) {
-            result += at(STATIC_CAST(uint, i));
+        for (uint64 i = 0; i < n && i != static_cast<uint64>(-1); ++i) {
+            result += at(static_cast<uint>(i));
         }
     }
     return result;
@@ -48,8 +48,8 @@ AString AString::right(const size_t n) const
 {
     AString result;
     if (n < size()) {
-        for (uint64 i = size() - n; i < size() && i != STATIC_CAST(uint64, -1); ++i) {
-            result += at(STATIC_CAST(size_t, i));
+        for (uint64 i = size() - n; i < size() && i != static_cast<uint64>(-1); ++i) {
+            result += at(static_cast<size_t>(i));
         }
     }
     return result;
@@ -76,7 +76,7 @@ AString& AString::fill(const char c, const size_t size)
     }
     else {
         clear();
-        for (uint64 i = 0; i < size && i != STATIC_CAST(uint64, -1); ++i) {
+        for (uint64 i = 0; i < size && i != static_cast<uint64>(-1); ++i) {
             *this += c;
         }
     }
@@ -446,12 +446,12 @@ size_t AString::indexOf(const char c) const
 size_t AString::lastIndexOf(const char c) const
 {
 #pragma warning (disable : 4244)
-    for (uint64 i = size() - 1; i >= 0 && i != STATIC_CAST(uint64, -1); --i) {
+    for (uint64 i = size() - 1; i >= 0 && i != static_cast<uint64>(-1); --i) {
         if (at(i) == c) {
             return i;
         }
     }
-    return STATIC_CAST(size_t, -1);
+    return static_cast<size_t>(-1);
 #pragma warning (default : 4244)
 }
 
@@ -462,22 +462,22 @@ bool AString::toBool() const
 
 char AString::toChar() const
 {
-    return STATIC_CAST(char, toInt());
+    return static_cast<char>(toInt());
 }
 
 byte AString::toByte() const
 {
-    return STATIC_CAST(byte, toUInt());
+    return static_cast<byte>(toUInt());
 }
 
 short AString::toShort() const
 {
-    return STATIC_CAST(short, toInt());
+    return static_cast<short>(toInt());
 }
 
 ushort AString::toUShort() const
 {
-    return STATIC_CAST(ushort, toUInt());
+    return static_cast<ushort>(toUInt());
 }
 
 int AString::toInt(const int base) const

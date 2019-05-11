@@ -9,7 +9,7 @@ Keyboard Keyboard::keyboardInitializer_;
 bool Keyboard::isKeyPressed(Key key)
 {
     if (key >= Key::Backspace && key <= Key::OemClear) {
-        return keys_[STATIC_CAST(short, key)];
+        return keys_[static_cast<short>(key)];
     }
     return false;
 }

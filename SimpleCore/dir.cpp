@@ -16,15 +16,11 @@ Dir::Dir(const Dir& dir) :
     fileList_(dir.fileList_)
 {}
 
-Dir::Dir(Dir&& dir) :
-    Dir(dir)
-{}
-
 /**
  * \brief Constructs instance and sets default value path.
  * \param path directory path
  */
-Dir::Dir(const AString& getPath)
+Dir::Dir(const AString& getPath) noexcept
 {
     setPath(getPath);
 }

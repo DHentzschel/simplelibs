@@ -16,10 +16,11 @@ enum class ObResult {
 };
 
 namespace ObResultUtils {
-    inline ObResult get(int value) {
-        if (value >= STATIC_CAST(int, ObResult::Ok) && value <= STATIC_CAST(int, ObResult::No) ||
-            value >= STATIC_CAST(int, ObResult::TryAgain) && value <= STATIC_CAST(int, ObResult::Continue)) {
-            return STATIC_CAST(ObResult, value);
+    inline ObResult get(int value)
+    {
+        if (value >= static_cast<int>(ObResult::Ok) && value <= static_cast<int>(ObResult::No) ||
+            value >= static_cast<int>(ObResult::TryAgain) && value <= static_cast<int>(ObResult::Continue)) {
+            return static_cast<ObResult>(value);
         }
         return ObResult::Ok;
     }
