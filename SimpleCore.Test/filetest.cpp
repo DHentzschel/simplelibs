@@ -23,17 +23,21 @@ public:
 #pragma warning(default : 4309)
 #pragma warning(default : 4838)
         byteArray_ = ByteArray(byteArray, 16);
+
+		system("cleanup.bat");
+		system("setup.bat");
     }
 
     ~FileTest()
     {
         file_.close();
         file2_.close();
+		system("cleanup.bat");
     }
 
     TEST_METHOD(testOpen)
     {
-        /* This file should exists on desktop path*/
+        /* This file should exists on desktop path */
         Assert::IsTrue(file_.open(ReadOnly));
     }
 
@@ -86,7 +90,7 @@ public:
 
     TEST_METHOD(testReadAllText)
     {
-        /* The following code won't work: Assert::AreEqual(file_.readAllText(), fileContent)*/
+        /* The following code won't work: Assert::AreEqual(file_.readAllText(), fileContent) */
         Assert::IsTrue(file_.readAllText() == exampleFileContent_);
     }
 

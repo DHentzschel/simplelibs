@@ -92,12 +92,6 @@
     <Filter Include="src\Mathematics\Vectors">
       <UniqueIdentifier>{677df401-26a4-4fe8-889c-912857bc3531}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Mathematics\Vectors\Vector2">
-      <UniqueIdentifier>{8c703a49-32c7-42b9-b9a5-e22de03f6a3d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Mathematics\Vectors\Vector2f">
-      <UniqueIdentifier>{9a020723-a2fd-4830-a18a-83827dabb335}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\FileSystem\File\OpenMode">
       <UniqueIdentifier>{381e054d-92cd-4530-b37a-92afb93c31e5}</UniqueIdentifier>
     </Filter>
@@ -112,9 +106,6 @@
     </Filter>
     <Filter Include="src\Logger\LogType">
       <UniqueIdentifier>{ec43cffd-3698-4fe2-8275-23a7c56baa8d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Mathematics\Vectors\Vector2d">
-      <UniqueIdentifier>{2869a61c-bf5e-4073-9f9d-4d319b09cb1f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -450,12 +441,6 @@
     <ClInclude Include="mathutils.h">
       <Filter>src\Mathematics\MathUtils</Filter>
     </ClInclude>
-    <ClInclude Include="vector2.h">
-      <Filter>src\Mathematics\Vectors\Vector2</Filter>
-    </ClInclude>
-    <ClInclude Include="vector2f.h">
-      <Filter>src\Mathematics\Vectors\Vector2f</Filter>
-    </ClInclude>
     <ClInclude Include="openmode.h">
       <Filter>src\FileSystem\File\OpenMode</Filter>
     </ClInclude>
@@ -474,8 +459,17 @@
     <ClInclude Include="types.h">
       <Filter>src\General</Filter>
     </ClInclude>
+    <ClInclude Include="vector2.h">
+      <Filter>src\Mathematics\Vectors</Filter>
+    </ClInclude>
     <ClInclude Include="vector2d.h">
-      <Filter>src\Mathematics\Vectors\Vector2d</Filter>
+      <Filter>src\Mathematics\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2f.h">
+      <Filter>src\Mathematics\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2i.h">
+      <Filter>src\Mathematics\Vectors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

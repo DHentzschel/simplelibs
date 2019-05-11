@@ -5,137 +5,123 @@
 
 #include "astring.h"
 #include "avector.h"
+#include "directory.h"
 
+/**
+ * @author Daniel Hentzschel on 11.05.2019.
+ */
 class Dir {
 public:
-    Dir();
+	/**
+	 * Provides the default constructor.
+	 */
+	Dir() = default;
 
-    Dir(const Dir& dir);
+	/**
+	 * Sets the default value path.
+	 *
+	 * @param path the directory path
+	 */
+	Dir(const Dir& dir);
 
-    explicit Dir(const AString& getPath) noexcept;
+	/**
+	 * Sets the default value path.
+	 *
+	 * @param path the directory path
+	 */
+	explicit Dir(const AString& path) noexcept;
 
-    ~Dir();
+	/**
+	 * Returns the directory path as string.
+	 *
+	 * @return path the directory path
+	 */
+	AString getPath() const;
 
-    AString getPath() const;
+	/**
+	 * Sets the path by parameter and replaces \\ by /
+	 *
+	 * @param path the absolute or relative path
+	 */
+	void setPath(const AString& path);
 
-    void setPath(const AString& path);
+	/**
+	 * Tries to create the directory in path variable set.
+	 * Depending on parameter overrideIfExisting, the directory will be overridden or not.
+	 *
+	 * @param overrideIfExisting override if the folder exists
+	 * @return if the directory could get created
+	 */
+	bool create(bool overrideIfExisting = false) const;
 
-    bool create(bool overrideIfExisting = false) const;
+	/**
+	 * Tries to create the directory in path variable set.
+	 * Depending on parameter overrideIfExisting, the directory will be overridden or not.
+	 *
+	 * @param path the path to create
+	 * @param overrideIfExisting override if the folder exists
+	 * @return if the directory could get created
+	 */
+	static bool create(const AString& path, bool overrideIfExisting = false);
 
-    static bool create(const AString& getPath, bool overrideIfExisting = false);
+	/**
+	 * Returns if the directory located in the path exists.
+	 *
+	 * @param path the directory path
+	 * @return if the directory exists
+	 */
+	bool exists() const;
 
-    bool exists() const;
+	/**
+	 * Returns if the directory located in the path exists.
+	 *
+	 * @param path the directory path
+	 * @return if the directory exists
+	 */
+	static bool exists(const AString& path);
 
-    static bool exists(const AString& getPath);
+	/**
+	 * Erases the directory located in the path, depending on recursively if recursively.
+	 *
+	 * @param recursively if the directory should be erased recursively
+	 * @return if the directory could be erased
+	 */
+	bool erase(bool recursively = true) const;
 
-    bool erase(bool recursively = true) const;
+	/**
+	 * Erases the directory located in the path, depending on recursively if recursively.
+	 *
+	 * @param path the directory to erase
+	 * @param recursively if the directory should be erased recursively
+	 * @return if the directory could be erased
+	 */
+	static bool erase(const AString& path, bool recursively = true);
 
-    int64 getFileCount();
+	/**
+	 * Returns the count of the files inside the directory.
+	 *
+	 * @return the count of files inside the directory
+	 */
+	int64 getFileCount() const;
 
-    void operator=(const Dir& right);
+	/**
+	 * Returns a list of filenames inside the directory.
+	 *
+	 * @return a list of filenames inside the directory
+	 */
+	const AVector<std::filesystem::directory_entry>& getFiles();
 
-    const AVector<std::filesystem::directory_entry>& getFiles();
-
-    static bool erase(const AString& getPath, bool recursively = true);
-
-    static AString getApplicationDir();
-
-    static AString getDesktopDir();
-
-    static AString getStartProgramsDir();
-
-    static AString getFavoritesDir();
-
-    static AString getStartupDir();
-
-    static AString getRecentDir();
-
-    static AString getSendToDir();
-
-    static AString getStartMenuDir();
-
-    static AString getDocumentsDir();
-
-    static AString getMusicDir();
-
-    static AString getVideosDir();
-
-    static AString getNethoodDir();
-
-    static AString getFontsDir();
-
-    static AString getTemplatesDir();
-
-    static AString getCommonStartMenuDir();
-
-    static AString getCommonStartProgramsDir();
-
-    static AString getCommonStartupDir();
-
-    static AString getCommonDesktopDir();
-
-    static AString getAppDataDir();
-
-    static AString getPrintHoodDir();
-
-    static AString getLocalAppDataDir();
-
-    static AString getAltStartupDir();
-
-    static AString getCommonAltStartupDir();
-
-    static AString getCommonFavoritesDir();
-
-    static AString getInternetCacheDir();
-
-    static AString getCookiesDir();
-
-    static AString getHistoryDir();
-
-    static AString getCommonAppDataDir();
-
-    static AString getWindowsDir();
-
-    static AString getSystemDir();
-
-    static AString getProgramFilesDir();
-
-    static AString getPicturesDir();
-
-    static AString getProfileDir();
-
-    static AString getSystemx86Dir();
-
-    static AString getProgramFilesx86Dir();
-
-    static AString getProgramFilesCommonDir();
-
-    static AString getProgramFilesx86CommonDir();
-
-    static AString getCommonTemplatesDir();
-
-    static AString getCommonDocumentsDir();
-
-    static AString getCommonAdminToolsDir();
-
-    static AString getAdminToolsDir();
-
-    static AString getCommonMusicDir();
-
-    static AString getCommonPicturesDir();
-
-    static AString getCommonVideosDir();
-
-    static AString getResourcesDir();
-
-    static AString getCdBurnAreaDir();
-
+	/**
+	 * Returns the path by directoy type.
+	 *
+	 * @param directory the enum of the directory type
+	 * @return the full path
+	 */
+	static AString getDir(Directory directory);
 private:
-    AString path_;
+	AString path_;
 
-    AVector<std::filesystem::directory_entry> fileList_;
-
-    static AString getDir(int directoryId);
+	AVector<std::filesystem::directory_entry> fileList_;
 };
 
 #endif   // DIR_H
