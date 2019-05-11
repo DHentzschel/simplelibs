@@ -15,6 +15,11 @@ public:
     void removeWhitespaces();
 
     void removeEscapes();
+
+private:
+    using stringvector_t = std::vector<AString>;
+
+    using size_type = stringvector_t::size_type;
 };
 
 #endif // STRINGVECTOR_H

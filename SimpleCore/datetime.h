@@ -10,7 +10,7 @@
 
 class DateTime {
 public:
-    DateTime() = default;
+    DateTime();
 
     DateTime(const DateTimeInfo& dateTimeInfo);
 

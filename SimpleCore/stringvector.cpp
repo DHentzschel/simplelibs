@@ -11,18 +11,18 @@ void StringVector::removeEmpties()
 
 void StringVector::removeWhitespaces()
 {
-    for (uint64 i = 0; i < size() && i < STATIC_CAST(uint64, -1); ++i) {
-        if (at(i).isOnlyWhitespaces()) {
-            removeAt(static_cast<int>(i));
+    for (size_type i = 0; i < size() && i < static_cast<size_type>(-1); ++i) {
+        if (stringvector_t::operator[](i).isOnlyWhitespaces()) {
+            removeAt(i);
         }
     }
 }
 
 void StringVector::removeEscapes()
 {
-    for (uint64 i = 0; i < size() && i < STATIC_CAST(uint64, -1); ++i) {
-        if (at(i).isOnlyEscapes()) {
-            removeAt(static_cast<int>(i));
+    for (size_type i = 0; i < size() && i < static_cast<size_type>(-1); ++i) {
+        if (stringvector_t::operator[](i).isOnlyEscapes()) {
+            removeAt(i);
         }
     }
 }

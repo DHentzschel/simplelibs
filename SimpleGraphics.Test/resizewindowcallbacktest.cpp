@@ -4,5 +4,5 @@
 
 void ResizeWindowCallbackTest::invoke(GLFWwindow* window, const Vector2& size)
 {
-    Console::print("Window resized: " + TO_STRING(size.x) + ", " + TO_STRING(size.y));
+    Console::print("Window resized: " + AString::toString(size.x) + ", " + AString::toString(size.y));
 }

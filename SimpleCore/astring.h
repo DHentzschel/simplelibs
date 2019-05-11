@@ -8,7 +8,6 @@
 
 #include "avector.h"
 #include "bytearray.h"
-#include "casesensitivity.h"
 #include "types.h"
 
 class AString : public std::string {
@@ -39,19 +38,19 @@ public:
 
     AString& prepend(const AString& string);
 
-    AString& removeAll(char c, CaseSensitivity cs = CaseSensitive);
+    AString& removeAll(char c, bool caseSensitive = true);
 
-    AString& removeAll(const AString& string, CaseSensitivity cs = CaseSensitive);
+    AString& removeAll(const AString& string, bool caseSensitive = true);
 
-    AString& removeFirst(char c, CaseSensitivity cs = CaseSensitive);
+    AString& removeFirst(char c, bool caseSensitive = true);
 
-    AString& removeFirst(const AString& string, CaseSensitivity cs = CaseSensitive);
+    AString& removeFirst(const AString& string, bool caseSensitive = true);
 
     AString& repeat(int times);
 
-    AString& replaceAll(const AString& from, const AString& to, CaseSensitivity cs = CaseSensitive);
+    AString& replaceAll(const AString& from, const AString& to, bool caseSensitive = true);
 
-    AString& replaceFirst(const AString& from, const AString& to, CaseSensitivity cs = CaseSensitive);
+    AString& replaceFirst(const AString& from, const AString& to, bool caseSensitive = true);
 
     AString& toLower();
 
@@ -59,9 +58,9 @@ public:
 
     AString& trim();
 
-    AVector<AString> split(char separator, CaseSensitivity cs = CaseSensitive) const;
+    AVector<AString> split(char separator, bool caseSensitive = true) const;
 
-    AVector<AString> split(const AString& separator, CaseSensitivity cs = CaseSensitive) const;
+    AVector<AString> split(const AString& separator, bool caseSensitive = true) const;
 
     AVector<AString> splitByNonNumerics() const;
 
@@ -69,13 +68,13 @@ public:
 
     ByteArray toByteArray() const;
 
-    bool contains(char c, CaseSensitivity cs = CaseSensitive) const;
+    bool contains(char c, bool caseSensitive = true) const;
 
-    bool contains(const AString& string, CaseSensitivity cs = CaseSensitive) const;
+    bool contains(const AString& string, bool caseSensitive = true) const;
 
-    bool endsWith(const AString& string, CaseSensitivity cs = CaseSensitive) const;
+    bool endsWith(const AString& string, bool caseSensitive = true) const;
 
-    bool equals(const AString& string, CaseSensitivity cs = CaseSensitive) const;
+    bool equals(const AString& string, bool caseSensitive = true) const;
 
     bool isEmpty() const;
 
@@ -89,11 +88,11 @@ public:
 
     bool isWithoutWhitespaces() const;
 
-    bool startsWith(const AString& string, CaseSensitivity cs = CaseSensitive) const;
+    bool startsWith(const AString& string, bool caseSensitive = true) const;
 
-    size_t count(char c, CaseSensitivity cs = CaseSensitive) const;
+    size_t count(char c, bool caseSensitive = true) const;
 
-    size_t count(const AString& string, CaseSensitivity cs = CaseSensitive) const;
+    size_t count(const AString& string, bool caseSensitive = true) const;
 
     size_t countWords() const;
 

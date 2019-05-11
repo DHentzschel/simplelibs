@@ -10,13 +10,13 @@ Mouse Mouse::mouseInitializer_;
 
 Mouse::Mouse()
 {
-    keys_ = CONST_CAST(bool*, Keyboard::getKeyArray());
+    keys_ = const_cast<bool*>(Keyboard::getKeyArray());
 }
 
 bool Mouse::isButtonPressed(Key key)
 {
     if (key >= Key::MouseLeft && key <= Key::MouseX2) {
-        return keys_[STATIC_CAST(short, key)];
+        return keys_[static_cast<short>(key)];
     }
     return false;
 }

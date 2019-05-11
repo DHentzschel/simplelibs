@@ -17,7 +17,7 @@ class TcpSocket {
     friend class TcpServerEventListener;
 
 public:
-    TcpSocket() = default;
+    TcpSocket();
 
     TcpSocket(const TcpSocket& tcpSocket);
 

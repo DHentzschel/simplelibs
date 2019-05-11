@@ -1,6 +1,7 @@
 #include "keyboard.h"
 
 #include <functions.h>
+#include <memory>
 
 bool* Keyboard::keys_ = nullptr;
 
@@ -21,5 +22,5 @@ Keyboard::~Keyboard()
 
 bool Keyboard::isKeyPressed(Key key) const
 {
-    return keys_[STATIC_CAST(int, key)];
+    return keys_[static_cast<int>(key)];
 }

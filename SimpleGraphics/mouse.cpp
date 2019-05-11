@@ -29,7 +29,7 @@ Mouse::~Mouse()
 
 bool Mouse::isButtonPressed(Button button)
 {
-    return buttons_[STATIC_CAST(byte, button)];
+    return buttons_[static_cast<byte>(button)];
 }
 
 Vector2d Mouse::getCursorPosition()

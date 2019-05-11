@@ -4,5 +4,5 @@
 
 void MouseEnterCallbackTest::invoke(GLFWwindow* window, bool entered)
 {
-    Console::print("Mouse entered window: " + TO_STRING_BOOL(entered));
+    Console::print("Mouse entered window: " + AString::toString(entered, true));
 }

@@ -21,11 +21,11 @@ struct SqlQueryPrivate {
 
     SqlDatabase* database;
 
-    SHARED_PTR(MYSQL_STMT) statement;
+    std::shared_ptr<MYSQL_STMT> statement;
 
     AVector<MYSQL_BIND> parameters;
 
-    AVector<SHARED_PTR(void)> parameterValues;
+    AVector<std::shared_ptr<void>> parameterValues;
 
     MYSQL_BIND* results;
 
@@ -33,7 +33,7 @@ struct SqlQueryPrivate {
 
     MYSQL_ROW lastRow;
 
-    SHARED_PTR(SqlTable) parsedQuery;
+    std::shared_ptr<SqlTable> parsedQuery;
 
     uint64 recordCount;
 
@@ -45,6 +45,8 @@ struct SqlQueryPrivate {
 };
 
 SqlQueryPrivate::SqlQueryPrivate() :
+    recordCount(0),
+    lastRow(MYSQL_ROW()),
     executedPrepared(false),
     nextOnError(false),
     database(nullptr),
@@ -131,7 +133,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         if (str.empty()) {
             auto val = std::get<bool>(value);
             str = std::to_string(val);
-            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(MAKE_SHARED(bool, val)));
+            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(std::make_shared<bool>(val)));
             bufferLength = sizeof(bool);
         }
     }
@@ -141,7 +143,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         if (str.empty()) {
             auto val = std::get<byte>(value);
             str = std::to_string(val);
-            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(MAKE_SHARED(byte, val)));
+            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(std::make_shared<byte>(val)));
             bufferLength = sizeof(byte);
         }
         break;
@@ -152,7 +154,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         if (str.empty()) {
             auto val = std::get<short>(value);
             str = std::to_string(val);
-            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(MAKE_SHARED(short, val)));
+            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(std::make_shared<short>(val)));
             bufferLength = sizeof(short);
         }
     }
@@ -162,7 +164,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         if (str.empty()) {
             auto val = std::get<ushort>(value);
             str = std::to_string(val);
-            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(MAKE_SHARED(ushort, val)));
+            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(std::make_shared<ushort>(val)));
             bufferLength = sizeof(ushort);
         }
         break;
@@ -173,7 +175,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         if (str.empty()) {
             auto val = std::get<int>(value);
             str = std::to_string(val);
-            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(MAKE_SHARED(int, val)));
+            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(std::make_shared<int>(val)));
             bufferLength = sizeof(int);
         }
     }
@@ -183,7 +185,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         if (str.empty()) {
             auto val = std::get<uint>(value);
             str = std::to_string(val);
-            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(MAKE_SHARED(uint, val)));
+            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(std::make_shared<uint>(val)));
             bufferLength = sizeof(uint);
         }
         break;
@@ -194,7 +196,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         if (str.empty()) {
             auto val = std::get<int64>(value);
             str = std::to_string(val);
-            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(MAKE_SHARED(int64, val)));
+            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(std::make_shared<int64>(val)));
             bufferLength = sizeof(int64);
         }
     }
@@ -204,7 +206,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         if (str.empty()) {
             auto val = std::get<uint64>(value);
             str = std::to_string(val);
-            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(MAKE_SHARED(uint64, val)));
+            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(std::make_shared<uint64>(val)));
             bufferLength = sizeof(uint64);
         }
         break;
@@ -216,7 +218,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         if (str.empty()) {
             auto val = std::get<float>(value);
             str = std::to_string(val);
-            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(MAKE_SHARED(float, val)));
+            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(std::make_shared<float>(val)));
             bufferLength = sizeof(float);
         }
         break;
@@ -228,7 +230,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         if (str.empty()) {
             auto val = std::get<double>(value);
             str = std::to_string(val);
-            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(MAKE_SHARED(double, val)));
+            private_->parameterValues.append(std::reinterpret_pointer_cast<void>(std::make_shared<double>(val)));
             bufferLength = sizeof(double);
         }
         break;
@@ -238,12 +240,12 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
         isUnsigned = 0;
         fieldType = MYSQL_TYPE_STRING;
         if (str.empty()) {
-            const auto val = CONST_CAST(char*, std::get<const char*>(value));
+            const auto val = const_cast<char*>(std::get<const char*>(value));
             str = val;
             private_->parameterValues.append(
-                std::reinterpret_pointer_cast<void>(SHARED_PTR(char)(
-                    _strdup(val), [](const char* d) { delete[] d; })));
-            bufferLength = STATIC_CAST(ulong, strlen(val));   // Todo Insecure
+                std::reinterpret_pointer_cast<void>(std::shared_ptr<char>(
+                _strdup(val), [](const char* d) { delete[] d; })));
+            bufferLength = static_cast<ulong>(strlen(val));   // Todo Insecure
         }
         break;
     }
@@ -256,7 +258,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
             str = val;
             private_->parameterValues.append(std::reinterpret_pointer_cast<void>(
                 std::shared_ptr<char>(_strdup(val.c_str()), [](const char* d) { delete[] d; })));
-            bufferLength = STATIC_CAST(ulong, val.length());
+            bufferLength = static_cast<ulong>(val.length());
         }
         break;
     }
@@ -273,7 +275,7 @@ void SqlQuery::addBindValue(const SqlVariantParam& value) const
  * \param query query string to prepare
  * \return success
  */
-bool SqlQuery::prepare(const AString& query) const
+bool SqlQuery::prepare(const AString & query) const
 {
     clear();
 
@@ -292,7 +294,7 @@ bool SqlQuery::prepare(const AString& query) const
         mysql_stmt_init(private_->database->getMySql()), [](MYSQL_STMT*) {});
 
     if (mysql_stmt_prepare(private_->statement.get(), private_->query.toCString(),
-        STATIC_CAST(ulong, private_->query.size()))) {
+        static_cast<ulong>(private_->query.size()))) {
         printSqlError(__FILE__, __FUNCTION__, __LINE__);
         return false;
     }
@@ -328,7 +330,7 @@ bool SqlQuery::exec() const
         sizeof(MYSQL_BIND) * private_->parsedQuery->columns.size());
 
     for (size_t i = 0; i < private_->parsedQuery->columns.size(); ++i) {
-        private_->results[i].buffer_type = STATIC_CAST(enum_field_types, private_->parsedQuery->columns[i].type);
+        private_->results[i].buffer_type = static_cast<enum_field_types>(private_->parsedQuery->columns[i].type);
         private_->results[i].buffer_length = private_->parsedQuery->columns[i].length;
         private_->results[i].buffer = new char[private_->results[i].buffer_length + 1];
         ZeroMemory(private_->results[i].buffer, private_->results[i].buffer_length + 1);
@@ -352,7 +354,7 @@ bool SqlQuery::exec() const
  * \param query query string to execute
  * \return success
  */
-bool SqlQuery::exec(const AString& query) const
+bool SqlQuery::exec(const AString & query) const
 {
     clear();
     if (!private_->database || !private_->database->isOpen()) {
@@ -374,7 +376,7 @@ bool SqlQuery::exec(const AString& query) const
     auto result = !mysql_query(private_->database->getMySql(), query.c_str());
     private_->lastResult = mysql_store_result(private_->database->getMySql());
     if (private_->isSelectCommand) {
-        return private_->lastResult && result;
+        return private_->lastResult&& result;
     }
     return result;
 }
@@ -412,7 +414,7 @@ bool SqlQuery::next() const
  * \param column column name
  * \return value as variant
  */
-SqlVariant SqlQuery::value(const AString& column) const
+SqlVariant SqlQuery::value(const AString & column) const
 {
     if (!private_->database || !private_->database->isOpen()) {
         printSqlError(__FILE__, __FUNCTION__, __LINE__,
@@ -493,9 +495,11 @@ void SqlQuery::clear() const
 
     if (private_->parsedQuery) {
         const auto columnCount = private_->parsedQuery->columns.size();
-        for (uint64 i = 0; i < columnCount && private_->results + i * sizeof(MYSQL_RES) != nullptr; ++i) {
+#pragma warning(disable : 6305)
+        for (uint64 i = 0; i < columnCount && (private_->results + i * sizeof(MYSQL_BIND)) != nullptr; ++i) {
             delete[] static_cast<char*>(private_->results[i].buffer);
         }
+#pragma warning(default : 6305)
         private_->parsedQuery = nullptr;
     }
     DELETE_ARR(private_->results);
@@ -505,7 +509,7 @@ void SqlQuery::clear() const
  * \brief Sets current database pointer to database with connectionName equals to passed param connectionName.
  * \param connectionName connection name
  */
-void SqlQuery::setDatabase(const AString& connectionName) const
+void SqlQuery::setDatabase(const AString & connectionName) const
 {
     private_->database = SqlDatabase::database(connectionName);
 }
@@ -548,7 +552,7 @@ std::shared_ptr<SqlTable> SqlQuery::parseQuery() const
     copyQuery.replaceAll("  ", " ");
     auto querySplitted = copyQuery.split(' ');
 
-    auto tableColumnListContains = [currentTable](const AString& columnName) {
+    auto tableColumnListContains = [currentTable](const AString & columnName) {
         for (auto& column : currentTable->columns) {
             if (column.name == columnName) {
                 return true;
@@ -632,7 +636,7 @@ std::shared_ptr<SqlTable> SqlQuery::parseQuery() const
     return currentTable;
 }
 
-void SqlQuery::countRows(const AString& query) const
+void SqlQuery::countRows(const AString & query) const
 {
     SqlQuery countQuery(private_->database->getConnectionName());
     countQuery.private_->countRows = false;
@@ -670,11 +674,11 @@ void SqlQuery::printSqlError(const char* file,
     AString errorCode;
     AString errorString;
     if (private_->executedPrepared) {
-        errorCode = TO_STRING(private_->statement->last_errno);
+        errorCode = AString::toString(private_->statement->last_errno);
         errorString = private_->statement->last_error;
     }
     else {
-        errorCode = TO_STRING(mysql_errno(private_->database->getMySql()));
+        errorCode = AString::toString(mysql_errno(private_->database->getMySql()));
         errorString = mysql_error(private_->database->getMySql());
     }
 
@@ -682,6 +686,6 @@ void SqlQuery::printSqlError(const char* file,
     Logger::error("Error message: " + errorString);
     Logger::error("File: " + AString(file));
     Logger::error("Function: " + AString(function));
-    Logger::error("Line: " + TO_STRING(line));
+    Logger::error("Line: " + AString::toString(line));
     Logger::error("Reason: " + AString(reason ? reason : "NULL"));
 }

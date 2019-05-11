@@ -2,6 +2,7 @@
 #define FORM_H
 
 #include <astring.h>
+#include <memory>
 #include <vector2.h>
 
 #include "control.h"
@@ -33,7 +34,7 @@ public:
 
     void show();
 
-    void addControl(SHARED_PTR(Control) control);
+    void addControl(std::shared_ptr<Control>& control);
 
 protected:
     virtual void formMovedEvent(const Vector2& previousPosition, const Vector2& position) {}

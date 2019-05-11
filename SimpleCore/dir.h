@@ -12,9 +12,7 @@ public:
 
     Dir(const Dir& dir);
 
-    Dir(Dir&& dir);
-
-    explicit Dir(const AString& getPath);
+    explicit Dir(const AString& getPath) noexcept;
 
     ~Dir();
 

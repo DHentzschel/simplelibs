@@ -2,6 +2,7 @@
 
 #include <functions.h>
 
-void IMouseEnterCallback::invokeCallback(GLFWwindow* window, int entered) {
-    invoke(window, STATIC_CAST(bool, entered));
+void IMouseEnterCallback::invokeCallback(GLFWwindow* window, int entered)
+{
+    invoke(window, static_cast<bool>(entered));
 }

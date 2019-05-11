@@ -24,16 +24,11 @@ File::File(const File& file)
     }
 }
 
-File::File(File&& file) :
-    File(file)
-{
-}
-
 /**
  * \brief Constructs instance by setting params for filepath (passed by param) and openMode(NotOpen)
  * \param filepath filepath to use
  */
-File::File(const AString& filepath) :
+File::File(const AString& filepath) noexcept :
     openMode_(NotOpen)
 {
     setFilepath(filepath);
@@ -130,12 +125,12 @@ AString File::getDirectory() const
     // TODO: Return absolute directory from relative
     auto lastIndexOfSlash = filepath_.lastIndexOf('/');
 
-    if (lastIndexOfSlash == STATIC_CAST(uint64, -1)) {
+    if (lastIndexOfSlash == static_cast<uint64>(-1)) {
         return AString();
     }
 
     auto copy = filepath_;
-    copy.erase(STATIC_CAST(size_t, lastIndexOfSlash), copy.size() - 1);
+    copy.erase(static_cast<size_t>(lastIndexOfSlash), copy.size() - 1);
     return copy;
 }
 
@@ -150,7 +145,7 @@ AString File::getFilename() const
     }
 
     auto copy = filepath_;
-    copy.erase(0, STATIC_CAST(size_t, lastIndexOfSlash) + 1);
+    copy.erase(0, static_cast<size_t>(lastIndexOfSlash) + 1);
     return copy;
 }
 
@@ -167,7 +162,7 @@ AString File::getFilepath() const
  * \brief Sets file path for the next filestream.
  * \param filepath filepath for filestream
  */
-void File::setFilepath(const AString& filepath)
+void File::setFilepath(const AString & filepath)
 {
     filepath_ = filepath;
     filepath_.replaceAll("\\", "/");
@@ -208,7 +203,7 @@ void File::close()
     fstream_.close();
 }
 
-void File::operator=(const File& file)
+void File::operator=(const File & file)
 {
     filepath_ = file.filepath_;
     openMode_ = file.openMode_;
@@ -223,7 +218,7 @@ void File::operator=(const File& file)
  * \param string string to write
  * \return std::fstream instance
  */
-std::fstream& File::operator<<(const AString& string)
+std::fstream& File::operator<<(const AString & string)
 {
     if (!printFileOpen()) {
         return fstream_;
@@ -249,7 +244,7 @@ std::fstream& File::operator<<(const AString& string)
  * \brief Appends string to file. Only works if flags WriteOnly and Append were set.
  * \param string string to write
  */
-void File::append(const AString& string)
+void File::append(const AString & string)
 {
     if (!printFileOpen()) {
         return;
@@ -289,7 +284,7 @@ AString File::readAllText()
  * \brief Clears filestream and writes complete param text string to file.
  * \param text string to write
  */
-void File::writeAllText(const AString& text)
+void File::writeAllText(const AString & text)
 {
     if (isOpen()) {
         close();
@@ -315,9 +310,9 @@ ByteArray File::readAllBytes()
         Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
         return ByteArray();
     }
-    const size_t pos = STATIC_CAST(size_t, fstream_.tellg());
+    const size_t pos = static_cast<size_t>(fstream_.tellg());
 
-    SHARED_PTR(char) buffer = SHARED_PTR(char)(new char[pos], [](const char* buffer) { delete[] buffer; });
+    std::shared_ptr<char> buffer = std::shared_ptr<char>(new char[pos], [](const char* buffer) { delete[] buffer; });
     fstream_.seekg(0, std::ios::beg);
     fstream_.read(buffer.get(), pos);
     close();
@@ -329,7 +324,7 @@ ByteArray File::readAllBytes()
  * \brief Clears filestream and writes all bytes existing in param bytes.
  * \param bytes byte array
  */
-void File::writeAllBytes(const ByteArray& bytes)
+void File::writeAllBytes(const ByteArray & bytes)
 {
     if (isOpen()) {
         close();
