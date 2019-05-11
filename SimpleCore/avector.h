@@ -149,11 +149,8 @@ bool AVector<T>::isEmpty() const
 template<class T>
 inline bool AVector<T>::contains(const T& value) const
 {
-    for (uint64 i = 0; i < STVECTOR::size(); ++i) {
-        if (i == STATIC_CAST(uint64, -1)) {
-            return i;
-        }
-        if (STVECTOR::at(STATIC_CAST(size_t, i)) == value) {
+    for (auto it = IT_BEGIN; it != IT_END; ++it) {
+        if (*it == value) {
             return true;
         }
     }
@@ -163,16 +160,13 @@ inline bool AVector<T>::contains(const T& value) const
 template<class T>
 uint64 AVector<T>::count(const T& value) const
 {
-    uint64 c = 0;
-    for (uint64 i = 0; i < STVECTOR::size(); ++i) {
-        if (i == STATIC_CAST(uint64, -1)) {
-            return c;
-        }
-        if (STVECTOR::at(STATIC_CAST(uint64, i)) == value) {
-            ++c;
+    uint64 result = 0;
+    for (auto it = IT_BEGIN; it != IT_END; ++it) {
+        if (*it == value) {
+            ++result;
         }
     }
-    return c;
+    return result;
 }
 
 template<class T>
@@ -184,11 +178,8 @@ uint64 AVector<T>::firstIndexOf(const T& value) const
 template<class T>
 uint64 AVector<T>::indexOf(const T& value) const
 {
-    for (uint64 i = 0; i < STVECTOR::size(); ++i) {
-        if (i == STATIC_CAST(uint64, -1)) {
-            return i;
-        }
-        if (value == STVECTOR::at(STATIC_CAST(size_t, i))) {
+    for (auto i = 0; i != STVECTOR::size(); ++i) {
+        if (STVECTOR::operator[](i) == value) {
             return i;
         }
     }
@@ -198,11 +189,8 @@ uint64 AVector<T>::indexOf(const T& value) const
 template<class T>
 uint64 AVector<T>::lastIndexOf(const T& value) const
 {
-    for (uint64 i = STVECTOR::size() - 1; i >= 0; --i) {
-        if (i == STATIC_CAST(uint64, -1)) {
-            return i;
-        }
-        if (value == STVECTOR::at(i)) {
+    for (auto i = STVECTOR::size() - 1; i >= 0 && i < STVECTOR::size(); --i) {
+        if (STVECTOR::operator[](i) == value) {
             return i;
         }
     }
@@ -242,9 +230,9 @@ void AVector<T>::removeDuplicates()
     AVector<T> result;
     result.reserve(STVECTOR::size());
 
-    for (auto t : *this) {
-        if (!result.contains(t)) {
-            result.append(t);
+    for (auto it = IT_BEGIN; it != IT_END; ++it) {
+        if (!result.contains(*it)) {
+            result.append(*it);
         }
     }
     *this = result;
@@ -259,14 +247,12 @@ void AVector<T>::removeLast()
 template<class T>
 void AVector<T>::removeFirst(const T& value)
 {
-    if (STVECTOR::size() == 0) {
-        return;
-    }
-    auto it = IT_BEGIN;
-    for (; it != IT_END; ++it) {
-        if (*it == value) {
-            STVECTOR::erase(it);
-            return;
+    if (STVECTOR::size() > 0) {
+        for (auto it = IT_BEGIN; it != IT_END; ++it) {
+            if (*it == value) {
+                STVECTOR::erase(it);
+                return;
+            }
         }
     }
 }
@@ -274,17 +260,11 @@ void AVector<T>::removeFirst(const T& value)
 template<class T>
 void AVector<T>::removeAll(const T& value)
 {
-    if (STVECTOR::size() == 0) {
-        return;
-    }
-    AVector<T> result;
-    result.reserve(STVECTOR::size() - count(value));
-    for (auto it = IT_BEGIN; it != IT_END; ++it) {
-        if (*it != value) {
-            result.append(*it);
+    for (auto i = STVECTOR::size() - 1; i >= 0 && i < STVECTOR::size(); --i) {
+        if (STVECTOR::operator[](i) == value) {
+            removeAt(i);
         }
     }
-    *this = result;
 }
 
 template<class T>
@@ -293,6 +273,7 @@ AVector<T> AVector<T>::mid(const uint64 pos, const uint64 length) const
     if (STVECTOR::size() == 0) {
         return AVector<T>();
     }
+
     AVector<T> result;
     uint64 limit = length == -1 ? STVECTOR::size() : pos + length;
     for (auto i = pos; i < limit; ++i) {

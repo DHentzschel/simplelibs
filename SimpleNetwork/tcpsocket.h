@@ -1,6 +1,7 @@
 #ifndef TCPSOCKET_H
 #define TCPSOCKET_H
 
+#include <memory>
 #include <stopwatch.h>
 #include <WinSock2.h>
 

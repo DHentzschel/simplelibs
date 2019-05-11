@@ -1,5 +1,6 @@
-glm/
-# Created by https://www.gitignore.io/api/c,c++,windows,visualstudio
+
+# Created by https://www.gitignore.io/api/c,c++,linux,macos,windows,visualstudio
+# Edit at https://www.gitignore.io/?templates=c,c++,linux,macos,windows,visualstudio
 
 ### C ###
 # Prerequisites
@@ -21,13 +22,17 @@ glm/
 *.pch
 
 # Libraries
-# *.lib
+*.lib
+!libmysql.lib
 *.a
 *.la
 *.lo
 
 # Shared objects (inc. Windows DLLs)
-# *.dll
+*.dll
+!libmysql.dll
+!glfw3.dll
+!glew32.dll
 *.so
 *.so.*
 *.dylib
@@ -74,6 +79,49 @@ dkms.conf
 
 # Executables
 
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -106,6 +154,7 @@ $RECYCLE.BIN/
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 # User-specific files
+*.rsuser
 *.suo
 *.user
 *.userosscache
@@ -114,6 +163,9 @@ $RECYCLE.BIN/
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
+# Mono auto generated files
+mono_crash.*
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -121,6 +173,8 @@ $RECYCLE.BIN/
 [Rr]eleases/
 x64/
 x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
 bld/
 [Bb]in/
 [Oo]bj/
@@ -301,17 +355,18 @@ BundleArtifacts/
 Package.StoreAssociation.xml
 _pkginfo.txt
 *.appx
+*.appxbundle
+*.appxupload
 
 # Visual Studio cache files
 # files ending in .cache can be ignored
 *.[Cc]ache
 # but keep track of directories ending in .cache
-!*.[Cc]ache/
+!?*.[Cc]ache/
 
 # Others
 ClientBin/
 ~$*
-*~
 *.dbmdl
 *.dbproj.schemaview
 *.jfm
@@ -350,6 +405,7 @@ ServiceFabricBackup/
 *.bim.layout
 *.bim_*.settings
 *.rptproj.rsuser
+*- Backup*.rdl
 
 # Microsoft Fakes
 FakesAssemblies/
@@ -384,10 +440,6 @@ paket-files/
 
 # FAKE - F# Make
 .fake/
-
-# JetBrains Rider
-.idea/
-*.sln.iml
 
 # CodeRush personal settings
 .cr/personal
@@ -430,6 +482,11 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 
+# BeatPulse healthcheck temp database
+healthchecksdb
 
-# End of https://www.gitignore.io/api/c,c++,windows,visualstudio
+# Backup folder for Package Reference Convert tool in Visual Studio 2017
+MigrationBackup/
+
+# End of https://www.gitignore.io/api/c,c++,linux,macos,windows,visualstudio
 glm/
