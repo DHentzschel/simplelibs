@@ -147,7 +147,6 @@
     <ClInclude Include="astring.h" />
     <ClInclude Include="avector.h" />
     <ClInclude Include="bytearray.h" />
-    <ClInclude Include="casesensitivity.h" />
     <ClInclude Include="char.h" />
     <ClInclude Include="chocobo1\blake1_224.h" />
     <ClInclude Include="chocobo1\blake1_256.h" />

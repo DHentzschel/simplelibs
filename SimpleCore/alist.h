@@ -1,10 +1,6 @@
 #ifndef ALIST_H
 #define ALIST_H
 
-#define STLIST std::list<T>
-#define IT_BEGIN STLIST::begin()
-#define IT_END STLIST::end()
-
 #include <list>
 #include <vector>
 
@@ -12,7 +8,7 @@
 #include "types.h"
 
 template<class T>
-class AList : public STLIST {
+class AList : public list_t {
 public:
     using std::list<T>::list;
 
@@ -93,24 +89,26 @@ public:
     T takeFirst();
 
     T takeLast();
+
+private:
+    using list_t = std::list<T>;
 };
 
 template<class T>
-AList<T>::AList() : STLIST()
+AList<T>::AList() : list_t()
 {}
 
 template<class T>
-AList<T>::AList(uint64 size) : STLIST(size)
+AList<T>::AList(uint64 size) : list_t(size)
 {}
 
 template<class T>
-AList<T>::AList(const AList& vector) : STLIST(vector)
+AList<T>::AList(const AList& vector) : list_t(vector)
 {}
 
 template<class T>
-AList<T>::AList(AList && vector) : AList<T>(vector)
-{
-}
+AList<T>::AList(AList&& vector) : AList<T>(vector)
+{}
 
 template<class T>
 AList<T>::~AList()
@@ -119,8 +117,8 @@ AList<T>::~AList()
 template<class T>
 T& AList<T>::at(const uint64 i)
 {
-    auto it = IT_BEGIN;
-    for (auto c = 0; it != IT_END; ++c, ++it) {
+    auto it = list_t::begin();
+    for (auto c = 0; it != list_t::end(); ++c, ++it) {
         if (c == i) {
             return *it;
         }
@@ -131,8 +129,8 @@ T& AList<T>::at(const uint64 i)
 template<class T>
 const T& AList<T>::at(const uint64 i) const
 {
-    auto it = IT_BEGIN;
-    for (uint64 c = 0; it != IT_END && c != STATIC_CAST(uint64, -1); ++c, ++it) {
+    auto it = list_t::begin();
+    for (uint64 c = 0; it != list_t::end() && c != STATIC_CAST(uint64, -1); ++c, ++it) {
         if (c == i) {
             return *it;
         }
@@ -148,39 +146,39 @@ inline T& AList<T>::operator[](uint64 i)
 }
 
 template<class T>
-inline const T & AList<T>::operator[](uint64 i) const
+inline const T& AList<T>::operator[](uint64 i) const
 {
     return at(i);
 }
 
 template<class T>
-void AList<T>::append(const T& value)
+void AList<T>::append(const T & value)
 {
-    STLIST::push_back(value);
+    list_t::push_back(value);
 }
 
 template<class T>
-void AList<T>::append(T&& value)
+void AList<T>::append(T && value)
 {
-    STLIST::push_back(value);
+    list_t::push_back(value);
 }
 
 template<class T>
-void AList<T>::prepend(const T& value)
+void AList<T>::prepend(const T & value)
 {
-    STLIST::insert(IT_BEGIN, value);
+    list_t::insert(list_t::begin(), value);
 }
 
 template<class T>
-void AList<T>::prepend(T&& value)
+void AList<T>::prepend(T && value)
 {
-    STLIST::insert(IT_BEGIN, value);
+    list_t::insert(list_t::begin(), value);
 }
 
 template<class T>
-inline bool AList<T>::contains(const T& value) const
+inline bool AList<T>::contains(const T & value) const
 {
-    for (auto it = IT_BEGIN; it != IT_END; ++it) {
+    for (auto it = list_t::begin(); it != list_t::end(); ++it) {
         if (*it == value) {
             return true;
         }
@@ -189,28 +187,28 @@ inline bool AList<T>::contains(const T& value) const
 }
 
 template<class T>
-bool AList<T>::startsWith(const T& value) const
+bool AList<T>::startsWith(const T & value) const
 {
-    return *IT_BEGIN == value;
+    return *list_t::begin() == value;
 }
 
 template<class T>
-bool AList<T>::endsWith(const T& value) const
+bool AList<T>::endsWith(const T & value) const
 {
-    return *(IT_END - 1) == value;
+    return *(list_t::end() - 1) == value;
 }
 
 template<class T>
 bool AList<T>::isEmpty() const
 {
-    return STLIST::empty();
+    return list_t::empty();
 }
 
 template<class T>
-uint64 AList<T>::count(const T& value) const
+uint64 AList<T>::count(const T & value) const
 {
     auto c = 0;
-    for (auto it = IT_BEGIN; it != IT_END; ++it) {
+    for (auto it = list_t::begin(); it != list_t::end(); ++it) {
         if (*it == value) {
             ++c;
         }
@@ -219,16 +217,16 @@ uint64 AList<T>::count(const T& value) const
 }
 
 template<class T>
-uint64 AList<T>::firstIndexOf(const T& value) const
+uint64 AList<T>::firstIndexOf(const T & value) const
 {
     return indexOf(value);
 }
 
 template<class T>
-uint64 AList<T>::indexOf(const T& value) const
+uint64 AList<T>::indexOf(const T & value) const
 {
-    auto it = IT_BEGIN;
-    for (uint64 i = 0; it != IT_END; ++i, ++it) {
+    auto it = list_t::begin();
+    for (uint64 i = 0; it != list_t::end(); ++i, ++it) {
         if (*it == value) {
             return i;
         }
@@ -237,10 +235,10 @@ uint64 AList<T>::indexOf(const T& value) const
 }
 
 template<class T>
-uint64 AList<T>::lastIndexOf(const T& value) const
+uint64 AList<T>::lastIndexOf(const T & value) const
 {
-    auto it = IT_END;
-    for (auto i = 0; it != IT_BEGIN; ++i, --it) {
+    auto it = list_t::end();
+    for (auto i = 0; it != list_t::begin(); ++i, --it) {
         if (*it == value) {
             return i;
         }
@@ -249,10 +247,10 @@ uint64 AList<T>::lastIndexOf(const T& value) const
 }
 
 template<class T>
-void AList<T>::replace(const uint64 i, const T& value)
+void AList<T>::replace(const uint64 i, const T & value)
 {
-    auto it = IT_BEGIN;
-    for (auto c = 0; it != IT_END; ++c, ++it) {
+    auto it = list_t::begin();
+    for (auto c = 0; it != list_t::end(); ++c, ++it) {
         if (c == i) {
             *it = value;
         }
@@ -262,17 +260,17 @@ void AList<T>::replace(const uint64 i, const T& value)
 template<class T>
 void AList<T>::removeDuplicates()
 {
-    /* STLIST::sort();
-     STLIST::unique();*/
+    /* list_t::sort();
+     list_t::unique();*/
 }
 
 template<class T>
 void AList<T>::removeAt(const uint64 i)
 {
-    auto it = IT_BEGIN;
-    for (auto c = 0; it != IT_END; ++c, ++it) {
+    auto it = list_t::begin();
+    for (auto c = 0; it != list_t::end(); ++c, ++it) {
         if (c == i) {
-            STLIST::erase(it);
+            list_t::erase(it);
             return;
         }
     }
@@ -281,7 +279,7 @@ void AList<T>::removeAt(const uint64 i)
 template<class T>
 void AList<T>::removeFirst()
 {
-    STLIST::erase(IT_BEGIN);
+    list_t::erase(list_t::begin());
 }
 
 template<class T>
@@ -293,29 +291,29 @@ void AList<T>::pop_front()
 template<class T>
 void AList<T>::removeLast()
 {
-    STLIST::pop_back();
+    list_t::pop_back();
 }
 
 template<class T>
-void AList<T>::removeFirst(const T& value)
+void AList<T>::removeFirst(const T & value)
 {
-    auto it = IT_BEGIN;
-    for (; it != IT_END; ++it) {
+    auto it = list_t::begin();
+    for (; it != list_t::end(); ++it) {
         if (*it == value) {
-            STLIST::erase(it);
+            list_t::erase(it);
             return;
         }
     }
 }
 
 template<class T>
-void AList<T>::removeAll(const T& value)
+void AList<T>::removeAll(const T & value)
 {
-    auto it = IT_BEGIN;
-    for (; it != IT_END; ++it) {
+    auto it = list_t::begin();
+    for (; it != list_t::end(); ++it) {
         if (*it == value) {
-            it = STLIST::erase(it);
-            if (it == IT_END) {
+            it = list_t::erase(it);
+            if (it == list_t::end()) {
                 break;
             }
         }
@@ -326,8 +324,8 @@ template<class T>
 AList<T> AList<T>::mid(const uint64 pos, const uint64 length) const
 {
     AList<T> result;
-    uint64 limit = length == -1 ? STLIST::size() : pos + length;
-    auto it = IT_BEGIN;
+    uint64 limit = length == -1 ? list_t::size() : pos + length;
+    auto it = list_t::begin();
     for (auto i = pos; i < limit; ++i) {
         result.append(*it);
     }
@@ -346,9 +344,9 @@ void AList<T>::move(const uint64 from, const uint64 to)
 template<class T>
 std::vector<T> AList<T>::toVector() const
 {
-    std::vector<T> result(STLIST::size());
-    auto it = IT_BEGIN;
-    for (auto i = 0; it != IT_END; ++i, ++it) {
+    std::vector<T> result(list_t::size());
+    auto it = list_t::begin();
+    for (auto i = 0; it != list_t::end(); ++i, ++it) {
         result[i] = *it;
     }
     return result;
@@ -357,26 +355,26 @@ std::vector<T> AList<T>::toVector() const
 template<class T>
 T& AList<T>::first()
 {
-    return *IT_BEGIN;
+    return *list_t::begin();
 }
 
 template<class T>
 const T& AList<T>::first() const
 {
-    return *IT_BEGIN;
+    return *list_t::begin();
 }
 
 template<class T>
 T& AList<T>::last()
 {
-    auto it = IT_END;
+    auto it = list_t::end();
     return *--it;
 }
 
 template<class T>
 const T& AList<T>::last() const
 {
-    auto it = IT_END;
+    auto it = list_t::end();
     return *--it;
 }
 
@@ -391,7 +389,7 @@ T AList<T>::takeAt(uint64 i)
 template<class T>
 T AList<T>::takeFirst()
 {
-    T result = *IT_BEGIN;
+    T result = *list_t::begin();
     removeFirst();
     return result;
 }
@@ -399,13 +397,9 @@ T AList<T>::takeFirst()
 template<class T>
 T AList<T>::takeLast()
 {
-    T result = *IT_END;
+    T result = *list_t::end();
     removeLast();
     return result;
 }
-
-#undef STLIST
-#undef IT_BEGIN
-#undef IT_END
 
 #endif   // ALIST_H

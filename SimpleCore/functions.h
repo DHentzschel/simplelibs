@@ -1,8 +1,6 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include <string>
-
 #define DELETE_PTR(x)                                                          \
     delete (x);                                                                  \
     (x) = nullptr;

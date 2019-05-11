@@ -93,24 +93,24 @@ AString& AString::prepend(const AString& string)
     return *this = string + *this;
 }
 
-AString& AString::removeAll(const char c, const CaseSensitivity cs)
+AString& AString::removeAll(const char c, const bool caseSensitive)
 {
-    return replaceAll(AString().prepend(c), "", cs);
+    return replaceAll(AString().prepend(c), "", caseSensitive);
 }
 
-AString& AString::removeAll(const AString& string, const CaseSensitivity cs)
+AString& AString::removeAll(const AString& string, const bool caseSensitive)
 {
-    return replaceAll(string, "", cs);
+    return replaceAll(string, "", caseSensitive);
 }
 
-AString& AString::removeFirst(const char c, const CaseSensitivity cs)
+AString& AString::removeFirst(const char c, const bool caseSensitive)
 {
-    return replaceFirst(AString().prepend(c), "", cs);
+    return replaceFirst(AString().prepend(c), "", caseSensitive);
 }
 
-AString& AString::removeFirst(const AString& string, const CaseSensitivity cs)
+AString& AString::removeFirst(const AString& string, const bool caseSensitive)
 {
-    return replaceFirst(string, "", cs);
+    return replaceFirst(string, "", caseSensitive);
 }
 
 AString& AString::repeat(const int times)
@@ -127,10 +127,10 @@ AString& AString::repeat(const int times)
     return *this;
 }
 
-AString& AString::replaceAll(const AString& from, const AString& to, const CaseSensitivity cs)
+AString& AString::replaceAll(const AString& from, const AString& to, const bool caseSensitive)
 {
     auto copyFrom = from;
-    if (cs == CaseInsensitive) {
+    if (caseSensitive) {
         copyFrom.toLower();
     }
     size_t position = 0;
@@ -141,10 +141,10 @@ AString& AString::replaceAll(const AString& from, const AString& to, const CaseS
     return *this;
 }
 
-AString& AString::replaceFirst(const AString& from, const AString& to, const CaseSensitivity cs)
+AString& AString::replaceFirst(const AString& from, const AString& to, const bool caseSensitive)
 {
     auto copyFrom = from;
-    if (cs == CaseInsensitive) {
+    if (caseSensitive) {
         copyFrom.toLower();
     }
     size_t position = 0;
@@ -187,17 +187,17 @@ AString& AString::trim()
     return *this = result;
 }
 
-AVector<AString> AString::split(const char separator, const CaseSensitivity cs) const
+AVector<AString> AString::split(const char separator, const bool caseSensitive) const
 {
-    return split(AString().append(separator));
+    return split(AString().append(separator), caseSensitive);
 }
 
-AVector<AString> AString::split(const AString& separator, const CaseSensitivity cs) const
+AVector<AString> AString::split(const AString& separator, const bool caseSensitive) const
 {
     auto copySeparator = AString(separator);
     auto copyThis = AString(*this);
 
-    if (cs == CaseInsensitive) {
+    if (caseSensitive) {
         copySeparator.toLower();
         copyThis.toLower();
     }
@@ -265,20 +265,20 @@ ByteArray AString::toByteArray() const
     return result;
 }
 
-bool AString::contains(const char c, const CaseSensitivity cs) const
+bool AString::contains(const char c, const bool caseSensitive) const
 {
-    return contains(AString(1, c), cs);
+    return contains(AString(1, c), caseSensitive);
 }
 
-bool AString::contains(const AString& string, const CaseSensitivity cs) const
+bool AString::contains(const AString & string, const bool caseSensitive) const
 {
-    if (cs == CaseInsensitive) {
+    if (caseSensitive) {
         return AString(*this).toLower().find(AString(string).toLower()) != npos;
     }
     return find(string) != npos;
 }
 
-bool AString::endsWith(const AString& string, const CaseSensitivity cs) const
+bool AString::endsWith(const AString & string, const bool caseSensitive) const
 {
     /* Save calculating time by comparing length of both */
     if (size() < string.size()) {
@@ -286,7 +286,7 @@ bool AString::endsWith(const AString& string, const CaseSensitivity cs) const
     }
 
     /* Only lower both strings if desired */
-    if (cs == CaseInsensitive) {
+    if (caseSensitive) {
         return AString(*this).toLower().rfind(AString(string).toLower()) ==
             string.size();
     }
@@ -307,11 +307,11 @@ bool AString::endsWith(const AString& string, const CaseSensitivity cs) const
     return result;
 }
 
-bool AString::equals(const AString& string, CaseSensitivity cs) const
+bool AString::equals(const AString & string, const bool caseSensitive) const
 {
     auto copyThis = *this;
     auto copyString = string;
-    if (cs == CaseInsensitive) {
+    if (caseSensitive) {
         copyThis.toLower();
         copyString.toLower();
     }
@@ -364,7 +364,7 @@ bool AString::isWithoutWhitespaces() const
     return true;
 }
 
-bool AString::startsWith(const AString& string, CaseSensitivity cs) const
+bool AString::startsWith(const AString & string, const bool caseSensitive) const
 {
     /* Save calculating time by comparing length of both */
     if (size() < string.size()) {
@@ -372,7 +372,7 @@ bool AString::startsWith(const AString& string, CaseSensitivity cs) const
     }
 
     /* Only lower both strings if desired */
-    if (cs == CaseInsensitive) {
+    if (caseSensitive) {
         return AString(*this).toLower().rfind(AString(string).toLower(), 0) ==
             0;
     }
@@ -391,9 +391,9 @@ bool AString::startsWith(const AString& string, CaseSensitivity cs) const
     return true;
 }
 
-size_t AString::count(const char c, const CaseSensitivity cs) const
+size_t AString::count(const char c, const bool caseSensitive) const
 {
-    if (cs == CaseInsensitive) {
+    if (caseSensitive) {
         auto lowerThis = AString(*this).toLower();
         return std::count(lowerThis.begin(), lowerThis.end(),
             Char(c).toLower());
@@ -401,14 +401,14 @@ size_t AString::count(const char c, const CaseSensitivity cs) const
     return std::count(begin(), end(), c);
 }
 
-size_t AString::count(const AString& string, const CaseSensitivity cs) const
+size_t AString::count(const AString & string, const bool caseSensitive) const
 {
     uint result = 0;
     size_t position = 0;
     auto copyThis = AString(*this);
     auto copyString = AString(string);
 
-    if (cs == CaseInsensitive) {
+    if (caseSensitive) {
         copyThis.toLower();
         copyString.toLower();
     }

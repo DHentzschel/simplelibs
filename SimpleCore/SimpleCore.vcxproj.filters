@@ -104,9 +104,6 @@
     <Filter Include="src\Console\ConsoleColor">
       <UniqueIdentifier>{a9a5113b-e0ba-47d9-a5c9-f5c40bf56a24}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\AdvancedSTL\CaseSensitivity">
-      <UniqueIdentifier>{da27224f-d0eb-4b26-9448-3f5c9f0b531e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\IEncryption">
       <UniqueIdentifier>{2bd7a7f1-c74a-4719-a4be-d89cbd42fb21}</UniqueIdentifier>
     </Filter>
@@ -467,9 +464,6 @@
     </ClInclude>
     <ClInclude Include="consolecolor.h">
       <Filter>src\Console\ConsoleColor</Filter>
-    </ClInclude>
-    <ClInclude Include="casesensitivity.h">
-      <Filter>src\AdvancedSTL\CaseSensitivity</Filter>
     </ClInclude>
     <ClInclude Include="iencryption.h">
       <Filter>src\IEncryption</Filter>
