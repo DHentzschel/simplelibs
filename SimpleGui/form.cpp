@@ -90,13 +90,13 @@ public:
     WNDCLASSW wc;
 
     /* Attributes */
-    Vector2 previousPosition;
+	Vector2i previousPosition;
 
-    Vector2 position;
+	Vector2i position;
 
-    Vector2 previousSize;
+	Vector2i previousSize;
 
-    Vector2 size;
+	Vector2i size;
 
     bool isShown;
 
@@ -174,8 +174,8 @@ void Form::addControl(std::shared_ptr<Control>& control)
 }
 
 FormPrivate::FormPrivate(Form* form) :
-    position(Vector2(100, 100)),
-    size(Vector2(100, 100)),
+    position(Vector2i(100, 100)),
+    size(Vector2i(100, 100)),
     form(form)
 {
     initialize();
@@ -281,7 +281,7 @@ void FormPrivate::processEvents()
 void FormPrivate::invokeFormMovedEvent(LPARAM lParam)
 {
     previousPosition = position;
-    position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    position = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
     form->formMovedEvent(previousPosition, position);
 }
 
@@ -289,7 +289,7 @@ void FormPrivate::invokeFormMovingEvent(LPARAM lParam)
 {
     const auto& windowRect = *(RECT*) lParam;
     previousPosition = position;
-    position = Vector2(windowRect.left, windowRect.top);
+    position = Vector2i(windowRect.left, windowRect.top);
     form->formMovingEvent(previousPosition, position);
 }
 
@@ -297,13 +297,13 @@ void FormPrivate::invokeFormResizingEvent(WPARAM wParam, LPARAM lParam)
 {
     const auto& windowRect = *(RECT*) lParam;
     previousSize = size;
-    size = Vector2(windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
+    size = Vector2i(windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
     form->formResizingEvent(previousSize, size, static_cast<WindowEdge>(wParam));
 }
 
 void FormPrivate::invokeFormSizeEvent(WPARAM wParam, LPARAM lParam)
 {
-    const auto size = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto size = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
 
     switch (wParam) {
     case SIZE_MAXIMIZED:
@@ -346,7 +346,7 @@ void FormPrivate::invokeFormShownEvent(WPARAM wParam)
 void FormPrivate::invokeFormPositionChangedEvent(LPARAM lParam)
 {
     const auto& windowPos = *reinterpret_cast<WINDOWPOS*>(lParam);
-    form->formPositionChangedEvent(Vector2(windowPos.x, windowPos.y));
+    form->formPositionChangedEvent(Vector2i(windowPos.x, windowPos.y));
 }
 
 void FormPrivate::invokeFormKeyEvent(WPARAM wParam, LPARAM lParam, bool isKeyDown)
@@ -387,7 +387,7 @@ void FormPrivate::invokeMouseLeavingEvent(bool inClientArea)
 
 void FormPrivate::invokeMouseMovingEvent(LPARAM lParam, bool inClientArea)
 {
-    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto position = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
     auto& mousePosition = Mouse::getPosition();
     mousePosition.x = position.x;
     mousePosition.y = position.y;
@@ -397,20 +397,20 @@ void FormPrivate::invokeMouseMovingEvent(LPARAM lParam, bool inClientArea)
 void FormPrivate::invokeMouseScrollingEvent(WPARAM wParam, LPARAM lParam)
 {
     const auto wheelDelta = GET_WHEEL_DELTA_WPARAM(wParam);
-    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto position = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
     form->formMouseScrollingEvent(wheelDelta, position);
 }
 
 void FormPrivate::invokeMouseButtonDownEvent(WPARAM wParam, LPARAM lParam, bool isDoubleClick, bool inClientArea)
 {
-    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto position = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
     /* TODO: cast is unsafe for foreign keys */
     form->formMouseButtonDown(static_cast<Key>(wParam), position, isDoubleClick, inClientArea);
 }
 
 void FormPrivate::invokeMouseButtonUpEvent(WPARAM wParam, LPARAM lParam, bool isDoubleClick, bool inClientArea)
 {
-    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto position = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
     /* TODO: cast is unsafe for foreign keys */
     form->formMouseButtonUp(static_cast<Key>(wParam), position, inClientArea);
 }

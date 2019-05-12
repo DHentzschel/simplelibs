@@ -5,7 +5,7 @@
 
 class ResizeWindowCallbackTest : public IResizeWindowCallback {
 public:
-    void invoke(GLFWwindow* window, const Vector2& size) override;
+    void invoke(GLFWwindow* window, const Vector2i& size) override;
 
 };
 

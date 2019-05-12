@@ -6,18 +6,18 @@ class ScreenPrivate {
 public:
     ScreenPrivate();
 
-    Vector2 getSize();
+	Vector2i getSize();
 
-    static Vector2 desktopSize;
+    static Vector2i desktopSize;
 };
 
-Vector2 ScreenPrivate::desktopSize;
+Vector2i ScreenPrivate::desktopSize;
 
 Screen Screen::screenInitializer_;
 
 ScreenPrivate* Screen::private_;
 
-Vector2 Screen::getSize()
+Vector2i Screen::getSize()
 {
     return private_->getSize();
 }
@@ -38,7 +38,7 @@ ScreenPrivate::ScreenPrivate()
     desktopSize.y = GetSystemMetrics(SM_CYSCREEN);
 }
 
-Vector2 ScreenPrivate::getSize()
+Vector2i ScreenPrivate::getSize()
 {
     return desktopSize;
 }

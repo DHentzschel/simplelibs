@@ -4,7 +4,7 @@
 
 bool* Mouse::keys_ = nullptr;
 
-Vector2 Mouse::position_;
+Vector2i Mouse::position_;
 
 Mouse Mouse::mouseInitializer_;
 
@@ -21,7 +21,7 @@ bool Mouse::isButtonPressed(Key key)
     return false;
 }
 
-Vector2& Mouse::getPosition()
+Vector2i& Mouse::getPosition()
 {
     return position_;
 }

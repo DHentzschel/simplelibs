@@ -2,32 +2,43 @@
 #define CHAR_H
 
 /**
- * This class is used as auxiliary class for characters.
+ * These functions are used as auxiliary functions for characters.
  *
  * @author Daniel Hentzschel on 12.05.2019.
  */
-class Char {
-public:
-    explicit Char(const char c) : c_(c)
-    {}
+namespace Char {
+	/**
+	 * Returns whether the character passed as parameter is a whitespace character.
+	 *
+	 * @param character the char to check
+	 * @return whether character is a whitespace character
+	 */
+	inline bool isWhitespace(char character)
+	{
+		return character == '\t' || character == '\r' || character == '\n' || character == ' ' || character == '\f' || character == '\v';
+	}
 
-    bool isWhitespace() const
-    {
-        return c_ == '\t' || c_ == '\r' || c_ == '\n' || c_ == ' ' || c_ == '\f' || c_ == '\v';
-    }
+	/**
+	 * Returns the character passed as parameter converted to lowercase.
+	 *
+	 * @param character the char to convert
+	 * @return the character converted to lowercase
+	 */
+	inline char toLower(char character)
+	{
+		return character | 0x20;
+	}
 
-    char toLower() const
-    {
-        return c_ | 0x20;
-    }
-
-    char toUpper() const
-    {
-        return c_ & ~0x20;
-    }
-
-private:
-    char c_;
+	/**
+	 * Returns the character passed as parameter converted to uppercase.
+	 *
+	 * @param character the char to convert
+	 * @return the character converted to uppercase
+	 */
+	inline char toUpper(char character)
+	{
+		return character & ~0x20;
+	}
 };
 
-#endif   // CHAR_H
+#endif // !CHAR_H

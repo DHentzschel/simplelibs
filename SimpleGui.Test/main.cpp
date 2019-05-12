@@ -32,19 +32,19 @@ public:
     }
 
 private:
-    virtual void formMovedEvent(const Vector2& previousPosition, const Vector2& position) override
+    virtual void formMovedEvent(const Vector2i& previousPosition, const Vector2i& position) override
     {
         /* Tested and should work */
         // OutputBox::information("formMovedEvent() invoked!", "Information");
     }
 
-    virtual void formMovingEvent(const Vector2& previousPosition, const Vector2& position) override
+    virtual void formMovingEvent(const Vector2i& previousPosition, const Vector2i& position) override
     {
         /* Tested and should work (window size correct?) */
         // OutputBox::information("formMovingEvent() invoked!", "Information");
     }
 
-    virtual void formResizingEvent(const Vector2& previousSize, const Vector2& size, WindowEdge windowEdge) override
+    virtual void formResizingEvent(const Vector2i& previousSize, const Vector2i& size, WindowEdge windowEdge) override
     {
         /* Tested and works */
         // OutputBox::information("formResizingEvent() invoked!", "Information");
@@ -80,25 +80,25 @@ private:
         // OutputBox::information("formShownEvent() invoked!", "Information");
     }
 
-    virtual void formMaximizedEvent(const Vector2& size) override
+    virtual void formMaximizedEvent(const Vector2i& size) override
     {
         /* Tested and works */
         // OutputBox::information("formMaximizedEvent() invoked!", "Information");
     }
 
-    virtual void formMinimizedEvent(const Vector2& size) override
+    virtual void formMinimizedEvent(const Vector2i& size) override
     {
         /* Tested and works */
         // OutputBox::information("formMinimizedEvent() invoked!", "Information");
     }
 
-    virtual void formRestoredEvent(const Vector2& size) override
+    virtual void formRestoredEvent(const Vector2i& size) override
     {
         /* Tested and works */
         // OutputBox::information("formRestoredEvent() invoked!", "Information");
     }
 
-    virtual void formPositionChangedEvent(const Vector2& position) override
+    virtual void formPositionChangedEvent(const Vector2i& position) override
     {
         /* Tested and works */
         // OutputBox::information("formPositionChangedEvent() invoked!", "Information");
@@ -120,7 +120,7 @@ private:
         OutputBox::information(text, "Information"); */
     }
 
-    virtual void formMouseEnteringEvent(const Vector2& position, bool inClientArea) override
+    virtual void formMouseEnteringEvent(const Vector2i& position, bool inClientArea) override
     {
         /* Tested and should work */
         // OutputBox::information("formMouseEnteringEvent() invoked!", "Information");
@@ -133,14 +133,14 @@ private:
         // OutputBox::information(text, "Information");
     }
 
-    virtual void formMouseMovingEvent(const Vector2& position, bool inClientArea) override
+    virtual void formMouseMovingEvent(const Vector2i& position, bool inClientArea) override
     {
         /* Tested and works */
         // const auto text = AString("formMouseMovingEvent() invoked!\ninClientArea: %1").arg(TO_STRING(inClientArea));
         // OutputBox::information(text, "Information");
     }
 
-    virtual void formMouseScrollingEvent(short wheelDelta, const Vector2& position) override
+    virtual void formMouseScrollingEvent(short wheelDelta, const Vector2i& position) override
     {
         /* Tested and works */
         // const auto text = AString("formMouseScrollingEvent() invoked!\nWheel delta: %1\nPosition: %2, %3")
@@ -148,7 +148,7 @@ private:
         // OutputBox::information(text, "Information");
     }
 
-    virtual void formMouseButtonDown(Key button, const Vector2& position, bool isDoubleClick, bool inClientArea) override
+    virtual void formMouseButtonDown(Key button, const Vector2i& position, bool isDoubleClick, bool inClientArea) override
     {
         /* Tested and works */
         // const auto text = AString("formMouseButtonDownEvent() invoked!\nButton: %1\nIs double click: %2\nInClientArea: %3\nPosition: %4, %5")
@@ -157,7 +157,7 @@ private:
         // OutputBox::information(text, "Information");
     }
 
-    virtual void formMouseButtonUp(Key button, const Vector2& position, bool inClientArea) override
+    virtual void formMouseButtonUp(Key button, const Vector2i& position, bool inClientArea) override
     {
         /* Tested and works */
         // const auto text = AString("formMouseButtonUpEvent() invoked!\nButton: %1\nInClientArea: %2\nPosition: %3, %4")

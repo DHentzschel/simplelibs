@@ -1,16 +1,16 @@
 #ifndef IMAXIMIZEWINDOWCALLBACK_H
 #define IMAXIMIZEWINDOWCALLBACK_H
 
-#include <vector2.h>
+#include <vector2i.h>
 
 struct GLFWwindow;
 typedef struct GLFWwindow GLFWwindow;
 
 class IMaximizeWindowCallback {
 public:
-    void invokeCallback(GLFWwindow* window, const Vector2& size);
+    void invokeCallback(GLFWwindow* window, const Vector2i& size);
 
-    virtual void invoke(GLFWwindow* window, const Vector2& size) {}
+    virtual void invoke(GLFWwindow* window, const Vector2i& size) {}
 
 };
 

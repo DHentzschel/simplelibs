@@ -31,7 +31,7 @@ public:
 	 * @param y the new y value
 	 */
 	Vector2i(const int x, const int y) :
-		Vector2<float>(x, y)
+		Vector2<int>(x, y)
 	{}
 };
 
