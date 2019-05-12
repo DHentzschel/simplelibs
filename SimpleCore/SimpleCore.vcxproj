@@ -186,7 +186,6 @@
     <ClInclude Include="directory.h" />
     <ClInclude Include="file.h" />
     <ClInclude Include="functions.h" />
-    <ClInclude Include="char.cpp" />
     <ClInclude Include="iencryption.h" />
     <ClInclude Include="inifile.h" />
     <ClInclude Include="logger.h" />
