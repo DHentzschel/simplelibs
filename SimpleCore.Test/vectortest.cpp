@@ -92,7 +92,7 @@ public:
 		vector_.assign({ 2, 3, 3, 1, 2, 3 });
 
 		for (byte i = 3; i > 0; --i) {
-			Assert::IsTrue(vector_.lastIndexOf(i) == 2 + i);
+			Assert::IsTrue(vector_.lastIndexOf(i) == static_cast<uint64>(i) + 2);
 		}
 	}
 
@@ -160,8 +160,8 @@ public:
 
 		for (ushort i = 0, j = 0; i < vector_.size(); i += 3, ++j) {
 			Assert::IsTrue(vector_[i] == j);
-			Assert::IsTrue(vector_[i + 1] == j);
-			Assert::IsTrue(vector_[i + 2] == j);
+			Assert::IsTrue(vector_[static_cast<size_t>(i) + 1] == j);
+			Assert::IsTrue(vector_[static_cast<size_t>(i) + 2] == j);
 		}
 	}
 
@@ -185,8 +185,8 @@ public:
 
 		for (ushort i = 0, j = 0; i < vector_.size(); i += 3, ++j) {
 			Assert::IsTrue(vector_[i] == j);
-			Assert::IsTrue(vector_[i + 1] == j);
-			Assert::IsTrue(vector_[i + 2] == j);
+			Assert::IsTrue(vector_[static_cast<size_t>(i) + 1] == j);
+			Assert::IsTrue(vector_[static_cast<size_t>(i) + 2] == j);
 		}
 
 	}

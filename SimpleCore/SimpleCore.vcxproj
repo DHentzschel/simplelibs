@@ -183,6 +183,7 @@
     <ClInclude Include="datetime.h" />
     <ClInclude Include="datetimeinfo.h" />
     <ClInclude Include="dir.h" />
+    <ClInclude Include="directory.h" />
     <ClInclude Include="file.h" />
     <ClInclude Include="functions.h" />
     <ClInclude Include="iencryption.h" />

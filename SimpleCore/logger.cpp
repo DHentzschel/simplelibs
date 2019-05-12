@@ -15,7 +15,7 @@ Logger::~Logger()
 void Logger::prepareLogFile(const AString& path)
 {
 	file_.setFilepath(AString(path).replaceAll(":", "-").replaceFirst(" ", "_") + ".log");
-	if (!file_.open(WriteOnly | Append)) {
+	if (!file_.open(static_cast<int>(OpenMode::WriteOnly) | static_cast<int>(OpenMode::Append))) {
 		warn("Couldn't create logfile '" + path + "'!");
 	}
 }

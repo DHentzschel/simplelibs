@@ -471,6 +471,9 @@
     <ClInclude Include="vector2i.h">
       <Filter>src\Mathematics\Vectors</Filter>
     </ClInclude>
+    <ClInclude Include="directory.h">
+      <Filter>src\FileSystem\Dir</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="chocobo1\gsl\gsl_assert">

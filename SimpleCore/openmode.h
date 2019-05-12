@@ -1,17 +1,20 @@
-#ifndef FILEIO_H
-#define FILEIO_H
+#ifndef OPENMODE_H
+#define OPENMODE_H
 
-namespace OpenMode {
-    static const int NotOpen = 0x0;
-    static const int ReadOnly = 0x1;
-    static const int WriteOnly = 0x2;
-    static const int ReadWrite = ReadOnly | WriteOnly;
-    static const int AtTheEnd = 0x4;
-    static const int Append = 0x8;
-    static const int Truncate = 0x10;
-    static const int Binary = 0x20;
-    static const int NewOnly = 0x40;
-    static const int ExistingOnly = 0x80;
-};   // namespace OpenMode
+/**
+ * @author Daniel Hentzschel on 11.05.2019.
+ */
+enum class OpenMode {
+	NotOpen = 0x0,
+	ReadOnly = 0x1,
+	WriteOnly = 0x2,
+	ReadWrite = ReadOnly | WriteOnly,
+	AtTheEnd = 0x4,
+	Append = 0x8,
+	Truncate = 0x10,
+	Binary = 0x20,
+	NewOnly = 0x40,
+	ExistingOnly = 0x80
+};
 
-#endif   // FILEIO_H
+#endif // OPENMODE_H

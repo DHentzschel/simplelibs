@@ -29,7 +29,7 @@ public:
 	TEST_METHOD(testCreate)
 	{
 		/* This directory MUST NOT exist */
-		Dir dir(Dir::getDesktopDir() + "\\testdir2");
+		Dir dir(Dir::getDir(Directory::Desktop) + "\\testdir2");
 		if (dir.exists()) {
 			dir.erase();
 		}
@@ -40,13 +40,13 @@ public:
 	TEST_METHOD(testExists)
 	{
 		/* This directory has to exist */
-		Dir dir(Dir::getDesktopDir() + "\\testdir");
+		Dir dir(Dir::getDir(Directory::Desktop) + "\\testdir");
 		Assert::IsTrue(dir.exists());
 	}
 
 	TEST_METHOD(testErase)
 	{
-		Dir dir(Dir::getDesktopDir() + "\\testdir2");
+		Dir dir(Dir::getDir(Directory::Desktop) + "\\testdir2");
 		if (!dir.exists()) {
 			dir.create();
 		}
@@ -56,7 +56,7 @@ public:
 
 	TEST_METHOD(testGetFileCount)
 	{
-		Dir dir(Dir::getDesktopDir() + "\\testdir");
+		Dir dir(Dir::getDir(Directory::Desktop) + "\\testdir");
 		if (dir.exists()) {
 			dir.erase();
 		}

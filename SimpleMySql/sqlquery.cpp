@@ -332,8 +332,8 @@ bool SqlQuery::exec() const
 	for (size_t i = 0; i < private_->parsedQuery->columns.size(); ++i) {
 		private_->results[i].buffer_type = static_cast<enum_field_types>(private_->parsedQuery->columns[i].type);
 		private_->results[i].buffer_length = private_->parsedQuery->columns[i].length;
-		private_->results[i].buffer = new char[private_->results[i].buffer_length + 1];
-		ZeroMemory(private_->results[i].buffer, private_->results[i].buffer_length + 1);
+		private_->results[i].buffer = new char[static_cast<size_t>(private_->results[i].buffer_length) + 1];
+		ZeroMemory(private_->results[i].buffer, static_cast<size_t>(private_->results[i].buffer_length) + 1);
 	}
 
 	if (private_->isSelectCommand && mysql_stmt_bind_result(private_->statement.get(), private_->results)) {

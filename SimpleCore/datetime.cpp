@@ -38,10 +38,6 @@ DateTime DateTime::now()
     return dateTime;
 }
 
-/**
- * \brief Returns current date as string. Returns date with format "DD.MM.YYYY".
- * \return current date
- */
 AString DateTime::getDatestamp()
 {
     char buffer[11];
@@ -52,10 +48,6 @@ AString DateTime::getDatestamp()
     return AString(buffer);
 }
 
-/**
- * \brief Returns current time as string with format "hh:mm:ss".
- * \return current time second precise
- */
 AString DateTime::getTimestamp()
 {
     char buffer[9];
@@ -66,10 +58,6 @@ AString DateTime::getTimestamp()
     return buffer;
 }
 
-/**
-* \brief Returns current date and time as string. Returns date part with format "DD.MM.YYYY".
-* \return current date and time separated by space
-*/
 AString DateTime::getCurrentTimestamp()
 {
     return now().toString();
@@ -422,10 +410,6 @@ void DateTime::calculateUnixTimestamp()
     unixTimestamp_ += static_cast<int64>(dateTimeInfo_.minute) * 60;
     /* Add seconds */
     unixTimestamp_ += dateTimeInfo_.second;
-
-    /* Add seconds since begin of current month */
-    //unixTimestamp_ += getSecondsSinceMonth(static_cast<byte>(dateTimeInfo_.month),
-        //isLeapYear(static_cast<ushort>(dateTimeInfo_.year)));
 }
 
 int64 DateTime::getDaysCountUntil(byte month, bool leapYear)
