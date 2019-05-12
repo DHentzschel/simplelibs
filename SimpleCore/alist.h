@@ -142,7 +142,7 @@ public:
 	uint64 count(const T& value) const;
 
 	/**
-	 * Returns the first index of the first item in list which is equal to the item passed as parameter.
+	 * Returns the first index of the item in list which is equal to the specified item.
 	 * Returns (uint64)-1 when there is no such item.
 	 *
 	 * @param value the value to find
@@ -151,7 +151,7 @@ public:
 	uint64 firstIndexOf(const T& value) const;
 
 	/**
-	 * Returns the first index of the first item in list which is equal to the item passed as parameter.
+	 * Returns the first index of the item in list which is equal to the specified item.
 	 * Returns (uint64)-1 when there is no such item.
 	 *
 	 * @param value the value to find
@@ -160,7 +160,7 @@ public:
 	uint64 indexOf(const T& value) const;
 
 	/**
-	 * Returns the last index of the first item in list which is equal to the item passed as parameter.
+	 * Returns the last index of the item in list which is equal to the specified item.
 	 * Returns (uint64)-1 when there is no such item.
 	 *
 	 * @param value the value to find
