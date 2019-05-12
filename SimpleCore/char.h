@@ -2,17 +2,17 @@
 #define CHAR_H
 
 namespace Char {
-	bool isWhitespace(char character)
+	inline bool isWhitespace(char character)
 	{
 		return character == '\t' || character == '\r' || character == '\n' || character == ' ' || character == '\f' || character == '\v';
 	}
 
-	char toLower(char character)
+	inline char toLower(char character)
 	{
 		return character | 0x20;
 	}
 
-	char toUpper(char character)
+	inline char toUpper(char character)
 	{
 		return character & ~0x20;
 	}
