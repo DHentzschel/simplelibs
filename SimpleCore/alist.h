@@ -7,6 +7,11 @@
 #include "functions.h"
 #include "types.h"
 
+/**
+ * This class extends the std::list class by auxiliary functions.
+ *
+ * @author Daniel Hentzschel on 12.05.2019.
+ */
 template<class T>
 class AList : public std::list<T> {
 public:
