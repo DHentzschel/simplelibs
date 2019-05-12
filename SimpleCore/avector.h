@@ -10,6 +10,11 @@
 #include "functions.h"
 #include "types.h"
 
+/**
+ * This class extends the std::vector class by auxiliary functions.
+ *
+ * @author Daniel Hentzschel on 13.05.2019.
+ */
 template<class T>
 class AVector : public std::vector<T> {
 public:
