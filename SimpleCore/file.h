@@ -56,7 +56,7 @@ public:
 	/**
 	 * Tries to erase the file in filepath and returns the success.
 	 *
-	 * @return either the file has been erased or not
+	 * @return whether the file has been erased or not
 	 */
 	bool erase() const;
 
@@ -64,22 +64,22 @@ public:
 	 * Tries to erase the file in filepath given as parameter and returns the success.
 	 *
 	 * @param filepath the filepath to erase
-	 * @return either the file has been erased or not
+	 * @return whether the file has been erased or not
 	 */
 	static bool erase(const AString& filepath);
 
 	/**
-	 * Returns either the current filepath exists.
+	 * Returns whether the current filepath exists.
 	 *
-	 * @return either the current filepath set exists
+	 * @return whether the current filepath set exists
 	 */
 	bool exists() const;
 
 	/**
-	 * Returns either the filepath given as parameter exists.
+	 * Returns whether the filepath given as parameter exists.
 	 *
 	 * @param filepath the filepath to check for existence
-	 * @return either the given filepath exists
+	 * @return whether the given filepath exists
 	 */
 	static bool exists(const AString& filepath);
 
@@ -114,9 +114,9 @@ public:
 	void setFilepath(const AString& filepath);
 
 	/**
-	 * Returns either the filestream is open.
+	 * Returns whether the filestream is open.
 	 *
-	 * @return either the filestream is open
+	 * @return whether the filestream is open
 	 */
 	bool isOpen() const;
 
@@ -124,7 +124,7 @@ public:
 	 * Tries to open the filestream by parameter openMode.
 	 *
 	 * @param openMode the openMode flags
-	 * @return either the filestream could be opened
+	 * @return whether the filestream could be opened
 	 */
 	bool open(int openModeFlags = static_cast<int>(OpenMode::NotOpen));
 
@@ -189,9 +189,9 @@ public:
 	AString readLine();
 
 	/**
-	 * Returns either the filestream reader is at the end.
+	 * Returns whether the filestream reader is at the end.
 	 *
-	 * @return either the filestream is at the end
+	 * @return whether the filestream is at the end
 	 */
 	bool atEnd() const;
 
@@ -203,23 +203,23 @@ private:
 	int openModeFlags_;
 
 	/**
-	 * Returns either the filestream is open.
+	 * Returns whether the filestream is open.
 	 *
-	 * @return either the filestream is open
+	 * @return whether the filestream is open
 	 */
 	bool printFileOpen() const;
 
 	/**
-	 * Returns either the ReadOnly flag was set.
+	 * Returns whether the ReadOnly flag was set.
 	 *
-	 * @return either the ReadOnly flag was set
+	 * @return whether the ReadOnly flag was set
 	 */
 	bool printFlagReadOnly() const;
 
 	/**
-	 * Returns either the WriteOnly flag was set.
+	 * Returns whether the WriteOnly flag was set.
 	 *
-	 * @return either the WriteOnly flag was set
+	 * @return whether the WriteOnly flag was set
 	 */
 	bool printFlagWriteOnly() const;
 };

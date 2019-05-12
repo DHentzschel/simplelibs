@@ -55,28 +55,28 @@ public:
 	static AString getCurrentTimestamp();
 
 	/**
-	 * Returns either the datetime given as parameter was reached.
+	 * Returns whether the datetime given as parameter was reached.
 	 *
 	 * @param reachableDatetime the reachable datetime
 	 */
 	static bool isDateTimeReached(const DateTime& reachableDatetime);
 
 	/**
-	 * Returns either the datetime given as parameter was reached.
+	 * Returns whether the datetime given as parameter was reached.
 	 *
 	 * @param reachableDatetime the reachable datetime
 	 */
 	static bool isDateTimeReached(const AString& reachableDatetime);
 
 	/**
-	 * Returns either the datetime given as parameter was reached.
+	 * Returns whether the datetime given as parameter was reached.
 	 *
 	 * @param target the datetime which implies "now"
 	 * @param reachableDatetime the reachable datetime
 	 */
 	static bool isDateTimeReached(const AString& target, const AString& reachableDatetime);
 	/**
-	 * Returns either the year given as parameter is a leap year.
+	 * Returns whether the year given as parameter is a leap year.
 	 *
 	 * @param year the year to check
 	 */
@@ -281,7 +281,7 @@ private:
 	* Returns the count of days until the targeted month is reached.
 	*
 	* @param month the month to target
-	* @param leapYear either the year to calculate is a leap year
+	* @param leapYear whether the year to calculate is a leap year
 	* @return the count of days until
 	*/
 	static int64 getDaysCountUntil(byte month, bool leapYear);

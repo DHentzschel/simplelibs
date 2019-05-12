@@ -1,10 +1,10 @@
 #include "bytearray.h"
 
-ByteArray::ByteArray(const char* byteArray, size_t size)
+ByteArray::ByteArray(const char* charArray, size_t size)
 {
 	reserve(size);
 	for (uint i = 0; i < size; ++i) {
-		*this += byteArray[i];
+		*this += charArray[i];
 	}
 }
 
@@ -12,14 +12,14 @@ ByteArray::ByteArray(const AVector<char>& vector) :
 	AVector<char>(vector)
 {}
 
-bool ByteArray::isEqual(const char* byteArray, size_t size)
+bool ByteArray::isEqual(const char* charArray, size_t size)
 {
 	if (this->size() != size) {
 		return false;
 	}
 
 	for (uint i = 0; i < size; ++i) {
-		if (byteArray[i] != (*this)[i]) {
+		if (charArray[i] != (*this)[i]) {
 			return false;
 		}
 	}
@@ -27,9 +27,9 @@ bool ByteArray::isEqual(const char* byteArray, size_t size)
 	return true;
 }
 
-ByteArray& ByteArray::operator+=(const char character)
+ByteArray& ByteArray::operator+=(const char right)
 {
-	insert(end(), character);
+	insert(end(), right);
 	return *this;
 }
 

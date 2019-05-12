@@ -28,7 +28,7 @@ public:
 	 * Prints text to the console.
 	 *
 	 * @param text the text to print
-	 * @param newLine either there should be a new line appended
+	 * @param newLine whether there should be a new line appended
 	 * @param color the foreground color of the text (default is Turquoise)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
@@ -42,7 +42,7 @@ public:
 	 * The current time and output mode will be prepended.
 	 *
 	 * @param text the text to print
-	 * @param newLine either there should be a new line appended
+	 * @param newLine whether there should be a new line appended
 	 * @param color the foreground color of the text (default is Turquoise)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
@@ -56,7 +56,7 @@ public:
 	 * The current time and output mode will be prepended.
 	 *
 	 * @param text the text to print
-	 * @param newLine either there should be a new line appended
+	 * @param newLine whether there should be a new line appended
 	 * @param color the foreground color of the text (default is LightGray)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
@@ -70,7 +70,7 @@ public:
 	 * The current time and output mode will be prepended.
 	 *
 	 * @param text the text to print
-	 * @param newLine either there should be a new line appended
+	 * @param newLine whether there should be a new line appended
 	 * @param color the foreground color of the text (default is LightGray)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
@@ -84,7 +84,7 @@ public:
 	 * The current time and output mode will be prepended.
 	 *
 	 * @param text the text to print
-	 * @param newLine either there should be a new line appended
+	 * @param newLine whether there should be a new line appended
 	 * @param color the foreground color of the text (default is LightGray)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
