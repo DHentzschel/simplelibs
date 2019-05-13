@@ -1,5 +1,10 @@
 #include "stringvector.h"
 
+StringVector::StringVector(const StringVector& stringVector) :
+	AVector<AString>(stringVector)
+{
+}
+
 StringVector::StringVector(const AVector<AString>& stringVector) :
 	AVector<AString>(stringVector)
 {}

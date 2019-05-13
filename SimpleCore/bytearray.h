@@ -24,6 +24,13 @@ public:
 	ByteArray(const char* charArray, size_t size);
 
 	/**
+	 * Copies the data from the specified byte array.
+	 *
+	 * @param byteArray the byte array to copy from
+	 */
+	ByteArray(const ByteArray& byteArray);
+
+	/**
 	 * Initializes the byte array by the given char vector passed as parameter.
 	 *
 	 * @param vector the char vector to copy from

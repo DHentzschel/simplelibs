@@ -8,7 +8,10 @@
 
 #include "avector.h"
 #include "bytearray.h"
+#include "stringvector.h"
 #include "types.h"
+
+class StringVector;
 
 /**
  * This class extends the std::string class by auxiliary functions.
@@ -212,7 +215,7 @@ public:
 	 * @param caseSensitive whether the char should be searched case sensitive or not
 	 * @return the new string vector containing the split result of the string
 	 */
-	AVector<AString> split(char separator, bool caseSensitive = true) const;
+	StringVector split(char separator, bool caseSensitive = true) const;
 
 	/**
 	 * Splits the current string by the specified separator and returns a new string vector.
@@ -222,21 +225,21 @@ public:
 	 * @param caseSensitive whether the string should be searched case sensitive or not
 	 * @return the new string vector containing the split result of the string
 	 */
-	AVector<AString> split(const AString& separator, bool caseSensitive = true) const;
+	StringVector split(const AString& separator, bool caseSensitive = true) const;
 
 	/**
 	 * Splits the current string by non numeric chars and returns a new string vector.
 	 *
 	 * @return the new string vector containing the split result of the string
 	 */
-	AVector<AString> splitByNonNumerics() const;
+	StringVector splitByNonNumerics() const;
 
 	/**
 	 * Splits the current string by numeric chars and returns a new string vector.
 	 *
 	 * @return the new string vector containing the split result of the string
 	 */
-	AVector<AString> splitByNumerics() const;
+	StringVector splitByNumerics() const;
 
 	/**
 	 * Converts the current string to a byte array and returns it.

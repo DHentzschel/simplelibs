@@ -6,6 +6,10 @@
 
 #include "functions.h"
 #include "types.h"
+#include "avector.h"
+
+template<class T>
+class AVector;
 
 /**
  * This class extends the std::list class by auxiliary functions.
@@ -238,11 +242,18 @@ public:
 	void move(int from, int to);
 
 	/**
-	 * Returns the current instance as a new vector.
+	 * Returns the current instance as a new std::vector.
 	 *
-	 * @return the current instance as new vector
+	 * @return the current instance as new std::vector
 	 */
-	std::vector<T> toVector() const;
+	std::vector<T> toStdVector() const;
+
+	/**
+	 * Returns the current instance as a new AVector.
+	 *
+	 * @return the current instance as new AVector
+	 */
+	AVector<T> toVector() const;
 
 	/**
 	 * Returns the reference of the first item in list.
@@ -541,13 +552,18 @@ void AList<T>::move(int from, int to)
 }
 
 template<class T>
-std::vector<T> AList<T>::toVector() const
+std::vector<T> AList<T>::toStdVector() const
 {
 	std::vector<T> result(list_t::size());
-	auto it = list_t::begin();
-	for (auto i = 0; it != list_t::end(); ++i, ++it) {
-		result[i] = *it;
-	}
+	result.assign(list_t::begin(), list_t::end());
+	return result;
+}
+
+template<class T>
+AVector<T> AList<T>::toVector() const
+{
+	AVector<T> result(list_t::size());
+	result.assign(list_t::begin(), list_t::end());
 	return result;
 }
 

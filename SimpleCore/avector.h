@@ -9,7 +9,10 @@
 
 #include "functions.h"
 #include "types.h"
+#include "alist.h"
 
+template<class T>
+class AList;
 /**
  * This class extends the std::vector class by auxiliary functions.
  *
@@ -252,7 +255,14 @@ public:
 	 *
 	 * @return the std::list converted from the current vector
 	 */
-	std::list<T> toList() const;
+	std::list<T> toStdList() const;
+
+	/**
+	 * Converts the current vector to AList and returns it.
+	 *
+	 * @return the AList converted from the current vector
+	 */
+	AList<T> toList() const;
 private:
 	using vector_t = std::vector<T>;
 };
@@ -522,9 +532,17 @@ T AVector<T>::takeLast()
 }
 
 template<class T>
-std::list<T> AVector<T>::toList() const
+std::list<T> AVector<T>::toStdList() const
 {
 	std::list<T> result;
+	result.assign(vector_t::begin(), vector_t::end());
+	return result;
+}
+
+template<class T>
+inline AList<T> AVector<T>::toList() const
+{
+	AList<T> result;
 	result.assign(vector_t::begin(), vector_t::end());
 	return result;
 }

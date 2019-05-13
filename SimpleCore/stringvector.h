@@ -4,6 +4,8 @@
 #include "astring.h"
 #include "avector.h"
 
+class AString;
+
 /**
  * This class is used to improve handling string vectors.
  *
@@ -15,6 +17,13 @@ public:
 	 * Calls the default constructor.
 	 */
 	StringVector() = default;
+
+	/**
+	 * Copies the value of the specified string vector.
+	 *
+	 * @param stringVector the string vector to copy from
+	 */
+	StringVector(const StringVector& stringVector);
 
 	/**
 	 * Copies the value of the specified string vector.
