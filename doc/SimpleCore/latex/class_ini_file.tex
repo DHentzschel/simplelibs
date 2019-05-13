@@ -1,0 +1,162 @@
+\hypertarget{class_ini_file}{}\section{Ini\+File Class Reference}
+\label{class_ini_file}\index{IniFile@{IniFile}}
+
+
+This class makes it easy to parse an I\+NI file.  
+
+
+
+
+{\ttfamily \#include $<$inifile.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ini_file_a2f06123729cda22658a494ca61256d4a}\label{class_ini_file_a2f06123729cda22658a494ca61256d4a}} 
+\mbox{\hyperlink{class_ini_file_a2f06123729cda22658a494ca61256d4a}{Ini\+File}} ()=default
+\begin{DoxyCompactList}\small\item\em Calls the default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ini_file_a5cc166dcb8f8584e3ad4be81efbdbda9}{Ini\+File}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&filepath)
+\begin{DoxyCompactList}\small\item\em Sets the filepath passed by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ini_file_a3b3caa195a0be5077e8575e259ef7e53}{set\+Filepath}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&filepath)
+\begin{DoxyCompactList}\small\item\em Sets the current filepath and calculates the group and key count. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ini_file_a9a34c2bebd5c841500a925e0df6674e9}{begin\+Group}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&group)
+\begin{DoxyCompactList}\small\item\em Sets the current focus to the group specified. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ini_file_ac01a3e9ffdf50392c12aff7b997bfbbd}\label{class_ini_file_ac01a3e9ffdf50392c12aff7b997bfbbd}} 
+void \mbox{\hyperlink{class_ini_file_ac01a3e9ffdf50392c12aff7b997bfbbd}{end\+Group}} ()
+\begin{DoxyCompactList}\small\item\em Sets the current group focus to none. \end{DoxyCompactList}\item 
+uint \mbox{\hyperlink{class_ini_file_a0ce59b29c1e5a6ed6d8f52ed276524c1}{get\+Group\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Returns the group count. \end{DoxyCompactList}\item 
+uint \mbox{\hyperlink{class_ini_file_ad7a83aa937129895253cf853726826d6}{get\+Key\+Count}} ()
+\begin{DoxyCompactList}\small\item\em Returns the key count. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_ini_file_acb73544bb44139f7d9b23a36a666abf9}{value}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&key) const
+\begin{DoxyCompactList}\small\item\em Returns the value of the key specified. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ini_file_a5d6fe5d2b2364c88376d49115007007f}{set\+Value}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&key, const \mbox{\hyperlink{class_a_string}{A\+String}} \&\mbox{\hyperlink{class_ini_file_acb73544bb44139f7d9b23a36a666abf9}{value}}) const
+\begin{DoxyCompactList}\small\item\em Sets the value of the key specified. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class makes it easy to parse an I\+NI file. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 13.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ini_file_a5cc166dcb8f8584e3ad4be81efbdbda9}\label{class_ini_file_a5cc166dcb8f8584e3ad4be81efbdbda9}} 
+\index{IniFile@{IniFile}!IniFile@{IniFile}}
+\index{IniFile@{IniFile}!IniFile@{IniFile}}
+\subsubsection{\texorpdfstring{IniFile()}{IniFile()}}
+{\footnotesize\ttfamily Ini\+File\+::\+Ini\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{filepath }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Sets the filepath passed by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & the filepath to set \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ini_file_a9a34c2bebd5c841500a925e0df6674e9}\label{class_ini_file_a9a34c2bebd5c841500a925e0df6674e9}} 
+\index{IniFile@{IniFile}!beginGroup@{beginGroup}}
+\index{beginGroup@{beginGroup}!IniFile@{IniFile}}
+\subsubsection{\texorpdfstring{beginGroup()}{beginGroup()}}
+{\footnotesize\ttfamily void Ini\+File\+::begin\+Group (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{group }\end{DoxyParamCaption})}
+
+
+
+Sets the current focus to the group specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em group} & the group to focus on \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ini_file_a0ce59b29c1e5a6ed6d8f52ed276524c1}\label{class_ini_file_a0ce59b29c1e5a6ed6d8f52ed276524c1}} 
+\index{IniFile@{IniFile}!getGroupCount@{getGroupCount}}
+\index{getGroupCount@{getGroupCount}!IniFile@{IniFile}}
+\subsubsection{\texorpdfstring{getGroupCount()}{getGroupCount()}}
+{\footnotesize\ttfamily uint Ini\+File\+::get\+Group\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the group count. 
+
+\begin{DoxyReturn}{Returns}
+the group count 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ini_file_ad7a83aa937129895253cf853726826d6}\label{class_ini_file_ad7a83aa937129895253cf853726826d6}} 
+\index{IniFile@{IniFile}!getKeyCount@{getKeyCount}}
+\index{getKeyCount@{getKeyCount}!IniFile@{IniFile}}
+\subsubsection{\texorpdfstring{getKeyCount()}{getKeyCount()}}
+{\footnotesize\ttfamily uint Ini\+File\+::get\+Key\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the key count. 
+
+\begin{DoxyReturn}{Returns}
+the key count 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ini_file_a3b3caa195a0be5077e8575e259ef7e53}\label{class_ini_file_a3b3caa195a0be5077e8575e259ef7e53}} 
+\index{IniFile@{IniFile}!setFilepath@{setFilepath}}
+\index{setFilepath@{setFilepath}!IniFile@{IniFile}}
+\subsubsection{\texorpdfstring{setFilepath()}{setFilepath()}}
+{\footnotesize\ttfamily void Ini\+File\+::set\+Filepath (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{filepath }\end{DoxyParamCaption})}
+
+
+
+Sets the current filepath and calculates the group and key count. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & the filepath to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ini_file_a5d6fe5d2b2364c88376d49115007007f}\label{class_ini_file_a5d6fe5d2b2364c88376d49115007007f}} 
+\index{IniFile@{IniFile}!setValue@{setValue}}
+\index{setValue@{setValue}!IniFile@{IniFile}}
+\subsubsection{\texorpdfstring{setValue()}{setValue()}}
+{\footnotesize\ttfamily void Ini\+File\+::set\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{key,  }\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Sets the value of the key specified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the key to find \\
+\hline
+{\em value} & the value to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_ini_file_acb73544bb44139f7d9b23a36a666abf9}\label{class_ini_file_acb73544bb44139f7d9b23a36a666abf9}} 
+\index{IniFile@{IniFile}!value@{value}}
+\index{value@{value}!IniFile@{IniFile}}
+\subsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} Ini\+File\+::value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{key }\end{DoxyParamCaption}) const}
+
+
+
+Returns the value of the key specified. 
+
+Returns \char`\"{}empty\char`\"{} when the value is null or not existent.
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & the key to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/inifile.\+h\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/inifile.\+cpp\end{DoxyCompactItemize}

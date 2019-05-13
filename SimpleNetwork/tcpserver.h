@@ -43,10 +43,13 @@ public:
 	void terminate() const;
 
 protected:
+	/** The most recent socket pointer */
 	TcpSocket* currentSocket_;
 
+	/** Contains all TcpSocket connected */
 	AVector<TcpSocket*> socketList_;
 
+	/** Contains the address length */
 	uint addressLength_;
 
 	/**
@@ -71,6 +74,7 @@ protected:
 	 */
 	virtual void receive(const char* packet, uint length) override = 0;
 
+	/** Represents the serverEventListener instance */
 	std::shared_ptr<TcpServerEventListener> serverEventListener_;
 
 private:

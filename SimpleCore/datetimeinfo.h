@@ -9,11 +9,22 @@
  * @author Daniel Hentzschel on 11.05.2019.
  */
 struct DateTimeInfo {
+	/** Contains the day number */
 	byte day;
+
+	/** Contains the month number */
 	byte month;
+
+	/** Contains the year number */
 	ushort year;
+
+	/** Contains the hour number */
 	byte hour;
+
+	/** Contains the minute number */
 	byte minute;
+
+	/** Contains the second number */
 	byte second;
 
 	/**

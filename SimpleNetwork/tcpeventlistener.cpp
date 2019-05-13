@@ -1,7 +1,7 @@
 #include "tcpeventlistener.h"
 
-TcpEventListener::TcpEventListener(TcpSocket* client) :
-	client(client),
+TcpEventListener::TcpEventListener(TcpSocket* socket) :
+	client(socket),
 	isRunning_(false)
 {
 }

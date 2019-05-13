@@ -1,0 +1,571 @@
+\hypertarget{class_a_vector}{}\section{A\+Vector$<$ T $>$ Class Template Reference}
+\label{class_a_vector}\index{AVector$<$ T $>$@{AVector$<$ T $>$}}
+
+
+This class extends the std\+::vector class by auxiliary functions.  
+
+
+
+
+{\ttfamily \#include $<$avector.\+h$>$}
+
+Inheritance diagram for A\+Vector$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_vector}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_a_vector_ab998b222eb341c26f4eafd8da65f2274}{append}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Appends the specified item to the current vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_vector_aae594c91729d29605c2fe4a71cbf6f0c}{append}} (T \&\&value)
+\begin{DoxyCompactList}\small\item\em Appends the specified item to the current vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_vector_a5b7910c1c1dce6877a21f9c5cba4bfc2}{prepend}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Prepends the specified item to the current vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_vector_a13f40bde5b40222d98fe0982eaca9513}{prepend}} (T \&\&value)
+\begin{DoxyCompactList}\small\item\em Prepends the specified item to the current vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_vector_a18f64e22552d73fc4424dc81ba158216}{push\+\_\+front}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Prepends the specified item to the current vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_vector_a0050a46da378811f3ff5fc4df73ecd62}{push\+\_\+front}} (T \&\&value)
+\begin{DoxyCompactList}\small\item\em Prepends the specified item to the current vector. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_vector_a7cc825790e29f58f9425fd11efbdbbab}{starts\+With}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns whether the vector starts with the specified item. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_vector_a9cae5f201ad8fb74850f1d1dc2d044cc}{ends\+With}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns whether the vector ends with the specified item. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_a_vector_a66aa4c45a9c4126a0e97d225add9047a}\label{class_a_vector_a66aa4c45a9c4126a0e97d225add9047a}} 
+bool \mbox{\hyperlink{class_a_vector_a66aa4c45a9c4126a0e97d225add9047a}{is\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the vector is empty. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_vector_ab49821902c6048beab9de0e355baa386}{contains}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns whether the vector contains the specified item. \end{DoxyCompactList}\item 
+uint64 \mbox{\hyperlink{class_a_vector_aa7ffcbc3145155967e6e18cacc3a0dcc}{count}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Counts the occurrences of the specified item in the vector and returns the value. \end{DoxyCompactList}\item 
+uint64 \mbox{\hyperlink{class_a_vector_aa8a2735af0f9799c1537d0536ca4f69f}{first\+Index\+Of}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns the first index of the item in vector which is equal to the specified item. \end{DoxyCompactList}\item 
+uint64 \mbox{\hyperlink{class_a_vector_a81ee68969c55a70a2215e996e2d53027}{index\+Of}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns the first index of the item in vector which is equal to the specified item. \end{DoxyCompactList}\item 
+uint64 \mbox{\hyperlink{class_a_vector_adcb1b4189e7e270ab8a22fa29ce109ae}{last\+Index\+Of}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns the last index of the first item in vector which is equal to the specified item. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_vector_ae2ab95fcb42489ddfbf1bfa5a12867a8}{replace}} (uint64 i, const T \&value)
+\begin{DoxyCompactList}\small\item\em Replaces the item at the ith index by the specified value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_vector_ae3b650535e5a248a385988887064868e}{remove\+At}} (uint64 i)
+\begin{DoxyCompactList}\small\item\em Removes the item at the ith index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_a_vector_a020d395a9f706e2791a3c95f4766cfd8}\label{class_a_vector_a020d395a9f706e2791a3c95f4766cfd8}} 
+void \mbox{\hyperlink{class_a_vector_a020d395a9f706e2791a3c95f4766cfd8}{remove\+First}} ()
+\begin{DoxyCompactList}\small\item\em Removes the first item in vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_a_vector_aff3d2534c69c1402f85cda5b5c145356}\label{class_a_vector_aff3d2534c69c1402f85cda5b5c145356}} 
+void \mbox{\hyperlink{class_a_vector_aff3d2534c69c1402f85cda5b5c145356}{pop\+\_\+front}} ()
+\begin{DoxyCompactList}\small\item\em Removes the first item in vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_a_vector_aa0d05e2719478e74c93f54e8d7cffc6f}\label{class_a_vector_aa0d05e2719478e74c93f54e8d7cffc6f}} 
+void \mbox{\hyperlink{class_a_vector_aa0d05e2719478e74c93f54e8d7cffc6f}{remove\+Duplicates}} ()
+\begin{DoxyCompactList}\small\item\em Removes any duplicate items in vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_a_vector_ad34deeefc2360e10c682d6b11831233a}\label{class_a_vector_ad34deeefc2360e10c682d6b11831233a}} 
+void \mbox{\hyperlink{class_a_vector_ad34deeefc2360e10c682d6b11831233a}{remove\+Last}} ()
+\begin{DoxyCompactList}\small\item\em Removes the last item in vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_vector_a33f1e98af680a5c9e430dc11beeb4dd8}{remove\+First}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Removes the first item in vector equals to the specified item. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_vector_a521f435b2b3c74c92d6cbe94bc3faddd}{remove\+All}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Removes all items in vector equals to the specified item. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_a_vector_ac0fd7bd21468b282eb563badd30f73f6}{mid}} (uint64 position, uint64 length=-\/1) const
+\begin{DoxyCompactList}\small\item\em Returns a vector that contains length characters of this vector, starting at the specified position index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_vector_af045120312bc7a66ab31684bdbb039bd}{move}} (uint64 from, uint64 to)
+\begin{DoxyCompactList}\small\item\em Exchanges the item at index \char`\"{}from\char`\"{} with the item at index \char`\"{}to\char`\"{}. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_a_vector_a9ad79c8f2af06e68a9eb022cae0bb966}{first}} ()
+\begin{DoxyCompactList}\small\item\em Returns the reference to the first item in vector. \end{DoxyCompactList}\item 
+const T \& \mbox{\hyperlink{class_a_vector_a960abfbaf4b7b395286c82d79571147a}{first}} () const
+\begin{DoxyCompactList}\small\item\em Returns the const reference to the first item in vector. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_a_vector_a0465c474ee53f57eb8817a531ac530b2}{last}} ()
+\begin{DoxyCompactList}\small\item\em Returns the reference to the last item in vector. \end{DoxyCompactList}\item 
+const T \& \mbox{\hyperlink{class_a_vector_afbdc200be19695bebbbc54dce5693f98}{last}} () const
+\begin{DoxyCompactList}\small\item\em Returns the const reference to the last item in vector. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_a_vector_a37df3ccd66a7747579aee01025e0e440}{take\+At}} (uint64 i)
+\begin{DoxyCompactList}\small\item\em Removes the item at the specified index and returns it. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_a_vector_ae2cad9bb2968e2fe2c96554f6b36c4a9}{take\+First}} ()
+\begin{DoxyCompactList}\small\item\em Removes the first item and returns it. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_a_vector_abaa54e33aa13edba5b2e4cad679f5c1b}{take\+Last}} ()
+\begin{DoxyCompactList}\small\item\em Removes the last item and returns it. \end{DoxyCompactList}\item 
+std\+::list$<$ T $>$ \mbox{\hyperlink{class_a_vector_a2563a5dbe02466a864d33af52c327198}{to\+List}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current vector to std\+::list and returns it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class A\+Vector$<$ T $>$}
+
+This class extends the std\+::vector class by auxiliary functions. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 13.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_vector_ab998b222eb341c26f4eafd8da65f2274}\label{class_a_vector_ab998b222eb341c26f4eafd8da65f2274}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!append@{append}}
+\index{append@{append}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{append()}{append()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::append (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Appends the specified item to the current vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_aae594c91729d29605c2fe4a71cbf6f0c}\label{class_a_vector_aae594c91729d29605c2fe4a71cbf6f0c}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!append@{append}}
+\index{append@{append}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{append()}{append()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::append (\begin{DoxyParamCaption}\item[{T \&\&}]{value }\end{DoxyParamCaption})}
+
+
+
+Appends the specified item to the current vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_ab49821902c6048beab9de0e355baa386}\label{class_a_vector_ab49821902c6048beab9de0e355baa386}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!contains@{contains}}
+\index{contains@{contains}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::contains (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns whether the vector contains the specified item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the vector contains the specified item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_aa7ffcbc3145155967e6e18cacc3a0dcc}\label{class_a_vector_aa7ffcbc3145155967e6e18cacc3a0dcc}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!count@{count}}
+\index{count@{count}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+uint64 \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::count (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Counts the occurrences of the specified item in the vector and returns the value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to count \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the count of the specified item in the vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_a9cae5f201ad8fb74850f1d1dc2d044cc}\label{class_a_vector_a9cae5f201ad8fb74850f1d1dc2d044cc}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!endsWith@{endsWith}}
+\index{endsWith@{endsWith}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{endsWith()}{endsWith()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::ends\+With (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the vector ends with the specified item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the vector ends with the specified item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_a9ad79c8f2af06e68a9eb022cae0bb966}\label{class_a_vector_a9ad79c8f2af06e68a9eb022cae0bb966}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!first@{first}}
+\index{first@{first}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{first()}{first()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the reference to the first item in vector. 
+
+\begin{DoxyReturn}{Returns}
+the reference to the first item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_a960abfbaf4b7b395286c82d79571147a}\label{class_a_vector_a960abfbaf4b7b395286c82d79571147a}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!first@{first}}
+\index{first@{first}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{first()}{first()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \& \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the const reference to the first item in vector. 
+
+\begin{DoxyReturn}{Returns}
+the const reference to the first item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_aa8a2735af0f9799c1537d0536ca4f69f}\label{class_a_vector_aa8a2735af0f9799c1537d0536ca4f69f}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!firstIndexOf@{firstIndexOf}}
+\index{firstIndexOf@{firstIndexOf}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{firstIndexOf()}{firstIndexOf()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+uint64 \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::first\+Index\+Of (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns the first index of the item in vector which is equal to the specified item. 
+
+Returns (uint64)-\/1 when there is no such item.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the first occurrence 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_a81ee68969c55a70a2215e996e2d53027}\label{class_a_vector_a81ee68969c55a70a2215e996e2d53027}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!indexOf@{indexOf}}
+\index{indexOf@{indexOf}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{indexOf()}{indexOf()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+uint64 \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::index\+Of (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns the first index of the item in vector which is equal to the specified item. 
+
+Returns (uint64)-\/1 when there is no such item.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the first occurrence 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_a0465c474ee53f57eb8817a531ac530b2}\label{class_a_vector_a0465c474ee53f57eb8817a531ac530b2}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!last@{last}}
+\index{last@{last}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{last()}{last()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the reference to the last item in vector. 
+
+\begin{DoxyReturn}{Returns}
+the reference to the last item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_afbdc200be19695bebbbc54dce5693f98}\label{class_a_vector_afbdc200be19695bebbbc54dce5693f98}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!last@{last}}
+\index{last@{last}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{last()}{last()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \& \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the const reference to the last item in vector. 
+
+\begin{DoxyReturn}{Returns}
+the const reference to the last item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_adcb1b4189e7e270ab8a22fa29ce109ae}\label{class_a_vector_adcb1b4189e7e270ab8a22fa29ce109ae}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!lastIndexOf@{lastIndexOf}}
+\index{lastIndexOf@{lastIndexOf}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{lastIndexOf()}{lastIndexOf()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+uint64 \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::last\+Index\+Of (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns the last index of the first item in vector which is equal to the specified item. 
+
+Returns (uint64)-\/1 when there is no such item.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the last occurrence 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_ac0fd7bd21468b282eb563badd30f73f6}\label{class_a_vector_ac0fd7bd21468b282eb563badd30f73f6}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!mid@{mid}}
+\index{mid@{mid}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{mid()}{mid()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::mid (\begin{DoxyParamCaption}\item[{uint64}]{position,  }\item[{uint64}]{length = {\ttfamily -\/1} }\end{DoxyParamCaption}) const}
+
+
+
+Returns a vector that contains length characters of this vector, starting at the specified position index. 
+
+Returns an empty vector if the position index exceeds the length of the list. If n is -\/1 (default), the function returns all items that are available from the specified position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the position to start from \\
+\hline
+{\em length} & the length to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a vector copying the values of the current instance starting from position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_af045120312bc7a66ab31684bdbb039bd}\label{class_a_vector_af045120312bc7a66ab31684bdbb039bd}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!move@{move}}
+\index{move@{move}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::move (\begin{DoxyParamCaption}\item[{uint64}]{from,  }\item[{uint64}]{to }\end{DoxyParamCaption})}
+
+
+
+Exchanges the item at index \char`\"{}from\char`\"{} with the item at index \char`\"{}to\char`\"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & the first item \\
+\hline
+{\em to} & the second item \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_a5b7910c1c1dce6877a21f9c5cba4bfc2}\label{class_a_vector_a5b7910c1c1dce6877a21f9c5cba4bfc2}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!prepend@{prepend}}
+\index{prepend@{prepend}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{prepend()}{prepend()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::prepend (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Prepends the specified item to the current vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to prepend \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_a13f40bde5b40222d98fe0982eaca9513}\label{class_a_vector_a13f40bde5b40222d98fe0982eaca9513}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!prepend@{prepend}}
+\index{prepend@{prepend}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{prepend()}{prepend()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::prepend (\begin{DoxyParamCaption}\item[{T \&\&}]{value }\end{DoxyParamCaption})}
+
+
+
+Prepends the specified item to the current vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to prepend \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_a18f64e22552d73fc4424dc81ba158216}\label{class_a_vector_a18f64e22552d73fc4424dc81ba158216}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!push\_front@{push\_front}}
+\index{push\_front@{push\_front}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{push\_front()}{push\_front()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::push\+\_\+front (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Prepends the specified item to the current vector. 
+
+Just for S\+TL compatibility.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to prepend \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_a0050a46da378811f3ff5fc4df73ecd62}\label{class_a_vector_a0050a46da378811f3ff5fc4df73ecd62}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!push\_front@{push\_front}}
+\index{push\_front@{push\_front}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{push\_front()}{push\_front()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::push\+\_\+front (\begin{DoxyParamCaption}\item[{T \&\&}]{value }\end{DoxyParamCaption})}
+
+
+
+Prepends the specified item to the current vector. 
+
+Just for S\+TL compatibility.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to prepend \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_a521f435b2b3c74c92d6cbe94bc3faddd}\label{class_a_vector_a521f435b2b3c74c92d6cbe94bc3faddd}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!removeAll@{removeAll}}
+\index{removeAll@{removeAll}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{removeAll()}{removeAll()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::remove\+All (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Removes all items in vector equals to the specified item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_ae3b650535e5a248a385988887064868e}\label{class_a_vector_ae3b650535e5a248a385988887064868e}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!removeAt@{removeAt}}
+\index{removeAt@{removeAt}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{removeAt()}{removeAt()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::remove\+At (\begin{DoxyParamCaption}\item[{uint64}]{i }\end{DoxyParamCaption})}
+
+
+
+Removes the item at the ith index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the index to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_a33f1e98af680a5c9e430dc11beeb4dd8}\label{class_a_vector_a33f1e98af680a5c9e430dc11beeb4dd8}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!removeFirst@{removeFirst}}
+\index{removeFirst@{removeFirst}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{removeFirst()}{removeFirst()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::remove\+First (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Removes the first item in vector equals to the specified item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_ae2ab95fcb42489ddfbf1bfa5a12867a8}\label{class_a_vector_ae2ab95fcb42489ddfbf1bfa5a12867a8}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!replace@{replace}}
+\index{replace@{replace}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+void \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::replace (\begin{DoxyParamCaption}\item[{uint64}]{i,  }\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Replaces the item at the ith index by the specified value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the index to replace \\
+\hline
+{\em value} & the value to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_vector_a7cc825790e29f58f9425fd11efbdbbab}\label{class_a_vector_a7cc825790e29f58f9425fd11efbdbbab}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!startsWith@{startsWith}}
+\index{startsWith@{startsWith}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{startsWith()}{startsWith()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::starts\+With (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the vector starts with the specified item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the vector starts with the specified item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_a37df3ccd66a7747579aee01025e0e440}\label{class_a_vector_a37df3ccd66a7747579aee01025e0e440}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!takeAt@{takeAt}}
+\index{takeAt@{takeAt}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{takeAt()}{takeAt()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::take\+At (\begin{DoxyParamCaption}\item[{uint64}]{i }\end{DoxyParamCaption})}
+
+
+
+Removes the item at the specified index and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the index to take \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the item at index i 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_ae2cad9bb2968e2fe2c96554f6b36c4a9}\label{class_a_vector_ae2cad9bb2968e2fe2c96554f6b36c4a9}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!takeFirst@{takeFirst}}
+\index{takeFirst@{takeFirst}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{takeFirst()}{takeFirst()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::take\+First (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes the first item and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the first item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_abaa54e33aa13edba5b2e4cad679f5c1b}\label{class_a_vector_abaa54e33aa13edba5b2e4cad679f5c1b}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!takeLast@{takeLast}}
+\index{takeLast@{takeLast}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{takeLast()}{takeLast()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::take\+Last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes the last item and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the last item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_vector_a2563a5dbe02466a864d33af52c327198}\label{class_a_vector_a2563a5dbe02466a864d33af52c327198}} 
+\index{AVector$<$ T $>$@{AVector$<$ T $>$}!toList@{toList}}
+\index{toList@{toList}!AVector$<$ T $>$@{AVector$<$ T $>$}}
+\subsubsection{\texorpdfstring{toList()}{toList()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::list$<$ T $>$ \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$\+::to\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current vector to std\+::list and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the std\+::list converted from the current vector 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/avector.\+h\end{DoxyCompactItemize}

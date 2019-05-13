@@ -1,0 +1,98 @@
+\hypertarget{class_i_encryption}{}\section{I\+Encryption Class Reference}
+\label{class_i_encryption}\index{IEncryption@{IEncryption}}
+
+
+Provides an abstract class for a cryptography.  
+
+
+
+
+{\ttfamily \#include $<$encryption.\+h$>$}
+
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ byte $>$ \mbox{\hyperlink{class_i_encryption_aa888b4e42172490054708fb099626458}{encrypt}} (const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ byte $>$ \&clear\+Buffer)=0
+\begin{DoxyCompactList}\small\item\em Encrypts the plain byte vector and returns the encrypted byte vector. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_i_encryption_aef8211993831f83e031e7f1e9f978a4d}{encrypt\+To\+Text}} (const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ byte $>$ \&clear\+Buffer)=0
+\begin{DoxyCompactList}\small\item\em Encrypts the plain byte vector and returns the encrypted string. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ byte $>$ \mbox{\hyperlink{class_i_encryption_a07250dc1d1f1cd6de54df34e079f749d}{decrypt}} (const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ byte $>$ \&cipher\+Buffer)=0
+\begin{DoxyCompactList}\small\item\em Decrypts the encrypted byte vector and returns the decrypted byte vector. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_i_encryption_ad1dafdacb077abfd40a995ae22ef0396}{decrypt\+To\+Text}} (const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ byte $>$ \&cipher\+Buffer)=0
+\begin{DoxyCompactList}\small\item\em Decrypts the encrypted byte vector and returns the decrypted string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides an abstract class for a cryptography. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 11.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_encryption_a07250dc1d1f1cd6de54df34e079f749d}\label{class_i_encryption_a07250dc1d1f1cd6de54df34e079f749d}} 
+\index{IEncryption@{IEncryption}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!IEncryption@{IEncryption}}
+\subsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$byte$>$ I\+Encryption\+::decrypt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ byte $>$ \&}]{cipher\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Decrypts the encrypted byte vector and returns the decrypted byte vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cipher\+Buffer} & the encrypted byte vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i_encryption_ad1dafdacb077abfd40a995ae22ef0396}\label{class_i_encryption_ad1dafdacb077abfd40a995ae22ef0396}} 
+\index{IEncryption@{IEncryption}!decryptToText@{decryptToText}}
+\index{decryptToText@{decryptToText}!IEncryption@{IEncryption}}
+\subsubsection{\texorpdfstring{decryptToText()}{decryptToText()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_a_string}{A\+String}} I\+Encryption\+::decrypt\+To\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ byte $>$ \&}]{cipher\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Decrypts the encrypted byte vector and returns the decrypted string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cipher\+Buffer} & the encrypted byte vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i_encryption_aa888b4e42172490054708fb099626458}\label{class_i_encryption_aa888b4e42172490054708fb099626458}} 
+\index{IEncryption@{IEncryption}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!IEncryption@{IEncryption}}
+\subsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$byte$>$ I\+Encryption\+::encrypt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ byte $>$ \&}]{clear\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Encrypts the plain byte vector and returns the encrypted byte vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clear\+Buffer} & the clear byte vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_i_encryption_aef8211993831f83e031e7f1e9f978a4d}\label{class_i_encryption_aef8211993831f83e031e7f1e9f978a4d}} 
+\index{IEncryption@{IEncryption}!encryptToText@{encryptToText}}
+\index{encryptToText@{encryptToText}!IEncryption@{IEncryption}}
+\subsubsection{\texorpdfstring{encryptToText()}{encryptToText()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_a_string}{A\+String}} I\+Encryption\+::encrypt\+To\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ byte $>$ \&}]{clear\+Buffer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Encrypts the plain byte vector and returns the encrypted string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clear\+Buffer} & the clear byte vector \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/encryption.\+h\end{DoxyCompactItemize}

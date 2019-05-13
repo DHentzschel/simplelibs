@@ -1,0 +1,604 @@
+\hypertarget{class_date_time}{}\section{Date\+Time Class Reference}
+\label{class_date_time}\index{DateTime@{DateTime}}
+
+
+This class can store information about datetime and makes it easy to calculate dates and time values.  
+
+
+
+
+{\ttfamily \#include $<$datetime.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_date_time_a3ccfb87f7a2e9683b91964e32d907161}\label{class_date_time_a3ccfb87f7a2e9683b91964e32d907161}} 
+\mbox{\hyperlink{class_date_time_a3ccfb87f7a2e9683b91964e32d907161}{Date\+Time}} ()
+\begin{DoxyCompactList}\small\item\em Sets the unix\+Timestamp member variable to zero. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_date_time_acae25c3bcabd5636220ab73b4794b90e}{Date\+Time}} (const \mbox{\hyperlink{struct_date_time_info}{Date\+Time\+Info}} \&date\+Time\+Info)
+\begin{DoxyCompactList}\small\item\em Sets the unix\+Timestamp member variable to zero and copies the date\+Time\+Info from parameter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_date_time_aae5852ec64aa634b1e4a81effb7df049}{Date\+Time}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string)
+\begin{DoxyCompactList}\small\item\em Sets the unix\+Timestamp member variable to zero and parses the datetime from string parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_a9209722e2520862295252b12947d0f97}{add\+Days}} (uint count)
+\begin{DoxyCompactList}\small\item\em Adds the count of days given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_a8b49589808773b2bb330bc5414deae76}{sub\+Days}} (uint count)
+\begin{DoxyCompactList}\small\item\em Subtracts the count of days given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_a07122467e69f11dd79a615af9c5097d1}{add\+Months}} (uint count)
+\begin{DoxyCompactList}\small\item\em Adds the count of months given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_a2030620c1d44592ee63d92a7f1161c26}{sub\+Months}} (uint count)
+\begin{DoxyCompactList}\small\item\em Subtracts the count of months given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_a831ab5e9d50c8157ee0c23dc292b8ef5}{add\+Years}} (uint count)
+\begin{DoxyCompactList}\small\item\em Adds the count of years given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_a94bd3c5a6d9875368ba1795dedac8588}{sub\+Years}} (uint count)
+\begin{DoxyCompactList}\small\item\em Subtracts the count of years given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_aa4ba03bfc47a41d0fcbf5087908fe7ab}{add\+Hours}} (uint count)
+\begin{DoxyCompactList}\small\item\em Adds the count of hours given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_ad8731709f4f22cc39dd40b7facdbe058}{sub\+Hours}} (uint count)
+\begin{DoxyCompactList}\small\item\em Subtracts the count of hours given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_a1da975e9de48724cc5c0b08dbfdb1b3c}{add\+Minutes}} (uint count)
+\begin{DoxyCompactList}\small\item\em Adds the count of minutes given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_a5046fae9b637fc3dc994fb5544133585}{sub\+Minutes}} (uint count)
+\begin{DoxyCompactList}\small\item\em Subtracts the count of minutes given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_a79bda8c555092ea62255498f86a07655}{add\+Seconds}} (uint count)
+\begin{DoxyCompactList}\small\item\em Adds the count of seconds given by parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_date_time_a985cb277733445af6b172ac9ec2630e9}{sub\+Seconds}} (uint count)
+\begin{DoxyCompactList}\small\item\em Subtracts the count of seconds given by parameter. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{class_date_time_a3ffb237255a73bbe9f8000d18c870ea8}{get\+Day}} () const
+\begin{DoxyCompactList}\small\item\em Returns the day set. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{class_date_time_a18d5987a6def22fa88302cdb50941add}{get\+Month}} () const
+\begin{DoxyCompactList}\small\item\em Returns the month set. \end{DoxyCompactList}\item 
+ushort \mbox{\hyperlink{class_date_time_a5bab8648961a46a2a3cbca3868efecce}{get\+Year}} () const
+\begin{DoxyCompactList}\small\item\em Returns the year set. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{class_date_time_ada00db60b48e636102d509a7b1b30296}{get\+Hour}} () const
+\begin{DoxyCompactList}\small\item\em Returns the hour set. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{class_date_time_afcecea2d24e906df99b9105c116262b3}{get\+Minute}} () const
+\begin{DoxyCompactList}\small\item\em Returns the minute set. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{class_date_time_a16d1e909db200146199b6623fce55a81}{get\+Second}} () const
+\begin{DoxyCompactList}\small\item\em Returns the second set. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{class_date_time_a88fcd4dec4b3d77e9abdbc2bb81ed18a}{get\+Month\+Day\+Count}} (ushort year, byte month)
+\begin{DoxyCompactList}\small\item\em Returns the count of month days from parameters. \end{DoxyCompactList}\item 
+time\+\_\+t \mbox{\hyperlink{class_date_time_aae25042a72973b5192469bb84f08857a}{to\+Unix\+Timestamp}} ()
+\begin{DoxyCompactList}\small\item\em Returns the unix timestamp set. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_date_time_a26824c34470bf04d3ee6343c4ec872d8}{to\+String}} () const
+\begin{DoxyCompactList}\small\item\em Returns the datetime set as string. \end{DoxyCompactList}\item 
+std\+::tm \mbox{\hyperlink{class_date_time_a69f433ebbc09ac4c201ca8c2ea6e5015}{to\+Std\+Tm}} ()
+\begin{DoxyCompactList}\small\item\em Converts the datetime values to the standard time struct. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_date_time_af28627b5a5a2cdc02f5fc388b07c91e7}\label{class_date_time_af28627b5a5a2cdc02f5fc388b07c91e7}} 
+static \mbox{\hyperlink{class_date_time}{Date\+Time}} \mbox{\hyperlink{class_date_time_af28627b5a5a2cdc02f5fc388b07c91e7}{now}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current datetime as object. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_date_time_ab8bbdb70e38a18cad9269b6f856f5634}{get\+Datestamp}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current datestamp in the format \char`\"{}dd.\+M\+M.\+yyyy\char`\"{}. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_date_time_a272b1eca3f3aafc7d275ec5e8831a6ca}{get\+Timestamp}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current timestamp in the following format\+: hh\+:mm\+:ss. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_date_time_aee3108295b202fc4807984c25778c942}{get\+Current\+Timestamp}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current date and timestamp in the following format\+: dd.\+M\+M.\+yyyy hh\+:mm\+:ss. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_date_time_a14a0e5a9af8caf8ab46bebd6e101daf0}{is\+Date\+Time\+Reached}} (const \mbox{\hyperlink{class_date_time}{Date\+Time}} \&reachable\+Datetime)
+\begin{DoxyCompactList}\small\item\em Returns whether the datetime specified was reached. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_date_time_aa9793671179a12cd08dc371a2668a321}{is\+Date\+Time\+Reached}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&reachable\+Datetime)
+\begin{DoxyCompactList}\small\item\em Returns whether the datetime specified was reached. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_date_time_a5098104322ff5c66131299c5a8659999}{is\+Date\+Time\+Reached}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&target, const \mbox{\hyperlink{class_a_string}{A\+String}} \&reachable\+Datetime)
+\begin{DoxyCompactList}\small\item\em Returns whether the datetime specified was reached. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_date_time_afd597cb69bb422b066bac46c96cc5f12}{is\+Leap\+Year}} (ushort year)
+\begin{DoxyCompactList}\small\item\em Returns whether the year given as parameter is a leap year. \end{DoxyCompactList}\item 
+static ushort \mbox{\hyperlink{class_date_time_a8401d6a8ad1aec862f2a96bb9eda1870}{get\+Leap\+Year\+Count\+From\+To}} (ushort to, ushort from=begin\+Date\+Time\+\_\+.\+year)
+\begin{DoxyCompactList}\small\item\em Returns the count of leap years from the first year to the second year. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_date_time}{Date\+Time}} \mbox{\hyperlink{class_date_time_afdc41a37a33bc6c5643430494f959c1b}{from\+Unix\+Timestamp}} (int64 timestamp)
+\begin{DoxyCompactList}\small\item\em Returns the datetime instance calculated from given timestamp parameter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class can store information about datetime and makes it easy to calculate dates and time values. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 11.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_date_time_acae25c3bcabd5636220ab73b4794b90e}\label{class_date_time_acae25c3bcabd5636220ab73b4794b90e}} 
+\index{DateTime@{DateTime}!DateTime@{DateTime}}
+\index{DateTime@{DateTime}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{DateTime()}{DateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Date\+Time\+::\+Date\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_date_time_info}{Date\+Time\+Info}} \&}]{date\+Time\+Info }\end{DoxyParamCaption})}
+
+
+
+Sets the unix\+Timestamp member variable to zero and copies the date\+Time\+Info from parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em date\+Time\+Info} & the copyable date\+Time\+Info \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_aae5852ec64aa634b1e4a81effb7df049}\label{class_date_time_aae5852ec64aa634b1e4a81effb7df049}} 
+\index{DateTime@{DateTime}!DateTime@{DateTime}}
+\index{DateTime@{DateTime}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{DateTime()}{DateTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Date\+Time\+::\+Date\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string }\end{DoxyParamCaption})}
+
+
+
+Sets the unix\+Timestamp member variable to zero and parses the datetime from string parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the parsable datetime string \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_date_time_a9209722e2520862295252b12947d0f97}\label{class_date_time_a9209722e2520862295252b12947d0f97}} 
+\index{DateTime@{DateTime}!addDays@{addDays}}
+\index{addDays@{addDays}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{addDays()}{addDays()}}
+{\footnotesize\ttfamily void Date\+Time\+::add\+Days (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Adds the count of days given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of days to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_aa4ba03bfc47a41d0fcbf5087908fe7ab}\label{class_date_time_aa4ba03bfc47a41d0fcbf5087908fe7ab}} 
+\index{DateTime@{DateTime}!addHours@{addHours}}
+\index{addHours@{addHours}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{addHours()}{addHours()}}
+{\footnotesize\ttfamily void Date\+Time\+::add\+Hours (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Adds the count of hours given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of hours to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_a1da975e9de48724cc5c0b08dbfdb1b3c}\label{class_date_time_a1da975e9de48724cc5c0b08dbfdb1b3c}} 
+\index{DateTime@{DateTime}!addMinutes@{addMinutes}}
+\index{addMinutes@{addMinutes}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{addMinutes()}{addMinutes()}}
+{\footnotesize\ttfamily void Date\+Time\+::add\+Minutes (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Adds the count of minutes given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of minutes to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_a07122467e69f11dd79a615af9c5097d1}\label{class_date_time_a07122467e69f11dd79a615af9c5097d1}} 
+\index{DateTime@{DateTime}!addMonths@{addMonths}}
+\index{addMonths@{addMonths}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{addMonths()}{addMonths()}}
+{\footnotesize\ttfamily void Date\+Time\+::add\+Months (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Adds the count of months given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of months to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_a79bda8c555092ea62255498f86a07655}\label{class_date_time_a79bda8c555092ea62255498f86a07655}} 
+\index{DateTime@{DateTime}!addSeconds@{addSeconds}}
+\index{addSeconds@{addSeconds}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{addSeconds()}{addSeconds()}}
+{\footnotesize\ttfamily void Date\+Time\+::add\+Seconds (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Adds the count of seconds given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of seconds to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_a831ab5e9d50c8157ee0c23dc292b8ef5}\label{class_date_time_a831ab5e9d50c8157ee0c23dc292b8ef5}} 
+\index{DateTime@{DateTime}!addYears@{addYears}}
+\index{addYears@{addYears}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{addYears()}{addYears()}}
+{\footnotesize\ttfamily void Date\+Time\+::add\+Years (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Adds the count of years given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of years to add \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_afdc41a37a33bc6c5643430494f959c1b}\label{class_date_time_afdc41a37a33bc6c5643430494f959c1b}} 
+\index{DateTime@{DateTime}!fromUnixTimestamp@{fromUnixTimestamp}}
+\index{fromUnixTimestamp@{fromUnixTimestamp}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{fromUnixTimestamp()}{fromUnixTimestamp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_date_time}{Date\+Time}} Date\+Time\+::from\+Unix\+Timestamp (\begin{DoxyParamCaption}\item[{int64}]{timestamp }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the datetime instance calculated from given timestamp parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timestamp} & the unix timestamp in seconds \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the \mbox{\hyperlink{class_date_time}{Date\+Time}} instance intialized by specified timestamp 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_aee3108295b202fc4807984c25778c942}\label{class_date_time_aee3108295b202fc4807984c25778c942}} 
+\index{DateTime@{DateTime}!getCurrentTimestamp@{getCurrentTimestamp}}
+\index{getCurrentTimestamp@{getCurrentTimestamp}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getCurrentTimestamp()}{getCurrentTimestamp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} Date\+Time\+::get\+Current\+Timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the current date and timestamp in the following format\+: dd.\+M\+M.\+yyyy hh\+:mm\+:ss. 
+
+\begin{DoxyReturn}{Returns}
+the current date and timestamp as string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_ab8bbdb70e38a18cad9269b6f856f5634}\label{class_date_time_ab8bbdb70e38a18cad9269b6f856f5634}} 
+\index{DateTime@{DateTime}!getDatestamp@{getDatestamp}}
+\index{getDatestamp@{getDatestamp}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getDatestamp()}{getDatestamp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} Date\+Time\+::get\+Datestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the current datestamp in the format \char`\"{}dd.\+M\+M.\+yyyy\char`\"{}. 
+
+\begin{DoxyReturn}{Returns}
+the datestamp as string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_a3ffb237255a73bbe9f8000d18c870ea8}\label{class_date_time_a3ffb237255a73bbe9f8000d18c870ea8}} 
+\index{DateTime@{DateTime}!getDay@{getDay}}
+\index{getDay@{getDay}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getDay()}{getDay()}}
+{\footnotesize\ttfamily byte Date\+Time\+::get\+Day (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the day set. 
+
+\begin{DoxyReturn}{Returns}
+the day set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_ada00db60b48e636102d509a7b1b30296}\label{class_date_time_ada00db60b48e636102d509a7b1b30296}} 
+\index{DateTime@{DateTime}!getHour@{getHour}}
+\index{getHour@{getHour}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getHour()}{getHour()}}
+{\footnotesize\ttfamily byte Date\+Time\+::get\+Hour (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the hour set. 
+
+\begin{DoxyReturn}{Returns}
+the hour set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_a8401d6a8ad1aec862f2a96bb9eda1870}\label{class_date_time_a8401d6a8ad1aec862f2a96bb9eda1870}} 
+\index{DateTime@{DateTime}!getLeapYearCountFromTo@{getLeapYearCountFromTo}}
+\index{getLeapYearCountFromTo@{getLeapYearCountFromTo}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getLeapYearCountFromTo()}{getLeapYearCountFromTo()}}
+{\footnotesize\ttfamily ushort Date\+Time\+::get\+Leap\+Year\+Count\+From\+To (\begin{DoxyParamCaption}\item[{ushort}]{to,  }\item[{ushort}]{from = {\ttfamily beginDateTime\+\_\+.year} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the count of leap years from the first year to the second year. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to} & the begin date \\
+\hline
+{\em from} & the end date \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the leap year count between both years 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_afcecea2d24e906df99b9105c116262b3}\label{class_date_time_afcecea2d24e906df99b9105c116262b3}} 
+\index{DateTime@{DateTime}!getMinute@{getMinute}}
+\index{getMinute@{getMinute}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getMinute()}{getMinute()}}
+{\footnotesize\ttfamily byte Date\+Time\+::get\+Minute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the minute set. 
+
+\begin{DoxyReturn}{Returns}
+the minute set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_a18d5987a6def22fa88302cdb50941add}\label{class_date_time_a18d5987a6def22fa88302cdb50941add}} 
+\index{DateTime@{DateTime}!getMonth@{getMonth}}
+\index{getMonth@{getMonth}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getMonth()}{getMonth()}}
+{\footnotesize\ttfamily byte Date\+Time\+::get\+Month (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the month set. 
+
+\begin{DoxyReturn}{Returns}
+the month set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_a88fcd4dec4b3d77e9abdbc2bb81ed18a}\label{class_date_time_a88fcd4dec4b3d77e9abdbc2bb81ed18a}} 
+\index{DateTime@{DateTime}!getMonthDayCount@{getMonthDayCount}}
+\index{getMonthDayCount@{getMonthDayCount}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getMonthDayCount()}{getMonthDayCount()}}
+{\footnotesize\ttfamily byte Date\+Time\+::get\+Month\+Day\+Count (\begin{DoxyParamCaption}\item[{ushort}]{year,  }\item[{byte}]{month }\end{DoxyParamCaption})}
+
+
+
+Returns the count of month days from parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & the year to calculate \\
+\hline
+{\em month} & the month to calculate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_a16d1e909db200146199b6623fce55a81}\label{class_date_time_a16d1e909db200146199b6623fce55a81}} 
+\index{DateTime@{DateTime}!getSecond@{getSecond}}
+\index{getSecond@{getSecond}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getSecond()}{getSecond()}}
+{\footnotesize\ttfamily byte Date\+Time\+::get\+Second (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the second set. 
+
+\begin{DoxyReturn}{Returns}
+the second set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_a272b1eca3f3aafc7d275ec5e8831a6ca}\label{class_date_time_a272b1eca3f3aafc7d275ec5e8831a6ca}} 
+\index{DateTime@{DateTime}!getTimestamp@{getTimestamp}}
+\index{getTimestamp@{getTimestamp}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getTimestamp()}{getTimestamp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} Date\+Time\+::get\+Timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the current timestamp in the following format\+: hh\+:mm\+:ss. 
+
+\begin{DoxyReturn}{Returns}
+the timestamp as string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_a5bab8648961a46a2a3cbca3868efecce}\label{class_date_time_a5bab8648961a46a2a3cbca3868efecce}} 
+\index{DateTime@{DateTime}!getYear@{getYear}}
+\index{getYear@{getYear}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{getYear()}{getYear()}}
+{\footnotesize\ttfamily ushort Date\+Time\+::get\+Year (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the year set. 
+
+\begin{DoxyReturn}{Returns}
+the year set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_a14a0e5a9af8caf8ab46bebd6e101daf0}\label{class_date_time_a14a0e5a9af8caf8ab46bebd6e101daf0}} 
+\index{DateTime@{DateTime}!isDateTimeReached@{isDateTimeReached}}
+\index{isDateTimeReached@{isDateTimeReached}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{isDateTimeReached()}{isDateTimeReached()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily bool Date\+Time\+::is\+Date\+Time\+Reached (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_date_time}{Date\+Time}} \&}]{reachable\+Datetime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns whether the datetime specified was reached. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reachable\+Datetime} & the reachable datetime \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the datetime specified was reached 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_aa9793671179a12cd08dc371a2668a321}\label{class_date_time_aa9793671179a12cd08dc371a2668a321}} 
+\index{DateTime@{DateTime}!isDateTimeReached@{isDateTimeReached}}
+\index{isDateTimeReached@{isDateTimeReached}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{isDateTimeReached()}{isDateTimeReached()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily bool Date\+Time\+::is\+Date\+Time\+Reached (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{reachable\+Datetime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns whether the datetime specified was reached. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reachable\+Datetime} & the reachable datetime \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the datetime specified was reached 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_a5098104322ff5c66131299c5a8659999}\label{class_date_time_a5098104322ff5c66131299c5a8659999}} 
+\index{DateTime@{DateTime}!isDateTimeReached@{isDateTimeReached}}
+\index{isDateTimeReached@{isDateTimeReached}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{isDateTimeReached()}{isDateTimeReached()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily bool Date\+Time\+::is\+Date\+Time\+Reached (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{target,  }\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{reachable\+Datetime }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns whether the datetime specified was reached. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & the datetime which implies \char`\"{}now\char`\"{} \\
+\hline
+{\em reachable\+Datetime} & the reachable datetime \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the datetime specified was reached 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_afd597cb69bb422b066bac46c96cc5f12}\label{class_date_time_afd597cb69bb422b066bac46c96cc5f12}} 
+\index{DateTime@{DateTime}!isLeapYear@{isLeapYear}}
+\index{isLeapYear@{isLeapYear}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{isLeapYear()}{isLeapYear()}}
+{\footnotesize\ttfamily bool Date\+Time\+::is\+Leap\+Year (\begin{DoxyParamCaption}\item[{ushort}]{year }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns whether the year given as parameter is a leap year. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em year} & the year to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether specified year is a leap year 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_a8b49589808773b2bb330bc5414deae76}\label{class_date_time_a8b49589808773b2bb330bc5414deae76}} 
+\index{DateTime@{DateTime}!subDays@{subDays}}
+\index{subDays@{subDays}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{subDays()}{subDays()}}
+{\footnotesize\ttfamily void Date\+Time\+::sub\+Days (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Subtracts the count of days given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of days to subtract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_ad8731709f4f22cc39dd40b7facdbe058}\label{class_date_time_ad8731709f4f22cc39dd40b7facdbe058}} 
+\index{DateTime@{DateTime}!subHours@{subHours}}
+\index{subHours@{subHours}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{subHours()}{subHours()}}
+{\footnotesize\ttfamily void Date\+Time\+::sub\+Hours (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Subtracts the count of hours given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of hours to subtract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_a5046fae9b637fc3dc994fb5544133585}\label{class_date_time_a5046fae9b637fc3dc994fb5544133585}} 
+\index{DateTime@{DateTime}!subMinutes@{subMinutes}}
+\index{subMinutes@{subMinutes}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{subMinutes()}{subMinutes()}}
+{\footnotesize\ttfamily void Date\+Time\+::sub\+Minutes (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Subtracts the count of minutes given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of minutes to subtract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_a2030620c1d44592ee63d92a7f1161c26}\label{class_date_time_a2030620c1d44592ee63d92a7f1161c26}} 
+\index{DateTime@{DateTime}!subMonths@{subMonths}}
+\index{subMonths@{subMonths}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{subMonths()}{subMonths()}}
+{\footnotesize\ttfamily void Date\+Time\+::sub\+Months (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Subtracts the count of months given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of months to subtract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_a985cb277733445af6b172ac9ec2630e9}\label{class_date_time_a985cb277733445af6b172ac9ec2630e9}} 
+\index{DateTime@{DateTime}!subSeconds@{subSeconds}}
+\index{subSeconds@{subSeconds}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{subSeconds()}{subSeconds()}}
+{\footnotesize\ttfamily void Date\+Time\+::sub\+Seconds (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Subtracts the count of seconds given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of seconds to subtract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_a94bd3c5a6d9875368ba1795dedac8588}\label{class_date_time_a94bd3c5a6d9875368ba1795dedac8588}} 
+\index{DateTime@{DateTime}!subYears@{subYears}}
+\index{subYears@{subYears}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{subYears()}{subYears()}}
+{\footnotesize\ttfamily void Date\+Time\+::sub\+Years (\begin{DoxyParamCaption}\item[{uint}]{count }\end{DoxyParamCaption})}
+
+
+
+Subtracts the count of years given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em count} & the count of years to subtract \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_date_time_a69f433ebbc09ac4c201ca8c2ea6e5015}\label{class_date_time_a69f433ebbc09ac4c201ca8c2ea6e5015}} 
+\index{DateTime@{DateTime}!toStdTm@{toStdTm}}
+\index{toStdTm@{toStdTm}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{toStdTm()}{toStdTm()}}
+{\footnotesize\ttfamily std\+::tm Date\+Time\+::to\+Std\+Tm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Converts the datetime values to the standard time struct. 
+
+\begin{DoxyReturn}{Returns}
+the standard time struct 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_a26824c34470bf04d3ee6343c4ec872d8}\label{class_date_time_a26824c34470bf04d3ee6343c4ec872d8}} 
+\index{DateTime@{DateTime}!toString@{toString}}
+\index{toString@{toString}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} Date\+Time\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the datetime set as string. 
+
+\begin{DoxyReturn}{Returns}
+the datetime set as string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_date_time_aae25042a72973b5192469bb84f08857a}\label{class_date_time_aae25042a72973b5192469bb84f08857a}} 
+\index{DateTime@{DateTime}!toUnixTimestamp@{toUnixTimestamp}}
+\index{toUnixTimestamp@{toUnixTimestamp}!DateTime@{DateTime}}
+\subsubsection{\texorpdfstring{toUnixTimestamp()}{toUnixTimestamp()}}
+{\footnotesize\ttfamily int64 Date\+Time\+::to\+Unix\+Timestamp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the unix timestamp set. 
+
+\begin{DoxyReturn}{Returns}
+the unix timestamp 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/datetime.\+h\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/datetime.\+cpp\end{DoxyCompactItemize}

@@ -46,7 +46,7 @@ public:
 	AString(const char* string);
 
 	/**
-	 * Replaces the next placeholder (%<number>) by the specified string.
+	 * Replaces the next placeholder (%number) by the specified string.
 	 *
 	 * @param value the string to copy from
 	 * @return the replaced string
@@ -153,8 +153,8 @@ public:
 	AString& removeFirst(const AString& string, bool caseSensitive = true);
 
 	/**
-	 * Appends the current string to the current instance <times> times.
-	 * If <times> is less than 1, the string will be cleared.
+	 * Appends the current string to the current instance "times" times.
+	 * If "times" is less than 1, the string will be cleared.
 	 *
 	 * @param times the count to repeat
 	 * @return the reference to the current instance
@@ -162,8 +162,8 @@ public:
 	AString& repeat(int times);
 
 	/**
-	 * Replaces all occurrences that are equal to <from> by <to>.
-	 * If caseSensitive is true (default), the string <from> will be searched case sensitive.
+	 * Replaces all occurrences that are equal to "from" by "to".
+	 * If caseSensitive is true (default), the string "from" will be searched case sensitive.
 	 *
 	 * @param from the string to replace
 	 * @param to the new value
@@ -173,8 +173,8 @@ public:
 	AString& replaceAll(const AString& from, const AString& to, bool caseSensitive = true);
 
 	/**
-	 * Replaces the first occurrence that is equal to <from> by <to>.
-	 * If caseSensitive is true (default), the string <from> will be searched case sensitive.
+	 * Replaces the first occurrence that is equal to "from" by "to".
+	 * If caseSensitive is true (default), the string "from" will be searched case sensitive.
 	 *
 	 * @param from the string to replace
 	 * @param to the new value
@@ -341,7 +341,7 @@ public:
 	 * Counts the occurrences of the specified char and returns the value.
 	 * If caseSensitive is true (default), the char will be searched case sensitive.
 	 *
-	 * @param string the char to count
+	 * @param c the char to count
 	 * @param caseSensitive whether the char should be counted case sensitive or not
 	 * @return the count of c occurring in the string
 	 */
@@ -373,7 +373,7 @@ public:
 	 */
 	size_t firstIndexOf(char c) const;
 
-	/*
+	/**
 	 * Returns the first index of the specified character occurrence.
 	 * Returns (uint64)-1 if there is no such char.
 	 *
@@ -497,6 +497,7 @@ public:
 	 * Converts the specified number to string and returns it.
 	 *
 	 * @param n the number to convert
+	 * @param inLetters whether the string should be printed in letters
 	 * @return the specified number converted to string
 	 */
 	static AString toString(bool n, bool inLetters = false);

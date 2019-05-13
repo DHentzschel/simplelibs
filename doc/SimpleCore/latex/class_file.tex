@@ -1,0 +1,431 @@
+\hypertarget{class_file}{}\section{File Class Reference}
+\label{class_file}\index{File@{File}}
+
+
+Provides simple functions to create, modify, erase etc.  
+
+
+
+
+{\ttfamily \#include $<$file.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_file_ae039af5807fc385f41b60644725d15d0}\label{class_file_ae039af5807fc385f41b60644725d15d0}} 
+\mbox{\hyperlink{class_file_ae039af5807fc385f41b60644725d15d0}{File}} ()
+\begin{DoxyCompactList}\small\item\em Sets the open\+Mode to Not\+Open on default. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_file_a59bf1e7bb0c6b8dd83dccef6b942a0f9}{File}} (const \mbox{\hyperlink{class_file}{File}} \&file)
+\begin{DoxyCompactList}\small\item\em Copies the open\+Mode and file path from the given parameter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_file_a2cc4f22d64e80a380dbd04141b772080}{File}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&filepath) noexcept
+\begin{DoxyCompactList}\small\item\em Sets the filepath to the parameter and sets the open\+Mode to Not\+Open on default. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_file_ac704ebdf5f57d7a1c5ddf409d797fb69}\label{class_file_ac704ebdf5f57d7a1c5ddf409d797fb69}} 
+\mbox{\hyperlink{class_file_ac704ebdf5f57d7a1c5ddf409d797fb69}{$\sim$\+File}} ()
+\begin{DoxyCompactList}\small\item\em Closes the current filestream if opened. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_file_a208b0649e571a157d00dd91c6927d4be}{create}} (bool recursively=true) const
+\begin{DoxyCompactList}\small\item\em Tries to create the current filepath. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_file_ad1eb2efb9d067dded30d4ef54eb307d1}{erase}} () const
+\begin{DoxyCompactList}\small\item\em Tries to erase the file in filepath and returns the success. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_file_a53118ce36851cb1c6845a82f915fd8ba}{exists}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the current filepath exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_file_ac3770227bca4efa56a4d3a33fe83fa8e}{get\+Directory}} () const
+\begin{DoxyCompactList}\small\item\em Returns the directory of the filepath. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_file_a953668209fb0f4c62093ae2c31475902}{get\+Filename}} () const
+\begin{DoxyCompactList}\small\item\em Returns the filename of the filepath. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_file_a033178594e2a60e489d7ab2936676e90}{get\+Filepath}} () const
+\begin{DoxyCompactList}\small\item\em Returns the current filepath set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_ae5b50c42cb117914a87347461b4bfb56}{set\+Filepath}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&filepath)
+\begin{DoxyCompactList}\small\item\em Sets the filepath for the next filestream. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_file_abb0ce5b71ecf6fbaa538a812a622fc10}{is\+Open}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the filestream is open. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_file_a119cd771053819d0c82f7cccefb511ef}{open}} (int open\+Mode\+Flags=static\+\_\+cast$<$ int $>$(Open\+Mode\+::\+Not\+Open))
+\begin{DoxyCompactList}\small\item\em Tries to open the filestream by parameter open\+Mode. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_file_a83cbce54d6c3b8c2f417b51f6b3f488c}\label{class_file_a83cbce54d6c3b8c2f417b51f6b3f488c}} 
+void \mbox{\hyperlink{class_file_a83cbce54d6c3b8c2f417b51f6b3f488c}{close}} ()
+\begin{DoxyCompactList}\small\item\em Closes the current filestream. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_file_a90d8fdab01cefa95038ac94cf058e43b}\label{class_file_a90d8fdab01cefa95038ac94cf058e43b}} 
+void \mbox{\hyperlink{class_file_a90d8fdab01cefa95038ac94cf058e43b}{operator=}} (const \mbox{\hyperlink{class_file}{File}} \&file)
+\begin{DoxyCompactList}\small\item\em Copies member variable from another \mbox{\hyperlink{class_file}{File}} instance. \end{DoxyCompactList}\item 
+std\+::fstream \& \mbox{\hyperlink{class_file_ac58f65f7af68645c95050e0faa296bcd}{operator$<$$<$}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string)
+\begin{DoxyCompactList}\small\item\em Writes the string from param string to file and returns the reference to std\+::fstream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_a7598c356f21d695e7e69fc523500588a}{append}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string)
+\begin{DoxyCompactList}\small\item\em Appends a string to the file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_file_ad835c603c110f5e5d8359a9b271298dd}{read\+All\+Text}} ()
+\begin{DoxyCompactList}\small\item\em Reads the complete file to an empty string and returns it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_a3d0bdb094fd754890130f27493792d05}{write\+All\+Text}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&text)
+\begin{DoxyCompactList}\small\item\em Clears the filestream and writes the complete param text string to file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_byte_array}{Byte\+Array}} \mbox{\hyperlink{class_file_acc44c7f319708f0e378c08492d178fc0}{read\+All\+Bytes}} ()
+\begin{DoxyCompactList}\small\item\em Reads the complete filestream in binary mode and returns a new byte array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_file_a7fd6b7ead40f02ea7e578e281465bf80}{write\+All\+Bytes}} (const \mbox{\hyperlink{class_byte_array}{Byte\+Array}} \&bytes)
+\begin{DoxyCompactList}\small\item\em Clears the filestream and writes all bytes from param bytes to file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_file_ad65ed49713d0b0e11a439cb3bc148171}{read\+Line}} ()
+\begin{DoxyCompactList}\small\item\em Returns the next line to read from filestream. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_file_a6f433c3bbc327cf15217d2f3c4cd043d}{at\+End}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the filestream reader is at the end. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_file_a255061b2a5ed2db1c9f8fce9ab78af4e}{create}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&filepath, bool recursively=true)
+\begin{DoxyCompactList}\small\item\em Tries to create the filepath given as parameter. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_file_a068634b55657c13f0f79691434c399b1}{erase}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&filepath)
+\begin{DoxyCompactList}\small\item\em Tries to erase the file in filepath given as parameter and returns the success. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_file_a7b28f74e97c46f0b95ec159c2425dca0}{exists}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&filepath)
+\begin{DoxyCompactList}\small\item\em Returns whether the filepath given as parameter exists. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides simple functions to create, modify, erase etc. 
+
+files.
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 11.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_file_a59bf1e7bb0c6b8dd83dccef6b942a0f9}\label{class_file_a59bf1e7bb0c6b8dd83dccef6b942a0f9}} 
+\index{File@{File}!File@{File}}
+\index{File@{File}!File@{File}}
+\subsubsection{\texorpdfstring{File()}{File()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily File\+::\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_file}{File}} \&}]{file }\end{DoxyParamCaption})}
+
+
+
+Copies the open\+Mode and file path from the given parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & the copyable object \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_file_a2cc4f22d64e80a380dbd04141b772080}\label{class_file_a2cc4f22d64e80a380dbd04141b772080}} 
+\index{File@{File}!File@{File}}
+\index{File@{File}!File@{File}}
+\subsubsection{\texorpdfstring{File()}{File()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily File\+::\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{filepath }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Sets the filepath to the parameter and sets the open\+Mode to Not\+Open on default. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & the filepath to use \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_file_a7598c356f21d695e7e69fc523500588a}\label{class_file_a7598c356f21d695e7e69fc523500588a}} 
+\index{File@{File}!append@{append}}
+\index{append@{append}!File@{File}}
+\subsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily void File\+::append (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string }\end{DoxyParamCaption})}
+
+
+
+Appends a string to the file. 
+
+This only works if flags Write\+Only and Append were set.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to write to the file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_file_a6f433c3bbc327cf15217d2f3c4cd043d}\label{class_file_a6f433c3bbc327cf15217d2f3c4cd043d}} 
+\index{File@{File}!atEnd@{atEnd}}
+\index{atEnd@{atEnd}!File@{File}}
+\subsubsection{\texorpdfstring{atEnd()}{atEnd()}}
+{\footnotesize\ttfamily bool File\+::at\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the filestream reader is at the end. 
+
+\begin{DoxyReturn}{Returns}
+whether the filestream is at the end 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_a208b0649e571a157d00dd91c6927d4be}\label{class_file_a208b0649e571a157d00dd91c6927d4be}} 
+\index{File@{File}!create@{create}}
+\index{create@{create}!File@{File}}
+\subsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool File\+::create (\begin{DoxyParamCaption}\item[{bool}]{recursively = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Tries to create the current filepath. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em recursively} & if not existing, subfolders should be created \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the filepath could be created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_a255061b2a5ed2db1c9f8fce9ab78af4e}\label{class_file_a255061b2a5ed2db1c9f8fce9ab78af4e}} 
+\index{File@{File}!create@{create}}
+\index{create@{create}!File@{File}}
+\subsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool File\+::create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{filepath,  }\item[{bool}]{recursively = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Tries to create the filepath given as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & the filepath to create \\
+\hline
+{\em recursively} & if not existing, subfolders should be created \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the file path could be created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_ad1eb2efb9d067dded30d4ef54eb307d1}\label{class_file_ad1eb2efb9d067dded30d4ef54eb307d1}} 
+\index{File@{File}!erase@{erase}}
+\index{erase@{erase}!File@{File}}
+\subsubsection{\texorpdfstring{erase()}{erase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool File\+::erase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Tries to erase the file in filepath and returns the success. 
+
+\begin{DoxyReturn}{Returns}
+whether the file has been erased or not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_a068634b55657c13f0f79691434c399b1}\label{class_file_a068634b55657c13f0f79691434c399b1}} 
+\index{File@{File}!erase@{erase}}
+\index{erase@{erase}!File@{File}}
+\subsubsection{\texorpdfstring{erase()}{erase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool File\+::erase (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{filepath }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Tries to erase the file in filepath given as parameter and returns the success. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & the filepath to erase \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the file has been erased or not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_a53118ce36851cb1c6845a82f915fd8ba}\label{class_file_a53118ce36851cb1c6845a82f915fd8ba}} 
+\index{File@{File}!exists@{exists}}
+\index{exists@{exists}!File@{File}}
+\subsubsection{\texorpdfstring{exists()}{exists()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool File\+::exists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the current filepath exists. 
+
+\begin{DoxyReturn}{Returns}
+whether the current filepath set exists 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_a7b28f74e97c46f0b95ec159c2425dca0}\label{class_file_a7b28f74e97c46f0b95ec159c2425dca0}} 
+\index{File@{File}!exists@{exists}}
+\index{exists@{exists}!File@{File}}
+\subsubsection{\texorpdfstring{exists()}{exists()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool File\+::exists (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{filepath }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns whether the filepath given as parameter exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & the filepath to check for existence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the given filepath exists 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_ac3770227bca4efa56a4d3a33fe83fa8e}\label{class_file_ac3770227bca4efa56a4d3a33fe83fa8e}} 
+\index{File@{File}!getDirectory@{getDirectory}}
+\index{getDirectory@{getDirectory}!File@{File}}
+\subsubsection{\texorpdfstring{getDirectory()}{getDirectory()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} File\+::get\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the directory of the filepath. 
+
+Example\+: C\+:\textbackslash{}Users\textbackslash{}user\textbackslash{}test.\+dat turns to C\+:\textbackslash{}Users\textbackslash{}user
+
+\begin{DoxyReturn}{Returns}
+the directory of the current filepath 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_a953668209fb0f4c62093ae2c31475902}\label{class_file_a953668209fb0f4c62093ae2c31475902}} 
+\index{File@{File}!getFilename@{getFilename}}
+\index{getFilename@{getFilename}!File@{File}}
+\subsubsection{\texorpdfstring{getFilename()}{getFilename()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} File\+::get\+Filename (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the filename of the filepath. 
+
+Example\+: C\+:\textbackslash{}Users\textbackslash{}user\textbackslash{}test.\+dat turns to test.\+dat
+
+\begin{DoxyReturn}{Returns}
+the filename of the current filepath 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_a033178594e2a60e489d7ab2936676e90}\label{class_file_a033178594e2a60e489d7ab2936676e90}} 
+\index{File@{File}!getFilepath@{getFilepath}}
+\index{getFilepath@{getFilepath}!File@{File}}
+\subsubsection{\texorpdfstring{getFilepath()}{getFilepath()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} File\+::get\+Filepath (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the current filepath set. 
+
+\begin{DoxyReturn}{Returns}
+the current filepath 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_abb0ce5b71ecf6fbaa538a812a622fc10}\label{class_file_abb0ce5b71ecf6fbaa538a812a622fc10}} 
+\index{File@{File}!isOpen@{isOpen}}
+\index{isOpen@{isOpen}!File@{File}}
+\subsubsection{\texorpdfstring{isOpen()}{isOpen()}}
+{\footnotesize\ttfamily bool File\+::is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the filestream is open. 
+
+\begin{DoxyReturn}{Returns}
+whether the filestream is open 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_a119cd771053819d0c82f7cccefb511ef}\label{class_file_a119cd771053819d0c82f7cccefb511ef}} 
+\index{File@{File}!open@{open}}
+\index{open@{open}!File@{File}}
+\subsubsection{\texorpdfstring{open()}{open()}}
+{\footnotesize\ttfamily bool File\+::open (\begin{DoxyParamCaption}\item[{int}]{open\+Mode\+Flags = {\ttfamily static\+\_\+cast$<$int$>$(OpenMode\+:\+:NotOpen)} }\end{DoxyParamCaption})}
+
+
+
+Tries to open the filestream by parameter open\+Mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em open\+Mode\+Flags} & the open\+Mode flags \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the filestream could be opened 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_ac58f65f7af68645c95050e0faa296bcd}\label{class_file_ac58f65f7af68645c95050e0faa296bcd}} 
+\index{File@{File}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!File@{File}}
+\subsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::fstream \& File\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string }\end{DoxyParamCaption})}
+
+
+
+Writes the string from param string to file and returns the reference to std\+::fstream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the std\+::fstream object 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_acc44c7f319708f0e378c08492d178fc0}\label{class_file_acc44c7f319708f0e378c08492d178fc0}} 
+\index{File@{File}!readAllBytes@{readAllBytes}}
+\index{readAllBytes@{readAllBytes}!File@{File}}
+\subsubsection{\texorpdfstring{readAllBytes()}{readAllBytes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_byte_array}{Byte\+Array}} File\+::read\+All\+Bytes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads the complete filestream in binary mode and returns a new byte array. 
+
+\begin{DoxyReturn}{Returns}
+the read byte array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_ad835c603c110f5e5d8359a9b271298dd}\label{class_file_ad835c603c110f5e5d8359a9b271298dd}} 
+\index{File@{File}!readAllText@{readAllText}}
+\index{readAllText@{readAllText}!File@{File}}
+\subsubsection{\texorpdfstring{readAllText()}{readAllText()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} File\+::read\+All\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads the complete file to an empty string and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the string read from file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_ad65ed49713d0b0e11a439cb3bc148171}\label{class_file_ad65ed49713d0b0e11a439cb3bc148171}} 
+\index{File@{File}!readLine@{readLine}}
+\index{readLine@{readLine}!File@{File}}
+\subsubsection{\texorpdfstring{readLine()}{readLine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} File\+::read\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the next line to read from filestream. 
+
+\begin{DoxyReturn}{Returns}
+the next line to read 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_ae5b50c42cb117914a87347461b4bfb56}\label{class_file_ae5b50c42cb117914a87347461b4bfb56}} 
+\index{File@{File}!setFilepath@{setFilepath}}
+\index{setFilepath@{setFilepath}!File@{File}}
+\subsubsection{\texorpdfstring{setFilepath()}{setFilepath()}}
+{\footnotesize\ttfamily void File\+::set\+Filepath (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{filepath }\end{DoxyParamCaption})}
+
+
+
+Sets the filepath for the next filestream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filepath} & the filepath for the filestream \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_file_a7fd6b7ead40f02ea7e578e281465bf80}\label{class_file_a7fd6b7ead40f02ea7e578e281465bf80}} 
+\index{File@{File}!writeAllBytes@{writeAllBytes}}
+\index{writeAllBytes@{writeAllBytes}!File@{File}}
+\subsubsection{\texorpdfstring{writeAllBytes()}{writeAllBytes()}}
+{\footnotesize\ttfamily void File\+::write\+All\+Bytes (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_byte_array}{Byte\+Array}} \&}]{bytes }\end{DoxyParamCaption})}
+
+
+
+Clears the filestream and writes all bytes from param bytes to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bytes} & the byte array to write \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_file_a3d0bdb094fd754890130f27493792d05}\label{class_file_a3d0bdb094fd754890130f27493792d05}} 
+\index{File@{File}!writeAllText@{writeAllText}}
+\index{writeAllText@{writeAllText}!File@{File}}
+\subsubsection{\texorpdfstring{writeAllText()}{writeAllText()}}
+{\footnotesize\ttfamily void File\+::write\+All\+Text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{text }\end{DoxyParamCaption})}
+
+
+
+Clears the filestream and writes the complete param text string to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & the string to write \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/file.\+h\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/file.\+cpp\end{DoxyCompactItemize}

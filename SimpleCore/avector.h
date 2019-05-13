@@ -187,10 +187,10 @@ public:
 	 * @param length the length to use
 	 * @return a vector copying the values of the current instance starting from position
 	 */
-	AVector<T> mid(uint64 pos, uint64 length = -1) const;
+	AVector<T> mid(uint64 position, uint64 length = -1) const;
 
 	/**
-	 * Exchanges the item at index <from> with the item at index <to>.
+	 * Exchanges the item at index "from" with the item at index "to".
 	 *
 	 * @param from the first item
 	 * @param to the second item
@@ -436,15 +436,15 @@ void AVector<T>::removeAll(const T & value)
 }
 
 template<class T>
-AVector<T> AVector<T>::mid(const uint64 pos, const uint64 length) const
+AVector<T> AVector<T>::mid(const uint64 position, const uint64 length) const
 {
 	if (vector_t::size() == 0) {
 		return AVector<T>();
 	}
 
 	AVector<T> result;
-	uint64 limit = length == -1 ? vector_t::size() : pos + length;
-	for (auto i = pos; i < limit; ++i) {
+	uint64 limit = length == -1 ? vector_t::size() : position + length;
+	for (auto i = position; i < limit; ++i) {
 		result.append(vector_t::operator[](i));
 	}
 	return result;

@@ -20,9 +20,9 @@ public:
 	Dir() = default;
 
 	/**
-	 * Sets the default value path.
+	 * Copies the values from the specified Dir instance.
 	 *
-	 * @param path the directory path
+	 * @param dir the Dir instance to copy from
 	 */
 	Dir(const Dir& dir);
 
@@ -69,7 +69,6 @@ public:
 	/**
 	 * Returns if the directory located in the path exists.
 	 *
-	 * @param path the directory path
 	 * @return if the directory exists
 	 */
 	bool exists() const;
@@ -121,8 +120,10 @@ public:
 	 */
 	static AString getDir(Directory directory);
 private:
+	/** Represents the path to work with */
 	AString path_;
 
+	/** Contains a list of files inside the current directory */
 	AVector<std::filesystem::directory_entry> fileList_;
 };
 

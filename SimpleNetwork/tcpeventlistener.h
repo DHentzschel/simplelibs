@@ -17,7 +17,7 @@ public:
 	 *
 	 * @param socket the pointer to the socket
 	 */
-	explicit TcpEventListener(TcpSocket* client);
+	explicit TcpEventListener(TcpSocket* socket);
 
 	/**
 	 * Sets the server pointer to the specified value.
@@ -37,14 +37,17 @@ public:
 
 protected:
 	union {
+		/** Represents the pointer to the listenable server */
 		TcpServer* server;
 
+		/** Represents the pointer to the listenable client */
 		TcpSocket* client;
 	};
 
+	/** Represents whether the event listener should listen */
 	bool isRunning_;
 
-	/*
+	/**
 	 * Starts the event listener.
 	 */
 	virtual void start() = 0;

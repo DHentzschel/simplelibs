@@ -9,8 +9,10 @@
 template<class T>
 class Vector2 {
 public:
+	/** The first value of the vector */
 	T x;
 
+	/** The second value of the vector */
 	T y;
 
 	/**

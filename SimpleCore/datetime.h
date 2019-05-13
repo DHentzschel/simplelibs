@@ -39,46 +39,56 @@ public:
 	 */
 	static DateTime now();
 
-	/*
-	 * Returns the current datestamp in the following format: dd.MM.yyyy
+	/**
+	 * Returns the current datestamp in the format "dd.MM.yyyy".
+	 *
+	 * @return the datestamp as string
 	 */
 	static AString getDatestamp();
 
 	/**
 	 * Returns the current timestamp in the following format: hh:mm:ss
+	 *
+	 * @return the timestamp as string
 	 */
 	static AString getTimestamp();
 
 	/**
 	 * Returns the current date and timestamp in the following format: dd.MM.yyyy hh:mm:ss
+	 *
+	 * @return the current date and timestamp as string
 	 */
 	static AString getCurrentTimestamp();
 
 	/**
-	 * Returns whether the datetime given as parameter was reached.
+	 * Returns whether the datetime specified was reached.
 	 *
 	 * @param reachableDatetime the reachable datetime
+	 * @return whether the datetime specified was reached
 	 */
 	static bool isDateTimeReached(const DateTime& reachableDatetime);
 
 	/**
-	 * Returns whether the datetime given as parameter was reached.
+	 * Returns whether the datetime specified was reached.
 	 *
 	 * @param reachableDatetime the reachable datetime
+	 * @return whether the datetime specified was reached
 	 */
 	static bool isDateTimeReached(const AString& reachableDatetime);
 
 	/**
-	 * Returns whether the datetime given as parameter was reached.
+	 * Returns whether the datetime specified was reached.
 	 *
 	 * @param target the datetime which implies "now"
 	 * @param reachableDatetime the reachable datetime
+	 * @return whether the datetime specified was reached
 	 */
 	static bool isDateTimeReached(const AString& target, const AString& reachableDatetime);
 	/**
 	 * Returns whether the year given as parameter is a leap year.
 	 *
 	 * @param year the year to check
+	 * @return whether specified year is a leap year
 	 */
 	static bool isLeapYear(ushort year);
 
@@ -87,6 +97,7 @@ public:
 	 *
 	 * @param to the begin date
 	 * @param from the end date
+	 * @return the leap year count between both years
 	 */
 	static ushort getLeapYearCountFromTo(ushort to, ushort from = beginDateTime_.year);
 
@@ -94,6 +105,7 @@ public:
 	 * Returns the datetime instance calculated from given timestamp parameter.
 	 *
 	 * @param timestamp the unix timestamp in seconds
+	 * @return the DateTime instance intialized by specified timestamp
 	 */
 	static DateTime fromUnixTimestamp(int64 timestamp);
 

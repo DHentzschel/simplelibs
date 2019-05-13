@@ -1,0 +1,141 @@
+\hypertarget{class_byte_array}{}\section{Byte\+Array Class Reference}
+\label{class_byte_array}\index{ByteArray@{ByteArray}}
+
+
+This class is used for storing bytes in a vector.  
+
+
+
+
+{\ttfamily \#include $<$bytearray.\+h$>$}
+
+Inheritance diagram for Byte\+Array\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_byte_array}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_byte_array_a7976b9304340be61157d5f6401cbd506}\label{class_byte_array_a7976b9304340be61157d5f6401cbd506}} 
+\mbox{\hyperlink{class_byte_array_a7976b9304340be61157d5f6401cbd506}{Byte\+Array}} ()=default
+\begin{DoxyCompactList}\small\item\em Calls the default initialization. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_byte_array_a5370ae20f7491913d891a624ea77ad52}{Byte\+Array}} (const char $\ast$char\+Array, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Initializes the byte array by a char array and its size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_byte_array_a94a65f2b5c6952713712e23a574b0295}{Byte\+Array}} (const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ char $>$ \&vector)
+\begin{DoxyCompactList}\small\item\em Initializes the byte array by the given char vector passed as parameter. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_byte_array_a4c0af1c1fe9ee1e6fa1e8ce7b0bde83a}{is\+Equal}} (const char $\ast$char\+Array, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Returns whether the char array passed as parameter is equal to the data saved in the current \mbox{\hyperlink{class_byte_array}{Byte\+Array}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_byte_array}{Byte\+Array}} \& \mbox{\hyperlink{class_byte_array_aa8900e73d7ba3cea9aca18d037a2d017}{operator+=}} (const char right)
+\begin{DoxyCompactList}\small\item\em Appends the char passed as parameter to the current \mbox{\hyperlink{class_byte_array}{Byte\+Array}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_byte_array}{Byte\+Array}} \& \mbox{\hyperlink{class_byte_array_ab3635362b3abb48c398b38d91e37433b}{operator+=}} (const \mbox{\hyperlink{class_byte_array}{Byte\+Array}} \&right)
+\begin{DoxyCompactList}\small\item\em Appends the data of the \mbox{\hyperlink{class_byte_array}{Byte\+Array}} passed as parameter to the current \mbox{\hyperlink{class_byte_array}{Byte\+Array}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class is used for storing bytes in a vector. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 11.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_byte_array_a5370ae20f7491913d891a624ea77ad52}\label{class_byte_array_a5370ae20f7491913d891a624ea77ad52}} 
+\index{ByteArray@{ByteArray}!ByteArray@{ByteArray}}
+\index{ByteArray@{ByteArray}!ByteArray@{ByteArray}}
+\subsubsection{\texorpdfstring{ByteArray()}{ByteArray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Byte\+Array\+::\+Byte\+Array (\begin{DoxyParamCaption}\item[{const char $\ast$}]{char\+Array,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Initializes the byte array by a char array and its size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em char\+Array} & the char array to copy from \\
+\hline
+{\em size} & the size of the char array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_byte_array_a94a65f2b5c6952713712e23a574b0295}\label{class_byte_array_a94a65f2b5c6952713712e23a574b0295}} 
+\index{ByteArray@{ByteArray}!ByteArray@{ByteArray}}
+\index{ByteArray@{ByteArray}!ByteArray@{ByteArray}}
+\subsubsection{\texorpdfstring{ByteArray()}{ByteArray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Byte\+Array\+::\+Byte\+Array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ char $>$ \&}]{vector }\end{DoxyParamCaption})}
+
+
+
+Initializes the byte array by the given char vector passed as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vector} & the char vector to copy from \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_byte_array_a4c0af1c1fe9ee1e6fa1e8ce7b0bde83a}\label{class_byte_array_a4c0af1c1fe9ee1e6fa1e8ce7b0bde83a}} 
+\index{ByteArray@{ByteArray}!isEqual@{isEqual}}
+\index{isEqual@{isEqual}!ByteArray@{ByteArray}}
+\subsubsection{\texorpdfstring{isEqual()}{isEqual()}}
+{\footnotesize\ttfamily bool Byte\+Array\+::is\+Equal (\begin{DoxyParamCaption}\item[{const char $\ast$}]{char\+Array,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Returns whether the char array passed as parameter is equal to the data saved in the current \mbox{\hyperlink{class_byte_array}{Byte\+Array}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em char\+Array} & the byte array to compare \\
+\hline
+{\em size} & the size of the byte array to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the passed char array is equal to the data in the current \mbox{\hyperlink{class_byte_array}{Byte\+Array}} instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_byte_array_aa8900e73d7ba3cea9aca18d037a2d017}\label{class_byte_array_aa8900e73d7ba3cea9aca18d037a2d017}} 
+\index{ByteArray@{ByteArray}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!ByteArray@{ByteArray}}
+\subsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_byte_array}{Byte\+Array}} \& Byte\+Array\+::operator+= (\begin{DoxyParamCaption}\item[{const char}]{right }\end{DoxyParamCaption})}
+
+
+
+Appends the char passed as parameter to the current \mbox{\hyperlink{class_byte_array}{Byte\+Array}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & the char to append \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current \mbox{\hyperlink{class_byte_array}{Byte\+Array}} instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_byte_array_ab3635362b3abb48c398b38d91e37433b}\label{class_byte_array_ab3635362b3abb48c398b38d91e37433b}} 
+\index{ByteArray@{ByteArray}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!ByteArray@{ByteArray}}
+\subsubsection{\texorpdfstring{operator+=()}{operator+=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_byte_array}{Byte\+Array}} \& Byte\+Array\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_byte_array}{Byte\+Array}} \&}]{right }\end{DoxyParamCaption})}
+
+
+
+Appends the data of the \mbox{\hyperlink{class_byte_array}{Byte\+Array}} passed as parameter to the current \mbox{\hyperlink{class_byte_array}{Byte\+Array}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em right} & the \mbox{\hyperlink{class_byte_array}{Byte\+Array}} to copy the data from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current \mbox{\hyperlink{class_byte_array}{Byte\+Array}} instance 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/bytearray.\+h\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/bytearray.\+cpp\end{DoxyCompactItemize}

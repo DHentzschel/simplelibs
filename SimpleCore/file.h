@@ -31,7 +31,7 @@ public:
 	 *
 	 * @param filepath the filepath to use
 	 */
-	explicit File(const AString& filename) noexcept;
+	explicit File(const AString& filepath) noexcept;
 
 	/**
 	 * Closes the current filestream if opened.
@@ -87,7 +87,7 @@ public:
 
 	/**
 	 * Returns the directory of the filepath.
-	 * Example: C:\Users\user\test.dat turns to C:\Users\user
+	 * Example: C:\\Users\\user\\test.dat turns to C:\\Users\\user
 	 *
 	 * @return the directory of the current filepath
 	 */
@@ -95,7 +95,7 @@ public:
 
 	/**
 	 * Returns the filename of the filepath.
-	 * Example: C:\Users\user\test.dat turns to test.dat
+	 * Example: C:\\Users\\user\\test.dat turns to test.dat
 	 *
 	 * @return the filename of the current filepath
 	 */
@@ -125,7 +125,7 @@ public:
 	/**
 	 * Tries to open the filestream by parameter openMode.
 	 *
-	 * @param openMode the openMode flags
+	 * @param openModeFlags the openMode flags
 	 * @return whether the filestream could be opened
 	 */
 	bool open(int openModeFlags = static_cast<int>(OpenMode::NotOpen));

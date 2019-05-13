@@ -77,8 +77,21 @@ public:
 	 */
 	void send(const char* packet, uint length);
 
+	/**
+	* Returns whether the specified port is available under the specified hostaddress.
+	*
+	* @param hostaddress the hostaddress to check
+	* @param port the port to check
+	* @return whether the specified port is available under the specified hostaddress
+	*/
 	static bool isPortAvailable(const AString& hostaddress, ushort port);
 
+	/**
+	* Returns whether the specified port is available on localhost.
+	*
+	* @param port the port to check
+	* @return whether the specified port is available on localhost
+	*/
 	static bool isLocalPortAvailable(ushort port);
 
 	/* Events */
@@ -119,12 +132,16 @@ public:
 	 */
 	SOCKET getSocket() const;
 protected:
+	/** The WINAPI socket */
 	SOCKET socket_;
 
+	/** The hostaddress of the socket */
 	AString hostaddress_;
 
+	/** The port of the socket */
 	ushort port_;
 
+	/** The clientEventListener instance of the socket */
 	std::shared_ptr<TcpClientEventListener> clientEventListener_;
 
 	/**
@@ -133,6 +150,7 @@ protected:
 	void terminate() const;
 
 private:
+	/** The stopwatch instance of the socket */
 	Stopwatch stopwatch_;
 };
 
