@@ -26,19 +26,19 @@ void TcpClientEventListener::start()
 
 	while (isRunning_) {
 		FD_ZERO(&readFdSet);
-		FD_SET(client->socket_, &readFdSet);
+		FD_SET(client_->socket_, &readFdSet);
 
 		auto sel = select(0, &readFdSet, nullptr, nullptr, nullptr);
-		if (FD_ISSET(client->socket_, &readFdSet)) {
+		if (FD_ISSET(client_->socket_, &readFdSet)) {
 			ZeroMemory(buffer, bufferLength);
 			receiveBufferLength =
-				recv(client->socket_, buffer, bufferLength - 1, 0);
+				recv(client_->socket_, buffer, bufferLength - 1, 0);
 			if (receiveBufferLength > 0) {
 				buffer[receiveBufferLength] = '\0';
-				client->receive(buffer, receiveBufferLength);
+				client_->receive(buffer, receiveBufferLength);
 			}
 			else {
-				client->disconnect();
+				client_->disconnect();
 				break;
 			}
 		}
