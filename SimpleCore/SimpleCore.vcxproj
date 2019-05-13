@@ -186,7 +186,7 @@
     <ClInclude Include="directory.h" />
     <ClInclude Include="file.h" />
     <ClInclude Include="functions.h" />
-    <ClInclude Include="iencryption.h" />
+    <ClInclude Include="encryption.h" />
     <ClInclude Include="inifile.h" />
     <ClInclude Include="logger.h" />
     <ClInclude Include="mathutils.h" />

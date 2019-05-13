@@ -2,6 +2,8 @@
 #define VECTOR2_H
 
 /**
+ * Provides a template class for a vector which can store two integral values.
+ *
  * @author Daniel Hentzschel on 11.05.2019.
  */
 template<class T>

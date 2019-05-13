@@ -2,6 +2,8 @@
 #define PLOGTP_H
 
 /**
+ * Provides four predefined log types.
+ * 
  * @author Daniel Hentzschel on 11.05.2019.
  */
 enum class LogType

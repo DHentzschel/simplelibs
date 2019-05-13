@@ -2,6 +2,8 @@
 #define OPENMODE_H
 
 /**
+ * Provides flags for opening a file.
+ *
  * @author Daniel Hentzschel on 11.05.2019.
  */
 enum class OpenMode {

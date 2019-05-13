@@ -8,6 +8,8 @@
 #include "openmode.h"
 
 /**
+ * Provides simple functions to create, modify, erase etc. files.
+ *
  * @author Daniel Hentzschel on 11.05.2019.
  */
 class File {

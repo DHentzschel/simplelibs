@@ -1,10 +1,12 @@
-#ifndef IENCRYPTION_H
-#define IENCRYPTION_H
+#ifndef ENCRYPTION_H
+#define ENCRYPTION_H
 
 #include "astring.h"
 #include "avector.h"
 
 /**
+ * Provides an abstract class for a cryptography.
+ *
  * @author Daniel Hentzschel on 11.05.2019.
  */
 class IEncryption {
@@ -38,4 +40,4 @@ protected:
 	virtual AString decryptToText(const AVector<byte>& cipherBuffer) = 0;
 };
 
-#endif // IENCRYPTION_H
+#endif // !ENCRYPTION_H

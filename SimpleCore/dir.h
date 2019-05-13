@@ -8,6 +8,8 @@
 #include "directory.h"
 
 /**
+ * Provides simple functions to create, modify, erase etc. directories.
+ *
  * @author Daniel Hentzschel on 11.05.2019.
  */
 class Dir {

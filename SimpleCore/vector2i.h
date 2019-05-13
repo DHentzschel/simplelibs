@@ -4,6 +4,8 @@
 #include "vector2.h"
 
 /**
+ * Extends the template class Vector2 by type int32.
+ *
  * @author Daniel Hentzschel on 11.05.2019.
  */
 class Vector2i : public Vector2<int> {

@@ -98,14 +98,14 @@
     <Filter Include="src\Console\ConsoleColor">
       <UniqueIdentifier>{a9a5113b-e0ba-47d9-a5c9-f5c40bf56a24}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\IEncryption">
-      <UniqueIdentifier>{2bd7a7f1-c74a-4719-a4be-d89cbd42fb21}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\General">
       <UniqueIdentifier>{be0a250c-db2d-4bd9-a472-6df828ab2e75}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Logger\LogType">
       <UniqueIdentifier>{ec43cffd-3698-4fe2-8275-23a7c56baa8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Encryption">
+      <UniqueIdentifier>{2bd7a7f1-c74a-4719-a4be-d89cbd42fb21}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -450,9 +450,6 @@
     <ClInclude Include="consolecolor.h">
       <Filter>src\Console\ConsoleColor</Filter>
     </ClInclude>
-    <ClInclude Include="iencryption.h">
-      <Filter>src\IEncryption</Filter>
-    </ClInclude>
     <ClInclude Include="functions.h">
       <Filter>src\General</Filter>
     </ClInclude>
@@ -473,6 +470,9 @@
     </ClInclude>
     <ClInclude Include="directory.h">
       <Filter>src\FileSystem\Dir</Filter>
+    </ClInclude>
+    <ClInclude Include="encryption.h">
+      <Filter>src\Encryption</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

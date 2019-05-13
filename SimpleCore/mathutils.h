@@ -5,6 +5,8 @@
 #include "vector2f.h"
 
 /**
+ * Provides some auxiliary functions for mathematics.
+ * 
  * @author Daniel Hentzschel on 11.05.2019.
  */
 class MathUtils {

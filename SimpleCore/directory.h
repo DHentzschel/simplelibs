@@ -4,6 +4,8 @@
 #include <ShlObj.h>
 
 /**
+ * Provides enum directory types from Windows operating system.
+ *
  * @author Daniel Hentzschel on 11.05.2019.
  */
 enum class Directory {

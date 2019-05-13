@@ -7,6 +7,8 @@
 #include "file.h"
 
 /**
+ * Provides a simple logger with four predefined log types.
+ *
  * @author Daniel Hentzschel on 11.05.2019.
  */
 class Logger {
