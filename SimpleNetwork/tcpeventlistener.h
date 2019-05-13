@@ -38,10 +38,10 @@ public:
 protected:
 	union {
 		/** Represents the pointer to the listenable server */
-		TcpServer* server;
+		TcpServer* server_;
 
 		/** Represents the pointer to the listenable client */
-		TcpSocket* client;
+		TcpSocket* client_;
 	};
 
 	/** Represents whether the event listener should listen */
