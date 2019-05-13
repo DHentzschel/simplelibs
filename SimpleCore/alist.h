@@ -6,6 +6,10 @@
 
 #include "functions.h"
 #include "types.h"
+#include "avector.h"
+
+template<class T>
+class AVector;
 
 /**
  * This class extends the std::list class by auxiliary functions.
@@ -26,7 +30,7 @@ public:
 	 *
 	 * @param size the size of the list
 	 */
-	explicit AList(uint64 size);
+	explicit AList(int64 size);
 
 	/**
 	 * Copies the values from another list to the current instance.
@@ -48,7 +52,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the reference to the item on the ith position
 	 */
-	T& at(uint64 i);
+	T& at(int i);
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -56,7 +60,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the const reference to the item on the ith position
 	 */
-	const T& at(uint64 i) const;
+	const T& at(int i) const;
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -64,7 +68,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the reference to the item on the ith position
 	 */
-	T& operator[](uint64 i);
+	T& operator[](int i);
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -72,7 +76,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the const reference to the item on the ith position
 	 */
-	const T& operator[](uint64 i) const;
+	const T& operator[](int i) const;
 
 	/**
 	 * Appends the value passed as parameter to the list.
@@ -139,34 +143,34 @@ public:
 	 * @param value the value to count
 	 * @return the count of occurrences of the item passed as parameter
 	 */
-	uint64 count(const T& value) const;
+	int64 count(const T& value) const;
 
 	/**
 	 * Returns the first index of the item in list which is equal to the specified item.
-	 * Returns (uint64)-1 when there is no such item.
+	 * Returns -1 when there is no such item.
 	 *
 	 * @param value the value to find
 	 * @return the index of the first occurrence
 	 */
-	uint64 firstIndexOf(const T& value) const;
+	int64 firstIndexOf(const T& value) const;
 
 	/**
 	 * Returns the first index of the item in list which is equal to the specified item.
-	 * Returns (uint64)-1 when there is no such item.
+	 * Returns -1 when there is no such item.
 	 *
 	 * @param value the value to find
 	 * @return the index of the first occurrence
 	 */
-	uint64 indexOf(const T& value) const;
+	int64 indexOf(const T& value) const;
 
 	/**
 	 * Returns the last index of the item in list which is equal to the specified item.
-	 * Returns (uint64)-1 when there is no such item.
+	 * Returns -1 when there is no such item.
 	 *
 	 * @param value the value to find
 	 * @return the index of the last occurrence
 	 */
-	uint64 lastIndexOf(const T& value) const;
+	int64 lastIndexOf(const T& value) const;
 
 	/**
 	 * Replaces the item on the position index passed as parameter by the value passed.
@@ -174,7 +178,7 @@ public:
 	 * @param i the position to replace
 	 * @param value the value to set
 	 */
-	void replace(uint64 i, const T& value);
+	void replace(int64 i, const T& value);
 
 	/**
 	 * Removes all duplicate items.
@@ -186,7 +190,7 @@ public:
 	 *
 	 * @param i the position of the item to remove
 	 */
-	void removeAt(uint64 i);
+	void removeAt(int i);
 
 	/**
 	 * Removes the first item in list.
@@ -227,7 +231,7 @@ public:
 	 * @param length the length to use
 	 * @return a list copying the values of the current instance starting from position
 	 */
-	AList<T> mid(uint64 position, uint64 length = -1) const;
+	AList<T> mid(int position, int length = -1) const;
 
 	/**
 	 * Exchanges the value on position from with the value on position to.
@@ -235,14 +239,21 @@ public:
 	 * @param from the first exchangable
 	 * @param to the second exchangable
 	 */
-	void move(uint64 from, uint64 to);
+	void move(int from, int to);
 
 	/**
-	 * Returns the current instance as a new vector.
+	 * Returns the current instance as a new std::vector.
 	 *
-	 * @return the current instance as new vector
+	 * @return the current instance as new std::vector
 	 */
-	std::vector<T> toVector() const;
+	std::vector<T> toStdVector() const;
+
+	/**
+	 * Returns the current instance as a new AVector.
+	 *
+	 * @return the current instance as new AVector
+	 */
+	AVector<T> toVector() const;
 
 	/**
 	 * Returns the reference of the first item in list.
@@ -278,7 +289,7 @@ public:
 	 * @param i the position to take at
 	 * @return the item to take
 	 */
-	T takeAt(uint64 i);
+	T takeAt(int64 i);
 
 	/**
 	 * Removes the first item and returns it.
@@ -303,7 +314,7 @@ AList<T>::AList() : list_t()
 {}
 
 template<class T>
-AList<T>::AList(uint64 size) : list_t(size)
+AList<T>::AList(int64 size) : list_t(size)
 {}
 
 template<class T>
@@ -315,10 +326,10 @@ AList<T>::AList(AList&& vector) : AList<T>(vector)
 {}
 
 template<class T>
-T& AList<T>::at(const uint64 i)
+T& AList<T>::at(int i)
 {
 	auto it = list_t::begin();
-	for (auto c = 0; it != list_t::end(); ++c, ++it) {
+	for (int64 c = 0; it != list_t::end(); ++c, ++it) {
 		if (c == i) {
 			return *it;
 		}
@@ -327,25 +338,25 @@ T& AList<T>::at(const uint64 i)
 }
 
 template<class T>
-const T& AList<T>::at(const uint64 i) const
+const T& AList<T>::at(int i) const
 {
 	auto it = list_t::begin();
-	for (uint64 c = 0; it != list_t::end() && c != static_cast<uint64>(-1); ++c, ++it) {
+	for (int64 c = 0; it != list_t::end() && c != -1; ++c, ++it) {
 		if (c == i) {
 			return *it;
 		}
 	}
-	throw std::out_of_range("Invalid index i (" + AString::toString(i) + ")");
+	throw std::out_of_range("AList::at(): out of range (" + AString::toString(i) + ")");
 }
 
 template<class T>
-inline T& AList<T>::operator[](uint64 i)
+inline T& AList<T>::operator[](int i)
 {
 	return at(i);
 }
 
 template<class T>
-inline const T& AList<T>::operator[](uint64 i) const
+inline const T& AList<T>::operator[](int i) const
 {
 	return at(i);
 }
@@ -404,7 +415,7 @@ bool AList<T>::isEmpty() const
 }
 
 template<class T>
-uint64 AList<T>::count(const T & value) const
+int64 AList<T>::count(const T & value) const
 {
 	auto c = 0;
 	for (auto it = list_t::begin(); it != list_t::end(); ++it) {
@@ -416,16 +427,16 @@ uint64 AList<T>::count(const T & value) const
 }
 
 template<class T>
-uint64 AList<T>::firstIndexOf(const T & value) const
+int64 AList<T>::firstIndexOf(const T & value) const
 {
 	return indexOf(value);
 }
 
 template<class T>
-uint64 AList<T>::indexOf(const T & value) const
+int64 AList<T>::indexOf(const T & value) const
 {
 	auto it = list_t::begin();
-	for (uint64 i = 0; it != list_t::end(); ++i, ++it) {
+	for (int64 i = 0; it != list_t::end(); ++i, ++it) {
 		if (*it == value) {
 			return i;
 		}
@@ -434,7 +445,7 @@ uint64 AList<T>::indexOf(const T & value) const
 }
 
 template<class T>
-uint64 AList<T>::lastIndexOf(const T & value) const
+int64 AList<T>::lastIndexOf(const T & value) const
 {
 	auto it = list_t::end();
 	for (auto i = 0; it != list_t::begin(); ++i, --it) {
@@ -446,7 +457,7 @@ uint64 AList<T>::lastIndexOf(const T & value) const
 }
 
 template<class T>
-void AList<T>::replace(const uint64 i, const T & value)
+void AList<T>::replace(const int64 i, const T & value)
 {
 	auto it = list_t::begin();
 	for (auto c = 0; it != list_t::end(); ++c, ++it) {
@@ -464,7 +475,7 @@ void AList<T>::removeDuplicates()
 }
 
 template<class T>
-void AList<T>::removeAt(const uint64 i)
+void AList<T>::removeAt(int i)
 {
 	auto it = list_t::begin();
 	for (auto c = 0; it != list_t::end(); ++c, ++it) {
@@ -520,10 +531,10 @@ void AList<T>::removeAll(const T & value)
 }
 
 template<class T>
-AList<T> AList<T>::mid(const uint64 position, const uint64 length) const
+AList<T> AList<T>::mid(int position, int length) const
 {
 	AList<T> result;
-	uint64 limit = length == -1 ? list_t::size() : position + length;
+	int64 limit = length == -1 ? list_t::size() : position + length;
 	auto it = list_t::begin();
 	for (auto i = position; i < limit; ++i) {
 		result.append(*it);
@@ -532,7 +543,7 @@ AList<T> AList<T>::mid(const uint64 position, const uint64 length) const
 }
 
 template<class T>
-void AList<T>::move(const uint64 from, const uint64 to)
+void AList<T>::move(int from, int to)
 {
 	T copyFrom = at(from);
 	T copyTo = at(to);
@@ -541,13 +552,18 @@ void AList<T>::move(const uint64 from, const uint64 to)
 }
 
 template<class T>
-std::vector<T> AList<T>::toVector() const
+std::vector<T> AList<T>::toStdVector() const
 {
 	std::vector<T> result(list_t::size());
-	auto it = list_t::begin();
-	for (auto i = 0; it != list_t::end(); ++i, ++it) {
-		result[i] = *it;
-	}
+	result.assign(list_t::begin(), list_t::end());
+	return result;
+}
+
+template<class T>
+AVector<T> AList<T>::toVector() const
+{
+	AVector<T> result(list_t::size());
+	result.assign(list_t::begin(), list_t::end());
 	return result;
 }
 
@@ -578,7 +594,7 @@ const T& AList<T>::last() const
 }
 
 template<class T>
-T AList<T>::takeAt(uint64 i)
+T AList<T>::takeAt(int64 i)
 {
 	T result = at(i);
 	removeAt(i);

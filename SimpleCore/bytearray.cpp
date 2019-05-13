@@ -8,6 +8,11 @@ ByteArray::ByteArray(const char* charArray, size_t size)
 	}
 }
 
+ByteArray::ByteArray(const ByteArray& byteArray) :
+	AVector<char>(byteArray)
+{
+}
+
 ByteArray::ByteArray(const AVector<char>& vector) :
 	AVector<char>(vector)
 {}

@@ -188,12 +188,12 @@ AString& AString::trim()
 	return *this = result;
 }
 
-AVector<AString> AString::split(const char separator, const bool caseSensitive) const
+StringVector AString::split(const char separator, const bool caseSensitive) const
 {
 	return split(AString().append(separator), caseSensitive);
 }
 
-AVector<AString> AString::split(const AString& separator, const bool caseSensitive) const
+StringVector AString::split(const AString& separator, const bool caseSensitive) const
 {
 	auto copySeparator = AString(separator);
 	auto copyThis = AString(*this);
@@ -203,7 +203,7 @@ AVector<AString> AString::split(const AString& separator, const bool caseSensiti
 		copyThis.toLower();
 	}
 
-	AVector<AString> result;
+	StringVector result;
 	auto start = copyThis.find_first_not_of(separator);
 
 	size_t end;
@@ -217,9 +217,9 @@ AVector<AString> AString::split(const AString& separator, const bool caseSensiti
 	return result;
 }
 
-AVector<AString> AString::splitByNonNumerics() const
+StringVector AString::splitByNonNumerics() const
 {
-	AVector<AString> result;
+	StringVector result;
 
 	bool wasNumber = false;
 	AString tempString;
@@ -238,9 +238,9 @@ AVector<AString> AString::splitByNonNumerics() const
 	return result;
 }
 
-AVector<AString> AString::splitByNumerics() const
+StringVector AString::splitByNumerics() const
 {
-	AVector<AString> result;
+	StringVector result;
 
 	bool wasNumber = false;
 	AString tempString;
