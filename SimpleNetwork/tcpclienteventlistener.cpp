@@ -3,19 +3,12 @@
 #include "tcpclienteventlistener.h"
 #include "tcpsocket.h"
 
-/**
-* \brief Constructs instance by calling super constructor.
-* \param tcpClient pointer to TcpClient instance
-*/
-TcpClientEventListener::TcpClientEventListener(TcpSocket* tcpClient) :
-	TcpEventListener(tcpClient)
+TcpClientEventListener::TcpClientEventListener(TcpSocket* socket) :
+	TcpEventListener(socket)
 {
-	TcpClientEventListener::initialize();
+	thread_ = std::thread(&TcpClientEventListener::start, this);
 }
 
-/**
- * \brief Joins thread to main thread.
- */
 void TcpClientEventListener::join()
 {
 	if (thread_.joinable()) {
@@ -23,19 +16,9 @@ void TcpClientEventListener::join()
 	}
 }
 
-/**
- * \brief Starts thread which calls start().
- */
-void TcpClientEventListener::initialize()
-{
-	thread_ = std::thread(&TcpClientEventListener::start, this);
-}
-
-/**
-* \brief Starts event listening process. Exists when isRunning is false.
-*/
 void TcpClientEventListener::start()
 {
+	setIsRunning(true);
 	auto receiveBufferLength = 1024;
 	const auto bufferLength = 1024;
 	auto* buffer = new char[bufferLength];
