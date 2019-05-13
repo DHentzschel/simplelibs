@@ -7,8 +7,8 @@
 
 void IResizeWindowCallback::invokeCallback(GLFWwindow* window, int width, int height)
 {
-    Vector2 size(width, height);
-    Vector2 monitorSize(Monitor::getSize());
+    Vector2i size(width, height);
+    Vector2i monitorSize(Monitor::getSize());
 
     if (minimizeWindowCallback_ != nullptr && size.x == 0 && size.y == 0) {
         minimizeWindowCallback_->invokeCallback(window);

@@ -5,101 +5,98 @@
 
 File Logger::file_;
 
-/**
- * \brief Destroys current instance after closing the opened filestream.
- */
 Logger::~Logger()
 {
-    if (file_.isOpen()) {
-        file_.close();
-    }
+	if (file_.isOpen()) {
+		file_.close();
+	}
 }
 
-/**
- * \brief Initializes log filestream by opening with param path.
- * \param path file path
- */
-void Logger::prepareLogFile(const AString& getPath)
+void Logger::prepareLogFile(const AString& path)
 {
-    file_.setFilepath(AString(getPath).replaceAll(":", "-").replaceFirst(" ", "_") + ".log");
-    if (!file_.open(WriteOnly | Append)) {
-        warn("Couldn't create logfile '" + getPath + "'!");
-    }
+	file_.setFilepath(AString(path).replaceAll(":", "-").replaceFirst(" ", "_") + ".log");
+	if (!file_.open(static_cast<int>(OpenMode::WriteOnly) | static_cast<int>(OpenMode::Append))) {
+		warn("Couldn't create logfile '" + path + "'!");
+	}
 }
 
-void Logger::print(const AString& text,
-    const bool newLine,
-    const ConsoleColor color,
-    const ConsoleColor backgroundColor)
+void Logger::print(const AString & text,
+	bool newLine,
+	ConsoleColor color,
+	ConsoleColor backgroundColor)
 {
-    Console::print(text, newLine, color, backgroundColor);
-    if (file_.isOpen()) {
-        file_ << text + (newLine ? "\n" : "");
-    }
+	Console::print(text, newLine, color, backgroundColor);
+	if (file_.isOpen()) {
+		file_ << text + (newLine ? "\n" : "");
+	}
 }
 
-void Logger::debug(const AString& text,
-    const bool newLine,
-    const ConsoleColor color,
-    const ConsoleColor backgroundColor)
+void Logger::debug(const AString & text,
+	bool newLine,
+	ConsoleColor color,
+	ConsoleColor backgroundColor)
 {
-    printPrefix(Debug);
-    print(text, newLine, color, backgroundColor);
+	printPrefix(LogType::Debug);
+	print(text, newLine, color, backgroundColor);
 }
 
-void Logger::info(const AString& text,
-    const bool newLine,
-    const ConsoleColor color,
-    const ConsoleColor backgroundColor)
+void Logger::info(const AString & text,
+	bool newLine,
+	ConsoleColor color,
+	ConsoleColor backgroundColor)
 {
-    printPrefix(Info);
-    print(text, newLine, color, backgroundColor);
+	printPrefix(LogType::Info);
+	print(text, newLine, color, backgroundColor);
 }
 
-void Logger::error(const AString& text,
-    const bool newLine,
-    const ConsoleColor color,
-    const ConsoleColor backgroundColor)
+void Logger::error(const AString & text,
+	bool newLine,
+	ConsoleColor color,
+	ConsoleColor backgroundColor)
 {
-    printPrefix(Error);
-    print(text, newLine, color, backgroundColor);
+	printPrefix(LogType::Error);
+	print(text, newLine, color, backgroundColor);
 }
 
-void Logger::warn(const AString& text,
-    const bool newLine,
-    const ConsoleColor color,
-    const ConsoleColor backgroundColor)
+void Logger::warn(const AString & text,
+	bool newLine,
+	ConsoleColor color,
+	ConsoleColor backgroundColor)
 {
-    printPrefix(Warn);
-    print(text, newLine, color, backgroundColor);
+	printPrefix(LogType::Warn);
+	print(text, newLine, color, backgroundColor);
 }
 
-AString Logger::printPrefix(const LogType type)
+void Logger::printPrefix(LogType type)
 {
-    AString string = "[" + DateTime::getTimestamp();
-    Console::print(string, false);
-    if (type == Debug) {
-        Console::print(" DBG", false, Turquoise);
-        string += " DBG";
-    }
-    else if (type == Info) {
-        Console::print(" INFO", false, Green);
-        string += " INFO";
-    }
-    else if (type == Error) {
-        Console::print(" ERR", false, Red);
-        string += " ERR";
-    }
-    else if (type == Warn) {
-        Console::print(" WARN", false, Yellow);
-        string += " WARN";
-    }
-    Console::print("]: ", false);
-    const auto result = string + "]: ";
+	AString string = "[" + DateTime::getTimestamp();
+	Console::print(string, false);
+	if (type == LogType::Debug) {
+		const auto label = " DBG";
+		Console::print(label, false, Turquoise);
+		string += label;
+	}
+	else if (type == LogType::Info) {
+		const auto label = " INFO";
+		Console::print(label, false, Green);
+		string += label;
+	}
+	else if (type == LogType::Error) {
+		const auto label = " ERR";
+		Console::print(label, false, Red);
+		string += label;
+	}
+	else if (type == LogType::Warn) {
+		const auto label = " WARN";
+		Console::print(label, false, Yellow);
+		string += label;
+	}
 
-    if (file_.isOpen()) {
-        file_.append(result);
-    }
+	const auto label = "]: ";
+	Console::print(label, false);
+	const auto result = string + label;
 
-    return result;
+	if (file_.isOpen()) {
+		file_.append(result);
+	}
 }

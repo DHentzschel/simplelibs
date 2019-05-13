@@ -1,11 +1,11 @@
 #ifndef MONITOR_H
 #define MONITOR_H
 
-#include <vector2.h>
+#include <vector2i.h>
 
 class Monitor {
 public:
-    static Vector2 getSize();
+    static Vector2i getSize();
 
 };
 

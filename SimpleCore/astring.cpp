@@ -9,14 +9,15 @@
 AString::AString(const AString& string) : std::string(string)
 {}
 
-AString::AString(const std::string& right) : std::string(right)
+AString::AString(const std::string& string) : std::string(string)
 {}
 
-AString::AString(const char* right) : std::string(right)
+AString::AString(const char* string) : std::string(string)
 {}
 
 AString AString::arg(const AString& value)
 {
+	// TODO: compare performance to find and then replace
 	AString copy = *this;
 	for (auto i = 0; i < 20; ++i) {
 		const auto replacable = "%" + AString::toString(i);
@@ -425,7 +426,7 @@ size_t AString::count(const AString & string, const bool caseSensitive) const
 
 size_t AString::countWords() const
 {
-	return count(' ');
+	return count(' ') - 1;
 }
 
 size_t AString::firstIndexOf(const char c) const
@@ -457,7 +458,7 @@ size_t AString::lastIndexOf(const char c) const
 
 bool AString::toBool() const
 {
-	return *this == "1" || AString(*this).toLower() == "true";
+	return *this == "1" || equals("true", false) || isNumber() && toInt() > 0;
 }
 
 char AString::toChar() const

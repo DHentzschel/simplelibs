@@ -7,20 +7,32 @@
 
 class TcpServer;
 
+/**
+ * Provides an event listener class for TcpServer.
+ *
+ * @author Daniel Hentzschel on 13.05.2019.
+ */
 class TcpServerEventListener : public TcpEventListener {
 public:
-	explicit TcpServerEventListener(TcpServer* tcpServer);
+	/**
+	 * Calls the super constructor.
+	 *
+	 * @param server the pointer to the TcpServer to listen for
+	 */
+	explicit TcpServerEventListener(TcpServer* server);
 
-	~TcpServerEventListener();
-
+	/**
+	 * Joins the thread to the main thread.
+	 */
 	void join();
 
 private:
-	void initialize() override;
-
-	void start() override;
-
 	std::thread thread_;
+
+	/**
+	 * Starts the event listening process. Exits when isRunning is false.
+	 */
+	void start() override;
 };
 
 #endif   // TCPSERVEREVENTLISTENER_H

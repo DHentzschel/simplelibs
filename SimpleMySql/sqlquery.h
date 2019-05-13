@@ -44,7 +44,7 @@ private:
     void addBindValue(int type,
         void* buffer,
         char isUnsigned = 0,
-        ulong bufferLength = 0) const;
+        uint bufferLength = 0) const;
 
     std::shared_ptr<SqlTable> parseQuery() const;
 

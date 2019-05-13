@@ -1,7 +1,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <vector2.h>
+#include <vector2i.h>
 
 struct GLFWwindow;
 typedef struct GLFWwindow GLFWwindow;
@@ -40,7 +40,7 @@ public:
 
     void setIsRunning(bool isRunning) const;
 
-    static Vector2 getSize();
+    static Vector2i getSize();
 
     void setKeyCallback(IKeyCallback* keyCallback);
 
@@ -69,7 +69,7 @@ public:
 private:
     GLFWwindow* window_;
 
-    static Vector2 size_;
+    static Vector2i size_;
 
     static IKeyCallback* keyCallback_;
 

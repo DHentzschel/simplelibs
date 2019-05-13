@@ -7,51 +7,61 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace SimpleCoreTest {
-    TEST_CLASS(DirTest) {
+	TEST_CLASS(DirTest) {
 public:
-    TEST_METHOD(testSetPath)
-    {
-        /* Testing relative path. All relative paths will be concatenated at the end with the sub path of the VS test unit */
-        Dir dir("test");
-        Assert::IsTrue(dir.getPath().contains("/COMMON7/IDE/EXTENSIONS/TESTPLATFORM", false));
-    }
+	DirTest()
+	{
+		system("setup.bat");
+	}
 
-    TEST_METHOD(testCreate)
-    {
-        /* This directory MUST NOT exist */
-        Dir dir(Dir::getDesktopDir() + "\\testdir2");
-        if (dir.exists()) {
-            dir.erase();
-        }
-        Assert::IsTrue(dir.create());
-        dir.erase();
-    }
+	~DirTest()
+	{
+		system("cleanup.bat");
+	}
 
-    TEST_METHOD(testExists)
-    {
-        /* This directory has to exist */
-        Dir dir(Dir::getDesktopDir() + "\\testdir");
-        Assert::IsTrue(dir.exists());
-    }
+	TEST_METHOD(testSetPath)
+	{
+		/* Testing relative path. All relative paths will be concatenated at the end with the sub path of the VS test unit */
+		Dir dir("test");
+		Assert::IsTrue(dir.getPath().contains("/COMMON7/IDE/EXTENSIONS/TESTPLATFORM", false));
+	}
 
-    TEST_METHOD(testErase)
-    {
-        Dir dir(Dir::getDesktopDir() + "\\testdir2");
-        if (!dir.exists()) {
-            dir.create();
-        }
+	TEST_METHOD(testCreate)
+	{
+		/* This directory MUST NOT exist */
+		Dir dir(Dir::getDir(Directory::Desktop) + "\\testdir2");
+		if (dir.exists()) {
+			dir.erase();
+		}
+		Assert::IsTrue(dir.create());
+		dir.erase();
+	}
 
-        Assert::IsTrue(dir.erase());
-    }
+	TEST_METHOD(testExists)
+	{
+		/* This directory has to exist */
+		Dir dir(Dir::getDir(Directory::Desktop) + "\\testdir");
+		Assert::IsTrue(dir.exists());
+	}
 
-    TEST_METHOD(testGetFileCount)
-    {
-        Dir dir(Dir::getDesktopDir() + "\\testdir");
-        if (dir.exists()) {
-            dir.erase();
-        }
-        dir.create();
-        File file(dir.getPath());
-    }
-    };
+	TEST_METHOD(testErase)
+	{
+		Dir dir(Dir::getDir(Directory::Desktop) + "\\testdir2");
+		if (!dir.exists()) {
+			dir.create();
+		}
+
+		Assert::IsTrue(dir.erase());
+	}
+
+	TEST_METHOD(testGetFileCount)
+	{
+		Dir dir(Dir::getDir(Directory::Desktop) + "\\testdir");
+		if (dir.exists()) {
+			dir.erase();
+		}
+		dir.create();
+		File file(dir.getPath());
+	}
+	};
 }

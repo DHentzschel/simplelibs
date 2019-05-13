@@ -7,400 +7,282 @@
 #include "dir.h"
 #include "logger.h"
 
-/**
- * \brief Constructs instance by setting openMode param to default NotOpen.
- */
 File::File() :
-    openMode_(NotOpen)
+	openModeFlags_(static_cast<int>(OpenMode::NotOpen))
 {}
 
-File::File(const File& file)
+File::File(const File& file) :
+	filepath_(file.filepath_),
+	openModeFlags_(file.openModeFlags_)
 {
-    filepath_ = file.filepath_;
-    openMode_ = file.openMode_;
-
-    if (file.isOpen()) {
-        open(openMode_);
-    }
+	if (file.isOpen()) {
+		open(openModeFlags_);
+	}
 }
 
-/**
- * \brief Constructs instance by setting params for filepath (passed by param) and openMode(NotOpen)
- * \param filepath filepath to use
- */
 File::File(const AString& filepath) noexcept :
-    openMode_(NotOpen)
+	openModeFlags_(static_cast<int>(OpenMode::NotOpen))
 {
-    setFilepath(filepath);
+	setFilepath(filepath);
 }
 
-/**
- * \brief Destroys instance after closing current filestream.
- */
 File::~File()
 {
-    close();
+	if (isOpen()) {
+		close();
+	}
 }
 
-/**
-* \brief Tries to create current filepath.
-* \param recursively if not existing subfolders should be created
-* \return success
-*/
 bool File::create(const bool recursively) const
 {
-    auto dir = Dir(getDirectory());
+	auto dir = Dir(getDirectory());
 
-    auto result = true;
-    if (!dir.exists()) {
-        result = dir.create();
-    }
+	auto result = true;
+	if (!dir.exists()) {
+		result = dir.create(recursively);
+	}
 
-    std::ofstream outfile(filepath_);
-    outfile << "";
-    outfile.close();
-    return result && outfile.good();
+	std::ofstream outfile(filepath_);
+	outfile << "";
+	outfile.close();
+	return result && outfile.good();
 }
 
-/**
- * \brief Tries to create a filepath passed by param filepath.
- * \param filepath filepath to create
- * \param recursively if not existing subfolders should be created
- * \return success
- */
 bool File::create(const AString& filepath, const bool recursively)
 {
-    return File(filepath).create(recursively);
+	return File(filepath).create(recursively);
 }
 
-/**
- * \brief Tries to delte file in filepath and returns success.
- * \return success
- */
 bool File::erase() const
 {
-    return !remove(filepath_.toCString());
+	return !remove(filepath_.toCString());
 }
 
-/**
- * \brief Tries to delete file in filepath passed by param and returns success.
- * \param filepath filepath
- * \return success
- */
 bool File::erase(const AString& filepath)
 {
-    return File(filepath).erase();
+	return File(filepath).erase();
 }
 
-/**
- * \brief Returns if current filepath exists.
- * \return if filepath exists
- */
 bool File::exists() const
 {
-    std::ifstream infile(filepath_);
-    return infile.good();
+	std::ifstream infile(filepath_);
+	return infile.good();
 }
 
-/**
- * \brief Returns if file in filepath passed by param filepath exists.
- * \param filepath to test if it exists
- * \return if filepath exists
- */
 bool File::exists(const AString& filepath)
 {
-    return File(filepath).exists();
+	return File(filepath).exists();
 }
 
-/**
- * \brief Returns file path's directory.
- * \return directory
- */
 AString File::getDirectory() const
 {
-    if (filepath_.count("/") == 0 && filepath_.count("\\") == 0) {
-        return AString(Dir::getApplicationDir()).replaceAll("\\", "/");
-    }
+	if (filepath_.count("/") == 0 && filepath_.count("\\") == 0) {
+		return AString(Dir::getDir(Directory::CurrentApplication)).replaceAll("\\", "/");
+	}
 
-    // TODO: Return absolute directory from relative
-    auto lastIndexOfSlash = filepath_.lastIndexOf('/');
+	// TODO: Return absolute directory from relative
+	auto lastIndexOfSlash = filepath_.lastIndexOf('/');
 
-    if (lastIndexOfSlash == static_cast<uint64>(-1)) {
-        return AString();
-    }
+	if (lastIndexOfSlash == static_cast<uint64>(-1)) {
+		return AString();
+	}
 
-    auto copy = filepath_;
-    copy.erase(static_cast<size_t>(lastIndexOfSlash), copy.size() - 1);
-    return copy;
+	auto copy = filepath_;
+	copy.erase(static_cast<size_t>(lastIndexOfSlash), copy.size() - 1);
+	return copy;
 }
 
 AString File::getFilename() const
 {
-    auto lastIndexOfSlash = filepath_.lastIndexOf('/');
-    if (lastIndexOfSlash == -1) {
-        lastIndexOfSlash = filepath_.lastIndexOf('\\');
-        if (lastIndexOfSlash == -1) {
-            return filepath_;
-        }
-    }
+	auto lastIndexOfSlash = filepath_.lastIndexOf('/');
+	if (lastIndexOfSlash == -1) {
+		lastIndexOfSlash = filepath_.lastIndexOf('\\');
+		if (lastIndexOfSlash == -1) {
+			return filepath_;
+		}
+	}
 
-    auto copy = filepath_;
-    copy.erase(0, static_cast<size_t>(lastIndexOfSlash) + 1);
-    return copy;
+	auto copy = filepath_;
+	copy.erase(0, static_cast<size_t>(lastIndexOfSlash) + 1);
+	return copy;
 }
 
-/**
- * \brief Returns current filepath set.
- * \return filepath
- */
 AString File::getFilepath() const
 {
-    return filepath_;
+	return filepath_;
 }
 
-/**
- * \brief Sets file path for the next filestream.
- * \param filepath filepath for filestream
- */
 void File::setFilepath(const AString & filepath)
 {
-    filepath_ = filepath;
-    filepath_.replaceAll("\\", "/");
+	filepath_ = filepath;
+	filepath_.replaceAll("\\", "/");
 }
 
-/**
- * \brief Returns if filestream is open.
- * \return if filestream is open
- */
 bool File::isOpen() const
 {
-    return fstream_.is_open();
+	return fstream_.is_open();
 }
 
-/**
- * \brief Tries to open filestream by param openMode.
- * \param openMode OpenMode flags
- * \return success
- */
-bool File::open(const int openMode)
+bool File::open(int openModeFlags)
 {
-    auto result = true;
-    if (!exists()) {
-        result = create();
-    }
-    if (filepath_.isEmpty()) {
-        return false;
-    }
-    fstream_.open(filepath_.toCString(), openMode_ = openMode);
-    return result && isOpen();
+	auto result = true;
+	if (!exists()) {
+		result = create();
+	}
+	if (filepath_.isEmpty()) {
+		return false;
+	}
+	openModeFlags_ = openModeFlags;
+	fstream_.open(filepath_.toCString(), openModeFlags_);
+	return result && isOpen();
 }
 
-/**
- * \brief Closes current filestream.
- */
 void File::close()
 {
-    fstream_.close();
+	fstream_.close();
 }
 
 void File::operator=(const File & file)
 {
-    filepath_ = file.filepath_;
-    openMode_ = file.openMode_;
+	filepath_ = file.filepath_;
+	openModeFlags_ = file.openModeFlags_;
 
-    if (file.isOpen()) {
-        open(openMode_);
-    }
+	if (file.isOpen()) {
+		open(openModeFlags_);
+	}
 }
 
-/**
- * \brief Writes string from param string to file and returns std::fstream.
- * \param string string to write
- * \return std::fstream instance
- */
 std::fstream& File::operator<<(const AString & string)
 {
-    if (!printFileOpen()) {
-        return fstream_;
-    }
-    if (!printFlagWriteOnly()) {
-        return fstream_;
-    }
-    if (openMode_ & NewOnly && exists()) {
-        Logger::error("Failed to write to file, Flag NewOnly was set.");
-        return fstream_;
-    }
-    if (openMode_ & ExistingOnly && !exists()) {
-        Logger::error("Failed to write to file, Flag NewOnly was set.");
-        return fstream_;
-    }
+	if (!printFileOpen() || !printFlagWriteOnly()) {
+		return fstream_;
+	}
+	if (static_cast<int>(openModeFlags_) & static_cast<int>(OpenMode::NewOnly) && exists()) {
+		Logger::error("Failed to write to file, Flag NewOnly was set.");
+		return fstream_;
+	}
+	if (static_cast<int>(openModeFlags_) & static_cast<int>(OpenMode::ExistingOnly) && !exists()) {
+		Logger::error("Failed to write to file, Flag NewOnly was set.");
+		return fstream_;
+	}
 
-    fstream_ << string.toCString();
-    fstream_.flush();
-    return fstream_;
+	fstream_ << string.toCString();
+	fstream_.flush();
+	return fstream_;
 }
 
-/**
- * \brief Appends string to file. Only works if flags WriteOnly and Append were set.
- * \param string string to write
- */
 void File::append(const AString & string)
 {
-    if (!printFileOpen()) {
-        return;
-    }
-    if (!printFlagWriteOnly()) {
-        return;
-    }
+	if (!printFileOpen() || !printFlagWriteOnly()) {
+		return;
+	}
 
-    if (!(openMode_ & Append)) {
-        Logger::error("Failed writing to file '" + filepath_ +
-            "'. Flag Append was not set.");
-        return;
-    }
+	if (!(openModeFlags_ & static_cast<int>(OpenMode::Append))) {
+		Logger::error("Failed writing to file '" + filepath_ +
+			"'. Flag Append was not set.");
+		return;
+	}
 
-    fstream_ << string.toCString();
-    fstream_.flush();
+	fstream_ << string.toCString();
+	fstream_.flush();
 }
 
-/**
- * \brief Reads complete file to string and returns it.
- * \return read string
- */
 AString File::readAllText()
 {
-    if (isOpen()) {
-        close();
-    }
-    open(ReadOnly);
-    AString result((std::istreambuf_iterator<char>(fstream_)), std::istreambuf_iterator<char>());
-    //std::stringstream stringstream;
-    //stringstream << fstream_.rdbuf();
-    //return AString(stringstream.str());
-    return result;
+	if (isOpen()) {
+		close();
+	}
+	open(static_cast<int>(OpenMode::ReadOnly));
+	AString result((std::istreambuf_iterator<char>(fstream_)), std::istreambuf_iterator<char>());
+	return result;
 }
 
-/**
- * \brief Clears filestream and writes complete param text string to file.
- * \param text string to write
- */
 void File::writeAllText(const AString & text)
 {
-    if (isOpen()) {
-        close();
-    }
-    if (!open(WriteOnly)) {
-        Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
-        return;
-    }
-    fstream_ << text.toCString();
-    fstream_.flush();
+	if (isOpen()) {
+		close();
+	}
+	if (!open(static_cast<int>(OpenMode::WriteOnly))) {
+		Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
+		return;
+	}
+	fstream_ << text.toCString();
+	fstream_.flush();
 }
 
-/**
- * \brief Reads complete filestream in binary and returns new vector.
- * \return byte array
- */
 ByteArray File::readAllBytes()
 {
-    if (isOpen()) {
-        close();
-    }
-    if (!open(ReadOnly | Binary | AtTheEnd)) {
-        Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
-        return ByteArray();
-    }
-    const size_t pos = static_cast<size_t>(fstream_.tellg());
+	if (isOpen()) {
+		close();
+	}
+	if (!open(static_cast<int>(OpenMode::ReadOnly) | static_cast<int>(OpenMode::Binary) | static_cast<int>(OpenMode::AtTheEnd))) {
+		Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
+		return ByteArray();
+	}
+	const size_t pos = static_cast<size_t>(fstream_.tellg());
 
-    std::shared_ptr<char> buffer = std::shared_ptr<char>(new char[pos], [](const char* buffer) { delete[] buffer; });
-    fstream_.seekg(0, std::ios::beg);
-    fstream_.read(buffer.get(), pos);
-    close();
+	std::shared_ptr<char> buffer = std::shared_ptr<char>(new char[pos], [](const char* buffer) { delete[] buffer; });
+	fstream_.seekg(0, std::ios::beg);
+	fstream_.read(buffer.get(), pos);
+	close();
 
-    return ByteArray(buffer.get(), pos);
+	return ByteArray(buffer.get(), pos);
 }
 
-/**
- * \brief Clears filestream and writes all bytes existing in param bytes.
- * \param bytes byte array
- */
 void File::writeAllBytes(const ByteArray & bytes)
 {
-    if (isOpen()) {
-        close();
-    }
-    if (!open(WriteOnly | Binary)) {
-        Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
-        return;
-    }
-    fstream_.write(bytes.data(), bytes.size());
-    fstream_.close();
+	if (isOpen()) {
+		close();
+	}
+	if (!open(static_cast<int>(OpenMode::WriteOnly) | static_cast<int>(OpenMode::Binary))) {
+		Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
+		return;
+	}
+	fstream_.write(bytes.data(), bytes.size());
+	fstream_.close();
 }
 
-/**
- * \brief Returns next read line from filestream.
- * \return next read line
- */
 AString File::readLine()
 {
-    if (!printFileOpen()) {
-        return "empty";
-    }
-    if (!printFlagReadOnly()) {
-        return "empty";
-    }
-    AString temp;
-    std::getline(fstream_, temp);
-    return temp;
+	if (!printFileOpen() || !printFlagReadOnly()) {
+		return "empty";
+	}
+	AString temp;
+	std::getline(fstream_, temp);
+	return temp;
 }
 
-/**
- * \brief Determines if filestream reader is at the end.
- * \return if at end
- */
 bool File::atEnd() const
 {
-    return isOpen() && fstream_.eof();
+	return isOpen() && fstream_.eof();
 }
 
-/**
- * \brief Determines if filestream is open.
- * \return if filestream is open
- */
 bool File::printFileOpen() const
 {
-    if (!isOpen()) {
-        Logger::error("Couldn't write to file '" + filepath_ +
-            "'. File stream is not opened.");
-        return false;
-    }
-    return true;
+	if (!isOpen()) {
+		Logger::error("Couldn't write to file '" + filepath_ +
+			"'. File stream is not opened.");
+		return false;
+	}
+	return true;
 }
 
-/**
- * \brief Determines if flag ReadOnly was set.
- * \return if flag ReadOnly was set
- */
 bool File::printFlagReadOnly() const
 {
-    if (!(openMode_ & ReadOnly)) {
-        Logger::error("Failed writing to file '" + filepath_ +
-            "'. Flag ReadOnly was not set.");
-        return false;
-    }
-    return true;
+	if (!(openModeFlags_ & static_cast<int>(OpenMode::ReadOnly))) {
+		Logger::error("Failed writing to file '" + filepath_ +
+			"'. Flag ReadOnly was not set.");
+		return false;
+	}
+	return true;
 }
 
-/**
- * \brief Determines if flag WriteOnly was set.
- * \return if flag WriteOnly was set
- */
 bool File::printFlagWriteOnly() const
 {
-    if (!(openMode_ & WriteOnly)) {
-        Logger::error("Failed writing to file '" + filepath_ +
-            "'. Flag WriteOnly was not set.");
-        return false;
-    }
-    return true;
+	if (!(openModeFlags_ & static_cast<int>(OpenMode::WriteOnly))) {
+		Logger::error("Failed writing to file '" + filepath_ +
+			"'. Flag WriteOnly was not set.");
+		return false;
+	}
+	return true;
 }

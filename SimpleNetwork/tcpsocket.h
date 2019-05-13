@@ -9,63 +9,149 @@
 
 class TcpClientEventListener;
 
+/**
+ * This class provides a TCP socket and its connect, disconnect, receive and send packet functions.
+ *
+ * @author Daniel Hentzschel on 13.05.2019.
+ */
 class TcpSocket {
-    friend class TcpServer;
+	friend class TcpServer;
 
-    friend class TcpClientEventListener;
+	friend class TcpClientEventListener;
 
-    friend class TcpServerEventListener;
+	friend class TcpServerEventListener;
 
 public:
-    TcpSocket();
+	/**
+	 * Sets some default values.
+	 */
+	TcpSocket();
 
-    TcpSocket(const TcpSocket& tcpSocket);
+	/**
+	 * Copies the values from the specified socket.
+	 *
+	 * @param tcpSocket the socket to copy from
+	 */
+	TcpSocket(const TcpSocket& tcpSocket);
 
-    TcpSocket(SOCKET& socket, SOCKADDR_IN& address);
+	/**
+	 * Sets the specified socket and address.
+	 *
+	 * @param socket the socket to set
+	 * @param address the address to set
+	 */
+	TcpSocket(SOCKET& socket, SOCKADDR_IN& address);
 
-    virtual ~TcpSocket();
+	/**
+	 * Terminates the clientEventListener thread and disconnects (if connected).
+	 */
+	~TcpSocket();
 
-    bool operator==(const TcpSocket& socket) const;
+	/**
+	 * Compares both sockets and returns whether they are equal.
+	 *
+	 * @param socket the socket to compare
+	 * @return whether both sockets are equal
+	 */
+	bool operator==(const TcpSocket& socket) const;
 
-    virtual bool connect(const AString& hostaddress, ushort port);
+	/**
+	 * Tries to connect to the specified hostaddress and port and returns the success.
+	 *
+	 * @param hostaddress the hostaddress to connect to
+	 * @param port the port to connect to
+	 * @return whether the socket could connect to the specified hostaddress and port
+	 */
+	virtual bool connect(const AString& hostaddress, ushort port);
 
-    void disconnect() const;
+	/**
+	 * Disconnects the socket (if connected).
+	 */
+	void disconnect() const;
 
-    void send(const char* packet, uint length);
+	/**
+	 * Sends the specified packet as char array to the socket.
+	 *
+	 * @param packet the char array
+	 * @param length the packet length
+	 */
+	void send(const char* packet, uint length);
 
-    static bool isPortAvailable(const AString& hostaddress, ushort port);
+	/**
+	* Returns whether the specified port is available under the specified hostaddress.
+	*
+	* @param hostaddress the hostaddress to check
+	* @param port the port to check
+	* @return whether the specified port is available under the specified hostaddress
+	*/
+	static bool isPortAvailable(const AString& hostaddress, ushort port);
 
-    static bool isLocalPortAvailable(ushort port);
+	/**
+	* Returns whether the specified port is available on localhost.
+	*
+	* @param port the port to check
+	* @return whether the specified port is available on localhost
+	*/
+	static bool isLocalPortAvailable(ushort port);
 
-    /* Events */
+	/* Events */
 
-    virtual void disconnected()
-    {}
+	/**
+	 * This function will be called when the socket disconnects.
+	 */
+	virtual void disconnected()
+	{}
 
-    virtual void receive(const char* packet, uint length)
-    {}
+	/**
+	 * This function will be called when the socket receives a packet.
+	 *
+	 * @param packet the received packet
+	 * @param length the length of the packet received
+	 */
+	virtual void receive(const char* packet, uint length)
+	{}
 
-    /* Getters */
+	/**
+	 * Returns the hostaddress as string.
+	 *
+	 * @return the hostaddress as string
+	 */
+	AString getHostAddress() const;
 
-    AString getHostAddress() const;
+	/**
+	 * Returns the port.
+	 *
+	 * @return port
+	 */
+	ushort getPort() const;
 
-    ushort getPort() const;
-
-    SOCKET getSocket() const;
-
+	/**
+	 * Returns the WINAPI socket.
+	 *
+	 * @return the WINAPI socket
+	 */
+	SOCKET getSocket() const;
 protected:
-    SOCKET socket_;
+	/** The WINAPI socket */
+	SOCKET socket_;
 
-    AString hostaddress_;
+	/** The hostaddress of the socket */
+	AString hostaddress_;
 
-    ushort port_;
+	/** The port of the socket */
+	ushort port_;
 
-    std::shared_ptr<TcpClientEventListener> clientEventListener_;
+	/** The clientEventListener instance of the socket */
+	std::shared_ptr<TcpClientEventListener> clientEventListener_;
 
-    void terminate() const;
+	/**
+	 * Terminates the clientEventListener thread.
+	 */
+	void terminate() const;
 
 private:
-    Stopwatch stopwatch_;
+	/** The stopwatch instance of the socket */
+	Stopwatch stopwatch_;
 };
 
 #endif   // TCPSOCKET_H

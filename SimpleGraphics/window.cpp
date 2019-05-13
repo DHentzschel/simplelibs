@@ -16,7 +16,7 @@
 #pragma comment(lib, "opengl32")
 #pragma comment(lib, "glu32")
 
-Vector2 Window::size_;
+Vector2i Window::size_;
 
 IKeyCallback* Window::keyCallback_ = nullptr;
 
@@ -86,7 +86,7 @@ void Window::setIsRunning(const bool isRunning) const
     glfwSetWindowShouldClose(window_, !isRunning);
 }
 
-Vector2 Window::getSize()
+Vector2i Window::getSize()
 {
     return size_;
 }

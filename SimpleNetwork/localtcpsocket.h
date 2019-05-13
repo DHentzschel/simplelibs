@@ -3,11 +3,21 @@
 
 #include "tcpsocket.h"
 
+/**
+ * Extends the TcpSocket class and only connects to the localhost.
+ *
+ * @author Daniel Hentzschel on 13.05.2019.
+ */
 class LocalTcpSocket : public TcpSocket {
 public:
-    bool connect(ushort port);
+	/**
+	 * Connects to the localhost with the specified port.
+	 *
+	 * @param port the port to connect to
+	 */
+	bool connect(ushort port);
 private:
-    bool connect(const AString& hostaddress, ushort port) override {}
+	bool connect(const AString& hostaddress, ushort port) override {}
 };
 
 #endif // LOCALTCPSOCKET_H

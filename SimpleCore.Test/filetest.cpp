@@ -10,191 +10,197 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace SimpleCoreTest {
-    TEST_CLASS(FileTest) {
+	TEST_CLASS(FileTest) {
 public:
-    FileTest() :
-        file_(Dir::getDesktopDir() + "\\testfile.txt"),
-        file2_(Dir::getDesktopDir() + "\\testfile2.bin")
-    {
+	FileTest() :
+		file_(Dir::getDir(Directory::Desktop) + "\\testfile.txt"),
+		file2_(Dir::getDir(Directory::Desktop) + "\\testfile2.bin")
+	{
 #pragma warning(disable : 4309)
 #pragma warning(disable : 4838)
-        const char byteArray[] = { 0xC0, 0xDE, 0xBA, 0x5E, 0x00, 0xC0, 0xFF, 0xEE,
-            0x00, 0xF0, 0x0D, 0x00, 0xFE, 0xED, 0x00, 0xFF };
+		const char byteArray[] = { 0xC0, 0xDE, 0xBA, 0x5E, 0x00, 0xC0, 0xFF, 0xEE,
+			0x00, 0xF0, 0x0D, 0x00, 0xFE, 0xED, 0x00, 0xFF };
 #pragma warning(default : 4309)
 #pragma warning(default : 4838)
-        byteArray_ = ByteArray(byteArray, 16);
-    }
+		byteArray_ = ByteArray(byteArray, 16);
 
-    ~FileTest()
-    {
-        file_.close();
-        file2_.close();
-    }
+		system("cleanup.bat");
+		system("setup.bat");
+	}
 
-    TEST_METHOD(testOpen)
-    {
-        /* This file should exists on desktop path*/
-        Assert::IsTrue(file_.open(ReadOnly));
-    }
+	~FileTest()
+	{
+		file_.close();
+		file2_.close();
+		system("cleanup.bat");
+	}
 
-    TEST_METHOD(testExists)
-    {
-        const auto filename2 = Dir::getDesktopDir() + "\\testfile2.txt";
-        File file(filename2);
-        if (file.exists()) {
-            file.erase();
-        }
+	TEST_METHOD(testOpen)
+	{
+		/* This file should exists on desktop path */
+		Assert::IsTrue(file_.open(static_cast<int>(OpenMode::ReadOnly)));
+	}
 
-        /* This file should exist */
-        Assert::IsTrue(File(Dir::getDesktopDir() + "\\testfile.txt").exists());
+	TEST_METHOD(testExists)
+	{
+		const auto filename2 = Dir::getDir(Directory::Desktop) + "\\testfile2.txt";
+		File file(filename2);
+		if (file.exists()) {
+			file.erase();
+		}
 
-        /* This file should NOT exist */
-        Assert::IsTrue(!File(filename2).exists());
-    }
+		/* This file should exist */
+		Assert::IsTrue(File(Dir::getDir(Directory::Desktop) + "\\testfile.txt").exists());
 
-    TEST_METHOD(testCreate)
-    {
-        File file(Dir::getDesktopDir() + "\\testfile4.txt");
-        if (file.exists()) {
-            file.erase();
-        }
+		/* This file should NOT exist */
+		Assert::IsTrue(!File(filename2).exists());
+	}
 
-        /* Test simple file creation */
-        Assert::IsTrue(file.create());
-        Assert::IsTrue(file.erase());
+	TEST_METHOD(testCreate)
+	{
+		system(AString("RMDIR " + Dir::getDir(Directory::Desktop) + "\\test_level1").toCString());
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		File file(Dir::getDir(Directory::Desktop) + "\\testfile4.txt");
+		if (file.exists()) {
+			file.erase();
+		}
 
-        /* Test recursive file creation */
-        const auto recursiveFilePath = Dir::getDesktopDir() + "\\test_level1\\test_level2\\test_level3\\testfile.txt";
-        Assert::IsTrue(File(recursiveFilePath).create(true));
-        Assert::IsTrue(File(recursiveFilePath).erase());
+		/* Test simple file creation */
+		Assert::IsTrue(file.create());
+		Assert::IsTrue(file.erase());
 
-        /* Remove folder from recursive creation test for cleanup, true test of functionality is in extra class dirtest */
-        Assert::IsTrue(Dir(Dir::getDesktopDir() + "\\test_level1").erase());
-    }
+		/* Test recursive file creation */
+		const auto recursiveFilePath = Dir::getDir(Directory::Desktop) + "\\test_level1\\test_level2\\test_level3\\testfile.txt";
+		Assert::IsTrue(File(recursiveFilePath).create(true));
+		Assert::IsTrue(File(recursiveFilePath).erase());
 
-    TEST_METHOD(testDelete)
-    {
-        /* Make sure the file exists */
-        File file(Dir::getDesktopDir() + "\\testfile3.txt");
-        if (!file.exists()) {
-            Assert::IsTrue(file.create());
-        }
+		/* Remove folder from recursive creation test for cleanup, true test of functionality is in extra class dirtest */
+		Assert::IsTrue(Dir(Dir::getDir(Directory::Desktop) + "\\test_level1").erase());
+	}
 
-        /* Test file deletion */
-        Assert::IsTrue(file.erase());
-    }
+	TEST_METHOD(testDelete)
+	{
+		/* Make sure the file exists */
+		File file(Dir::getDir(Directory::Desktop) + "\\testfile3.txt");
+		if (!file.exists()) {
+			Assert::IsTrue(file.create());
+		}
 
-    TEST_METHOD(testReadAllText)
-    {
-        /* The following code won't work: Assert::AreEqual(file_.readAllText(), fileContent)*/
-        Assert::IsTrue(file_.readAllText() == exampleFileContent_);
-    }
+		/* Test file deletion */
+		Assert::IsTrue(file.erase());
+	}
 
-    TEST_METHOD(testWriteAllText)
-    {
-        File file(Dir::getDesktopDir() + "\\testfile2.txt");
-        if (file.exists()) {
-            file.erase();
-            file.create();
-        }
+	TEST_METHOD(testReadAllText)
+	{
+		/* The following code won't work: Assert::AreEqual(file_.readAllText(), fileContent) */
+		Assert::IsTrue(file_.readAllText() == exampleFileContent_);
+	}
 
-        file.writeAllText(exampleFileContent_);
-        Assert::IsTrue(file.readAllText() == exampleFileContent_);
-        file.close();
-        file.erase();
-    }
+	TEST_METHOD(testWriteAllText)
+	{
+		File file(Dir::getDir(Directory::Desktop) + "\\testfile2.txt");
+		if (file.exists()) {
+			file.erase();
+			file.create();
+		}
 
-    TEST_METHOD(testReadAllBytes)
-    {
-        Assert::IsTrue(file2_.readAllBytes().isEqual(byteArray_.data(), byteArray_.size()));
-    }
+		file.writeAllText(exampleFileContent_);
+		Assert::IsTrue(file.readAllText() == exampleFileContent_);
+		file.close();
+		file.erase();
+	}
 
-    TEST_METHOD(testWriteAllBytes)
-    {
-        File file(Dir::getDesktopDir() + "\\testfile2.txt");
-        if (file.exists()) {
-            file.erase();
-            file.create();
-        }
+	TEST_METHOD(testReadAllBytes)
+	{
+		Assert::IsTrue(file2_.readAllBytes().isEqual(byteArray_.data(), byteArray_.size()));
+	}
 
-        file.writeAllBytes(byteArray_);
-        Assert::IsTrue(file.readAllBytes().isEqual(byteArray_.data(), byteArray_.size()));
-        file.close();
-        file.erase();
-    }
+	TEST_METHOD(testWriteAllBytes)
+	{
+		File file(Dir::getDir(Directory::Desktop) + "\\testfile2.txt");
+		if (file.exists()) {
+			file.erase();
+			file.create();
+		}
 
-    TEST_METHOD(testReadLineByLine)
-    {
-        Assert::IsTrue(file_.open(ReadOnly));
+		file.writeAllBytes(byteArray_);
+		Assert::IsTrue(file.readAllBytes().isEqual(byteArray_.data(), byteArray_.size()));
+		file.close();
+		file.erase();
+	}
 
-        AString buffer;
-        while (!file_.atEnd()) {
-            buffer += file_.readLine();
-        }
+	TEST_METHOD(testReadLineByLine)
+	{
+		Assert::IsTrue(file_.open(static_cast<int>(OpenMode::ReadOnly)));
 
-        Assert::IsTrue(AString(exampleFileContent_).removeAll('\n') == buffer);
-    }
+		AString buffer;
+		while (!file_.atEnd()) {
+			buffer += file_.readLine();
+		}
 
-    TEST_METHOD(testAppend)
-    {
-        File file(Dir::getDesktopDir() + "\\testfile2.txt");
-        if (file.exists()) {
-            file.erase();
-            file.create();
-        }
+		Assert::IsTrue(AString(exampleFileContent_).removeAll('\n') == buffer);
+	}
 
-        Assert::IsTrue(file.open(ReadWrite | Append));
-        const AString appendable = "Appendable text";
-        file << appendable;
-        Assert::IsTrue(appendable == file.readAllText());
-        file.close();
-        file.erase();
-    }
+	TEST_METHOD(testAppend)
+	{
+		File file(Dir::getDir(Directory::Desktop) + "\\testfile2.txt");
+		if (file.exists()) {
+			file.erase();
+			file.create();
+		}
 
-    TEST_METHOD(testGetDirectory)
-    {
-        const AString directory = "C:/Users/test/";
-        const auto* filename = "test.txt";
+		Assert::IsTrue(file.open(static_cast<int>(OpenMode::ReadWrite) | static_cast<int>(OpenMode::Append)));
+		const AString appendable = "Appendable text";
+		file << appendable;
+		Assert::IsTrue(appendable == file.readAllText());
+		file.close();
+		file.erase();
+	}
 
-        /* Testing absolute path. */
-        File file(directory + filename);
-        Assert::IsTrue(directory.left(directory.size() - 1) == file.getDirectory());
+	TEST_METHOD(testGetDirectory)
+	{
+		const AString directory = "C:/Users/test/";
+		const auto* filename = "test.txt";
 
-        /* Testing relative path. All relative paths will be concatenated at the end with the sub path of the VS test unit */
-        file = File(filename);
-        Assert::IsTrue(file.getDirectory().contains("/COMMON7/IDE/EXTENSIONS/TESTPLATFORM", false));
-    }
+		/* Testing absolute path. */
+		File file(directory + filename);
+		Assert::IsTrue(directory.left(directory.size() - 1) == file.getDirectory());
 
-    TEST_METHOD(testGetFilename)
-    {
-        const AString filename = "test.txt";
-        File file("C:/Users/test/" + filename);
-        auto assertFilenameEqualsExpected = [filename](const AString& comparable) {
-            Assert::IsTrue(filename == comparable);
-        };
+		/* Testing relative path. All relative paths will be concatenated at the end with the sub path of the VS test unit */
+		file = File(filename);
+		Assert::IsTrue(file.getDirectory().contains("/COMMON7/IDE/EXTENSIONS/TESTPLATFORM", false));
+	}
 
-        assertFilenameEqualsExpected(file.getFilename());
-        file = File(file.getFilename());
-        assertFilenameEqualsExpected(file.getFilename());
-    }
+	TEST_METHOD(testGetFilename)
+	{
+		const AString filename = "test.txt";
+		File file("C:/Users/test/" + filename);
+		auto assertFilenameEqualsExpected = [filename](const AString & comparable) {
+			Assert::IsTrue(filename == comparable);
+		};
 
-    TEST_METHOD(testSetFilepath)
-    {
-        AString filepath = "C:\\Users\\test\\test.txt";
+		assertFilenameEqualsExpected(file.getFilename());
+		file = File(file.getFilename());
+		assertFilenameEqualsExpected(file.getFilename());
+	}
 
-        /* setFilePath() is being invoked in the ctor */
-        File file(filepath);
-        Assert::IsTrue(filepath.replaceAll("\\", "/") == file.getFilepath());
-    }
+	TEST_METHOD(testSetFilepath)
+	{
+		AString filepath = "C:\\Users\\test\\test.txt";
+
+		/* setFilePath() is being invoked in the ctor */
+		File file(filepath);
+		Assert::IsTrue(filepath.replaceAll("\\", "/") == file.getFilepath());
+	}
 
 private:
-    File file_;
+	File file_;
 
-    File file2_;
+	File file2_;
 
-    const char* exampleFileContent_ = "This is an example\nfor a text file\n";
+	const char* exampleFileContent_ = "This is an example\nfor a text file\n";
 
-    ByteArray byteArray_;
+	ByteArray byteArray_;
 
-    };
+	};
 }

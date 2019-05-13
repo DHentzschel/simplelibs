@@ -1,0 +1,114 @@
+\hypertarget{class_tcp_event_listener}{}\section{Tcp\+Event\+Listener Class Reference}
+\label{class_tcp_event_listener}\index{TcpEventListener@{TcpEventListener}}
+
+
+Provides an event listener class for both \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} and \mbox{\hyperlink{class_tcp_server}{Tcp\+Server}}.  
+
+
+
+
+{\ttfamily \#include $<$tcpeventlistener.\+h$>$}
+
+Inheritance diagram for Tcp\+Event\+Listener\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tcp_event_listener}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tcp_event_listener_a3d6f7243d828830ed9373a2e488c95b6}{Tcp\+Event\+Listener}} (\mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} $\ast$socket)
+\begin{DoxyCompactList}\small\item\em Sets the socket pointer to the specified value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tcp_event_listener_aba0cb36a5016a7c081b277ff4030fbf6}{Tcp\+Event\+Listener}} (\mbox{\hyperlink{class_tcp_server}{Tcp\+Server}} $\ast$\mbox{\hyperlink{class_tcp_event_listener_aa0a66ee360e15e349eda1c10041c3219}{server}})
+\begin{DoxyCompactList}\small\item\em Sets the server pointer to the specified value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tcp_event_listener_aac35550b2da7ba7b4f27e8dd169a436b}{set\+Is\+Running}} (bool is\+Running)
+\begin{DoxyCompactList}\small\item\em Sets is\+Running to the specified value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tcp_event_listener_a900e4938c19ae2371c4621e5c9d46730}\label{class_tcp_event_listener_a900e4938c19ae2371c4621e5c9d46730}} 
+virtual void \mbox{\hyperlink{class_tcp_event_listener_a900e4938c19ae2371c4621e5c9d46730}{start}} ()=0
+\begin{DoxyCompactList}\small\item\em Starts the event listener. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tcp_event_listener_a2d916c707cc58771608ffdc8ae9dfa13}\label{class_tcp_event_listener_a2d916c707cc58771608ffdc8ae9dfa13}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{class_tcp_server}{TcpServer}} $\ast$ \mbox{\hyperlink{class_tcp_event_listener_aa0a66ee360e15e349eda1c10041c3219}{server}}\\
+\>\>{\em Represents the pointer to the listenable server. }\\
+\>\mbox{\hyperlink{class_tcp_socket}{TcpSocket}} $\ast$ \mbox{\hyperlink{class_tcp_event_listener_a0a05150db3b589bb5fe136b18e5418f3}{client}}\\
+\>\>{\em Represents the pointer to the listenable client. }\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\Hypertarget{class_tcp_event_listener_a3b623004e10074b2375a3bb7bc9c6c28}\label{class_tcp_event_listener_a3b623004e10074b2375a3bb7bc9c6c28}} 
+bool \mbox{\hyperlink{class_tcp_event_listener_a3b623004e10074b2375a3bb7bc9c6c28}{is\+Running\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Represents whether the event listener should listen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides an event listener class for both \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} and \mbox{\hyperlink{class_tcp_server}{Tcp\+Server}}. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 13.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_tcp_event_listener_a3d6f7243d828830ed9373a2e488c95b6}\label{class_tcp_event_listener_a3d6f7243d828830ed9373a2e488c95b6}} 
+\index{TcpEventListener@{TcpEventListener}!TcpEventListener@{TcpEventListener}}
+\index{TcpEventListener@{TcpEventListener}!TcpEventListener@{TcpEventListener}}
+\subsubsection{\texorpdfstring{TcpEventListener()}{TcpEventListener()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Tcp\+Event\+Listener\+::\+Tcp\+Event\+Listener (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} $\ast$}]{socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Sets the socket pointer to the specified value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & the pointer to the socket \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_tcp_event_listener_aba0cb36a5016a7c081b277ff4030fbf6}\label{class_tcp_event_listener_aba0cb36a5016a7c081b277ff4030fbf6}} 
+\index{TcpEventListener@{TcpEventListener}!TcpEventListener@{TcpEventListener}}
+\index{TcpEventListener@{TcpEventListener}!TcpEventListener@{TcpEventListener}}
+\subsubsection{\texorpdfstring{TcpEventListener()}{TcpEventListener()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Tcp\+Event\+Listener\+::\+Tcp\+Event\+Listener (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tcp_server}{Tcp\+Server}} $\ast$}]{server }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Sets the server pointer to the specified value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em server} & the pointer to the server \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tcp_event_listener_aac35550b2da7ba7b4f27e8dd169a436b}\label{class_tcp_event_listener_aac35550b2da7ba7b4f27e8dd169a436b}} 
+\index{TcpEventListener@{TcpEventListener}!setIsRunning@{setIsRunning}}
+\index{setIsRunning@{setIsRunning}!TcpEventListener@{TcpEventListener}}
+\subsubsection{\texorpdfstring{setIsRunning()}{setIsRunning()}}
+{\footnotesize\ttfamily void Tcp\+Event\+Listener\+::set\+Is\+Running (\begin{DoxyParamCaption}\item[{bool}]{is\+Running }\end{DoxyParamCaption})}
+
+
+
+Sets is\+Running to the specified value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Running} & whether the thread should run or not \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Network/tcpeventlistener.\+h\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Network/tcpeventlistener.\+cpp\end{DoxyCompactItemize}

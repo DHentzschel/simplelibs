@@ -1,0 +1,177 @@
+\hypertarget{class_logger}{}\section{Logger Class Reference}
+\label{class_logger}\index{Logger@{Logger}}
+
+
+Provides a simple logger with four predefined log types.  
+
+
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_logger_acb668a9e186a25fbaad2e4af6d1ed00a}\label{class_logger_acb668a9e186a25fbaad2e4af6d1ed00a}} 
+\mbox{\hyperlink{class_logger_acb668a9e186a25fbaad2e4af6d1ed00a}{$\sim$\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Closes the filestream if opened. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_logger_a39b7087d99ea5f1a476fce7eb015ca29}{prepare\+Log\+File}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&path)
+\begin{DoxyCompactList}\small\item\em Initializes the log filestream by opening it with the path given by parameter. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_logger_ad1b7ae86299fa93628358c1b8e77a9b4}{print}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&text, bool new\+Line=true, Console\+Color color=Turquoise, Console\+Color background\+Color=Black)
+\begin{DoxyCompactList}\small\item\em Prints text to the console. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_logger_ab986fb958b936fc1271fd4acf9553971}{debug}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&text, bool new\+Line=true, Console\+Color color=Turquoise, Console\+Color background\+Color=Black)
+\begin{DoxyCompactList}\small\item\em Prints debug text to the console. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_logger_aee760667718f08ead13726b60d8c5ca6}{info}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&text, bool new\+Line=true, Console\+Color color=Light\+Gray, Console\+Color background\+Color=Black)
+\begin{DoxyCompactList}\small\item\em Prints information text to the console. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_logger_a359e37a5d634c018a2aac5ba480e86a0}{error}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&text, bool new\+Line=true, Console\+Color color=Light\+Gray, Console\+Color background\+Color=Black)
+\begin{DoxyCompactList}\small\item\em Prints error text to the console. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_logger_a67f08cc48a12528669b3fcee0bc982fd}{warn}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&text, bool new\+Line=true, Console\+Color color=Light\+Gray, Console\+Color background\+Color=Black)
+\begin{DoxyCompactList}\small\item\em Prints warning text to the console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides a simple logger with four predefined log types. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 11.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_logger_ab986fb958b936fc1271fd4acf9553971}\label{class_logger_ab986fb958b936fc1271fd4acf9553971}} 
+\index{Logger@{Logger}!debug@{debug}}
+\index{debug@{debug}!Logger@{Logger}}
+\subsubsection{\texorpdfstring{debug()}{debug()}}
+{\footnotesize\ttfamily void Logger\+::debug (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{text,  }\item[{bool}]{new\+Line = {\ttfamily true},  }\item[{Console\+Color}]{color = {\ttfamily Turquoise},  }\item[{Console\+Color}]{background\+Color = {\ttfamily Black} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints debug text to the console. 
+
+The current time and output mode will be prepended.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & the text to print \\
+\hline
+{\em new\+Line} & whether there should be a new line appended \\
+\hline
+{\em color} & the foreground color of the text (default is Turquoise) \\
+\hline
+{\em background\+Color} & the background color of the text (default is Black) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_logger_a359e37a5d634c018a2aac5ba480e86a0}\label{class_logger_a359e37a5d634c018a2aac5ba480e86a0}} 
+\index{Logger@{Logger}!error@{error}}
+\index{error@{error}!Logger@{Logger}}
+\subsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily void Logger\+::error (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{text,  }\item[{bool}]{new\+Line = {\ttfamily true},  }\item[{Console\+Color}]{color = {\ttfamily LightGray},  }\item[{Console\+Color}]{background\+Color = {\ttfamily Black} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints error text to the console. 
+
+The current time and output mode will be prepended.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & the text to print \\
+\hline
+{\em new\+Line} & whether there should be a new line appended \\
+\hline
+{\em color} & the foreground color of the text (default is Light\+Gray) \\
+\hline
+{\em background\+Color} & the background color of the text (default is Black) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_logger_aee760667718f08ead13726b60d8c5ca6}\label{class_logger_aee760667718f08ead13726b60d8c5ca6}} 
+\index{Logger@{Logger}!info@{info}}
+\index{info@{info}!Logger@{Logger}}
+\subsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily void Logger\+::info (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{text,  }\item[{bool}]{new\+Line = {\ttfamily true},  }\item[{Console\+Color}]{color = {\ttfamily LightGray},  }\item[{Console\+Color}]{background\+Color = {\ttfamily Black} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints information text to the console. 
+
+The current time and output mode will be prepended.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & the text to print \\
+\hline
+{\em new\+Line} & whether there should be a new line appended \\
+\hline
+{\em color} & the foreground color of the text (default is Light\+Gray) \\
+\hline
+{\em background\+Color} & the background color of the text (default is Black) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_logger_a39b7087d99ea5f1a476fce7eb015ca29}\label{class_logger_a39b7087d99ea5f1a476fce7eb015ca29}} 
+\index{Logger@{Logger}!prepareLogFile@{prepareLogFile}}
+\index{prepareLogFile@{prepareLogFile}!Logger@{Logger}}
+\subsubsection{\texorpdfstring{prepareLogFile()}{prepareLogFile()}}
+{\footnotesize\ttfamily void Logger\+::prepare\+Log\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initializes the log filestream by opening it with the path given by parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the file path of the log file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_logger_ad1b7ae86299fa93628358c1b8e77a9b4}\label{class_logger_ad1b7ae86299fa93628358c1b8e77a9b4}} 
+\index{Logger@{Logger}!print@{print}}
+\index{print@{print}!Logger@{Logger}}
+\subsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Logger\+::print (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{text,  }\item[{bool}]{new\+Line = {\ttfamily true},  }\item[{Console\+Color}]{color = {\ttfamily Turquoise},  }\item[{Console\+Color}]{background\+Color = {\ttfamily Black} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints text to the console. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & the text to print \\
+\hline
+{\em new\+Line} & whether there should be a new line appended \\
+\hline
+{\em color} & the foreground color of the text (default is Turquoise) \\
+\hline
+{\em background\+Color} & the background color of the text (default is Black) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_logger_a67f08cc48a12528669b3fcee0bc982fd}\label{class_logger_a67f08cc48a12528669b3fcee0bc982fd}} 
+\index{Logger@{Logger}!warn@{warn}}
+\index{warn@{warn}!Logger@{Logger}}
+\subsubsection{\texorpdfstring{warn()}{warn()}}
+{\footnotesize\ttfamily void Logger\+::warn (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{text,  }\item[{bool}]{new\+Line = {\ttfamily true},  }\item[{Console\+Color}]{color = {\ttfamily LightGray},  }\item[{Console\+Color}]{background\+Color = {\ttfamily Black} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Prints warning text to the console. 
+
+The current time and output mode will be prepended.
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & the text to print \\
+\hline
+{\em new\+Line} & whether there should be a new line appended \\
+\hline
+{\em color} & the foreground color of the text (default is Light\+Gray) \\
+\hline
+{\em background\+Color} & the background color of the text (default is Black) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/logger.\+h\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/logger.\+cpp\end{DoxyCompactItemize}
