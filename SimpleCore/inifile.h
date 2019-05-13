@@ -57,6 +57,7 @@ public:
 
 	/**
 	 * Returns the value of the key specified.
+	 * Returns "empty" when the value is null or not existent.
 	 *
 	 * @param key the key to find
 	 * @return the value
