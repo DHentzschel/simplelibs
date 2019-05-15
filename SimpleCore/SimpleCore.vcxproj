@@ -191,6 +191,7 @@
     <ClInclude Include="logger.h" />
     <ClInclude Include="mathutils.h" />
     <ClInclude Include="openmode.h" />
+    <ClInclude Include="osdetection.h" />
     <ClInclude Include="plogtp.h" />
     <ClInclude Include="rapidjson\allocators.h" />
     <ClInclude Include="rapidjson\cursorstreamwrapper.h" />

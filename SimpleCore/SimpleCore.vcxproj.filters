@@ -107,6 +107,9 @@
     <Filter Include="src\Encryption">
       <UniqueIdentifier>{2bd7a7f1-c74a-4719-a4be-d89cbd42fb21}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\General\OsDetection">
+      <UniqueIdentifier>{9374f11b-6839-40e3-b781-e14516d79293}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bytearray.cpp">
@@ -473,6 +476,9 @@
     </ClInclude>
     <ClInclude Include="date\date.h">
       <Filter>src\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="osdetection.h">
+      <Filter>src\General\OsDetection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
