@@ -1,10 +1,13 @@
 ﻿#ifndef CONSOLE_H
 #define CONSOLE_H
 
-#include <Windows.h>
-
+#include "osdetection.h"
 #include "astring.h"
 #include "consolecolor.h"
+
+#ifdef OS_WIN32
+#include <Windows.h>
+#endif // OS_WIN32
 
 /**
  * This class provides easy functions concerning the console window.
@@ -78,9 +81,10 @@ public:
 	static void printColorExample();
 
 private:
-	static CONSOLE_SCREEN_BUFFER_INFO consoleBufferInfo_;
-
 	static Console consoleInitializer_;
+
+#ifdef OS_WIN32
+	static CONSOLE_SCREEN_BUFFER_INFO consoleBufferInfo_;
 
 	static HANDLE inputHandle_;
 
@@ -92,6 +96,7 @@ private:
 	 * Initializes the console mode and sets the some default stuff.
 	 */
 	static void setControlEventHandler();
+#endif // OS_WIN32
 };
 
 #endif // CONSOLE_H

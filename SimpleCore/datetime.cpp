@@ -95,7 +95,7 @@ ushort DateTime::getLeapYearCountFromTo(ushort to, ushort from)
 DateTime DateTime::fromUnixTimestamp(const int64 timestamp)
 {
     auto sysTime = std::chrono::system_clock::from_time_t(timestamp);
-    auto date = date::year_month_day(floor<date::days>(sysTime));
+    auto date = date::year_month_day(std::chrono::floor<date::days>(sysTime));
 
     DateTime result;
     DateTimeInfo dateTimeInfo;
