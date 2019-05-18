@@ -1,8 +1,6 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-#include <string>
-
 #define DELETE_PTR(x)                                                          \
     delete (x);                                                                  \
     (x) = nullptr;
@@ -11,25 +9,6 @@
     (x) = nullptr;
 
 #define ZEROMEMORY(x) memset(x, 0, sizeof (x))
-
-#define IS_NULL(x) x == nullptr
-#define NOT_NULL(x) x != nullptr
-
-#define TO_STRING(x) AString::toString(x)
-#define TO_STRING_BOOL(x) AString::toString(x, true)  
-
-#define STATIC_CAST(type, x) (static_cast<type>(x))
-#define REINTERPRET_CAST(type, x) (reinterpret_cast<type>(x))
-#define DYNAMIC_CAST(type, x) (dynamic_cast<type>(x))
-#define CONST_CAST(type, x) (const_cast<type>(x))
-
-#define SHARED_PTR(x) std::shared_ptr<x>
-#define MAKE_SHARED(type, x) std::make_shared<type>(x)
-
-#define UNIQUE_PTR(x) std::unique_ptr<x>
-#define MAKE_UNIQUE(type, x) std::make_unique<type>(x)
-
-#define WEAK_PTR(x) std::weak_ptr<x>
 
 #define CAST_VOID_PTR(x) (static_cast<void*>(x))
 

@@ -1,0 +1,295 @@
+\hypertarget{class_tcp_socket}{}\section{Tcp\+Socket Class Reference}
+\label{class_tcp_socket}\index{TcpSocket@{TcpSocket}}
+
+
+This class provides a T\+CP socket and its connect, disconnect, receive and send packet functions.  
+
+
+
+
+{\ttfamily \#include $<$tcpsocket.\+h$>$}
+
+Inheritance diagram for Tcp\+Socket\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_tcp_socket}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tcp_socket_a132aa72af141d611f8bad96ba585a79f}\label{class_tcp_socket_a132aa72af141d611f8bad96ba585a79f}} 
+\mbox{\hyperlink{class_tcp_socket_a132aa72af141d611f8bad96ba585a79f}{Tcp\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Sets some default values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tcp_socket_aac5a96f2ac3a824fb7c52260a6a6c2bd}{Tcp\+Socket}} (const \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} \&tcp\+Socket)
+\begin{DoxyCompactList}\small\item\em Copies the values from the specified socket. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_tcp_socket_adc173be5af51b5ead7ef1f370453c2d2}{Tcp\+Socket}} (S\+O\+C\+K\+ET \&socket, S\+O\+C\+K\+A\+D\+D\+R\+\_\+\+IN \&address)
+\begin{DoxyCompactList}\small\item\em Sets the specified socket and address. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_socket_a4c6d246451c51ac4226a9301f6711086}\label{class_tcp_socket_a4c6d246451c51ac4226a9301f6711086}} 
+\mbox{\hyperlink{class_tcp_socket_a4c6d246451c51ac4226a9301f6711086}{$\sim$\+Tcp\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Terminates the client\+Event\+Listener thread and disconnects (if connected). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_tcp_socket_a282abf062b6536eaa57e8ef7fec7a122}{operator==}} (const \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} \&socket) const
+\begin{DoxyCompactList}\small\item\em Compares both sockets and returns whether they are equal. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_tcp_socket_a396dcc6c060e02611574c18474deedfc}{connect}} (const A\+String \&hostaddress, ushort port)
+\begin{DoxyCompactList}\small\item\em Tries to connect to the specified hostaddress and port and returns the success. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_socket_a9f1317cd06b134fc78d01fe8554224a2}\label{class_tcp_socket_a9f1317cd06b134fc78d01fe8554224a2}} 
+void \mbox{\hyperlink{class_tcp_socket_a9f1317cd06b134fc78d01fe8554224a2}{disconnect}} () const
+\begin{DoxyCompactList}\small\item\em Disconnects the socket (if connected). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_tcp_socket_a9e62b6ef15b2e10d2aa8316439651cd3}{send}} (const char $\ast$packet, uint length)
+\begin{DoxyCompactList}\small\item\em Sends the specified packet as char array to the socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_socket_af177ab759106456e4c46b81a90a5c8ed}\label{class_tcp_socket_af177ab759106456e4c46b81a90a5c8ed}} 
+virtual void \mbox{\hyperlink{class_tcp_socket_af177ab759106456e4c46b81a90a5c8ed}{disconnected}} ()
+\begin{DoxyCompactList}\small\item\em This function will be called when the socket disconnects. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_tcp_socket_a5c3aedf1e5387e02204d423e39dd6bee}{receive}} (const char $\ast$packet, uint length)
+\begin{DoxyCompactList}\small\item\em This function will be called when the socket receives a packet. \end{DoxyCompactList}\item 
+A\+String \mbox{\hyperlink{class_tcp_socket_a1638a4368afb26acee666ea497ba737e}{get\+Host\+Address}} () const
+\begin{DoxyCompactList}\small\item\em Returns the hostaddress as string. \end{DoxyCompactList}\item 
+ushort \mbox{\hyperlink{class_tcp_socket_aae788fccc721be52ff85c0fcbb1424c5}{get\+Port}} () const
+\begin{DoxyCompactList}\small\item\em Returns the port. \end{DoxyCompactList}\item 
+S\+O\+C\+K\+ET \mbox{\hyperlink{class_tcp_socket_af08fd94259257c41adcc7b3722574dc6}{get\+Socket}} () const
+\begin{DoxyCompactList}\small\item\em Returns the W\+I\+N\+A\+PI socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_tcp_socket_a133a664281c276c9e75d961175814d7d}{is\+Port\+Available}} (const A\+String \&hostaddress, ushort port)
+\begin{DoxyCompactList}\small\item\em Returns whether the specified port is available under the specified hostaddress. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_tcp_socket_a411dcd4e6875ed636eb96cdac1ab18b9}{is\+Local\+Port\+Available}} (ushort port)
+\begin{DoxyCompactList}\small\item\em Returns whether the specified port is available on localhost. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tcp_socket_a606fe5b41ef0e54fd42a45caf9966f94}\label{class_tcp_socket_a606fe5b41ef0e54fd42a45caf9966f94}} 
+void \mbox{\hyperlink{class_tcp_socket_a606fe5b41ef0e54fd42a45caf9966f94}{terminate}} () const
+\begin{DoxyCompactList}\small\item\em Terminates the client\+Event\+Listener thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tcp_socket_aa51cfa63d5c44f1f633c4f2e5f96dbbd}\label{class_tcp_socket_aa51cfa63d5c44f1f633c4f2e5f96dbbd}} 
+S\+O\+C\+K\+ET \mbox{\hyperlink{class_tcp_socket_aa51cfa63d5c44f1f633c4f2e5f96dbbd}{socket\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The W\+I\+N\+A\+PI socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_socket_ac60988983660746eacf7882c1bfa6418}\label{class_tcp_socket_ac60988983660746eacf7882c1bfa6418}} 
+A\+String \mbox{\hyperlink{class_tcp_socket_ac60988983660746eacf7882c1bfa6418}{hostaddress\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The hostaddress of the socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_socket_a86ac6f9715df1dead41f01a9c02b91c8}\label{class_tcp_socket_a86ac6f9715df1dead41f01a9c02b91c8}} 
+ushort \mbox{\hyperlink{class_tcp_socket_a86ac6f9715df1dead41f01a9c02b91c8}{port\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The port of the socket. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_socket_ac4f8715bc5a1b8f50d04a29c7baa7987}\label{class_tcp_socket_ac4f8715bc5a1b8f50d04a29c7baa7987}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_tcp_client_event_listener}{Tcp\+Client\+Event\+Listener}} $>$ \mbox{\hyperlink{class_tcp_socket_ac4f8715bc5a1b8f50d04a29c7baa7987}{client\+Event\+Listener\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The client\+Event\+Listener instance of the socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tcp_socket_a3ecf3132e8c4bf890c07853cfab7619c}\label{class_tcp_socket_a3ecf3132e8c4bf890c07853cfab7619c}} 
+class {\bfseries Tcp\+Server}
+\item 
+\mbox{\Hypertarget{class_tcp_socket_a2cb57636a27be761e0817237d9e5f938}\label{class_tcp_socket_a2cb57636a27be761e0817237d9e5f938}} 
+class {\bfseries Tcp\+Client\+Event\+Listener}
+\item 
+\mbox{\Hypertarget{class_tcp_socket_afff21cc973310e3b55b9f25cd8d76bd0}\label{class_tcp_socket_afff21cc973310e3b55b9f25cd8d76bd0}} 
+class {\bfseries Tcp\+Server\+Event\+Listener}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class provides a T\+CP socket and its connect, disconnect, receive and send packet functions. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 13.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_tcp_socket_aac5a96f2ac3a824fb7c52260a6a6c2bd}\label{class_tcp_socket_aac5a96f2ac3a824fb7c52260a6a6c2bd}} 
+\index{TcpSocket@{TcpSocket}!TcpSocket@{TcpSocket}}
+\index{TcpSocket@{TcpSocket}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{TcpSocket()}{TcpSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Tcp\+Socket\+::\+Tcp\+Socket (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} \&}]{tcp\+Socket }\end{DoxyParamCaption})}
+
+
+
+Copies the values from the specified socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tcp\+Socket} & the socket to copy from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_tcp_socket_adc173be5af51b5ead7ef1f370453c2d2}\label{class_tcp_socket_adc173be5af51b5ead7ef1f370453c2d2}} 
+\index{TcpSocket@{TcpSocket}!TcpSocket@{TcpSocket}}
+\index{TcpSocket@{TcpSocket}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{TcpSocket()}{TcpSocket()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Tcp\+Socket\+::\+Tcp\+Socket (\begin{DoxyParamCaption}\item[{S\+O\+C\+K\+ET \&}]{socket,  }\item[{S\+O\+C\+K\+A\+D\+D\+R\+\_\+\+IN \&}]{address }\end{DoxyParamCaption})}
+
+
+
+Sets the specified socket and address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & the socket to set \\
+\hline
+{\em address} & the address to set \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tcp_socket_a396dcc6c060e02611574c18474deedfc}\label{class_tcp_socket_a396dcc6c060e02611574c18474deedfc}} 
+\index{TcpSocket@{TcpSocket}!connect@{connect}}
+\index{connect@{connect}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily bool Tcp\+Socket\+::connect (\begin{DoxyParamCaption}\item[{const A\+String \&}]{hostaddress,  }\item[{ushort}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Tries to connect to the specified hostaddress and port and returns the success. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hostaddress} & the hostaddress to connect to \\
+\hline
+{\em port} & the port to connect to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the socket could connect to the specified hostaddress and port 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tcp_socket_a1638a4368afb26acee666ea497ba737e}\label{class_tcp_socket_a1638a4368afb26acee666ea497ba737e}} 
+\index{TcpSocket@{TcpSocket}!getHostAddress@{getHostAddress}}
+\index{getHostAddress@{getHostAddress}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{getHostAddress()}{getHostAddress()}}
+{\footnotesize\ttfamily A\+String Tcp\+Socket\+::get\+Host\+Address (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the hostaddress as string. 
+
+\begin{DoxyReturn}{Returns}
+the hostaddress as string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tcp_socket_aae788fccc721be52ff85c0fcbb1424c5}\label{class_tcp_socket_aae788fccc721be52ff85c0fcbb1424c5}} 
+\index{TcpSocket@{TcpSocket}!getPort@{getPort}}
+\index{getPort@{getPort}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{getPort()}{getPort()}}
+{\footnotesize\ttfamily ushort Tcp\+Socket\+::get\+Port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the port. 
+
+\begin{DoxyReturn}{Returns}
+port 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tcp_socket_af08fd94259257c41adcc7b3722574dc6}\label{class_tcp_socket_af08fd94259257c41adcc7b3722574dc6}} 
+\index{TcpSocket@{TcpSocket}!getSocket@{getSocket}}
+\index{getSocket@{getSocket}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{getSocket()}{getSocket()}}
+{\footnotesize\ttfamily S\+O\+C\+K\+ET Tcp\+Socket\+::get\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the W\+I\+N\+A\+PI socket. 
+
+\begin{DoxyReturn}{Returns}
+the W\+I\+N\+A\+PI socket 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tcp_socket_a411dcd4e6875ed636eb96cdac1ab18b9}\label{class_tcp_socket_a411dcd4e6875ed636eb96cdac1ab18b9}} 
+\index{TcpSocket@{TcpSocket}!isLocalPortAvailable@{isLocalPortAvailable}}
+\index{isLocalPortAvailable@{isLocalPortAvailable}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{isLocalPortAvailable()}{isLocalPortAvailable()}}
+{\footnotesize\ttfamily bool Tcp\+Socket\+::is\+Local\+Port\+Available (\begin{DoxyParamCaption}\item[{ushort}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns whether the specified port is available on localhost. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & the port to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the specified port is available on localhost 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tcp_socket_a133a664281c276c9e75d961175814d7d}\label{class_tcp_socket_a133a664281c276c9e75d961175814d7d}} 
+\index{TcpSocket@{TcpSocket}!isPortAvailable@{isPortAvailable}}
+\index{isPortAvailable@{isPortAvailable}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{isPortAvailable()}{isPortAvailable()}}
+{\footnotesize\ttfamily bool Tcp\+Socket\+::is\+Port\+Available (\begin{DoxyParamCaption}\item[{const A\+String \&}]{hostaddress,  }\item[{ushort}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns whether the specified port is available under the specified hostaddress. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hostaddress} & the hostaddress to check \\
+\hline
+{\em port} & the port to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the specified port is available under the specified hostaddress 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tcp_socket_a282abf062b6536eaa57e8ef7fec7a122}\label{class_tcp_socket_a282abf062b6536eaa57e8ef7fec7a122}} 
+\index{TcpSocket@{TcpSocket}!operator==@{operator==}}
+\index{operator==@{operator==}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Tcp\+Socket\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} \&}]{socket }\end{DoxyParamCaption}) const}
+
+
+
+Compares both sockets and returns whether they are equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & the socket to compare \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether both sockets are equal 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tcp_socket_a5c3aedf1e5387e02204d423e39dd6bee}\label{class_tcp_socket_a5c3aedf1e5387e02204d423e39dd6bee}} 
+\index{TcpSocket@{TcpSocket}!receive@{receive}}
+\index{receive@{receive}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{receive()}{receive()}}
+{\footnotesize\ttfamily virtual void Tcp\+Socket\+::receive (\begin{DoxyParamCaption}\item[{const char $\ast$}]{packet,  }\item[{uint}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+This function will be called when the socket receives a packet. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & the received packet \\
+\hline
+{\em length} & the length of the packet received \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_tcp_server_a4a506d4903c2a5ef92ed1ef5542fdedb}{Tcp\+Server}}.
+
+\mbox{\Hypertarget{class_tcp_socket_a9e62b6ef15b2e10d2aa8316439651cd3}\label{class_tcp_socket_a9e62b6ef15b2e10d2aa8316439651cd3}} 
+\index{TcpSocket@{TcpSocket}!send@{send}}
+\index{send@{send}!TcpSocket@{TcpSocket}}
+\subsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily void Tcp\+Socket\+::send (\begin{DoxyParamCaption}\item[{const char $\ast$}]{packet,  }\item[{uint}]{length }\end{DoxyParamCaption})}
+
+
+
+Sends the specified packet as char array to the socket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & the char array \\
+\hline
+{\em length} & the packet length \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Network/tcpsocket.\+h\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Network/tcpsocket.\+cpp\end{DoxyCompactItemize}

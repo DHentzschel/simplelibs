@@ -1,0 +1,281 @@
+\hypertarget{class_dir}{}\section{Dir Class Reference}
+\label{class_dir}\index{Dir@{Dir}}
+
+
+Provides simple functions to create, modify, erase etc.  
+
+
+
+
+{\ttfamily \#include $<$dir.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_dir_a980b2eede48ad286e81ac910871985ad}\label{class_dir_a980b2eede48ad286e81ac910871985ad}} 
+\mbox{\hyperlink{class_dir_a980b2eede48ad286e81ac910871985ad}{Dir}} ()=default
+\begin{DoxyCompactList}\small\item\em Provides the default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_dir_a11b1a16ab3197a15c3807df0e09fce4e}{Dir}} (const \mbox{\hyperlink{class_dir}{Dir}} \&dir)
+\begin{DoxyCompactList}\small\item\em Copies the values from the specified \mbox{\hyperlink{class_dir}{Dir}} instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_dir_af683b1177318b82b880e21356750a6e0}{Dir}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&path) noexcept
+\begin{DoxyCompactList}\small\item\em Sets the default value path. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_dir_a000627e9787773619bccc3d4ef76a7ac}{get\+Path}} () const
+\begin{DoxyCompactList}\small\item\em Returns the directory path as string. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_dir_a08bb155c0d0ae5150997dedce31aa56f}{set\+Path}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&path)
+\begin{DoxyCompactList}\small\item\em Sets the path by parameter and replaces \textbackslash{} by /. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_dir_a58485e06d15995822a108246d2b76b47}{create}} (bool override\+If\+Existing=false) const
+\begin{DoxyCompactList}\small\item\em Tries to create the directory in path variable set. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_dir_ac6bf80b5b3a034e8c144c86ef48ae309}{exists}} () const
+\begin{DoxyCompactList}\small\item\em Returns if the directory located in the path exists. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_dir_ac07ff8b32d21e0dbdfdedf4116b927eb}{erase}} (bool recursively=true) const
+\begin{DoxyCompactList}\small\item\em Erases the directory located in the path, depending on recursively if recursively. \end{DoxyCompactList}\item 
+int64 \mbox{\hyperlink{class_dir_ae69556b4b4495ac7fe5854d1f025488e}{get\+File\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Returns the count of the files inside the directory. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ std\+::filesystem\+::directory\+\_\+entry $>$ \& \mbox{\hyperlink{class_dir_ae573871f2f0ff5ec00ff20e7dc2ab709}{get\+Files}} ()
+\begin{DoxyCompactList}\small\item\em Returns a list of filenames inside the directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{class_dir_ac663fd2a33309bdb6b501439532d7477}{create}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&path, bool override\+If\+Existing=false)
+\begin{DoxyCompactList}\small\item\em Tries to create the directory in path variable set. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_dir_a27343faa005694b64f6c320f992d5937}{exists}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&path)
+\begin{DoxyCompactList}\small\item\em Returns if the directory located in the path exists. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_dir_a6bc8cdb4747c026b114f3e89b34d627f}{erase}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&path, bool recursively=true)
+\begin{DoxyCompactList}\small\item\em Erases the directory located in the path, depending on recursively if recursively. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_dir_afa7ce6cd68c2ba64a8511d3480a198f6}{get\+Dir}} (Directory directory)
+\begin{DoxyCompactList}\small\item\em Returns the path by directoy type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides simple functions to create, modify, erase etc. 
+
+directories.
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 11.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_dir_a11b1a16ab3197a15c3807df0e09fce4e}\label{class_dir_a11b1a16ab3197a15c3807df0e09fce4e}} 
+\index{Dir@{Dir}!Dir@{Dir}}
+\index{Dir@{Dir}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{Dir()}{Dir()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Dir\+::\+Dir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_dir}{Dir}} \&}]{dir }\end{DoxyParamCaption})}
+
+
+
+Copies the values from the specified \mbox{\hyperlink{class_dir}{Dir}} instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir} & the \mbox{\hyperlink{class_dir}{Dir}} instance to copy from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_dir_af683b1177318b82b880e21356750a6e0}\label{class_dir_af683b1177318b82b880e21356750a6e0}} 
+\index{Dir@{Dir}!Dir@{Dir}}
+\index{Dir@{Dir}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{Dir()}{Dir()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Dir\+::\+Dir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+
+
+Sets the default value path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the directory path \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_dir_a58485e06d15995822a108246d2b76b47}\label{class_dir_a58485e06d15995822a108246d2b76b47}} 
+\index{Dir@{Dir}!create@{create}}
+\index{create@{create}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Dir\+::create (\begin{DoxyParamCaption}\item[{bool}]{override\+If\+Existing = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+
+
+Tries to create the directory in path variable set. 
+
+Depending on parameter override\+If\+Existing, the directory will be overridden or not.
+
+
+\begin{DoxyParams}{Parameters}
+{\em override\+If\+Existing} & override if the folder exists \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the directory could get created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dir_ac663fd2a33309bdb6b501439532d7477}\label{class_dir_ac663fd2a33309bdb6b501439532d7477}} 
+\index{Dir@{Dir}!create@{create}}
+\index{create@{create}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{create()}{create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Dir\+::create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{path,  }\item[{bool}]{override\+If\+Existing = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Tries to create the directory in path variable set. 
+
+Depending on parameter override\+If\+Existing, the directory will be overridden or not.
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the path to create \\
+\hline
+{\em override\+If\+Existing} & override if the folder exists \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the directory could get created 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dir_ac07ff8b32d21e0dbdfdedf4116b927eb}\label{class_dir_ac07ff8b32d21e0dbdfdedf4116b927eb}} 
+\index{Dir@{Dir}!erase@{erase}}
+\index{erase@{erase}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{erase()}{erase()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Dir\+::erase (\begin{DoxyParamCaption}\item[{bool}]{recursively = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Erases the directory located in the path, depending on recursively if recursively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em recursively} & if the directory should be erased recursively \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the directory could be erased 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dir_a6bc8cdb4747c026b114f3e89b34d627f}\label{class_dir_a6bc8cdb4747c026b114f3e89b34d627f}} 
+\index{Dir@{Dir}!erase@{erase}}
+\index{erase@{erase}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{erase()}{erase()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Dir\+::erase (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{path,  }\item[{bool}]{recursively = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Erases the directory located in the path, depending on recursively if recursively. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the directory to erase \\
+\hline
+{\em recursively} & if the directory should be erased recursively \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the directory could be erased 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dir_ac6bf80b5b3a034e8c144c86ef48ae309}\label{class_dir_ac6bf80b5b3a034e8c144c86ef48ae309}} 
+\index{Dir@{Dir}!exists@{exists}}
+\index{exists@{exists}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{exists()}{exists()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Dir\+::exists (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns if the directory located in the path exists. 
+
+\begin{DoxyReturn}{Returns}
+if the directory exists 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dir_a27343faa005694b64f6c320f992d5937}\label{class_dir_a27343faa005694b64f6c320f992d5937}} 
+\index{Dir@{Dir}!exists@{exists}}
+\index{exists@{exists}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{exists()}{exists()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Dir\+::exists (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns if the directory located in the path exists. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the directory path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the directory exists 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dir_afa7ce6cd68c2ba64a8511d3480a198f6}\label{class_dir_afa7ce6cd68c2ba64a8511d3480a198f6}} 
+\index{Dir@{Dir}!getDir@{getDir}}
+\index{getDir@{getDir}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{getDir()}{getDir()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} Dir\+::get\+Dir (\begin{DoxyParamCaption}\item[{Directory}]{directory }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Returns the path by directoy type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory} & the enum of the directory type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the full path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dir_ae69556b4b4495ac7fe5854d1f025488e}\label{class_dir_ae69556b4b4495ac7fe5854d1f025488e}} 
+\index{Dir@{Dir}!getFileCount@{getFileCount}}
+\index{getFileCount@{getFileCount}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{getFileCount()}{getFileCount()}}
+{\footnotesize\ttfamily int64 Dir\+::get\+File\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the count of the files inside the directory. 
+
+\begin{DoxyReturn}{Returns}
+the count of files inside the directory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dir_ae573871f2f0ff5ec00ff20e7dc2ab709}\label{class_dir_ae573871f2f0ff5ec00ff20e7dc2ab709}} 
+\index{Dir@{Dir}!getFiles@{getFiles}}
+\index{getFiles@{getFiles}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{getFiles()}{getFiles()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ std\+::filesystem\+::directory\+\_\+entry $>$ \& Dir\+::get\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a list of filenames inside the directory. 
+
+\begin{DoxyReturn}{Returns}
+a list of filenames inside the directory 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dir_a000627e9787773619bccc3d4ef76a7ac}\label{class_dir_a000627e9787773619bccc3d4ef76a7ac}} 
+\index{Dir@{Dir}!getPath@{getPath}}
+\index{getPath@{getPath}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} Dir\+::get\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the directory path as string. 
+
+\begin{DoxyReturn}{Returns}
+path the directory path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_dir_a08bb155c0d0ae5150997dedce31aa56f}\label{class_dir_a08bb155c0d0ae5150997dedce31aa56f}} 
+\index{Dir@{Dir}!setPath@{setPath}}
+\index{setPath@{setPath}!Dir@{Dir}}
+\subsubsection{\texorpdfstring{setPath()}{setPath()}}
+{\footnotesize\ttfamily void Dir\+::set\+Path (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Sets the path by parameter and replaces \textbackslash{} by /. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the absolute or relative path \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/dir.\+h\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/dir.\+cpp\end{DoxyCompactItemize}

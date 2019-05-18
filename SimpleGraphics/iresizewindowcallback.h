@@ -1,7 +1,7 @@
 #ifndef IRESIZEWINDOWCALLBACK_H
 #define IRESIZEWINDOWCALLBACK_H
 
-#include <vector2.h>
+#include <vector2i.h>
 
 struct GLFWwindow;
 typedef struct GLFWwindow GLFWwindow;
@@ -16,7 +16,7 @@ class IResizeWindowCallback {
 public:
     void invokeCallback(GLFWwindow* window, int width, int height);
 
-    virtual void invoke(GLFWwindow* window, const Vector2& size) {}
+    virtual void invoke(GLFWwindow* window, const Vector2i& size) {}
 
 private:
     IMaximizeWindowCallback* maximizeWindowCallback_ = nullptr;

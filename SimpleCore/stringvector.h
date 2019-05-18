@@ -4,17 +4,48 @@
 #include "astring.h"
 #include "avector.h"
 
+class AString;
+
+/**
+ * This class is used to improve handling string vectors.
+ *
+ * @author Daniel Hentzschel on 13.05.2019.
+ */
 class StringVector : public AVector<AString> {
 public:
-    StringVector() = default;
+	/**
+	 * Calls the default constructor.
+	 */
+	StringVector() = default;
 
-    StringVector(const AVector<AString>& right);
+	/**
+	 * Copies the value of the specified string vector.
+	 *
+	 * @param stringVector the string vector to copy from
+	 */
+	StringVector(const StringVector& stringVector);
 
-    void removeEmpties();
+	/**
+	 * Copies the value of the specified string vector.
+	 *
+	 * @param stringVector the string vector to copy from
+	 */
+	StringVector(const AVector<AString>& stringVector);
 
-    void removeWhitespaces();
+	/**
+	 * Removes any string from the vector that is empty.
+	 */
+	void removeEmpties();
 
-    void removeEscapes();
+	/**
+	 * Removes any string from the vector that only contains whitespaces.
+	 */
+	void removeWhitespaces();
+
+	/**
+	 * Removes any string from the vector that only contains escape characters.
+	 */
+	void removeEscapes();
 };
 
 #endif // STRINGVECTOR_H

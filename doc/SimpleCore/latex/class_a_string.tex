@@ -1,0 +1,1342 @@
+\hypertarget{class_a_string}{}\section{A\+String Class Reference}
+\label{class_a_string}\index{AString@{AString}}
+
+
+This class extends the std\+::string class by auxiliary functions.  
+
+
+
+
+{\ttfamily \#include $<$astring.\+h$>$}
+
+Inheritance diagram for A\+String\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_string}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_a_string_a448a659ba1ce4f66d4df8517b7267825}\label{class_a_string_a448a659ba1ce4f66d4df8517b7267825}} 
+\mbox{\hyperlink{class_a_string_a448a659ba1ce4f66d4df8517b7267825}{A\+String}} ()=default
+\begin{DoxyCompactList}\small\item\em Calls the default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string_a0d8d5ba424e88b1a4b466c63f9d32d6d}{A\+String}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string)
+\begin{DoxyCompactList}\small\item\em Copies the value from the specified string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string_a97a4d0d44621ca901455777c857f9032}{A\+String}} (const std\+::string \&string)
+\begin{DoxyCompactList}\small\item\em Copies the value from the specified std\+::string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string_a2cf05e679f64fb2d5e6e4154d6f7abcd}{A\+String}} (const char $\ast$string)
+\begin{DoxyCompactList}\small\item\em Copies the value from the specified char array. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_abe25a22470606db76c275a7d73563bf6}{arg}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&value)
+\begin{DoxyCompactList}\small\item\em Replaces the next placeholder (number) by the specified string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_a36d25fc88d7f9eccee2b7d0659c19d64}{left}} (size\+\_\+t n) const
+\begin{DoxyCompactList}\small\item\em Returns the left side of the string starting at index 0 ending at index n as new string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_aa1f94f677d3db968b09750755ffad121}{right}} (size\+\_\+t n) const
+\begin{DoxyCompactList}\small\item\em Returns the right side of the string starting at index n ending at index size-\/1 as new string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_a7f87ec8aea6fbd0605ac5b987e8d2d6e}{append}} (char c)
+\begin{DoxyCompactList}\small\item\em Appends the specified char to the string and returns the reference to the current instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_aeac95119d8284d146b4b59ba773a351a}{append}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string)
+\begin{DoxyCompactList}\small\item\em Appends the specified string to the string and returns the reference to the current instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_a8430996f2870ab0ffb4a00d7179fbc91}{fill}} (char c, size\+\_\+t size=-\/1)
+\begin{DoxyCompactList}\small\item\em Fills the string with the specified char from index 0 up to index size-\/1. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_a792e892cd6724764b3f279bbc23444c3}{prepend}} (char c)
+\begin{DoxyCompactList}\small\item\em Prepends the specified char to the string and returns the reference to the current instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_a0835a8afa3a490196003c11e23653e4a}{prepend}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string)
+\begin{DoxyCompactList}\small\item\em Prepends the specified string to the string and returns the reference to the current instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_aa5449e9044b69fa7987139d32981b374}{remove\+All}} (char c, bool case\+Sensitive=true)
+\begin{DoxyCompactList}\small\item\em Removes all occurrences that are equal to the specified char. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_a4b4c9d14b53ed0dce8314d7d14755d8b}{remove\+All}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string, bool case\+Sensitive=true)
+\begin{DoxyCompactList}\small\item\em Removes all occurrences that are equal to the specified string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_a5fe11f844aa85e053fbf0bedc18cd557}{remove\+First}} (char c, bool case\+Sensitive=true)
+\begin{DoxyCompactList}\small\item\em Removes the first occurrence that is equal to the specified char. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_af7ef7985f65cfab4b67b5772717f7496}{remove\+First}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string, bool case\+Sensitive=true)
+\begin{DoxyCompactList}\small\item\em Removes the first occurrence that is equal to the specified string. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_a04bdc2e3cdfe637d2e5754227677eea1}{repeat}} (int times)
+\begin{DoxyCompactList}\small\item\em Appends the current string to the current instance \char`\"{}times\char`\"{} times. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_a53703f2b13b21435e7cdadc4fd1a7015}{replace\+All}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&from, const \mbox{\hyperlink{class_a_string}{A\+String}} \&to, bool case\+Sensitive=true)
+\begin{DoxyCompactList}\small\item\em Replaces all occurrences that are equal to \char`\"{}from\char`\"{} by \char`\"{}to\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_af28290e59b97962a365e89e475376ac7}{replace\+First}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&from, const \mbox{\hyperlink{class_a_string}{A\+String}} \&to, bool case\+Sensitive=true)
+\begin{DoxyCompactList}\small\item\em Replaces the first occurrence that is equal to \char`\"{}from\char`\"{} by \char`\"{}to\char`\"{}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_aade3f9bf7dfe337df49f7f094068379e}{to\+Lower}} ()
+\begin{DoxyCompactList}\small\item\em Converts the current string to lowercase and returns the reference to the current instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_af4def080314da5a03fcead8b7cf822bc}{to\+Upper}} ()
+\begin{DoxyCompactList}\small\item\em Converts the current string to uppercase and returns the reference to the current instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_a2ba7d2ba7eb61998453f7e7ce364d441}{trim}} ()
+\begin{DoxyCompactList}\small\item\em Removes all trailing whitespaces and returns the reference to the current instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_string_vector}{String\+Vector}} \mbox{\hyperlink{class_a_string_a025f539406111e39b0bf54a2ffcda8aa}{split}} (char separator, bool case\+Sensitive=true) const
+\begin{DoxyCompactList}\small\item\em Splits the current string by the specified separator and returns a new string vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_string_vector}{String\+Vector}} \mbox{\hyperlink{class_a_string_a08266b27ed113b4a844b8eb9947b3e02}{split}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&separator, bool case\+Sensitive=true) const
+\begin{DoxyCompactList}\small\item\em Splits the current string by the specified separator and returns a new string vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_string_vector}{String\+Vector}} \mbox{\hyperlink{class_a_string_a16ed628b786ec5d4b570df1249637ef9}{split\+By\+Non\+Numerics}} () const
+\begin{DoxyCompactList}\small\item\em Splits the current string by non numeric chars and returns a new string vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_string_vector}{String\+Vector}} \mbox{\hyperlink{class_a_string_aaae243575004e5091025cacf9313ea76}{split\+By\+Numerics}} () const
+\begin{DoxyCompactList}\small\item\em Splits the current string by numeric chars and returns a new string vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_byte_array}{Byte\+Array}} \mbox{\hyperlink{class_a_string_ae9d0a67c87c20152d5ab770ad1b955ac}{to\+Byte\+Array}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to a byte array and returns it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_aec4ad61af8cd225bda08719550ec8e72}{contains}} (char c, bool case\+Sensitive=true) const
+\begin{DoxyCompactList}\small\item\em Returns whether the string contains the specified char. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_abe6a9966ef157e0584c279377b6c9987}{contains}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string, bool case\+Sensitive=true) const
+\begin{DoxyCompactList}\small\item\em Returns whether the string contains the specified string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_ae73b26b17b08f56851737b5cf45a21e6}{ends\+With}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string, bool case\+Sensitive=true) const
+\begin{DoxyCompactList}\small\item\em Returns whether the string ends with the specified string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_a783f45da45fb0e7685932d44a188e831}{equals}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string, bool case\+Sensitive=true) const
+\begin{DoxyCompactList}\small\item\em Returns whether the string is equal to the specified string. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_ab8146522d4484d8aec3005dbe60dcfef}{is\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the current string is empty. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_a693a5dd685ee812406e6643fd964ec7c}{is\+Float\+Number}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the current string is a floating point number. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_a8b3516a3c934fde801074ef792f1468b}{is\+Number}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the current string is a number. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_a7d7f2482f18578ddda0ec825ef58545a}{is\+Only\+Escapes}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the current string consists of escape characters only. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_a506192a29a529eccacfa3a4dfb1a234b}{is\+Only\+Whitespaces}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the current string consists of whitespaces only. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_a166108dfe6ceecf9267441715c3a7bce}{is\+Without\+Whitespaces}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the current string does not contain whitespaces. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_aef584231c6ddc8925fbfa92ccf22cf53}{starts\+With}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string, bool case\+Sensitive=true) const
+\begin{DoxyCompactList}\small\item\em Returns whether the string starts with the specified string. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_a_string_aec69f5126101c65f03723a7969d5cccd}{count}} (char c, bool case\+Sensitive=true) const
+\begin{DoxyCompactList}\small\item\em Counts the occurrences of the specified char and returns the value. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_a_string_a24d7963315d80af76af246970f8c19dd}{count}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&string, bool case\+Sensitive=true) const
+\begin{DoxyCompactList}\small\item\em Counts the occurrences of the specified string and returns the value. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_a_string_aed6d37a9b7bfd2dee2d50c37401a1dad}{count\+Words}} () const
+\begin{DoxyCompactList}\small\item\em Counts the words in the string and returns the value. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_a_string_a8b92a3ca206d9a1a091c8e0609d39c0b}{first\+Index\+Of}} (char c) const
+\begin{DoxyCompactList}\small\item\em Returns the first index of the specified character occurrence. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_a_string_a28ba997ce8f0acc4d05cc567bdfce6d0}{index\+Of}} (char c) const
+\begin{DoxyCompactList}\small\item\em Returns the first index of the specified character occurrence. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_a_string_a11458abb719f576874995cc1a1e06078}{last\+Index\+Of}} (char c) const
+\begin{DoxyCompactList}\small\item\em Returns the last index of the specified character occurrence. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_string_addea3a08682e1875b48d679f30f539cb}{to\+Bool}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to bool and returns it. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_a_string_a6cb34c26433abd7e75e0bdf9bb40ccba}{to\+Char}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to char and returns it. \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{class_a_string_a67f811fea214d958fe296fef79776bc1}{to\+Byte}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to byte and returns it. \end{DoxyCompactList}\item 
+short \mbox{\hyperlink{class_a_string_a57ad542374eaadedfd9bcc4789887d79}{to\+Short}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to short and returns it. \end{DoxyCompactList}\item 
+ushort \mbox{\hyperlink{class_a_string_a4540c5503000d2f399617920055de7a4}{to\+U\+Short}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to ushort and returns it. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_a_string_a037e4cedecdb1d68614cf3f199f85834}{to\+Int}} (int base=10) const
+\begin{DoxyCompactList}\small\item\em Converts the current string to int32 and returns it. \end{DoxyCompactList}\item 
+uint \mbox{\hyperlink{class_a_string_ad674ff871fa6106dc82f3e03acec3639}{to\+U\+Int}} (int base=10) const
+\begin{DoxyCompactList}\small\item\em Converts the current string to uint32 and returns it. \end{DoxyCompactList}\item 
+int64 \mbox{\hyperlink{class_a_string_affa719b95e059f7c0ef8eb43b3a892bf}{to\+Int64}} (int base=10) const
+\begin{DoxyCompactList}\small\item\em Converts the current string to int64 and returns it. \end{DoxyCompactList}\item 
+uint64 \mbox{\hyperlink{class_a_string_a92130012ffd32a72fe43750592e70ef5}{to\+U\+Int64}} (int base=10) const
+\begin{DoxyCompactList}\small\item\em Converts the current string to uint64 and returns it. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{class_a_string_ab0a1fc558e39014f0feffc055c1fa47b}{to\+C\+String}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to char array and returns it. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_a_string_a101d529c5dfb9803eac440e6f3819cda}{to\+Float}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to float and returns it. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_a_string_ad44ce14af9b6948b4be656e5ccafa0b8}{to\+Double}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to double and returns it. \end{DoxyCompactList}\item 
+long double \mbox{\hyperlink{class_a_string_a7ce9b9dd2163dac80a4a80e5cb81878a}{to\+Long\+Double}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to long double and returns it. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_a_string_a4854e78fcc05431efb96eaa99e271fea}{to\+Std\+String}} () const
+\begin{DoxyCompactList}\small\item\em Converts the current string to std\+::string and returns it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_a13ac330330d3f576a06e8ef3316ef293}{to\+String}} (bool n, bool in\+Letters=false)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_a364c9570a8fc099dd09ce78ae8818dc7}{to\+String}} (char n)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_a82429501ef9ff6b7c629ad60413d1c3e}{to\+String}} (short n)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_a90c07f40ff8685c41a3c6db271754686}{to\+String}} (int n)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_a47d640a0d7b63e9253f57568d2ff2542}{to\+String}} (int64 n)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_ae64483053e51e9e0041763ec5eb21ba5}{to\+String}} (byte n)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_abafe383896be322a46407bd02c41b897}{to\+String}} (ushort n)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_adb67a341fe4bd0661b0a5f141080d633}{to\+String}} (uint n)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_a88cbae5cb369bb16f664922dfd94b8e4}{to\+String}} (uint64 n)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_a90e2279607dbe3d80f96da3b85b5fde9}{to\+String}} (float n)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_a_string}{A\+String}} \mbox{\hyperlink{class_a_string_a8f368aefb4edd72523a764d960ba7308}{to\+String}} (double n)
+\begin{DoxyCompactList}\small\item\em Converts the specified number to string and returns it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class extends the std\+::string class by auxiliary functions. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 13.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_a_string_a0d8d5ba424e88b1a4b466c63f9d32d6d}\label{class_a_string_a0d8d5ba424e88b1a4b466c63f9d32d6d}} 
+\index{AString@{AString}!AString@{AString}}
+\index{AString@{AString}!AString@{AString}}
+\subsubsection{\texorpdfstring{AString()}{AString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily A\+String\+::\+A\+String (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string }\end{DoxyParamCaption})}
+
+
+
+Copies the value from the specified string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to copy from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_string_a97a4d0d44621ca901455777c857f9032}\label{class_a_string_a97a4d0d44621ca901455777c857f9032}} 
+\index{AString@{AString}!AString@{AString}}
+\index{AString@{AString}!AString@{AString}}
+\subsubsection{\texorpdfstring{AString()}{AString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily A\+String\+::\+A\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{string }\end{DoxyParamCaption})}
+
+
+
+Copies the value from the specified std\+::string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to copy from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_string_a2cf05e679f64fb2d5e6e4154d6f7abcd}\label{class_a_string_a2cf05e679f64fb2d5e6e4154d6f7abcd}} 
+\index{AString@{AString}!AString@{AString}}
+\index{AString@{AString}!AString@{AString}}
+\subsubsection{\texorpdfstring{AString()}{AString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily A\+String\+::\+A\+String (\begin{DoxyParamCaption}\item[{const char $\ast$}]{string }\end{DoxyParamCaption})}
+
+
+
+Copies the value from the specified char array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the char array to copy from \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_string_a7f87ec8aea6fbd0605ac5b987e8d2d6e}\label{class_a_string_a7f87ec8aea6fbd0605ac5b987e8d2d6e}} 
+\index{AString@{AString}!append@{append}}
+\index{append@{append}!AString@{AString}}
+\subsubsection{\texorpdfstring{append()}{append()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::append (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Appends the specified char to the string and returns the reference to the current instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to append \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_aeac95119d8284d146b4b59ba773a351a}\label{class_a_string_aeac95119d8284d146b4b59ba773a351a}} 
+\index{AString@{AString}!append@{append}}
+\index{append@{append}!AString@{AString}}
+\subsubsection{\texorpdfstring{append()}{append()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::append (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string }\end{DoxyParamCaption})}
+
+
+
+Appends the specified string to the string and returns the reference to the current instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to append \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_abe25a22470606db76c275a7d73563bf6}\label{class_a_string_abe25a22470606db76c275a7d73563bf6}} 
+\index{AString@{AString}!arg@{arg}}
+\index{arg@{arg}!AString@{AString}}
+\subsubsection{\texorpdfstring{arg()}{arg()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::arg (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Replaces the next placeholder (number) by the specified string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the string to copy from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the replaced string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_aec4ad61af8cd225bda08719550ec8e72}\label{class_a_string_aec4ad61af8cd225bda08719550ec8e72}} 
+\index{AString@{AString}!contains@{contains}}
+\index{contains@{contains}!AString@{AString}}
+\subsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool A\+String\+::contains (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the string contains the specified char. 
+
+If case\+Sensitive is true (default), the separator will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to find \\
+\hline
+{\em case\+Sensitive} & whether the char should be searched case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the current string contains the specified char 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_abe6a9966ef157e0584c279377b6c9987}\label{class_a_string_abe6a9966ef157e0584c279377b6c9987}} 
+\index{AString@{AString}!contains@{contains}}
+\index{contains@{contains}!AString@{AString}}
+\subsubsection{\texorpdfstring{contains()}{contains()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool A\+String\+::contains (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the string contains the specified string. 
+
+If case\+Sensitive is true (default), the separator will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to find \\
+\hline
+{\em case\+Sensitive} & whether the string should be searched case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the current string contains the specified string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_aec69f5126101c65f03723a7969d5cccd}\label{class_a_string_aec69f5126101c65f03723a7969d5cccd}} 
+\index{AString@{AString}!count@{count}}
+\index{count@{count}!AString@{AString}}
+\subsubsection{\texorpdfstring{count()}{count()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily size\+\_\+t A\+String\+::count (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Counts the occurrences of the specified char and returns the value. 
+
+If case\+Sensitive is true (default), the char will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to count \\
+\hline
+{\em case\+Sensitive} & whether the char should be counted case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the count of c occurring in the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a24d7963315d80af76af246970f8c19dd}\label{class_a_string_a24d7963315d80af76af246970f8c19dd}} 
+\index{AString@{AString}!count@{count}}
+\index{count@{count}!AString@{AString}}
+\subsubsection{\texorpdfstring{count()}{count()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily size\+\_\+t A\+String\+::count (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Counts the occurrences of the specified string and returns the value. 
+
+If case\+Sensitive is true (default), the string will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to count \\
+\hline
+{\em case\+Sensitive} & whether the string should be counted case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the count of string occurring in the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_aed6d37a9b7bfd2dee2d50c37401a1dad}\label{class_a_string_aed6d37a9b7bfd2dee2d50c37401a1dad}} 
+\index{AString@{AString}!countWords@{countWords}}
+\index{countWords@{countWords}!AString@{AString}}
+\subsubsection{\texorpdfstring{countWords()}{countWords()}}
+{\footnotesize\ttfamily size\+\_\+t A\+String\+::count\+Words (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Counts the words in the string and returns the value. 
+
+\begin{DoxyReturn}{Returns}
+the count of words in the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_ae73b26b17b08f56851737b5cf45a21e6}\label{class_a_string_ae73b26b17b08f56851737b5cf45a21e6}} 
+\index{AString@{AString}!endsWith@{endsWith}}
+\index{endsWith@{endsWith}!AString@{AString}}
+\subsubsection{\texorpdfstring{endsWith()}{endsWith()}}
+{\footnotesize\ttfamily bool A\+String\+::ends\+With (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the string ends with the specified string. 
+
+If case\+Sensitive is true (default), the string will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to compare \\
+\hline
+{\em case\+Sensitive} & whether the string should be compared case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the current string ends with the specified string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a783f45da45fb0e7685932d44a188e831}\label{class_a_string_a783f45da45fb0e7685932d44a188e831}} 
+\index{AString@{AString}!equals@{equals}}
+\index{equals@{equals}!AString@{AString}}
+\subsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily bool A\+String\+::equals (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the string is equal to the specified string. 
+
+If case\+Sensitive is true (default), the string will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to compare \\
+\hline
+{\em case\+Sensitive} & whether the string should be compared case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the string is equal to the specified string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a8430996f2870ab0ffb4a00d7179fbc91}\label{class_a_string_a8430996f2870ab0ffb4a00d7179fbc91}} 
+\index{AString@{AString}!fill@{fill}}
+\index{fill@{fill}!AString@{AString}}
+\subsubsection{\texorpdfstring{fill()}{fill()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::fill (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{size\+\_\+t}]{size = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+Fills the string with the specified char from index 0 up to index size-\/1. 
+
+If the size is -\/1 (default), each char of the string will be replaced by the specified char. If the size is not -\/1, the string will be cleared and filled with the specified char size times.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to set \\
+\hline
+{\em size} & the size of the string to fill \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a8b92a3ca206d9a1a091c8e0609d39c0b}\label{class_a_string_a8b92a3ca206d9a1a091c8e0609d39c0b}} 
+\index{AString@{AString}!firstIndexOf@{firstIndexOf}}
+\index{firstIndexOf@{firstIndexOf}!AString@{AString}}
+\subsubsection{\texorpdfstring{firstIndexOf()}{firstIndexOf()}}
+{\footnotesize\ttfamily size\+\_\+t A\+String\+::first\+Index\+Of (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption}) const}
+
+
+
+Returns the first index of the specified character occurrence. 
+
+Returns (uint64)-\/1 if there is no such char.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of the specified char 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a28ba997ce8f0acc4d05cc567bdfce6d0}\label{class_a_string_a28ba997ce8f0acc4d05cc567bdfce6d0}} 
+\index{AString@{AString}!indexOf@{indexOf}}
+\index{indexOf@{indexOf}!AString@{AString}}
+\subsubsection{\texorpdfstring{indexOf()}{indexOf()}}
+{\footnotesize\ttfamily size\+\_\+t A\+String\+::index\+Of (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption}) const}
+
+
+
+Returns the first index of the specified character occurrence. 
+
+Returns (uint64)-\/1 if there is no such char.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first index of the specified char 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_ab8146522d4484d8aec3005dbe60dcfef}\label{class_a_string_ab8146522d4484d8aec3005dbe60dcfef}} 
+\index{AString@{AString}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!AString@{AString}}
+\subsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily bool A\+String\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the current string is empty. 
+
+\begin{DoxyReturn}{Returns}
+whether the current string is empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a693a5dd685ee812406e6643fd964ec7c}\label{class_a_string_a693a5dd685ee812406e6643fd964ec7c}} 
+\index{AString@{AString}!isFloatNumber@{isFloatNumber}}
+\index{isFloatNumber@{isFloatNumber}!AString@{AString}}
+\subsubsection{\texorpdfstring{isFloatNumber()}{isFloatNumber()}}
+{\footnotesize\ttfamily bool A\+String\+::is\+Float\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the current string is a floating point number. 
+
+\begin{DoxyReturn}{Returns}
+whether the current string is a floating point number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a8b3516a3c934fde801074ef792f1468b}\label{class_a_string_a8b3516a3c934fde801074ef792f1468b}} 
+\index{AString@{AString}!isNumber@{isNumber}}
+\index{isNumber@{isNumber}!AString@{AString}}
+\subsubsection{\texorpdfstring{isNumber()}{isNumber()}}
+{\footnotesize\ttfamily bool A\+String\+::is\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the current string is a number. 
+
+\begin{DoxyReturn}{Returns}
+whether the current string is a number 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a7d7f2482f18578ddda0ec825ef58545a}\label{class_a_string_a7d7f2482f18578ddda0ec825ef58545a}} 
+\index{AString@{AString}!isOnlyEscapes@{isOnlyEscapes}}
+\index{isOnlyEscapes@{isOnlyEscapes}!AString@{AString}}
+\subsubsection{\texorpdfstring{isOnlyEscapes()}{isOnlyEscapes()}}
+{\footnotesize\ttfamily bool A\+String\+::is\+Only\+Escapes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the current string consists of escape characters only. 
+
+\begin{DoxyReturn}{Returns}
+whether the current string consists of escape characters only 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a506192a29a529eccacfa3a4dfb1a234b}\label{class_a_string_a506192a29a529eccacfa3a4dfb1a234b}} 
+\index{AString@{AString}!isOnlyWhitespaces@{isOnlyWhitespaces}}
+\index{isOnlyWhitespaces@{isOnlyWhitespaces}!AString@{AString}}
+\subsubsection{\texorpdfstring{isOnlyWhitespaces()}{isOnlyWhitespaces()}}
+{\footnotesize\ttfamily bool A\+String\+::is\+Only\+Whitespaces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the current string consists of whitespaces only. 
+
+\begin{DoxyReturn}{Returns}
+whether the current string consists of whitespaces only 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a166108dfe6ceecf9267441715c3a7bce}\label{class_a_string_a166108dfe6ceecf9267441715c3a7bce}} 
+\index{AString@{AString}!isWithoutWhitespaces@{isWithoutWhitespaces}}
+\index{isWithoutWhitespaces@{isWithoutWhitespaces}!AString@{AString}}
+\subsubsection{\texorpdfstring{isWithoutWhitespaces()}{isWithoutWhitespaces()}}
+{\footnotesize\ttfamily bool A\+String\+::is\+Without\+Whitespaces (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the current string does not contain whitespaces. 
+
+\begin{DoxyReturn}{Returns}
+whether the current string does not contain whitespaces 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a11458abb719f576874995cc1a1e06078}\label{class_a_string_a11458abb719f576874995cc1a1e06078}} 
+\index{AString@{AString}!lastIndexOf@{lastIndexOf}}
+\index{lastIndexOf@{lastIndexOf}!AString@{AString}}
+\subsubsection{\texorpdfstring{lastIndexOf()}{lastIndexOf()}}
+{\footnotesize\ttfamily size\+\_\+t A\+String\+::last\+Index\+Of (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption}) const}
+
+
+
+Returns the last index of the specified character occurrence. 
+
+Returns (uint64)-\/1 if there is no such char.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the last index of the specified char 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a36d25fc88d7f9eccee2b7d0659c19d64}\label{class_a_string_a36d25fc88d7f9eccee2b7d0659c19d64}} 
+\index{AString@{AString}!left@{left}}
+\index{left@{left}!AString@{AString}}
+\subsubsection{\texorpdfstring{left()}{left()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::left (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Returns the left side of the string starting at index 0 ending at index n as new string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the length of the substring \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the left side of the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a792e892cd6724764b3f279bbc23444c3}\label{class_a_string_a792e892cd6724764b3f279bbc23444c3}} 
+\index{AString@{AString}!prepend@{prepend}}
+\index{prepend@{prepend}!AString@{AString}}
+\subsubsection{\texorpdfstring{prepend()}{prepend()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::prepend (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
+
+
+
+Prepends the specified char to the string and returns the reference to the current instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to prepend \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a0835a8afa3a490196003c11e23653e4a}\label{class_a_string_a0835a8afa3a490196003c11e23653e4a}} 
+\index{AString@{AString}!prepend@{prepend}}
+\index{prepend@{prepend}!AString@{AString}}
+\subsubsection{\texorpdfstring{prepend()}{prepend()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::prepend (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string }\end{DoxyParamCaption})}
+
+
+
+Prepends the specified string to the string and returns the reference to the current instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to prepend \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_aa5449e9044b69fa7987139d32981b374}\label{class_a_string_aa5449e9044b69fa7987139d32981b374}} 
+\index{AString@{AString}!removeAll@{removeAll}}
+\index{removeAll@{removeAll}!AString@{AString}}
+\subsubsection{\texorpdfstring{removeAll()}{removeAll()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::remove\+All (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Removes all occurrences that are equal to the specified char. 
+
+If case\+Sensitive is true (default), the char will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to remove \\
+\hline
+{\em case\+Sensitive} & whether the char should be searched case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a4b4c9d14b53ed0dce8314d7d14755d8b}\label{class_a_string_a4b4c9d14b53ed0dce8314d7d14755d8b}} 
+\index{AString@{AString}!removeAll@{removeAll}}
+\index{removeAll@{removeAll}!AString@{AString}}
+\subsubsection{\texorpdfstring{removeAll()}{removeAll()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::remove\+All (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Removes all occurrences that are equal to the specified string. 
+
+If case\+Sensitive is true (default), the string will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to remove \\
+\hline
+{\em case\+Sensitive} & whether the string should be searched case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a5fe11f844aa85e053fbf0bedc18cd557}\label{class_a_string_a5fe11f844aa85e053fbf0bedc18cd557}} 
+\index{AString@{AString}!removeFirst@{removeFirst}}
+\index{removeFirst@{removeFirst}!AString@{AString}}
+\subsubsection{\texorpdfstring{removeFirst()}{removeFirst()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::remove\+First (\begin{DoxyParamCaption}\item[{char}]{c,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Removes the first occurrence that is equal to the specified char. 
+
+If case\+Sensitive is true (default), the char will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char to remove \\
+\hline
+{\em case\+Sensitive} & whether the char should be searched case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_af7ef7985f65cfab4b67b5772717f7496}\label{class_a_string_af7ef7985f65cfab4b67b5772717f7496}} 
+\index{AString@{AString}!removeFirst@{removeFirst}}
+\index{removeFirst@{removeFirst}!AString@{AString}}
+\subsubsection{\texorpdfstring{removeFirst()}{removeFirst()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::remove\+First (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Removes the first occurrence that is equal to the specified string. 
+
+If case\+Sensitive is true (default), the string will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to remove \\
+\hline
+{\em case\+Sensitive} & whether the string should be searched case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a04bdc2e3cdfe637d2e5754227677eea1}\label{class_a_string_a04bdc2e3cdfe637d2e5754227677eea1}} 
+\index{AString@{AString}!repeat@{repeat}}
+\index{repeat@{repeat}!AString@{AString}}
+\subsubsection{\texorpdfstring{repeat()}{repeat()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::repeat (\begin{DoxyParamCaption}\item[{int}]{times }\end{DoxyParamCaption})}
+
+
+
+Appends the current string to the current instance \char`\"{}times\char`\"{} times. 
+
+If \char`\"{}times\char`\"{} is less than 1, the string will be cleared.
+
+
+\begin{DoxyParams}{Parameters}
+{\em times} & the count to repeat \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a53703f2b13b21435e7cdadc4fd1a7015}\label{class_a_string_a53703f2b13b21435e7cdadc4fd1a7015}} 
+\index{AString@{AString}!replaceAll@{replaceAll}}
+\index{replaceAll@{replaceAll}!AString@{AString}}
+\subsubsection{\texorpdfstring{replaceAll()}{replaceAll()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::replace\+All (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{from,  }\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{to,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Replaces all occurrences that are equal to \char`\"{}from\char`\"{} by \char`\"{}to\char`\"{}. 
+
+If case\+Sensitive is true (default), the string \char`\"{}from\char`\"{} will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & the string to replace \\
+\hline
+{\em to} & the new value \\
+\hline
+{\em case\+Sensitive} & whether the string should be searched case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_af28290e59b97962a365e89e475376ac7}\label{class_a_string_af28290e59b97962a365e89e475376ac7}} 
+\index{AString@{AString}!replaceFirst@{replaceFirst}}
+\index{replaceFirst@{replaceFirst}!AString@{AString}}
+\subsubsection{\texorpdfstring{replaceFirst()}{replaceFirst()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::replace\+First (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{from,  }\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{to,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Replaces the first occurrence that is equal to \char`\"{}from\char`\"{} by \char`\"{}to\char`\"{}. 
+
+If case\+Sensitive is true (default), the string \char`\"{}from\char`\"{} will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & the string to replace \\
+\hline
+{\em to} & the new value \\
+\hline
+{\em case\+Sensitive} & whether the string should be searched case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_aa1f94f677d3db968b09750755ffad121}\label{class_a_string_aa1f94f677d3db968b09750755ffad121}} 
+\index{AString@{AString}!right@{right}}
+\index{right@{right}!AString@{AString}}
+\subsubsection{\texorpdfstring{right()}{right()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::right (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption}) const}
+
+
+
+Returns the right side of the string starting at index n ending at index size-\/1 as new string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the length of the substring \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the right side of the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a025f539406111e39b0bf54a2ffcda8aa}\label{class_a_string_a025f539406111e39b0bf54a2ffcda8aa}} 
+\index{AString@{AString}!split@{split}}
+\index{split@{split}!AString@{AString}}
+\subsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_string_vector}{String\+Vector}} A\+String\+::split (\begin{DoxyParamCaption}\item[{char}]{separator,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Splits the current string by the specified separator and returns a new string vector. 
+
+If case\+Sensitive is true (default), the separator will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em separator} & the char to split by \\
+\hline
+{\em case\+Sensitive} & whether the char should be searched case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new string vector containing the split result of the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a08266b27ed113b4a844b8eb9947b3e02}\label{class_a_string_a08266b27ed113b4a844b8eb9947b3e02}} 
+\index{AString@{AString}!split@{split}}
+\index{split@{split}!AString@{AString}}
+\subsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_string_vector}{String\+Vector}} A\+String\+::split (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{separator,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Splits the current string by the specified separator and returns a new string vector. 
+
+If case\+Sensitive is true (default), the separator will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em separator} & the string to split by \\
+\hline
+{\em case\+Sensitive} & whether the string should be searched case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the new string vector containing the split result of the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a16ed628b786ec5d4b570df1249637ef9}\label{class_a_string_a16ed628b786ec5d4b570df1249637ef9}} 
+\index{AString@{AString}!splitByNonNumerics@{splitByNonNumerics}}
+\index{splitByNonNumerics@{splitByNonNumerics}!AString@{AString}}
+\subsubsection{\texorpdfstring{splitByNonNumerics()}{splitByNonNumerics()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_string_vector}{String\+Vector}} A\+String\+::split\+By\+Non\+Numerics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Splits the current string by non numeric chars and returns a new string vector. 
+
+\begin{DoxyReturn}{Returns}
+the new string vector containing the split result of the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_aaae243575004e5091025cacf9313ea76}\label{class_a_string_aaae243575004e5091025cacf9313ea76}} 
+\index{AString@{AString}!splitByNumerics@{splitByNumerics}}
+\index{splitByNumerics@{splitByNumerics}!AString@{AString}}
+\subsubsection{\texorpdfstring{splitByNumerics()}{splitByNumerics()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_string_vector}{String\+Vector}} A\+String\+::split\+By\+Numerics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Splits the current string by numeric chars and returns a new string vector. 
+
+\begin{DoxyReturn}{Returns}
+the new string vector containing the split result of the string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_aef584231c6ddc8925fbfa92ccf22cf53}\label{class_a_string_aef584231c6ddc8925fbfa92ccf22cf53}} 
+\index{AString@{AString}!startsWith@{startsWith}}
+\index{startsWith@{startsWith}!AString@{AString}}
+\subsubsection{\texorpdfstring{startsWith()}{startsWith()}}
+{\footnotesize\ttfamily bool A\+String\+::starts\+With (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{string,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the string starts with the specified string. 
+
+If case\+Sensitive is true (default), the string will be searched case sensitive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & the string to compare \\
+\hline
+{\em case\+Sensitive} & whether the string should be compared case sensitive or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the current string starts with the specified string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_addea3a08682e1875b48d679f30f539cb}\label{class_a_string_addea3a08682e1875b48d679f30f539cb}} 
+\index{AString@{AString}!toBool@{toBool}}
+\index{toBool@{toBool}!AString@{AString}}
+\subsubsection{\texorpdfstring{toBool()}{toBool()}}
+{\footnotesize\ttfamily bool A\+String\+::to\+Bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to bool and returns it. 
+
+If the lowercase string is \char`\"{}true\char`\"{} or a number greater than zero, the function returns true. If the string is anything else than a number greater than zero or lowercase \char`\"{}true\char`\"{}, the function returns false.
+
+\begin{DoxyReturn}{Returns}
+the bool converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a67f811fea214d958fe296fef79776bc1}\label{class_a_string_a67f811fea214d958fe296fef79776bc1}} 
+\index{AString@{AString}!toByte@{toByte}}
+\index{toByte@{toByte}!AString@{AString}}
+\subsubsection{\texorpdfstring{toByte()}{toByte()}}
+{\footnotesize\ttfamily byte A\+String\+::to\+Byte (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to byte and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the byte converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_ae9d0a67c87c20152d5ab770ad1b955ac}\label{class_a_string_ae9d0a67c87c20152d5ab770ad1b955ac}} 
+\index{AString@{AString}!toByteArray@{toByteArray}}
+\index{toByteArray@{toByteArray}!AString@{AString}}
+\subsubsection{\texorpdfstring{toByteArray()}{toByteArray()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_byte_array}{Byte\+Array}} A\+String\+::to\+Byte\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to a byte array and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the current string converted to a new byte array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a6cb34c26433abd7e75e0bdf9bb40ccba}\label{class_a_string_a6cb34c26433abd7e75e0bdf9bb40ccba}} 
+\index{AString@{AString}!toChar@{toChar}}
+\index{toChar@{toChar}!AString@{AString}}
+\subsubsection{\texorpdfstring{toChar()}{toChar()}}
+{\footnotesize\ttfamily char A\+String\+::to\+Char (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to char and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the char converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_ab0a1fc558e39014f0feffc055c1fa47b}\label{class_a_string_ab0a1fc558e39014f0feffc055c1fa47b}} 
+\index{AString@{AString}!toCString@{toCString}}
+\index{toCString@{toCString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toCString()}{toCString()}}
+{\footnotesize\ttfamily const char $\ast$ A\+String\+::to\+C\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to char array and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the char array converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_ad44ce14af9b6948b4be656e5ccafa0b8}\label{class_a_string_ad44ce14af9b6948b4be656e5ccafa0b8}} 
+\index{AString@{AString}!toDouble@{toDouble}}
+\index{toDouble@{toDouble}!AString@{AString}}
+\subsubsection{\texorpdfstring{toDouble()}{toDouble()}}
+{\footnotesize\ttfamily double A\+String\+::to\+Double (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to double and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the double converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a101d529c5dfb9803eac440e6f3819cda}\label{class_a_string_a101d529c5dfb9803eac440e6f3819cda}} 
+\index{AString@{AString}!toFloat@{toFloat}}
+\index{toFloat@{toFloat}!AString@{AString}}
+\subsubsection{\texorpdfstring{toFloat()}{toFloat()}}
+{\footnotesize\ttfamily float A\+String\+::to\+Float (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to float and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the float converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a037e4cedecdb1d68614cf3f199f85834}\label{class_a_string_a037e4cedecdb1d68614cf3f199f85834}} 
+\index{AString@{AString}!toInt@{toInt}}
+\index{toInt@{toInt}!AString@{AString}}
+\subsubsection{\texorpdfstring{toInt()}{toInt()}}
+{\footnotesize\ttfamily int A\+String\+::to\+Int (\begin{DoxyParamCaption}\item[{int}]{base = {\ttfamily 10} }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to int32 and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the int32 converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_affa719b95e059f7c0ef8eb43b3a892bf}\label{class_a_string_affa719b95e059f7c0ef8eb43b3a892bf}} 
+\index{AString@{AString}!toInt64@{toInt64}}
+\index{toInt64@{toInt64}!AString@{AString}}
+\subsubsection{\texorpdfstring{toInt64()}{toInt64()}}
+{\footnotesize\ttfamily int64 A\+String\+::to\+Int64 (\begin{DoxyParamCaption}\item[{int}]{base = {\ttfamily 10} }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to int64 and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the int64 converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a7ce9b9dd2163dac80a4a80e5cb81878a}\label{class_a_string_a7ce9b9dd2163dac80a4a80e5cb81878a}} 
+\index{AString@{AString}!toLongDouble@{toLongDouble}}
+\index{toLongDouble@{toLongDouble}!AString@{AString}}
+\subsubsection{\texorpdfstring{toLongDouble()}{toLongDouble()}}
+{\footnotesize\ttfamily long double A\+String\+::to\+Long\+Double (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to long double and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the long double converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_aade3f9bf7dfe337df49f7f094068379e}\label{class_a_string_aade3f9bf7dfe337df49f7f094068379e}} 
+\index{AString@{AString}!toLower@{toLower}}
+\index{toLower@{toLower}!AString@{AString}}
+\subsubsection{\texorpdfstring{toLower()}{toLower()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::to\+Lower (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Converts the current string to lowercase and returns the reference to the current instance. 
+
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a57ad542374eaadedfd9bcc4789887d79}\label{class_a_string_a57ad542374eaadedfd9bcc4789887d79}} 
+\index{AString@{AString}!toShort@{toShort}}
+\index{toShort@{toShort}!AString@{AString}}
+\subsubsection{\texorpdfstring{toShort()}{toShort()}}
+{\footnotesize\ttfamily short A\+String\+::to\+Short (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to short and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the short converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a4854e78fcc05431efb96eaa99e271fea}\label{class_a_string_a4854e78fcc05431efb96eaa99e271fea}} 
+\index{AString@{AString}!toStdString@{toStdString}}
+\index{toStdString@{toStdString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toStdString()}{toStdString()}}
+{\footnotesize\ttfamily std\+::string A\+String\+::to\+Std\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to std\+::string and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the string converted to std\+::string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a13ac330330d3f576a06e8ef3316ef293}\label{class_a_string_a13ac330330d3f576a06e8ef3316ef293}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{bool}]{n,  }\item[{bool}]{in\+Letters = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+{\em in\+Letters} & whether the string should be printed in letters \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a364c9570a8fc099dd09ce78ae8818dc7}\label{class_a_string_a364c9570a8fc099dd09ce78ae8818dc7}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{char}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a82429501ef9ff6b7c629ad60413d1c3e}\label{class_a_string_a82429501ef9ff6b7c629ad60413d1c3e}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [3/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{short}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a90c07f40ff8685c41a3c6db271754686}\label{class_a_string_a90c07f40ff8685c41a3c6db271754686}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [4/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a47d640a0d7b63e9253f57568d2ff2542}\label{class_a_string_a47d640a0d7b63e9253f57568d2ff2542}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [5/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{int64}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_ae64483053e51e9e0041763ec5eb21ba5}\label{class_a_string_ae64483053e51e9e0041763ec5eb21ba5}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [6/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{byte}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_abafe383896be322a46407bd02c41b897}\label{class_a_string_abafe383896be322a46407bd02c41b897}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [7/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{ushort}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_adb67a341fe4bd0661b0a5f141080d633}\label{class_a_string_adb67a341fe4bd0661b0a5f141080d633}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [8/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{uint}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a88cbae5cb369bb16f664922dfd94b8e4}\label{class_a_string_a88cbae5cb369bb16f664922dfd94b8e4}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [9/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{uint64}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a90e2279607dbe3d80f96da3b85b5fde9}\label{class_a_string_a90e2279607dbe3d80f96da3b85b5fde9}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [10/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{float}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a8f368aefb4edd72523a764d960ba7308}\label{class_a_string_a8f368aefb4edd72523a764d960ba7308}} 
+\index{AString@{AString}!toString@{toString}}
+\index{toString@{toString}!AString@{AString}}
+\subsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [11/11]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} A\+String\+::to\+String (\begin{DoxyParamCaption}\item[{double}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Converts the specified number to string and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & the number to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the specified number converted to string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_ad674ff871fa6106dc82f3e03acec3639}\label{class_a_string_ad674ff871fa6106dc82f3e03acec3639}} 
+\index{AString@{AString}!toUInt@{toUInt}}
+\index{toUInt@{toUInt}!AString@{AString}}
+\subsubsection{\texorpdfstring{toUInt()}{toUInt()}}
+{\footnotesize\ttfamily uint A\+String\+::to\+U\+Int (\begin{DoxyParamCaption}\item[{int}]{base = {\ttfamily 10} }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to uint32 and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the uint32 converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a92130012ffd32a72fe43750592e70ef5}\label{class_a_string_a92130012ffd32a72fe43750592e70ef5}} 
+\index{AString@{AString}!toUInt64@{toUInt64}}
+\index{toUInt64@{toUInt64}!AString@{AString}}
+\subsubsection{\texorpdfstring{toUInt64()}{toUInt64()}}
+{\footnotesize\ttfamily uint64 A\+String\+::to\+U\+Int64 (\begin{DoxyParamCaption}\item[{int}]{base = {\ttfamily 10} }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to uint64 and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the uint64 converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_af4def080314da5a03fcead8b7cf822bc}\label{class_a_string_af4def080314da5a03fcead8b7cf822bc}} 
+\index{AString@{AString}!toUpper@{toUpper}}
+\index{toUpper@{toUpper}!AString@{AString}}
+\subsubsection{\texorpdfstring{toUpper()}{toUpper()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::to\+Upper (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Converts the current string to uppercase and returns the reference to the current instance. 
+
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a4540c5503000d2f399617920055de7a4}\label{class_a_string_a4540c5503000d2f399617920055de7a4}} 
+\index{AString@{AString}!toUShort@{toUShort}}
+\index{toUShort@{toUShort}!AString@{AString}}
+\subsubsection{\texorpdfstring{toUShort()}{toUShort()}}
+{\footnotesize\ttfamily ushort A\+String\+::to\+U\+Short (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Converts the current string to ushort and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the ushort converted from string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_string_a2ba7d2ba7eb61998453f7e7ce364d441}\label{class_a_string_a2ba7d2ba7eb61998453f7e7ce364d441}} 
+\index{AString@{AString}!trim@{trim}}
+\index{trim@{trim}!AString@{AString}}
+\subsubsection{\texorpdfstring{trim()}{trim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_string}{A\+String}} \& A\+String\+::trim (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes all trailing whitespaces and returns the reference to the current instance. 
+
+\begin{DoxyReturn}{Returns}
+the reference to the current instance 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/astring.\+h\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/astring.\+cpp\end{DoxyCompactItemize}

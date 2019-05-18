@@ -1,46 +1,45 @@
 #include "bytearray.h"
 
-ByteArray::ByteArray()
-{}
-
-ByteArray::ByteArray(const char* byteArray, size_t size)
+ByteArray::ByteArray(const char* charArray, size_t size)
 {
-    reserve(size);
-    for (uint i = 0; i < size; ++i) {
-        *this += byteArray[i];
-    }
+	reserve(size);
+	for (uint i = 0; i < size; ++i) {
+		*this += charArray[i];
+	}
 }
 
-ByteArray::ByteArray(const AVector<char> & vector) : AVector<char>(vector)
-{}
-
-ByteArray::~ByteArray()
-{}
-
-bool ByteArray::isEqual(const char* byteArray, size_t size)
+ByteArray::ByteArray(const ByteArray& byteArray) :
+	AVector<char>(byteArray)
 {
-    if (this->size() != size) {
-        return false;
-    }
-
-    for (uint i = 0; i < size; ++i) {
-        if (byteArray[i] != (*this)[i]) {
-            return false;
-        }
-    }
-
-    return true;
 }
 
-ByteArray& ByteArray::operator+=(const char character)
+ByteArray::ByteArray(const AVector<char>& vector) :
+	AVector<char>(vector)
+{}
+
+bool ByteArray::isEqual(const char* charArray, size_t size)
 {
-    insert(end(), character);
-    return *this;
+	if (this->size() != size) {
+		return false;
+	}
+
+	for (uint i = 0; i < size; ++i) {
+		if (charArray[i] != (*this)[i]) {
+			return false;
+		}
+	}
+
+	return true;
 }
 
+ByteArray& ByteArray::operator+=(const char right)
+{
+	insert(end(), right);
+	return *this;
+}
 
 ByteArray& ByteArray::operator+=(const ByteArray& right)
 {
-    insert(end(), right.begin(), right.end());
-    return *this;
+	insert(end(), right.begin(), right.end());
+	return *this;
 }

@@ -92,23 +92,11 @@
     <Filter Include="src\Mathematics\Vectors">
       <UniqueIdentifier>{677df401-26a4-4fe8-889c-912857bc3531}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Mathematics\Vectors\Vector2">
-      <UniqueIdentifier>{8c703a49-32c7-42b9-b9a5-e22de03f6a3d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Mathematics\Vectors\Vector2f">
-      <UniqueIdentifier>{9a020723-a2fd-4830-a18a-83827dabb335}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\FileSystem\File\OpenMode">
       <UniqueIdentifier>{381e054d-92cd-4530-b37a-92afb93c31e5}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Console\ConsoleColor">
       <UniqueIdentifier>{a9a5113b-e0ba-47d9-a5c9-f5c40bf56a24}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\AdvancedSTL\CaseSensitivity">
-      <UniqueIdentifier>{da27224f-d0eb-4b26-9448-3f5c9f0b531e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\IEncryption">
-      <UniqueIdentifier>{2bd7a7f1-c74a-4719-a4be-d89cbd42fb21}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\General">
       <UniqueIdentifier>{be0a250c-db2d-4bd9-a472-6df828ab2e75}</UniqueIdentifier>
@@ -116,8 +104,11 @@
     <Filter Include="src\Logger\LogType">
       <UniqueIdentifier>{ec43cffd-3698-4fe2-8275-23a7c56baa8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Mathematics\Vectors\Vector2d">
-      <UniqueIdentifier>{2869a61c-bf5e-4073-9f9d-4d319b09cb1f}</UniqueIdentifier>
+    <Filter Include="src\Encryption">
+      <UniqueIdentifier>{2bd7a7f1-c74a-4719-a4be-d89cbd42fb21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\General\OsDetection">
+      <UniqueIdentifier>{9374f11b-6839-40e3-b781-e14516d79293}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -184,9 +175,6 @@
       <Filter>src\Logger</Filter>
     </ClInclude>
     <ClInclude Include="datetime.h">
-      <Filter>src\DateTime</Filter>
-    </ClInclude>
-    <ClInclude Include="date.h">
       <Filter>src\DateTime</Filter>
     </ClInclude>
     <ClInclude Include="datetimeinfo.h">
@@ -453,12 +441,6 @@
     <ClInclude Include="mathutils.h">
       <Filter>src\Mathematics\MathUtils</Filter>
     </ClInclude>
-    <ClInclude Include="vector2.h">
-      <Filter>src\Mathematics\Vectors\Vector2</Filter>
-    </ClInclude>
-    <ClInclude Include="vector2f.h">
-      <Filter>src\Mathematics\Vectors\Vector2f</Filter>
-    </ClInclude>
     <ClInclude Include="openmode.h">
       <Filter>src\FileSystem\File\OpenMode</Filter>
     </ClInclude>
@@ -468,20 +450,35 @@
     <ClInclude Include="consolecolor.h">
       <Filter>src\Console\ConsoleColor</Filter>
     </ClInclude>
-    <ClInclude Include="casesensitivity.h">
-      <Filter>src\AdvancedSTL\CaseSensitivity</Filter>
-    </ClInclude>
-    <ClInclude Include="iencryption.h">
-      <Filter>src\IEncryption</Filter>
-    </ClInclude>
     <ClInclude Include="functions.h">
       <Filter>src\General</Filter>
     </ClInclude>
     <ClInclude Include="types.h">
       <Filter>src\General</Filter>
     </ClInclude>
+    <ClInclude Include="vector2.h">
+      <Filter>src\Mathematics\Vectors</Filter>
+    </ClInclude>
     <ClInclude Include="vector2d.h">
-      <Filter>src\Mathematics\Vectors\Vector2d</Filter>
+      <Filter>src\Mathematics\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2f.h">
+      <Filter>src\Mathematics\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2i.h">
+      <Filter>src\Mathematics\Vectors</Filter>
+    </ClInclude>
+    <ClInclude Include="directory.h">
+      <Filter>src\FileSystem\Dir</Filter>
+    </ClInclude>
+    <ClInclude Include="encryption.h">
+      <Filter>src\Encryption</Filter>
+    </ClInclude>
+    <ClInclude Include="date\date.h">
+      <Filter>src\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="osdetection.h">
+      <Filter>src\General\OsDetection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

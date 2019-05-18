@@ -9,6 +9,11 @@ struct SqlColumn {
     int type;
 
     uint length;
+
+    SqlColumn() :
+        type(-1),
+        length(0)
+    {}
 };
 
 #endif   // PSQLCOL_H

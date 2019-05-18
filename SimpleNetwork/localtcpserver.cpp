@@ -15,17 +15,17 @@ bool LocalTcpServer::listen(ushort port)
     server.sin_family = AF_INET;
     server.sin_port = htons(port);
 
-    if (::bind(socket_, REINTERPRET_CAST(sockaddr*, &server), sizeof(SOCKADDR_IN)) == SOCKET_ERROR) {
-        Logger::error("bind() failed. Error code: " + TO_STRING(WSAGetLastError()));
+    if (::bind(socket_, reinterpret_cast<sockaddr*>(&server), sizeof(SOCKADDR_IN)) == SOCKET_ERROR) {
+        Logger::error("bind() failed. Error code: " + AString::toString(WSAGetLastError()));
         return false;
     }
 
     if (::listen(socket_, 2)) {
-        Logger::error("listen() failed. Error code: " + TO_STRING(WSAGetLastError()));
+        Logger::error("listen() failed. Error code: " + AString::toString(WSAGetLastError()));
         return false;
     }
 
     addressLength_ = sizeof(sockaddr_in);
-    serverEventListener_ = MAKE_SHARED(TcpServerEventListener, this);
+    serverEventListener_ = std::make_shared<TcpServerEventListener>(this);
     return true;
 }

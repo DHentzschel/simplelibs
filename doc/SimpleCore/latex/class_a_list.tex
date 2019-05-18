@@ -1,0 +1,714 @@
+\hypertarget{class_a_list}{}\section{A\+List$<$ T $>$ Class Template Reference}
+\label{class_a_list}\index{AList$<$ T $>$@{AList$<$ T $>$}}
+
+
+This class extends the std\+::list class by auxiliary functions.  
+
+
+
+
+{\ttfamily \#include $<$alist.\+h$>$}
+
+Inheritance diagram for A\+List$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_list}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_a_list_a0a4bc6509f21976058b3bd0b4fbc5d31}\label{class_a_list_a0a4bc6509f21976058b3bd0b4fbc5d31}} 
+\mbox{\hyperlink{class_a_list_a0a4bc6509f21976058b3bd0b4fbc5d31}{A\+List}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the list with default values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_list_a8cec560bb9216051a7f2ba0676d6aabf}{A\+List}} (int64 size)
+\begin{DoxyCompactList}\small\item\em Initializes the list with the size passed as parameter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_list_a6009559ea4861f2a9263e447485dfeb2}{A\+List}} (const \mbox{\hyperlink{class_a_list}{A\+List}} \&list)
+\begin{DoxyCompactList}\small\item\em Copies the values from another list to the current instance. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_list_a0e4ad9eb6d7cbb883a56f67589c65be9}{A\+List}} (\mbox{\hyperlink{class_a_list}{A\+List}} \&\&list)
+\begin{DoxyCompactList}\small\item\em Moves the values from another list to the current instance. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_a_list_ae43013270783ff87b26c3dc559874681}{at}} (int i)
+\begin{DoxyCompactList}\small\item\em Returns the item on the ith position in the list. \end{DoxyCompactList}\item 
+const T \& \mbox{\hyperlink{class_a_list_a10107fe182383d368c18992eb5be7127}{at}} (int i) const
+\begin{DoxyCompactList}\small\item\em Returns the item on the ith position in the list. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_a_list_ae14e6bff6596b91b77a40b0d03777e66}{operator\mbox{[}$\,$\mbox{]}}} (int i)
+\begin{DoxyCompactList}\small\item\em Returns the item on the ith position in the list. \end{DoxyCompactList}\item 
+const T \& \mbox{\hyperlink{class_a_list_ab7dd2c5a1bef44beabc15070eb14c050}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
+\begin{DoxyCompactList}\small\item\em Returns the item on the ith position in the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_list_a210e9e0657a0f4541247a290d21b6d23}{append}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Appends the value passed as parameter to the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_list_ac8e33a3962d74310ebafc8d99be5437a}{append}} (T \&\&value)
+\begin{DoxyCompactList}\small\item\em Appends the value passed as parameter to the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_list_a35838eb653492086769df4c444e08281}{prepend}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Prepends the value passed as parameter to the list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_list_a6cae264346546d9e6cc68252a2e0b3d5}{prepend}} (T \&\&value)
+\begin{DoxyCompactList}\small\item\em Prepends the value passed as parameter to the list. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_list_ab3db4e8f60d5abf4e7a12d928fb244a0}{contains}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns whether the list contains the item passed as parameter. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_list_ac6b1d6dabb7177aa465019860aeacba1}{starts\+With}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns whether the first item in the list is equal to the value passed as parameter. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_list_af6383e2209b2baa7c0e602b82d586cf9}{ends\+With}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns whether the last item in the list is equal to the value passed as parameter. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_list_ab0c4bd9783b1a181471e05f9fda79138}{is\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the list is empty. \end{DoxyCompactList}\item 
+int64 \mbox{\hyperlink{class_a_list_a4769f724fc264fae0cd1ebbc6f70ec2e}{count}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Counts the occurrences of the item passed as parameter in list and returns the count. \end{DoxyCompactList}\item 
+int64 \mbox{\hyperlink{class_a_list_af785e824aa6822fa079fd146fdfbda8e}{first\+Index\+Of}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns the first index of the item in list which is equal to the specified item. \end{DoxyCompactList}\item 
+int64 \mbox{\hyperlink{class_a_list_a4b097672b446185673cf1ec2df799110}{index\+Of}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns the first index of the item in list which is equal to the specified item. \end{DoxyCompactList}\item 
+int64 \mbox{\hyperlink{class_a_list_a6e83dd4da23beeda52e15e8a2cc9f799}{last\+Index\+Of}} (const T \&value) const
+\begin{DoxyCompactList}\small\item\em Returns the last index of the item in list which is equal to the specified item. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_list_a89447e683414a53f0dd0ac081c3c3f12}{replace}} (int64 i, const T \&value)
+\begin{DoxyCompactList}\small\item\em Replaces the item on the position index passed as parameter by the value passed. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_a_list_a33f188595f0da046cced105c2e441506}\label{class_a_list_a33f188595f0da046cced105c2e441506}} 
+void \mbox{\hyperlink{class_a_list_a33f188595f0da046cced105c2e441506}{remove\+Duplicates}} ()
+\begin{DoxyCompactList}\small\item\em Removes all duplicate items. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_list_a1b29a3946800bcb13e94668b952ae6c2}{remove\+At}} (int i)
+\begin{DoxyCompactList}\small\item\em Removes an item on a specific position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_a_list_ada980037299e3dcbf05b50977216f32d}\label{class_a_list_ada980037299e3dcbf05b50977216f32d}} 
+void \mbox{\hyperlink{class_a_list_ada980037299e3dcbf05b50977216f32d}{remove\+First}} ()
+\begin{DoxyCompactList}\small\item\em Removes the first item in list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_list_a2240edc5f38fa7e57a868bb30b747c51}{pop\+\_\+front}} ()
+\begin{DoxyCompactList}\small\item\em Removes the first item in list. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_a_list_aff8e5c3e3f879ea5c8d6d9e29b321fc9}\label{class_a_list_aff8e5c3e3f879ea5c8d6d9e29b321fc9}} 
+void \mbox{\hyperlink{class_a_list_aff8e5c3e3f879ea5c8d6d9e29b321fc9}{remove\+Last}} ()
+\begin{DoxyCompactList}\small\item\em Removes the last item in list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_list_aa4ac4af0fb772a55168ddcba13c508c3}{remove\+First}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Removes the first occurrence in list which is equal to the item passed as parameter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_list_a32b8779cd05c79fe74f79c854b54a5f7}{remove\+All}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Removes all occurrences in list which are equal to the item passed as parameter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$ \mbox{\hyperlink{class_a_list_a7b9c07f197f9017a7d231a8cf2f19f7b}{mid}} (int position, int length=-\/1) const
+\begin{DoxyCompactList}\small\item\em Returns a list that contains length characters of this list, starting at the specified position index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_list_ac9979a4b71ae418f1ba7a36b2d9c1a77}{move}} (int from, int to)
+\begin{DoxyCompactList}\small\item\em Exchanges the value on position from with the value on position to. \end{DoxyCompactList}\item 
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_a_list_a53cbab789aed68750822a67ee6ae4d13}{to\+Std\+Vector}} () const
+\begin{DoxyCompactList}\small\item\em Returns the current instance as a new std\+::vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_a_list_a7be198818f6459df77cdc29a2f8d8d5e}{to\+Vector}} () const
+\begin{DoxyCompactList}\small\item\em Returns the current instance as a new \mbox{\hyperlink{class_a_vector}{A\+Vector}}. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_a_list_aca24663d0fe32d878cd4a214ade18372}{first}} ()
+\begin{DoxyCompactList}\small\item\em Returns the reference of the first item in list. \end{DoxyCompactList}\item 
+const T \& \mbox{\hyperlink{class_a_list_a1cf9c09ee90e96a5f72a39344f8240be}{first}} () const
+\begin{DoxyCompactList}\small\item\em Returns the const reference of the first item in list. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_a_list_a41b07290930bbfa06ec02f9106a52b74}{last}} ()
+\begin{DoxyCompactList}\small\item\em Returns the reference of the last item in list. \end{DoxyCompactList}\item 
+const T \& \mbox{\hyperlink{class_a_list_ab6c0fc542c318f68199ef3b4d97c82f4}{last}} () const
+\begin{DoxyCompactList}\small\item\em Returns the const reference of the last item in list. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_a_list_a626da346e2e3fdbc42f14fa11926f79c}{take\+At}} (int64 i)
+\begin{DoxyCompactList}\small\item\em Removes the item at the specified position and returns it. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_a_list_af2da906ed8c9bf282fc9f6f726864d9f}{take\+First}} ()
+\begin{DoxyCompactList}\small\item\em Removes the first item and returns it. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_a_list_aa210fddef3bf64dd63dd68f3d5f2fe05}{take\+Last}} ()
+\begin{DoxyCompactList}\small\item\em Removes the last item and returns it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class A\+List$<$ T $>$}
+
+This class extends the std\+::list class by auxiliary functions. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 12.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_a_list_a8cec560bb9216051a7f2ba0676d6aabf}\label{class_a_list_a8cec560bb9216051a7f2ba0676d6aabf}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!AList@{AList}}
+\index{AList@{AList}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{AList()}{AList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::\mbox{\hyperlink{class_a_list}{A\+List}} (\begin{DoxyParamCaption}\item[{int64}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Initializes the list with the size passed as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & the size of the list \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_a6009559ea4861f2a9263e447485dfeb2}\label{class_a_list_a6009559ea4861f2a9263e447485dfeb2}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!AList@{AList}}
+\index{AList@{AList}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{AList()}{AList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::\mbox{\hyperlink{class_a_list}{A\+List}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$ \&}]{list }\end{DoxyParamCaption})}
+
+
+
+Copies the values from another list to the current instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list to copy from \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_a0e4ad9eb6d7cbb883a56f67589c65be9}\label{class_a_list_a0e4ad9eb6d7cbb883a56f67589c65be9}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!AList@{AList}}
+\index{AList@{AList}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{AList()}{AList()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::\mbox{\hyperlink{class_a_list}{A\+List}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$ \&\&}]{list }\end{DoxyParamCaption})}
+
+
+
+Moves the values from another list to the current instance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list to move from \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_list_a210e9e0657a0f4541247a290d21b6d23}\label{class_a_list_a210e9e0657a0f4541247a290d21b6d23}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!append@{append}}
+\index{append@{append}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{append()}{append()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::append (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Appends the value passed as parameter to the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_ac8e33a3962d74310ebafc8d99be5437a}\label{class_a_list_ac8e33a3962d74310ebafc8d99be5437a}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!append@{append}}
+\index{append@{append}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{append()}{append()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::append (\begin{DoxyParamCaption}\item[{T \&\&}]{value }\end{DoxyParamCaption})}
+
+
+
+Appends the value passed as parameter to the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to append \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_ae43013270783ff87b26c3dc559874681}\label{class_a_list_ae43013270783ff87b26c3dc559874681}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!at@{at}}
+\index{at@{at}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::at (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Returns the item on the ith position in the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the position index of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the item on the ith position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a10107fe182383d368c18992eb5be7127}\label{class_a_list_a10107fe182383d368c18992eb5be7127}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!at@{at}}
+\index{at@{at}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \& \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::at (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const}
+
+
+
+Returns the item on the ith position in the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the position index of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the const reference to the item on the ith position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_ab3db4e8f60d5abf4e7a12d928fb244a0}\label{class_a_list_ab3db4e8f60d5abf4e7a12d928fb244a0}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!contains@{contains}}
+\index{contains@{contains}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{contains()}{contains()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::contains (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns whether the list contains the item passed as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the list contains the item passed as parameter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a4769f724fc264fae0cd1ebbc6f70ec2e}\label{class_a_list_a4769f724fc264fae0cd1ebbc6f70ec2e}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!count@{count}}
+\index{count@{count}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{count()}{count()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int64 \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::count (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Counts the occurrences of the item passed as parameter in list and returns the count. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to count \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the count of occurrences of the item passed as parameter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_af6383e2209b2baa7c0e602b82d586cf9}\label{class_a_list_af6383e2209b2baa7c0e602b82d586cf9}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!endsWith@{endsWith}}
+\index{endsWith@{endsWith}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{endsWith()}{endsWith()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::ends\+With (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the last item in the list is equal to the value passed as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the list ends with the item passed as parameter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_aca24663d0fe32d878cd4a214ade18372}\label{class_a_list_aca24663d0fe32d878cd4a214ade18372}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!first@{first}}
+\index{first@{first}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{first()}{first()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the reference of the first item in list. 
+
+\begin{DoxyReturn}{Returns}
+the reference of the first item in list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a1cf9c09ee90e96a5f72a39344f8240be}\label{class_a_list_a1cf9c09ee90e96a5f72a39344f8240be}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!first@{first}}
+\index{first@{first}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{first()}{first()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \& \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::first (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the const reference of the first item in list. 
+
+\begin{DoxyReturn}{Returns}
+the const reference of the first item in list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_af785e824aa6822fa079fd146fdfbda8e}\label{class_a_list_af785e824aa6822fa079fd146fdfbda8e}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!firstIndexOf@{firstIndexOf}}
+\index{firstIndexOf@{firstIndexOf}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{firstIndexOf()}{firstIndexOf()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int64 \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::first\+Index\+Of (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns the first index of the item in list which is equal to the specified item. 
+
+Returns -\/1 when there is no such item.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the first occurrence 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a4b097672b446185673cf1ec2df799110}\label{class_a_list_a4b097672b446185673cf1ec2df799110}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!indexOf@{indexOf}}
+\index{indexOf@{indexOf}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{indexOf()}{indexOf()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int64 \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::index\+Of (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns the first index of the item in list which is equal to the specified item. 
+
+Returns -\/1 when there is no such item.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the first occurrence 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_ab0c4bd9783b1a181471e05f9fda79138}\label{class_a_list_ab0c4bd9783b1a181471e05f9fda79138}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the list is empty. 
+
+\begin{DoxyReturn}{Returns}
+whether the list empty 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a41b07290930bbfa06ec02f9106a52b74}\label{class_a_list_a41b07290930bbfa06ec02f9106a52b74}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!last@{last}}
+\index{last@{last}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{last()}{last()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the reference of the last item in list. 
+
+\begin{DoxyReturn}{Returns}
+the reference of the last item in list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_ab6c0fc542c318f68199ef3b4d97c82f4}\label{class_a_list_ab6c0fc542c318f68199ef3b4d97c82f4}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!last@{last}}
+\index{last@{last}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{last()}{last()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \& \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the const reference of the last item in list. 
+
+\begin{DoxyReturn}{Returns}
+the const reference of the last item in list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a6e83dd4da23beeda52e15e8a2cc9f799}\label{class_a_list_a6e83dd4da23beeda52e15e8a2cc9f799}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!lastIndexOf@{lastIndexOf}}
+\index{lastIndexOf@{lastIndexOf}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{lastIndexOf()}{lastIndexOf()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int64 \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::last\+Index\+Of (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns the last index of the item in list which is equal to the specified item. 
+
+Returns -\/1 when there is no such item.
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the last occurrence 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a7b9c07f197f9017a7d231a8cf2f19f7b}\label{class_a_list_a7b9c07f197f9017a7d231a8cf2f19f7b}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!mid@{mid}}
+\index{mid@{mid}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{mid()}{mid()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$ \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::mid (\begin{DoxyParamCaption}\item[{int}]{position,  }\item[{int}]{length = {\ttfamily -\/1} }\end{DoxyParamCaption}) const}
+
+
+
+Returns a list that contains length characters of this list, starting at the specified position index. 
+
+Returns an empty list if the position index exceeds the length of the list. If n is -\/1 (default), the function returns all items that are available from the specified position.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the position to start from \\
+\hline
+{\em length} & the length to use \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a list copying the values of the current instance starting from position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_ac9979a4b71ae418f1ba7a36b2d9c1a77}\label{class_a_list_ac9979a4b71ae418f1ba7a36b2d9c1a77}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!move@{move}}
+\index{move@{move}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::move (\begin{DoxyParamCaption}\item[{int}]{from,  }\item[{int}]{to }\end{DoxyParamCaption})}
+
+
+
+Exchanges the value on position from with the value on position to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em from} & the first exchangable \\
+\hline
+{\em to} & the second exchangable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_ae14e6bff6596b91b77a40b0d03777e66}\label{class_a_list_ae14e6bff6596b91b77a40b0d03777e66}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \& \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the item on the ith position in the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the position index of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the reference to the item on the ith position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_ab7dd2c5a1bef44beabc15070eb14c050}\label{class_a_list_ab7dd2c5a1bef44beabc15070eb14c050}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T \& \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the item on the ith position in the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the position index of the item \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the const reference to the item on the ith position 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a2240edc5f38fa7e57a868bb30b747c51}\label{class_a_list_a2240edc5f38fa7e57a868bb30b747c51}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!pop\_front@{pop\_front}}
+\index{pop\_front@{pop\_front}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{pop\_front()}{pop\_front()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::pop\+\_\+front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes the first item in list. 
+
+Just here for S\+TL compatibility. \mbox{\Hypertarget{class_a_list_a35838eb653492086769df4c444e08281}\label{class_a_list_a35838eb653492086769df4c444e08281}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!prepend@{prepend}}
+\index{prepend@{prepend}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{prepend()}{prepend()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::prepend (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Prepends the value passed as parameter to the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to prepend \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_a6cae264346546d9e6cc68252a2e0b3d5}\label{class_a_list_a6cae264346546d9e6cc68252a2e0b3d5}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!prepend@{prepend}}
+\index{prepend@{prepend}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{prepend()}{prepend()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::prepend (\begin{DoxyParamCaption}\item[{T \&\&}]{value }\end{DoxyParamCaption})}
+
+
+
+Prepends the value passed as parameter to the list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to prepend \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_a32b8779cd05c79fe74f79c854b54a5f7}\label{class_a_list_a32b8779cd05c79fe74f79c854b54a5f7}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!removeAll@{removeAll}}
+\index{removeAll@{removeAll}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{removeAll()}{removeAll()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::remove\+All (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Removes all occurrences in list which are equal to the item passed as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_a1b29a3946800bcb13e94668b952ae6c2}\label{class_a_list_a1b29a3946800bcb13e94668b952ae6c2}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!removeAt@{removeAt}}
+\index{removeAt@{removeAt}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{removeAt()}{removeAt()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::remove\+At (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Removes an item on a specific position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the position of the item to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_aa4ac4af0fb772a55168ddcba13c508c3}\label{class_a_list_aa4ac4af0fb772a55168ddcba13c508c3}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!removeFirst@{removeFirst}}
+\index{removeFirst@{removeFirst}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{removeFirst()}{removeFirst()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::remove\+First (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Removes the first occurrence in list which is equal to the item passed as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_a89447e683414a53f0dd0ac081c3c3f12}\label{class_a_list_a89447e683414a53f0dd0ac081c3c3f12}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!replace@{replace}}
+\index{replace@{replace}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{replace()}{replace()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::replace (\begin{DoxyParamCaption}\item[{int64}]{i,  }\item[{const T \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Replaces the item on the position index passed as parameter by the value passed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the position to replace \\
+\hline
+{\em value} & the value to set \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_list_ac6b1d6dabb7177aa465019860aeacba1}\label{class_a_list_ac6b1d6dabb7177aa465019860aeacba1}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!startsWith@{startsWith}}
+\index{startsWith@{startsWith}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{startsWith()}{startsWith()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::starts\+With (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Returns whether the first item in the list is equal to the value passed as parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & the value to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the list starts with the item passed as parameter 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a626da346e2e3fdbc42f14fa11926f79c}\label{class_a_list_a626da346e2e3fdbc42f14fa11926f79c}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!takeAt@{takeAt}}
+\index{takeAt@{takeAt}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{takeAt()}{takeAt()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::take\+At (\begin{DoxyParamCaption}\item[{int64}]{i }\end{DoxyParamCaption})}
+
+
+
+Removes the item at the specified position and returns it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & the position to take at \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the item to take 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_af2da906ed8c9bf282fc9f6f726864d9f}\label{class_a_list_af2da906ed8c9bf282fc9f6f726864d9f}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!takeFirst@{takeFirst}}
+\index{takeFirst@{takeFirst}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{takeFirst()}{takeFirst()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::take\+First (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes the first item and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the first item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_aa210fddef3bf64dd63dd68f3d5f2fe05}\label{class_a_list_aa210fddef3bf64dd63dd68f3d5f2fe05}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!takeLast@{takeLast}}
+\index{takeLast@{takeLast}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{takeLast()}{takeLast()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::take\+Last (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes the last item and returns it. 
+
+\begin{DoxyReturn}{Returns}
+the lats item 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a53cbab789aed68750822a67ee6ae4d13}\label{class_a_list_a53cbab789aed68750822a67ee6ae4d13}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!toStdVector@{toStdVector}}
+\index{toStdVector@{toStdVector}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{toStdVector()}{toStdVector()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$ T $>$ \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::to\+Std\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the current instance as a new std\+::vector. 
+
+\begin{DoxyReturn}{Returns}
+the current instance as new std\+::vector 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_a_list_a7be198818f6459df77cdc29a2f8d8d5e}\label{class_a_list_a7be198818f6459df77cdc29a2f8d8d5e}} 
+\index{AList$<$ T $>$@{AList$<$ T $>$}!toVector@{toVector}}
+\index{toVector@{toVector}!AList$<$ T $>$@{AList$<$ T $>$}}
+\subsubsection{\texorpdfstring{toVector()}{toVector()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ T $>$ \mbox{\hyperlink{class_a_list}{A\+List}}$<$ T $>$\+::to\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the current instance as a new \mbox{\hyperlink{class_a_vector}{A\+Vector}}. 
+
+\begin{DoxyReturn}{Returns}
+the current instance as new \mbox{\hyperlink{class_a_vector}{A\+Vector}} 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Core/alist.\+h\end{DoxyCompactItemize}

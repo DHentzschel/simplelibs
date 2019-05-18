@@ -3,19 +3,12 @@
 #include "tcpclienteventlistener.h"
 #include "tcpsocket.h"
 
-/**
-* \brief Constructs instance by calling super constructor.
-* \param tcpClient pointer to TcpClient instance
-*/
-TcpClientEventListener::TcpClientEventListener(TcpSocket* tcpClient) :
-	TcpEventListener(tcpClient)
+TcpClientEventListener::TcpClientEventListener(TcpSocket* socket) :
+	TcpEventListener(socket)
 {
-	TcpClientEventListener::initialize();
+	thread_ = std::thread(&TcpClientEventListener::start, this);
 }
 
-/**
- * \brief Joins thread to main thread.
- */
 void TcpClientEventListener::join()
 {
 	if (thread_.joinable()) {
@@ -23,19 +16,9 @@ void TcpClientEventListener::join()
 	}
 }
 
-/**
- * \brief Starts thread which calls start().
- */
-void TcpClientEventListener::initialize()
-{
-	thread_ = std::thread(&TcpClientEventListener::start, this);
-}
-
-/**
-* \brief Starts event listening process. Exists when isRunning is false.
-*/
 void TcpClientEventListener::start()
 {
+	setIsRunning(true);
 	auto receiveBufferLength = 1024;
 	const auto bufferLength = 1024;
 	auto* buffer = new char[bufferLength];
@@ -43,19 +26,19 @@ void TcpClientEventListener::start()
 
 	while (isRunning_) {
 		FD_ZERO(&readFdSet);
-		FD_SET(client->socket_, &readFdSet);
+		FD_SET(client_->socket_, &readFdSet);
 
 		auto sel = select(0, &readFdSet, nullptr, nullptr, nullptr);
-		if (FD_ISSET(client->socket_, &readFdSet)) {
+		if (FD_ISSET(client_->socket_, &readFdSet)) {
 			ZeroMemory(buffer, bufferLength);
 			receiveBufferLength =
-				recv(client->socket_, buffer, bufferLength - 1, 0);
+				recv(client_->socket_, buffer, bufferLength - 1, 0);
 			if (receiveBufferLength > 0) {
 				buffer[receiveBufferLength] = '\0';
-				client->receive(buffer, receiveBufferLength);
+				client_->receive(buffer, receiveBufferLength);
 			}
 			else {
-				client->disconnect();
+				client_->disconnect();
 				break;
 			}
 		}

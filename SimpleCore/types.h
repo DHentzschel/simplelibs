@@ -1,24 +1,23 @@
 #ifndef TYPES_H
 #define TYPES_H
 
+#include <cstdint>
+#include <cfloat>
+
 /* Integral types */
-typedef char int8;
-typedef short int16;
-typedef int int32;
-typedef long long longlong;
-typedef longlong int64;
+typedef int8_t int8;
+typedef int16_t int16;
+typedef int32_t int32;
+typedef int64_t int64;
 
-typedef unsigned char uchar;
-typedef unsigned short ushort;
-typedef unsigned int uint;
-typedef unsigned long ulong;
-typedef unsigned long long ulonglong;
-typedef ulonglong uint64;
+typedef uint8_t uint8;
+typedef uint16_t uint16;
+typedef uint32_t uint32;
+typedef uint64_t uint64;
 
-typedef uchar uint8;
-typedef uchar byte;
-typedef ushort uint16;
-typedef uint uint32;
+typedef uint8 byte;
+typedef uint16 ushort;
+typedef uint32 uint;
 
 /* Floating point types */
 typedef float float4;

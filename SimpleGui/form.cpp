@@ -90,13 +90,13 @@ public:
     WNDCLASSW wc;
 
     /* Attributes */
-    Vector2 previousPosition;
+	Vector2i previousPosition;
 
-    Vector2 position;
+	Vector2i position;
 
-    Vector2 previousSize;
+	Vector2i previousSize;
 
-    Vector2 size;
+	Vector2i size;
 
     bool isShown;
 
@@ -106,7 +106,7 @@ public:
 
     Form* form;
 
-    AList<SHARED_PTR(Control)> controls;
+    AList<std::shared_ptr<Control>> controls;
 
     static FormPrivate* get(HWND hwnd);
 
@@ -161,11 +161,12 @@ void Form::hide()
     private_->hide();
 }
 
-void Form::show() {
+void Form::show()
+{
     private_->show();
 }
 
-void Form::addControl(SHARED_PTR(Control) control)
+void Form::addControl(std::shared_ptr<Control>& control)
 {
     private_->controls.append(control);
     control->setHwnd(private_->hwnd);
@@ -173,8 +174,8 @@ void Form::addControl(SHARED_PTR(Control) control)
 }
 
 FormPrivate::FormPrivate(Form* form) :
-    position(Vector2(100, 100)),
-    size(Vector2(100, 100)),
+    position(Vector2i(100, 100)),
+    size(Vector2i(100, 100)),
     form(form)
 {
     initialize();
@@ -183,7 +184,7 @@ FormPrivate::FormPrivate(Form* form) :
 void FormPrivate::initialize()
 {
     if (keys_ == nullptr) {
-        keys_ = CONST_CAST(bool*, Keyboard::getKeyArray());
+        keys_ = const_cast<bool*>(Keyboard::getKeyArray());
     }
 
     const auto hinstance = PrivateProcessInformation::getHInstance();
@@ -191,7 +192,7 @@ void FormPrivate::initialize()
     wc.cbClsExtra = 0;
     wc.cbWndExtra = 0;
     wc.lpszClassName = L"className"; /* Todo class name */
-    wc.hInstance = STATIC_CAST(HINSTANCE, hinstance);
+    wc.hInstance = static_cast<HINSTANCE>(hinstance);
     wc.hbrBackground = GetSysColorBrush(COLOR_3DFACE);
     wc.lpszMenuName = NULL;
     wc.lpfnWndProc = WndProc;
@@ -212,7 +213,7 @@ void FormPrivate::setPosition(int x, int y)
 void FormPrivate::centerToScreen()
 {
     const auto screenSize = Screen::getSize();
-    setPosition(STATIC_CAST(int, (screenSize.x - size.x) * 0.5F), STATIC_CAST(int, (screenSize.y - size.y) * 0.5F));
+    setPosition(static_cast<int>((screenSize.x - size.x) * 0.5F), static_cast<int>((screenSize.y - size.y) * 0.5F));
 }
 
 void Form::centerToScreen()
@@ -245,7 +246,7 @@ void FormPrivate::setIsMinimized(bool value)
     }
 }
 
-void FormPrivate::setWindowTitle(const AString& title)
+void FormPrivate::setWindowTitle(const AString & title)
 {
     SetWindowTextA(hwnd, title.toCString());
 }
@@ -280,29 +281,29 @@ void FormPrivate::processEvents()
 void FormPrivate::invokeFormMovedEvent(LPARAM lParam)
 {
     previousPosition = position;
-    position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    position = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
     form->formMovedEvent(previousPosition, position);
 }
 
 void FormPrivate::invokeFormMovingEvent(LPARAM lParam)
 {
-    const auto& windowRect = *(RECT*)lParam;
+    const auto& windowRect = *(RECT*) lParam;
     previousPosition = position;
-    position = Vector2(windowRect.left, windowRect.top);
+    position = Vector2i(windowRect.left, windowRect.top);
     form->formMovingEvent(previousPosition, position);
 }
 
 void FormPrivate::invokeFormResizingEvent(WPARAM wParam, LPARAM lParam)
 {
-    const auto& windowRect = *(RECT*)lParam;
+    const auto& windowRect = *(RECT*) lParam;
     previousSize = size;
-    size = Vector2(windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
-    form->formResizingEvent(previousSize, size, STATIC_CAST(WindowEdge, wParam));
+    size = Vector2i(windowRect.right - windowRect.left, windowRect.bottom - windowRect.top);
+    form->formResizingEvent(previousSize, size, static_cast<WindowEdge>(wParam));
 }
 
 void FormPrivate::invokeFormSizeEvent(WPARAM wParam, LPARAM lParam)
 {
-    const auto size = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto size = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
 
     switch (wParam) {
     case SIZE_MAXIMIZED:
@@ -339,22 +340,22 @@ void FormPrivate::invokeFormClosingEvent()
 
 void FormPrivate::invokeFormShownEvent(WPARAM wParam)
 {
-    form->formShownEvent(STATIC_CAST(bool, wParam));
+    form->formShownEvent(static_cast<bool>(wParam));
 }
 
 void FormPrivate::invokeFormPositionChangedEvent(LPARAM lParam)
 {
-    const auto& windowPos = *REINTERPRET_CAST(WINDOWPOS*, lParam);
-    form->formPositionChangedEvent(Vector2(windowPos.x, windowPos.y));
+    const auto& windowPos = *reinterpret_cast<WINDOWPOS*>(lParam);
+    form->formPositionChangedEvent(Vector2i(windowPos.x, windowPos.y));
 }
 
 void FormPrivate::invokeFormKeyEvent(WPARAM wParam, LPARAM lParam, bool isKeyDown)
 {
-    const auto key = STATIC_CAST(Key, wParam);
+    const auto key = static_cast<Key>(wParam);
 
-    const auto repeatCount = STATIC_CAST(ushort, lParam & 0b1111'1111'1111);
+    const auto repeatCount = static_cast<ushort>(lParam & 0xFFF);
     lParam >>= 16;
-    const auto scanCode = STATIC_CAST(byte, lParam & 0b1111'1111);
+    const auto scanCode = static_cast<byte>(lParam & 0xFF);
     lParam >>= 8;
     const bool isExtendedKey = lParam & 0b1;
     lParam >>= 5;
@@ -364,7 +365,7 @@ void FormPrivate::invokeFormKeyEvent(WPARAM wParam, LPARAM lParam, bool isKeyDow
     lParam >>= 1;
     const bool transitionState = lParam & 0b1;
 
-    keys_[STATIC_CAST(int, key)] = isKeyDown;
+    keys_[static_cast<int>(key)] = isKeyDown;
 
     if (isKeyDown) {
         form->formKeyDownEvent(key, repeatCount, scanCode, isExtendedKey, wasAlreadyDown);
@@ -386,7 +387,7 @@ void FormPrivate::invokeMouseLeavingEvent(bool inClientArea)
 
 void FormPrivate::invokeMouseMovingEvent(LPARAM lParam, bool inClientArea)
 {
-    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto position = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
     auto& mousePosition = Mouse::getPosition();
     mousePosition.x = position.x;
     mousePosition.y = position.y;
@@ -396,22 +397,22 @@ void FormPrivate::invokeMouseMovingEvent(LPARAM lParam, bool inClientArea)
 void FormPrivate::invokeMouseScrollingEvent(WPARAM wParam, LPARAM lParam)
 {
     const auto wheelDelta = GET_WHEEL_DELTA_WPARAM(wParam);
-    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto position = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
     form->formMouseScrollingEvent(wheelDelta, position);
 }
 
 void FormPrivate::invokeMouseButtonDownEvent(WPARAM wParam, LPARAM lParam, bool isDoubleClick, bool inClientArea)
 {
-    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto position = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
     /* TODO: cast is unsafe for foreign keys */
-    form->formMouseButtonDown(STATIC_CAST(Key, wParam), position, isDoubleClick, inClientArea);
+    form->formMouseButtonDown(static_cast<Key>(wParam), position, isDoubleClick, inClientArea);
 }
 
 void FormPrivate::invokeMouseButtonUpEvent(WPARAM wParam, LPARAM lParam, bool isDoubleClick, bool inClientArea)
 {
-    const auto position = Vector2(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
+    const auto position = Vector2i(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
     /* TODO: cast is unsafe for foreign keys */
-    form->formMouseButtonUp(STATIC_CAST(Key, wParam), position, inClientArea);
+    form->formMouseButtonUp(static_cast<Key>(wParam), position, inClientArea);
 }
 
 FormPrivate* FormPrivate::get(HWND hwnd)
@@ -424,7 +425,8 @@ FormPrivate* FormPrivate::get(HWND hwnd)
     return nullptr;
 }
 
-LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
+LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
     auto* formPrivate = FormPrivate::get(hwnd);
     if (formPrivate != nullptr) {
         //HDC hdc;
@@ -461,14 +463,16 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
         case WM_SHOWWINDOW:
             formPrivate->invokeFormShownEvent(wParam);
             break;
-        case WM_WINDOWPOSCHANGED: {
+        case WM_WINDOWPOSCHANGED:
+        {
             formPrivate->invokeFormPositionChangedEvent(lParam);
             RECT rc;
             GetClientRect(hwnd, &rc);
             HDWP hDWP = BeginDeferWindowPos(1);
             hDWP = DeferWindowPos(hDWP, GetDlgItem(hwnd, 100), NULL,
                 rc.right - 110, 10, 100, 25, SWP_NOZORDER | SWP_NOREDRAW);
-            break; }
+            break;
+        }
         case WM_KEYDOWN:
         case WM_KEYUP:
             formPrivate->invokeFormKeyEvent(wParam, lParam, msg == WM_KEYDOWN);

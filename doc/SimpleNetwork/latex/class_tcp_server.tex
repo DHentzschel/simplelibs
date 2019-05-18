@@ -1,0 +1,150 @@
+\hypertarget{class_tcp_server}{}\section{Tcp\+Server Class Reference}
+\label{class_tcp_server}\index{TcpServer@{TcpServer}}
+
+
+This class provides a \mbox{\hyperlink{class_tcp_server}{Tcp\+Server}} with some useful functions.  
+
+
+
+
+{\ttfamily \#include $<$tcpserver.\+h$>$}
+
+Inheritance diagram for Tcp\+Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_tcp_server}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tcp_server_abc977059ef61f1c42f5fda1bc5945ab0}\label{class_tcp_server_abc977059ef61f1c42f5fda1bc5945ab0}} 
+\mbox{\hyperlink{class_tcp_server_abc977059ef61f1c42f5fda1bc5945ab0}{Tcp\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Sets default values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_server_a728a9e31c53cf86887f1f6149b1c46dd}\label{class_tcp_server_a728a9e31c53cf86887f1f6149b1c46dd}} 
+\mbox{\hyperlink{class_tcp_server_a728a9e31c53cf86887f1f6149b1c46dd}{$\sim$\+Tcp\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Closes the server socket. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_tcp_server_a91c1c56fff64ace30c2622d0d939807e}{listen}} (const A\+String \&hostaddress, ushort port)
+\begin{DoxyCompactList}\small\item\em Tries to listen to the specified hostaddress and port and returns success. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_server_a6f8ced2c4ccd9efe492088d2c35ad7c7}\label{class_tcp_server_a6f8ced2c4ccd9efe492088d2c35ad7c7}} 
+void \mbox{\hyperlink{class_tcp_server_a6f8ced2c4ccd9efe492088d2c35ad7c7}{terminate}} () const
+\begin{DoxyCompactList}\small\item\em Terminates the server\+Event\+Listener thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_tcp_server_ad1e57837a4b59e4c1b48871bb079ebb5}{incoming\+Connection}} (const \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} \&socket)=0
+\begin{DoxyCompactList}\small\item\em Will be called when a client connects to the server. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_tcp_server_aa46b3b62f38d3ff8c6ad122e6201c094}{disconnected}} (const \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} \&socket)=0
+\begin{DoxyCompactList}\small\item\em Will be called when a client disconnects from the server. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_tcp_server_a4a506d4903c2a5ef92ed1ef5542fdedb}{receive}} (const char $\ast$packet, uint length) override=0
+\begin{DoxyCompactList}\small\item\em Will be called when the server receives a packet from a client. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tcp_server_a9d7098c97cb60e1960295adb730ccf29}\label{class_tcp_server_a9d7098c97cb60e1960295adb730ccf29}} 
+\mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} $\ast$ \mbox{\hyperlink{class_tcp_server_a9d7098c97cb60e1960295adb730ccf29}{current\+Socket\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The most recent socket pointer. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_server_a0ecef6a005f8665d422796304e4b2c49}\label{class_tcp_server_a0ecef6a005f8665d422796304e4b2c49}} 
+A\+Vector$<$ \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} $\ast$ $>$ \mbox{\hyperlink{class_tcp_server_a0ecef6a005f8665d422796304e4b2c49}{socket\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Contains all \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} connected. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_server_a227067d2d336ada3759d6b6805a54db1}\label{class_tcp_server_a227067d2d336ada3759d6b6805a54db1}} 
+uint \mbox{\hyperlink{class_tcp_server_a227067d2d336ada3759d6b6805a54db1}{address\+Length\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Contains the address length. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_tcp_server_a1ff8340e61e8e8020eb187e7d46d4f4c}\label{class_tcp_server_a1ff8340e61e8e8020eb187e7d46d4f4c}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_tcp_server_event_listener}{Tcp\+Server\+Event\+Listener}} $>$ \mbox{\hyperlink{class_tcp_server_a1ff8340e61e8e8020eb187e7d46d4f4c}{server\+Event\+Listener\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Represents the server\+Event\+Listener instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tcp_server_afff21cc973310e3b55b9f25cd8d76bd0}\label{class_tcp_server_afff21cc973310e3b55b9f25cd8d76bd0}} 
+class {\bfseries Tcp\+Server\+Event\+Listener}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class provides a \mbox{\hyperlink{class_tcp_server}{Tcp\+Server}} with some useful functions. 
+
+\begin{DoxyAuthor}{Author}
+Daniel Hentzschel on 13.\+05.\+2019. 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tcp_server_aa46b3b62f38d3ff8c6ad122e6201c094}\label{class_tcp_server_aa46b3b62f38d3ff8c6ad122e6201c094}} 
+\index{TcpServer@{TcpServer}!disconnected@{disconnected}}
+\index{disconnected@{disconnected}!TcpServer@{TcpServer}}
+\subsubsection{\texorpdfstring{disconnected()}{disconnected()}}
+{\footnotesize\ttfamily virtual void Tcp\+Server\+::disconnected (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} \&}]{socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Will be called when a client disconnects from the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & the socket which disconnected \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_tcp_server_ad1e57837a4b59e4c1b48871bb079ebb5}\label{class_tcp_server_ad1e57837a4b59e4c1b48871bb079ebb5}} 
+\index{TcpServer@{TcpServer}!incomingConnection@{incomingConnection}}
+\index{incomingConnection@{incomingConnection}!TcpServer@{TcpServer}}
+\subsubsection{\texorpdfstring{incomingConnection()}{incomingConnection()}}
+{\footnotesize\ttfamily virtual void Tcp\+Server\+::incoming\+Connection (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} \&}]{socket }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Will be called when a client connects to the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em socket} & the socket which connected \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_tcp_server_a91c1c56fff64ace30c2622d0d939807e}\label{class_tcp_server_a91c1c56fff64ace30c2622d0d939807e}} 
+\index{TcpServer@{TcpServer}!listen@{listen}}
+\index{listen@{listen}!TcpServer@{TcpServer}}
+\subsubsection{\texorpdfstring{listen()}{listen()}}
+{\footnotesize\ttfamily bool Tcp\+Server\+::listen (\begin{DoxyParamCaption}\item[{const A\+String \&}]{hostaddress,  }\item[{ushort}]{port }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Tries to listen to the specified hostaddress and port and returns success. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hostaddress} & the hostaddress to connect to \\
+\hline
+{\em port} & the port to connect to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether to the hostaddress and port could be listened 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_tcp_server_a4a506d4903c2a5ef92ed1ef5542fdedb}\label{class_tcp_server_a4a506d4903c2a5ef92ed1ef5542fdedb}} 
+\index{TcpServer@{TcpServer}!receive@{receive}}
+\index{receive@{receive}!TcpServer@{TcpServer}}
+\subsubsection{\texorpdfstring{receive()}{receive()}}
+{\footnotesize\ttfamily virtual void Tcp\+Server\+::receive (\begin{DoxyParamCaption}\item[{const char $\ast$}]{packet,  }\item[{uint}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [pure virtual]}}
+
+
+
+Will be called when the server receives a packet from a client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em packet} & the packet received from client \\
+\hline
+{\em length} & the length of the packet received from the client \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_tcp_socket_a5c3aedf1e5387e02204d423e39dd6bee}{Tcp\+Socket}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Network/tcpserver.\+h\item 
+D\+:/\+\_\+git/\+\_\+github/simplelibs/\+Simple\+Network/tcpserver.\+cpp\end{DoxyCompactItemize}

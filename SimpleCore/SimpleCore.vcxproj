@@ -147,7 +147,6 @@
     <ClInclude Include="astring.h" />
     <ClInclude Include="avector.h" />
     <ClInclude Include="bytearray.h" />
-    <ClInclude Include="casesensitivity.h" />
     <ClInclude Include="char.h" />
     <ClInclude Include="chocobo1\blake1_224.h" />
     <ClInclude Include="chocobo1\blake1_256.h" />
@@ -180,17 +179,19 @@
     <ClInclude Include="chocobo1\whirlpool.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="consolecolor.h" />
-    <ClInclude Include="date.h" />
     <ClInclude Include="datetime.h" />
     <ClInclude Include="datetimeinfo.h" />
+    <ClInclude Include="date\date.h" />
     <ClInclude Include="dir.h" />
+    <ClInclude Include="directory.h" />
     <ClInclude Include="file.h" />
     <ClInclude Include="functions.h" />
-    <ClInclude Include="iencryption.h" />
+    <ClInclude Include="encryption.h" />
     <ClInclude Include="inifile.h" />
     <ClInclude Include="logger.h" />
     <ClInclude Include="mathutils.h" />
     <ClInclude Include="openmode.h" />
+    <ClInclude Include="osdetection.h" />
     <ClInclude Include="plogtp.h" />
     <ClInclude Include="rapidjson\allocators.h" />
     <ClInclude Include="rapidjson\cursorstreamwrapper.h" />
@@ -246,6 +247,7 @@
     <ClInclude Include="vector2.h" />
     <ClInclude Include="vector2d.h" />
     <ClInclude Include="vector2f.h" />
+    <ClInclude Include="vector2i.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="chocobo1\gsl\gsl" />

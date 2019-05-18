@@ -1,7 +1,7 @@
 #include "datetime.h"
 
 #include "char.h"
-#include "date.h"
+#include "date/date.h"
 
 DateTime DateTime::dateTimeInitializer_;
 
@@ -11,11 +11,17 @@ DateTimeInfo DateTime::beginDateTime_ = DateTimeInfo(1, 1, 1970, 0, 0, 0);
 
 byte DateTime::monthDays_[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
+DateTime::DateTime() :
+    unixTimestamp_(0)
+{}
+
 DateTime::DateTime(const DateTimeInfo& dateTimeInfo) :
+    unixTimestamp_(0),
     dateTimeInfo_(dateTimeInfo)
 {}
 
-DateTime::DateTime(const AString& string)
+DateTime::DateTime(const AString& string) :
+    unixTimestamp_(0)
 {
     parse(string);
 }
@@ -32,10 +38,6 @@ DateTime DateTime::now()
     return dateTime;
 }
 
-/**
- * \brief Returns current date as string. Returns date with format "DD.MM.YYYY".
- * \return current date
- */
 AString DateTime::getDatestamp()
 {
     char buffer[11];
@@ -46,10 +48,6 @@ AString DateTime::getDatestamp()
     return AString(buffer);
 }
 
-/**
- * \brief Returns current time as string with format "hh:mm:ss".
- * \return current time second precise
- */
 AString DateTime::getTimestamp()
 {
     char buffer[9];
@@ -60,10 +58,6 @@ AString DateTime::getTimestamp()
     return buffer;
 }
 
-/**
-* \brief Returns current date and time as string. Returns date part with format "DD.MM.YYYY".
-* \return current date and time separated by space
-*/
 AString DateTime::getCurrentTimestamp()
 {
     return now().toString();
@@ -118,215 +112,191 @@ DateTime DateTime::fromUnixTimestamp(const int64 timestamp)
 
 void DateTime::addDays(uint count)
 {
-    if (count == 0) {
-        return;
+    if (count > 0) {
+        DateTime dateTime = fromUnixTimestamp(unixTimestamp_ + static_cast<int64>(count) * 86400);
+        dateTimeInfo_ = dateTime.dateTimeInfo_;
+        unixTimestamp_ = dateTime.unixTimestamp_;
     }
-
-    DateTime dateTime = fromUnixTimestamp(unixTimestamp_ + count * 86400);
-    dateTimeInfo_ = dateTime.dateTimeInfo_;
-    unixTimestamp_ = dateTime.unixTimestamp_;
 }
 
 void DateTime::subDays(uint count)
 {
-    if (count == 0) {
-        return;
+    if (count > 0) {
+        DateTime dateTime = fromUnixTimestamp(unixTimestamp_ - static_cast<int64>(count) * 86400);
+        dateTimeInfo_ = dateTime.dateTimeInfo_;
+        unixTimestamp_ = dateTime.unixTimestamp_;
     }
-
-    DateTime dateTime = fromUnixTimestamp(unixTimestamp_ - count * 86400);
-    dateTimeInfo_ = dateTime.dateTimeInfo_;
-    unixTimestamp_ = dateTime.unixTimestamp_;
 }
 
 void DateTime::addMonths(uint count)
 {
-    if (count == 0) {
-        return;
-    }
+    if (count > 0) {
+        bool tempIsLeapYearAnFebruary = false;
+        auto daysTotal = 0;
+        auto monthOld = 0;
 
-    bool tempIsLeapYearAnFebruary = false;
-    auto daysTotal = 0;
-    auto monthOld = 0;
+        auto calculateRest = [this](bool& tempIsLeapYearAnFebruary, int& daysTotal) {
+            tempIsLeapYearAnFebruary = dateTimeInfo_.month == 2 && isLeapYear(dateTimeInfo_.year);
+            daysTotal += monthDays_[dateTimeInfo_.month - 1] - dateTimeInfo_.day + 1 + (tempIsLeapYearAnFebruary ? 1 : 0);
+        };
 
-    auto calculateRest = [this](bool& tempIsLeapYearAnFebruary, int& daysTotal) {
-        tempIsLeapYearAnFebruary = dateTimeInfo_.month == 2 && isLeapYear(dateTimeInfo_.year);
-        daysTotal += monthDays_[dateTimeInfo_.month - 1] - dateTimeInfo_.day + 1 + (tempIsLeapYearAnFebruary ? 1 : 0);
-    };
-
-    auto addFirstMonth = [count, this] {
-        if (count % 12 != 0) {
-            ++dateTimeInfo_.month;
-            dateTimeInfo_.month %= 13;
-            if (dateTimeInfo_.month == 0) {
-                dateTimeInfo_.month = 1;
+        auto addFirstMonth = [count, this] {
+            if (count % 12 != 0) {
+                ++dateTimeInfo_.month;
+                dateTimeInfo_.month %= 13;
+                if (dateTimeInfo_.month == 0) {
+                    dateTimeInfo_.month = 1;
+                }
             }
-        }
-    };
+        };
 
-    auto calculateYear = [this](int monthOld) {
-        dateTimeInfo_.year += (monthOld > dateTimeInfo_.month ? 1 : 0);
-    };
+        auto calculateYear = [this](int monthOld) {
+            dateTimeInfo_.year += (monthOld > dateTimeInfo_.month ? 1 : 0);
+        };
 
-    auto maxIndex = count;
+        auto maxIndex = count;
 
-    calculateRest(tempIsLeapYearAnFebruary, daysTotal);
-    monthOld = dateTimeInfo_.month;
-    addFirstMonth();
-    calculateYear(monthOld);
-
-    if (maxIndex > 12) {
-        addYears(count / 12);
-        maxIndex = count % 12;
-    }
-
-    for (uint i = 1; i < maxIndex; ++i) {
-        monthOld = dateTimeInfo_.month;
         calculateRest(tempIsLeapYearAnFebruary, daysTotal);
+        monthOld = dateTimeInfo_.month;
         addFirstMonth();
         calculateYear(monthOld);
-    }
 
-    calculateUnixTimestamp();
+        if (maxIndex > 12) {
+            addYears(count / 12);
+            maxIndex = count % 12;
+        }
+
+        for (uint i = 1; i < maxIndex; ++i) {
+            monthOld = dateTimeInfo_.month;
+            calculateRest(tempIsLeapYearAnFebruary, daysTotal);
+            addFirstMonth();
+            calculateYear(monthOld);
+        }
+
+        calculateUnixTimestamp();
+    }
 }
 
 void DateTime::subMonths(uint count)
 {
-    if (count == 0) {
-        return;
-    }
+    if (count > 0) {
+        bool tempIsLeapYearAnFebruary = false;
+        auto monthOld = 0;
 
-    bool tempIsLeapYearAnFebruary = false;
-    auto monthOld = 0;
+        auto calculateRest = [this](bool& tempIsLeapYearAnFebruary/*, int& daysTotal*/) {
+            tempIsLeapYearAnFebruary = dateTimeInfo_.month == 2 && isLeapYear(dateTimeInfo_.year);
+        };
 
-    auto calculateRest = [this](bool& tempIsLeapYearAnFebruary/*, int& daysTotal*/) {
-        tempIsLeapYearAnFebruary = dateTimeInfo_.month == 2 && isLeapYear(dateTimeInfo_.year);
-    };
-
-    auto calculateMonth = [count, this] {
-        if (count % 12 != 0) {
-            --dateTimeInfo_.month;
-            if (dateTimeInfo_.month == 0) {
-                dateTimeInfo_.month = 12;
+        auto calculateMonth = [count, this] {
+            if (count % 12 != 0) {
+                --dateTimeInfo_.month;
+                if (dateTimeInfo_.month == 0) {
+                    dateTimeInfo_.month = 12;
+                }
             }
-        }
-    };
+        };
 
-    auto calculateYear = [this](int monthOld) {
-        dateTimeInfo_.year -= (monthOld < dateTimeInfo_.month ? 1 : 0);
-    };
+        auto calculateYear = [this](int monthOld) {
+            dateTimeInfo_.year -= (monthOld < dateTimeInfo_.month ? 1 : 0);
+        };
 
 
-    calculateRest(tempIsLeapYearAnFebruary);
-    monthOld = dateTimeInfo_.month;
-    calculateMonth();
-    calculateYear(monthOld);
-
-    auto maxIndex = count;
-    if (count > 12) {
-        subYears(count / 12);
-        maxIndex = count % 12;
-    }
-
-    for (uint i = 1; i < maxIndex; ++i) {
-        monthOld = dateTimeInfo_.month;
         calculateRest(tempIsLeapYearAnFebruary);
+        monthOld = dateTimeInfo_.month;
         calculateMonth();
         calculateYear(monthOld);
-    }
 
-    calculateUnixTimestamp();
+        auto maxIndex = count;
+        if (count > 12) {
+            subYears(count / 12);
+            maxIndex = count % 12;
+        }
+
+        for (uint i = 1; i < maxIndex; ++i) {
+            monthOld = dateTimeInfo_.month;
+            calculateRest(tempIsLeapYearAnFebruary);
+            calculateMonth();
+            calculateYear(monthOld);
+        }
+
+        calculateUnixTimestamp();
+    }
 }
 
 void DateTime::addYears(uint count)
 {
-    if (count == 0) {
-        return;
-    }
+    if (count > 0) {
+        for (uint i = 0; i < count; ++i) {
+            ++dateTimeInfo_.year;
+        }
 
-    for (uint i = 0; i < count; ++i) {
-        ++dateTimeInfo_.year;
+        calculateUnixTimestamp();
     }
-
-    calculateUnixTimestamp();
 }
 
 void DateTime::subYears(uint count)
 {
-    if (count == 0) {
-        return;
-    }
+    if (count > 0) {
+        for (uint i = 0; i < count; ++i) {
+            --dateTimeInfo_.year;
+        }
 
-    for (uint i = 0; i < count; ++i) {
-        --dateTimeInfo_.year;
+        calculateUnixTimestamp();
     }
-
-    calculateUnixTimestamp();
 }
 
 void DateTime::addHours(uint count)
 {
-    if (count == 0) {
-        return;
+    if (count > 0) {
+        DateTime dateTime = fromUnixTimestamp(unixTimestamp_ + static_cast<int64>(count) * 3600);
+        dateTimeInfo_ = dateTime.dateTimeInfo_;
+        unixTimestamp_ = dateTime.unixTimestamp_;
     }
-
-    DateTime dateTime = fromUnixTimestamp(unixTimestamp_ + count * 3600);
-    dateTimeInfo_ = dateTime.dateTimeInfo_;
-    unixTimestamp_ = dateTime.unixTimestamp_;
 }
 
 void DateTime::subHours(uint count)
 {
-    if (count == 0) {
-        return;
+    if (count > 0) {
+        DateTime dateTime = fromUnixTimestamp(unixTimestamp_ - static_cast<int64>(count) * 3600);
+        dateTimeInfo_ = dateTime.dateTimeInfo_;
+        unixTimestamp_ = dateTime.unixTimestamp_;
     }
-
-    DateTime dateTime = fromUnixTimestamp(unixTimestamp_ - count * 3600);
-    dateTimeInfo_ = dateTime.dateTimeInfo_;
-    unixTimestamp_ = dateTime.unixTimestamp_;
 }
 
 void DateTime::addMinutes(uint count)
 {
-    if (count == 0) {
-        return;
+    if (count > 0) {
+        DateTime dateTime = fromUnixTimestamp(unixTimestamp_ + static_cast<int64>(count) * 60);
+        dateTimeInfo_ = dateTime.dateTimeInfo_;
+        unixTimestamp_ = dateTime.unixTimestamp_;
     }
-
-    DateTime dateTime = fromUnixTimestamp(unixTimestamp_ + count * 60);
-    dateTimeInfo_ = dateTime.dateTimeInfo_;
-    unixTimestamp_ = dateTime.unixTimestamp_;
 }
 
 void DateTime::subMinutes(uint count)
 {
     if (count == 0) {
-        return;
+        DateTime dateTime = fromUnixTimestamp(unixTimestamp_ - static_cast<int64>(count) * 60);
+        dateTimeInfo_ = dateTime.dateTimeInfo_;
+        unixTimestamp_ = dateTime.unixTimestamp_;
     }
-
-    DateTime dateTime = fromUnixTimestamp(unixTimestamp_ - count * 60);
-    dateTimeInfo_ = dateTime.dateTimeInfo_;
-    unixTimestamp_ = dateTime.unixTimestamp_;
 }
 
 void DateTime::addSeconds(uint count)
 {
-    if (count == 0) {
-        return;
+    if (count > 0) {
+        DateTime dateTime = fromUnixTimestamp(unixTimestamp_ + count);
+        dateTimeInfo_ = dateTime.dateTimeInfo_;
+        unixTimestamp_ = dateTime.unixTimestamp_;
     }
-
-    DateTime dateTime = fromUnixTimestamp(unixTimestamp_ + count);
-    dateTimeInfo_ = dateTime.dateTimeInfo_;
-    unixTimestamp_ = dateTime.unixTimestamp_;
 }
 
 void DateTime::subSeconds(uint count)
 {
     if (count == 0) {
-        return;
+        DateTime dateTime = fromUnixTimestamp(unixTimestamp_ - count);
+        dateTimeInfo_ = dateTime.dateTimeInfo_;
+        unixTimestamp_ = dateTime.unixTimestamp_;
     }
-
-    DateTime dateTime = fromUnixTimestamp(unixTimestamp_ - count);
-    dateTimeInfo_ = dateTime.dateTimeInfo_;
-    unixTimestamp_ = dateTime.unixTimestamp_;
 }
 
 byte DateTime::getDay() const
@@ -375,12 +345,12 @@ int64 DateTime::toUnixTimestamp()
 
 AString DateTime::toString() const
 {
-    return (dateTimeInfo_.day < 10 ? "0" : "") + TO_STRING(dateTimeInfo_.day) + "."
-        + (dateTimeInfo_.month < 10 ? "0" : "") + TO_STRING(dateTimeInfo_.month) + "."
-        + TO_STRING(dateTimeInfo_.year) + " "
-        + (dateTimeInfo_.hour < 10 ? "0" : "") + TO_STRING(dateTimeInfo_.hour) + ":"
-        + (dateTimeInfo_.minute < 10 ? "0" : "") + TO_STRING(dateTimeInfo_.minute) + ":"
-        + (dateTimeInfo_.second < 10 ? "0" : "") + TO_STRING(dateTimeInfo_.second);
+    return (dateTimeInfo_.day < 10 ? "0" : "") + AString::toString(dateTimeInfo_.day) + "."
+        + (dateTimeInfo_.month < 10 ? "0" : "") + AString::toString(dateTimeInfo_.month) + "."
+        + AString::toString(dateTimeInfo_.year) + " "
+        + (dateTimeInfo_.hour < 10 ? "0" : "") + AString::toString(dateTimeInfo_.hour) + ":"
+        + (dateTimeInfo_.minute < 10 ? "0" : "") + AString::toString(dateTimeInfo_.minute) + ":"
+        + (dateTimeInfo_.second < 10 ? "0" : "") + AString::toString(dateTimeInfo_.second);
 }
 
 std::tm DateTime::toStdTm()
@@ -398,7 +368,7 @@ std::tm DateTime::toStdTm()
     return result;
 }
 
-void DateTime::parse(const AString& string)
+void DateTime::parse(const AString & string)
 {
     const auto dateTimeArray = string.splitByNonNumerics();
     if (dateTimeArray.size() != 6) {
@@ -424,26 +394,22 @@ void DateTime::calculateUnixTimestamp()
     unixTimestamp_ = 0;
 
     /* Add full leap year seconds */
-    unixTimestamp_ += leapYearCount * 31622400;
+    unixTimestamp_ += static_cast<int64>(leapYearCount) * 31622400;
     /* Add full normal year seconds */
-    unixTimestamp_ += difference * 31536000;
+    unixTimestamp_ += static_cast<int64>(difference) * 31536000;
     /* ???? */
     //unixTimestamp_ += (dateTimeInfo_.day - 1) * 86400;
 
     unixTimestamp_ += getDaysCountUntil(dateTimeInfo_.month, isLeapYear(dateTimeInfo_.year)) * 86400;
 
-    unixTimestamp_ += (dateTimeInfo_.day - 1) * 86400;
+    unixTimestamp_ += static_cast<int64>(dateTimeInfo_.day - 1) * 86400;
 
     /* Add full hour seconds */
-    unixTimestamp_ += dateTimeInfo_.hour * 3600;
+    unixTimestamp_ += static_cast<int64>(dateTimeInfo_.hour) * 3600;
     /* Add full minute seconds */
-    unixTimestamp_ += dateTimeInfo_.minute * 60;
+    unixTimestamp_ += static_cast<int64>(dateTimeInfo_.minute) * 60;
     /* Add seconds */
     unixTimestamp_ += dateTimeInfo_.second;
-
-    /* Add seconds since begin of current month */
-    //unixTimestamp_ += getSecondsSinceMonth(static_cast<byte>(dateTimeInfo_.month),
-        //isLeapYear(static_cast<ushort>(dateTimeInfo_.year)));
 }
 
 int64 DateTime::getDaysCountUntil(byte month, bool leapYear)

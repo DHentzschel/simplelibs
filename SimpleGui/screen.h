@@ -1,13 +1,13 @@
 #ifndef SCREEN_H
 #define SCREEN_H
 
-#include <vector2.h>
+#include <vector2i.h>
 
 class ScreenPrivate;
 
 class Screen {
 public:
-    static Vector2 getSize();
+    static Vector2i getSize();
 
 private:
     Screen();
