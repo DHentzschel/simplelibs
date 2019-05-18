@@ -1,0 +1,9 @@
+os: windows
+language: cpp
+compiler: gcc
+dist: trusty
+
+script:
+- g++ -shared SimpleCore/*.cpp SimpleCore/*/*.cpp -std=c++17 -o SimpleCore.so
+- g++ -shared SimpleMySql/*.cpp -std=c++17 -o SimpleMySql.so
+- g++ -shared SimpleNetwork/*.cpp -std=c++17 -o SimpleNetwork.so

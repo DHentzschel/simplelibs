@@ -20,7 +20,7 @@ Inheritance diagram for Tcp\+Event\+Listener\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_tcp_event_listener_a3d6f7243d828830ed9373a2e488c95b6}{Tcp\+Event\+Listener}} (\mbox{\hyperlink{class_tcp_socket}{Tcp\+Socket}} $\ast$socket)
 \begin{DoxyCompactList}\small\item\em Sets the socket pointer to the specified value. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_tcp_event_listener_aba0cb36a5016a7c081b277ff4030fbf6}{Tcp\+Event\+Listener}} (\mbox{\hyperlink{class_tcp_server}{Tcp\+Server}} $\ast$\mbox{\hyperlink{class_tcp_event_listener_aa0a66ee360e15e349eda1c10041c3219}{server}})
+\mbox{\hyperlink{class_tcp_event_listener_aba0cb36a5016a7c081b277ff4030fbf6}{Tcp\+Event\+Listener}} (\mbox{\hyperlink{class_tcp_server}{Tcp\+Server}} $\ast$server)
 \begin{DoxyCompactList}\small\item\em Sets the server pointer to the specified value. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_tcp_event_listener_aac35550b2da7ba7b4f27e8dd169a436b}{set\+Is\+Running}} (bool is\+Running)
 \begin{DoxyCompactList}\small\item\em Sets is\+Running to the specified value. \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -37,9 +37,9 @@ virtual void \mbox{\hyperlink{class_tcp_event_listener_a900e4938c19ae2371c4621e5
 \begin{tabbing}
 xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
 union \{\\
-\>\mbox{\hyperlink{class_tcp_server}{TcpServer}} $\ast$ \mbox{\hyperlink{class_tcp_event_listener_aa0a66ee360e15e349eda1c10041c3219}{server}}\\
+\>\mbox{\hyperlink{class_tcp_server}{TcpServer}} $\ast$ \mbox{\hyperlink{class_tcp_event_listener_ab8e2c46397bc14530531bff274c9d3f1}{server\_}}\\
 \>\>{\em Represents the pointer to the listenable server. }\\
-\>\mbox{\hyperlink{class_tcp_socket}{TcpSocket}} $\ast$ \mbox{\hyperlink{class_tcp_event_listener_a0a05150db3b589bb5fe136b18e5418f3}{client}}\\
+\>\mbox{\hyperlink{class_tcp_socket}{TcpSocket}} $\ast$ \mbox{\hyperlink{class_tcp_event_listener_a17a09698431a0433650c21562dd295ee}{client\_}}\\
 \>\>{\em Represents the pointer to the listenable client. }\\
 \}; \\
 

@@ -23,6 +23,8 @@ Inheritance diagram for Byte\+Array\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Calls the default initialization. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_byte_array_a5370ae20f7491913d891a624ea77ad52}{Byte\+Array}} (const char $\ast$char\+Array, size\+\_\+t size)
 \begin{DoxyCompactList}\small\item\em Initializes the byte array by a char array and its size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_byte_array_a6d8888512392eb9e671f56e434179fa1}{Byte\+Array}} (const \mbox{\hyperlink{class_byte_array}{Byte\+Array}} \&byte\+Array)
+\begin{DoxyCompactList}\small\item\em Copies the data from the specified byte array. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_byte_array_a94a65f2b5c6952713712e23a574b0295}{Byte\+Array}} (const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ char $>$ \&vector)
 \begin{DoxyCompactList}\small\item\em Initializes the byte array by the given char vector passed as parameter. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_byte_array_a4c0af1c1fe9ee1e6fa1e8ce7b0bde83a}{is\+Equal}} (const char $\ast$char\+Array, size\+\_\+t size)
@@ -45,7 +47,7 @@ Daniel Hentzschel on 11.\+05.\+2019.
 \mbox{\Hypertarget{class_byte_array_a5370ae20f7491913d891a624ea77ad52}\label{class_byte_array_a5370ae20f7491913d891a624ea77ad52}} 
 \index{ByteArray@{ByteArray}!ByteArray@{ByteArray}}
 \index{ByteArray@{ByteArray}!ByteArray@{ByteArray}}
-\subsubsection{\texorpdfstring{ByteArray()}{ByteArray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\subsubsection{\texorpdfstring{ByteArray()}{ByteArray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily Byte\+Array\+::\+Byte\+Array (\begin{DoxyParamCaption}\item[{const char $\ast$}]{char\+Array,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
 
 
@@ -59,10 +61,25 @@ Initializes the byte array by a char array and its size.
 {\em size} & the size of the char array \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{class_byte_array_a6d8888512392eb9e671f56e434179fa1}\label{class_byte_array_a6d8888512392eb9e671f56e434179fa1}} 
+\index{ByteArray@{ByteArray}!ByteArray@{ByteArray}}
+\index{ByteArray@{ByteArray}!ByteArray@{ByteArray}}
+\subsubsection{\texorpdfstring{ByteArray()}{ByteArray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Byte\+Array\+::\+Byte\+Array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_byte_array}{Byte\+Array}} \&}]{byte\+Array }\end{DoxyParamCaption})}
+
+
+
+Copies the data from the specified byte array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em byte\+Array} & the byte array to copy from \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_byte_array_a94a65f2b5c6952713712e23a574b0295}\label{class_byte_array_a94a65f2b5c6952713712e23a574b0295}} 
 \index{ByteArray@{ByteArray}!ByteArray@{ByteArray}}
 \index{ByteArray@{ByteArray}!ByteArray@{ByteArray}}
-\subsubsection{\texorpdfstring{ByteArray()}{ByteArray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\subsubsection{\texorpdfstring{ByteArray()}{ByteArray()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily Byte\+Array\+::\+Byte\+Array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ char $>$ \&}]{vector }\end{DoxyParamCaption})}
 
 
