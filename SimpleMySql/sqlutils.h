@@ -3,12 +3,13 @@
 
 #include <astring.h>
 #include <binary_log_types.h>
+#include "simplemysql.h"
 
 class SqlUtils {
   public:
-    static enum_field_types getMySqlType(const AString& string);
+	SIMPLEMYSQL_API static enum_field_types getMySqlType(const AString& string);
 
-    static short getMySqlLength(const AString& string);
+	SIMPLEMYSQL_API static short getMySqlLength(const AString& string);
 
   private:
     static bool startsWithEntry(const AString& string,

@@ -7,6 +7,7 @@
 #include <types.h>
 
 #include "psqltbl.h"
+#include "simplemysql.h"
 
 static const AString defaultConnection = "default_sql_connection";
 
@@ -22,57 +23,57 @@ class SqlDatabase {
 	friend class SqlQuery;
 
 public:
-	SqlDatabase(const SqlDatabase& database);
+	SIMPLEMYSQL_API SqlDatabase(const SqlDatabase& database);
 
-	explicit SqlDatabase(const AString& connectionName = defaultConnection);
+	SIMPLEMYSQL_API explicit SqlDatabase(const AString& connectionName = defaultConnection);
 
-	~SqlDatabase();
+	SIMPLEMYSQL_API ~SqlDatabase();
 
-	bool open() const;
+	SIMPLEMYSQL_API bool open() const;
 
-	bool open(const AString& hostname,
+	SIMPLEMYSQL_API bool open(const AString& hostname,
 		ushort port,
 		const AString& username,
 		const AString& password,
 		const AString& databaseName) const;
 
-	void switchDatabase(const AString&) const;
+	SIMPLEMYSQL_API void switchDatabase(const AString&) const;
 
-	void close() const;
+	SIMPLEMYSQL_API void close() const;
 
-	AString getHostname() const;
+	SIMPLEMYSQL_API AString getHostname() const;
 
-	void setHostname(const AString&) const;
+	SIMPLEMYSQL_API void setHostname(const AString&) const;
 
-	ushort getPort() const;
+	SIMPLEMYSQL_API ushort getPort() const;
 
-	void setPort(ushort) const;
+	SIMPLEMYSQL_API void setPort(ushort) const;
 
-	AString getUsername() const;
+	SIMPLEMYSQL_API AString getUsername() const;
 
-	void setUsername(const AString&) const;
+	SIMPLEMYSQL_API void setUsername(const AString&) const;
 
-	AString getPassword() const;
+	SIMPLEMYSQL_API AString getPassword() const;
 
-	void setPassword(const AString&) const;
+	SIMPLEMYSQL_API void setPassword(const AString&) const;
 
-	AString getDatabaseName() const;
+	SIMPLEMYSQL_API AString getDatabaseName() const;
 
-	bool setDatabaseName(const AString&) const;
+	SIMPLEMYSQL_API bool setDatabaseName(const AString&) const;
 
-	bool isOpen() const;
+	SIMPLEMYSQL_API bool isOpen() const;
 
-	AString getConnectionName() const;
+	SIMPLEMYSQL_API AString getConnectionName() const;
 
-	AString getLastError() const;
+	SIMPLEMYSQL_API AString getLastError() const;
 
-	static SqlDatabase
+	SIMPLEMYSQL_API static SqlDatabase
 		addDatabase(const AString& connectionName = defaultConnection);
 
-	static void
+	SIMPLEMYSQL_API static void
 		removeDatabase(const AString& connectionName = defaultConnection);
 
-	static SqlDatabase*
+	SIMPLEMYSQL_API static SqlDatabase*
 		database(const AString& connectionName = defaultConnection);
 
 private:

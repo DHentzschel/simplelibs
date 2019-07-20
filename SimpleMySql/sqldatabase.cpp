@@ -9,8 +9,9 @@
 
 AVector<SqlDatabase*> SqlDatabase::databases_;
 
+#pragma warning (disable : 4251)
 struct SqlDatabasePrivate {
-    SqlDatabasePrivate() = default;
+	SqlDatabasePrivate();
 
     SqlDatabasePrivate(const SqlDatabasePrivate& database);
 
@@ -34,6 +35,15 @@ struct SqlDatabasePrivate {
 
     AVector<std::shared_ptr<SqlTable>> tables;
 };
+#pragma warning (default: 4251)
+
+SqlDatabasePrivate::SqlDatabasePrivate() :
+	isInList(false),
+	isOpen(false),
+	mysql(nullptr),
+	port(0)
+{
+}
 
 /**
  * \brief Copies values of one instance to this new one.
@@ -110,7 +120,8 @@ bool SqlDatabase::open() const
     }
     readTables();
 
-    return private_->isOpen = true;
+	private_->isOpen = true;
+    return private_->isOpen;
 }
 
 bool SqlDatabase::open(const AString& hostname,

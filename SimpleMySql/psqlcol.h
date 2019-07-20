@@ -4,7 +4,7 @@
 #include <astring.h>
 
 struct SqlColumn {
-    AString name;
+	AString name;
 
     int type;
 
