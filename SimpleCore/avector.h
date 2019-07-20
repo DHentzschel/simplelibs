@@ -5,6 +5,7 @@
 #include <vector>
 
 #include <algorithm>
+#include <stdexcept>
 #include <unordered_set>
 
 #include "functions.h"
@@ -325,7 +326,7 @@ bool AVector<T>::isEmpty() const
 }
 
 template<class T>
-inline bool AVector<T>::contains(const T & value) const
+inline bool AVector<T>::contains(const T& value) const
 {
 	for (auto it = vector_t::begin(); it != vector_t::end(); ++it) {
 		if (*it == value) {
@@ -336,7 +337,7 @@ inline bool AVector<T>::contains(const T & value) const
 }
 
 template<class T>
-int64 AVector<T>::count(const T & value) const
+int64 AVector<T>::count(const T& value) const
 {
 	auto result = 0;
 	for (auto it = vector_t::begin(); it != vector_t::end(); ++it) {
@@ -348,13 +349,13 @@ int64 AVector<T>::count(const T & value) const
 }
 
 template<class T>
-int64 AVector<T>::firstIndexOf(const T & value) const
+int64 AVector<T>::firstIndexOf(const T& value) const
 {
 	return indexOf(value);
 }
 
 template<class T>
-int64 AVector<T>::indexOf(const T & value) const
+int64 AVector<T>::indexOf(const T& value) const
 {
 	for (auto i = 0; i != vector_t::size(); ++i) {
 		if (vector_t::operator[](i) == value) {
@@ -365,7 +366,7 @@ int64 AVector<T>::indexOf(const T & value) const
 }
 
 template<class T>
-int64 AVector<T>::lastIndexOf(const T & value) const
+int64 AVector<T>::lastIndexOf(const T& value) const
 {
 	for (auto i = vector_t::size() - 1; i >= 0 && i < vector_t::size(); --i) {
 		if (vector_t::operator[](i) == value) {
@@ -376,7 +377,7 @@ int64 AVector<T>::lastIndexOf(const T & value) const
 }
 
 template<class T>
-void AVector<T>::replace(int64 i, const T & value)
+void AVector<T>::replace(int64 i, const T& value)
 {
 	vector_t::data()[i] = value;
 }
@@ -422,7 +423,7 @@ void AVector<T>::removeLast()
 }
 
 template<class T>
-void AVector<T>::removeFirst(const T & value)
+void AVector<T>::removeFirst(const T& value)
 {
 	if (vector_t::size() > 0) {
 		for (auto it = vector_t::begin(); it != vector_t::end(); ++it) {
@@ -435,7 +436,7 @@ void AVector<T>::removeFirst(const T & value)
 }
 
 template<class T>
-void AVector<T>::removeAll(const T & value)
+void AVector<T>::removeAll(const T& value)
 {
 	for (auto i = vector_t::size() - 1; i >= 0 && i < vector_t::size(); --i) {
 		if (vector_t::operator[](i) == value) {

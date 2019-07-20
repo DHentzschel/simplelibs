@@ -2,7 +2,6 @@
 #define STRINGVECTOR_H
 
 #include "astring.h"
-#include "avector.h"
 
 class AString;
 
@@ -16,36 +15,36 @@ public:
 	/**
 	 * Calls the default constructor.
 	 */
-	StringVector() = default;
+	SIMPLECORE_API StringVector() = default;
 
 	/**
 	 * Copies the value of the specified string vector.
 	 *
 	 * @param stringVector the string vector to copy from
 	 */
-	StringVector(const StringVector& stringVector);
+	SIMPLECORE_API StringVector(const StringVector& stringVector);
 
 	/**
 	 * Copies the value of the specified string vector.
 	 *
 	 * @param stringVector the string vector to copy from
 	 */
-	StringVector(const AVector<AString>& stringVector);
+	SIMPLECORE_API StringVector(const AVector<AString>& stringVector);
 
 	/**
 	 * Removes any string from the vector that is empty.
 	 */
-	void removeEmpties();
+	SIMPLECORE_API void removeEmpties();
 
 	/**
 	 * Removes any string from the vector that only contains whitespaces.
 	 */
-	void removeWhitespaces();
+	SIMPLECORE_API void removeWhitespaces();
 
 	/**
 	 * Removes any string from the vector that only contains escape characters.
 	 */
-	void removeEscapes();
+	SIMPLECORE_API void removeEscapes();
 };
 
 #endif // STRINGVECTOR_H

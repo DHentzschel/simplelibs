@@ -480,6 +480,9 @@
     <ClInclude Include="osdetection.h">
       <Filter>src\General\OsDetection</Filter>
     </ClInclude>
+    <ClInclude Include="simplecore.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="chocobo1\gsl\gsl_assert">

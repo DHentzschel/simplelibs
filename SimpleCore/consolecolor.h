@@ -6,7 +6,7 @@
  *
  * @author Daniel Hentzschel on 11.05.2019.
  */
-enum ConsoleColor {
+enum class ConsoleColor {
 	Black = 0,
 	DarkBlue,
 	DarkGreen,

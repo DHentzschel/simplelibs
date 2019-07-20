@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include <cfloat>
+#include "simplecore.h"
 
 /* Integral types */
 typedef int8_t int8;
