@@ -5,6 +5,7 @@
 #include "consolecolor.h"
 #include "plogtp.h"
 #include "file.h"
+#include "simplecore.h"
 
 /**
  * Provides a simple logger with four predefined log types.
@@ -16,7 +17,7 @@ public:
 	/**
 	 * Closes the filestream if opened.
 	 */
-	~Logger();
+	SIMPLECORE_API ~Logger();
 
 	/**
 	 * Initializes the log filestream by opening it with the path given by
@@ -24,7 +25,7 @@ public:
 	 *
 	 * @param path the file path of the log file
 	 */
-	static void prepareLogFile(const AString& path);
+	SIMPLECORE_API static void prepareLogFile(const AString& path);
 
 	/**
 	 * Prints text to the console.
@@ -34,10 +35,10 @@ public:
 	 * @param color the foreground color of the text (default is Turquoise)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
-	static void print(const AString& text,
+	SIMPLECORE_API static void print(const AString& text,
 		bool newLine = true,
-		ConsoleColor color = Turquoise,
-		ConsoleColor backgroundColor = Black);
+		ConsoleColor color = ConsoleColor::Turquoise,
+		ConsoleColor backgroundColor = ConsoleColor::Black);
 
 	/**
 	 * Prints debug text to the console.
@@ -48,10 +49,10 @@ public:
 	 * @param color the foreground color of the text (default is Turquoise)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
-	static void debug(const AString& text,
+	SIMPLECORE_API static void debug(const AString& text,
 		bool newLine = true,
-		ConsoleColor color = Turquoise,
-		ConsoleColor backgroundColor = Black);
+		ConsoleColor color = ConsoleColor::Turquoise,
+		ConsoleColor backgroundColor = ConsoleColor::Black);
 
 	/**
 	 * Prints information text to the console.
@@ -62,10 +63,10 @@ public:
 	 * @param color the foreground color of the text (default is LightGray)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
-	static void info(const AString& text,
+	SIMPLECORE_API static void info(const AString& text,
 		bool newLine = true,
-		ConsoleColor color = LightGray,
-		ConsoleColor backgroundColor = Black);
+		ConsoleColor color = ConsoleColor::LightGray,
+		ConsoleColor backgroundColor = ConsoleColor::Black);
 
 	/**
 	 * Prints error text to the console.
@@ -76,10 +77,10 @@ public:
 	 * @param color the foreground color of the text (default is LightGray)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
-	static void error(const AString& text,
+	SIMPLECORE_API static void error(const AString& text,
 		bool newLine = true,
-		ConsoleColor color = LightGray,
-		ConsoleColor backgroundColor = Black);
+		ConsoleColor color = ConsoleColor::LightGray,
+		ConsoleColor backgroundColor = ConsoleColor::Black);
 
 	/**
 	 * Prints warning text to the console.
@@ -90,10 +91,10 @@ public:
 	 * @param color the foreground color of the text (default is LightGray)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
-	static void warn(const AString& text,
+	SIMPLECORE_API static void warn(const AString& text,
 		bool newLine = true,
-		ConsoleColor color = LightGray,
-		ConsoleColor backgroundColor = Black);
+		ConsoleColor color = ConsoleColor::LightGray,
+		ConsoleColor backgroundColor = ConsoleColor::Black);
 
 private:
 	static File file_;

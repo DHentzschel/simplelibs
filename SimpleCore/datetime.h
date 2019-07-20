@@ -18,47 +18,47 @@ public:
 	/**
 	 * Sets the unixTimestamp member variable to zero.
 	 */
-	DateTime();
+	SIMPLECORE_API DateTime();
 
 	/**
 	 * Sets the unixTimestamp member variable to zero and copies the dateTimeInfo from parameter.
 	 *
 	 * @param dateTimeInfo the copyable dateTimeInfo
 	 */
-	DateTime(const DateTimeInfo& dateTimeInfo);
+	SIMPLECORE_API DateTime(const DateTimeInfo& dateTimeInfo);
 
 	/**
 	 * Sets the unixTimestamp member variable to zero and parses the datetime from string parameter.
 	 *
 	 * @param string the parsable datetime string
 	 */
-	DateTime(const AString& string);
+	SIMPLECORE_API DateTime(const AString& string);
 
 	/**
 	 * Returns the current datetime as object.
 	 */
-	static DateTime now();
+	SIMPLECORE_API static DateTime now();
 
 	/**
 	 * Returns the current datestamp in the format "dd.MM.yyyy".
 	 *
 	 * @return the datestamp as string
 	 */
-	static AString getDatestamp();
+	SIMPLECORE_API static AString getDatestamp();
 
 	/**
 	 * Returns the current timestamp in the following format: hh:mm:ss
 	 *
 	 * @return the timestamp as string
 	 */
-	static AString getTimestamp();
+	SIMPLECORE_API static AString getTimestamp();
 
 	/**
 	 * Returns the current date and timestamp in the following format: dd.MM.yyyy hh:mm:ss
 	 *
 	 * @return the current date and timestamp as string
 	 */
-	static AString getCurrentTimestamp();
+	SIMPLECORE_API static AString getCurrentTimestamp();
 
 	/**
 	 * Returns whether the datetime specified was reached.
@@ -66,7 +66,7 @@ public:
 	 * @param reachableDatetime the reachable datetime
 	 * @return whether the datetime specified was reached
 	 */
-	static bool isDateTimeReached(const DateTime& reachableDatetime);
+	SIMPLECORE_API static bool isDateTimeReached(const DateTime& reachableDatetime);
 
 	/**
 	 * Returns whether the datetime specified was reached.
@@ -74,7 +74,7 @@ public:
 	 * @param reachableDatetime the reachable datetime
 	 * @return whether the datetime specified was reached
 	 */
-	static bool isDateTimeReached(const AString& reachableDatetime);
+	SIMPLECORE_API static bool isDateTimeReached(const AString& reachableDatetime);
 
 	/**
 	 * Returns whether the datetime specified was reached.
@@ -83,14 +83,14 @@ public:
 	 * @param reachableDatetime the reachable datetime
 	 * @return whether the datetime specified was reached
 	 */
-	static bool isDateTimeReached(const AString& target, const AString& reachableDatetime);
+	SIMPLECORE_API static bool isDateTimeReached(const AString& target, const AString& reachableDatetime);
 	/**
 	 * Returns whether the year given as parameter is a leap year.
 	 *
 	 * @param year the year to check
 	 * @return whether specified year is a leap year
 	 */
-	static bool isLeapYear(ushort year);
+	SIMPLECORE_API static bool isLeapYear(ushort year);
 
 	/**
 	 * Returns the count of leap years from the first year to the second year.
@@ -99,7 +99,7 @@ public:
 	 * @param from the end date
 	 * @return the leap year count between both years
 	 */
-	static ushort getLeapYearCountFromTo(ushort to, ushort from = beginDateTime_.year);
+	SIMPLECORE_API static ushort getLeapYearCountFromTo(ushort to, ushort from = beginDateTime_.year);
 
 	/**
 	 * Returns the datetime instance calculated from given timestamp parameter.
@@ -107,133 +107,133 @@ public:
 	 * @param timestamp the unix timestamp in seconds
 	 * @return the DateTime instance intialized by specified timestamp
 	 */
-	static DateTime fromUnixTimestamp(int64 timestamp);
+	SIMPLECORE_API static DateTime fromUnixTimestamp(int64 timestamp);
 
 	/**
 	 * Adds the count of days given by parameter.
 	 *
 	 * @param count the count of days to add
 	 */
-	void addDays(uint count);
+	SIMPLECORE_API void addDays(uint count);
 
 	/**
 	 * Subtracts the count of days given by parameter.
 	 *
 	 * @param count the count of days to subtract
 	 */
-	void subDays(uint count);
+	SIMPLECORE_API void subDays(uint count);
 
 	/**
 	 * Adds the count of months given by parameter.
 	 *
 	 * @param count the count of months to add
 	 */
-	void addMonths(uint count);
+	SIMPLECORE_API void addMonths(uint count);
 
 	/**
 	 * Subtracts the count of months given by parameter.
 	 *
 	 * @param count the count of months to subtract
 	 */
-	void subMonths(uint count);
+	SIMPLECORE_API void subMonths(uint count);
 
 	/**
 	 * Adds the count of years given by parameter.
 	 *
 	 * @param count the count of years to add
 	 */
-	void addYears(uint count);
+	SIMPLECORE_API void addYears(uint count);
 
 	/**
 	 * Subtracts the count of years given by parameter.
 	 *
 	 * @param count the count of years to subtract
 	 */
-	void subYears(uint count);
+	SIMPLECORE_API void subYears(uint count);
 
 	/**
 	 * Adds the count of hours given by parameter.
 	 *
 	 * @param count the count of hours to add
 	 */
-	void addHours(uint count);
+	SIMPLECORE_API void addHours(uint count);
 
 	/**
 	 * Subtracts the count of hours given by parameter.
 	 *
 	 * @param count the count of hours to subtract
 	 */
-	void subHours(uint count);
+	SIMPLECORE_API void subHours(uint count);
 
 	/**
 	 * Adds the count of minutes given by parameter.
 	 *
 	 * @param count the count of minutes to add
 	 */
-	void addMinutes(uint count);
+	SIMPLECORE_API void addMinutes(uint count);
 
 	/**
 	 * Subtracts the count of minutes given by parameter.
 	 *
 	 * @param count the count of minutes to subtract
 	 */
-	void subMinutes(uint count);
+	SIMPLECORE_API void subMinutes(uint count);
 
 	/**
 	 * Adds the count of seconds given by parameter.
 	 *
 	 * @param count the count of seconds to add
 	 */
-	void addSeconds(uint count);
+	SIMPLECORE_API void addSeconds(uint count);
 
 	/**
 	 * Subtracts the count of seconds given by parameter.
 	 *
 	 * @param count the count of seconds to subtract
 	 */
-	void subSeconds(uint count);
+	SIMPLECORE_API void subSeconds(uint count);
 
 	/**
 	 * Returns the day set.
 	 *
 	 * @return the day set
 	 */
-	byte getDay() const;
+	SIMPLECORE_API byte getDay() const;
 
 	/**
 	 * Returns the month set.
 	 *
 	 * @return the month set
 	 */
-	byte getMonth() const;
+	SIMPLECORE_API byte getMonth() const;
 
 	/**
 	 * Returns the year set.
 	 *
 	 * @return the year set
 	 */
-	ushort getYear() const;
+	SIMPLECORE_API ushort getYear() const;
 
 	/**
 	 * Returns the hour set.
 	 *
 	 * @return the hour set
 	 */
-	byte getHour() const;
+	SIMPLECORE_API byte getHour() const;
 
 	/**
 	 * Returns the minute set.
 	 *
 	 * @return the minute set
 	 */
-	byte getMinute() const;
+	SIMPLECORE_API byte getMinute() const;
 
 	/**
 	 * Returns the second set.
 	 *
 	 * @return the second set
 	 */
-	byte getSecond() const;
+	SIMPLECORE_API byte getSecond() const;
 
 	/**
 	 * Returns the count of month days from parameters.
@@ -241,28 +241,28 @@ public:
 	 * @param year the year to calculate
 	 * @param month the month to calculate
 	 */
-	byte getMonthDayCount(ushort year, byte month);
+	SIMPLECORE_API byte getMonthDayCount(ushort year, byte month);
 
 	/**
 	 * Returns the unix timestamp set.
 	 *
 	 * @return the unix timestamp
 	 */
-	time_t toUnixTimestamp();
+	SIMPLECORE_API time_t toUnixTimestamp();
 
 	/**
 	 * Returns the datetime set as string.
 	 *
 	 * @return the datetime set as string
 	 */
-	AString toString() const;
+	SIMPLECORE_API AString toString() const;
 
 	/**
 	 * Converts the datetime values to the standard time struct.
 	 *
 	 * @return the standard time struct
 	 */
-	std::tm toStdTm();
+	SIMPLECORE_API std::tm toStdTm();
 
 private:
 	DateTimeInfo dateTimeInfo_;

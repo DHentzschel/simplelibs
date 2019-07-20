@@ -63,13 +63,13 @@ Inheritance diagram for A\+String\+:\begin{figure}[H]
 \begin{DoxyCompactList}\small\item\em Converts the current string to uppercase and returns the reference to the current instance. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_a_string}{A\+String}} \& \mbox{\hyperlink{class_a_string_a2ba7d2ba7eb61998453f7e7ce364d441}{trim}} ()
 \begin{DoxyCompactList}\small\item\em Removes all trailing whitespaces and returns the reference to the current instance. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ \mbox{\hyperlink{class_a_string}{A\+String}} $>$ \mbox{\hyperlink{class_a_string_a6379fc6d17388a71589b983ba651bf8c}{split}} (char separator, bool case\+Sensitive=true) const
+\mbox{\hyperlink{class_string_vector}{String\+Vector}} \mbox{\hyperlink{class_a_string_a025f539406111e39b0bf54a2ffcda8aa}{split}} (char separator, bool case\+Sensitive=true) const
 \begin{DoxyCompactList}\small\item\em Splits the current string by the specified separator and returns a new string vector. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ \mbox{\hyperlink{class_a_string}{A\+String}} $>$ \mbox{\hyperlink{class_a_string_aee23c2323dc95f9e9c19512c9c985974}{split}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&separator, bool case\+Sensitive=true) const
+\mbox{\hyperlink{class_string_vector}{String\+Vector}} \mbox{\hyperlink{class_a_string_a08266b27ed113b4a844b8eb9947b3e02}{split}} (const \mbox{\hyperlink{class_a_string}{A\+String}} \&separator, bool case\+Sensitive=true) const
 \begin{DoxyCompactList}\small\item\em Splits the current string by the specified separator and returns a new string vector. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ \mbox{\hyperlink{class_a_string}{A\+String}} $>$ \mbox{\hyperlink{class_a_string_ab7375bf0b88b5923385b4cdc8fb02af8}{split\+By\+Non\+Numerics}} () const
+\mbox{\hyperlink{class_string_vector}{String\+Vector}} \mbox{\hyperlink{class_a_string_a16ed628b786ec5d4b570df1249637ef9}{split\+By\+Non\+Numerics}} () const
 \begin{DoxyCompactList}\small\item\em Splits the current string by non numeric chars and returns a new string vector. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ \mbox{\hyperlink{class_a_string}{A\+String}} $>$ \mbox{\hyperlink{class_a_string_a06ca78b1328505ba7c29ea2d1618ef6c}{split\+By\+Numerics}} () const
+\mbox{\hyperlink{class_string_vector}{String\+Vector}} \mbox{\hyperlink{class_a_string_aaae243575004e5091025cacf9313ea76}{split\+By\+Numerics}} () const
 \begin{DoxyCompactList}\small\item\em Splits the current string by numeric chars and returns a new string vector. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_byte_array}{Byte\+Array}} \mbox{\hyperlink{class_a_string_ae9d0a67c87c20152d5ab770ad1b955ac}{to\+Byte\+Array}} () const
 \begin{DoxyCompactList}\small\item\em Converts the current string to a byte array and returns it. \end{DoxyCompactList}\item 
@@ -806,11 +806,11 @@ Returns the right side of the string starting at index n ending at index size-\/
 \begin{DoxyReturn}{Returns}
 the right side of the string 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_a_string_a6379fc6d17388a71589b983ba651bf8c}\label{class_a_string_a6379fc6d17388a71589b983ba651bf8c}} 
+\mbox{\Hypertarget{class_a_string_a025f539406111e39b0bf54a2ffcda8aa}\label{class_a_string_a025f539406111e39b0bf54a2ffcda8aa}} 
 \index{AString@{AString}!split@{split}}
 \index{split@{split}!AString@{AString}}
 \subsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ \mbox{\hyperlink{class_a_string}{A\+String}} $>$ A\+String\+::split (\begin{DoxyParamCaption}\item[{char}]{separator,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_string_vector}{String\+Vector}} A\+String\+::split (\begin{DoxyParamCaption}\item[{char}]{separator,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
 
 
 
@@ -828,11 +828,11 @@ If case\+Sensitive is true (default), the separator will be searched case sensit
 \begin{DoxyReturn}{Returns}
 the new string vector containing the split result of the string 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_a_string_aee23c2323dc95f9e9c19512c9c985974}\label{class_a_string_aee23c2323dc95f9e9c19512c9c985974}} 
+\mbox{\Hypertarget{class_a_string_a08266b27ed113b4a844b8eb9947b3e02}\label{class_a_string_a08266b27ed113b4a844b8eb9947b3e02}} 
 \index{AString@{AString}!split@{split}}
 \index{split@{split}!AString@{AString}}
 \subsubsection{\texorpdfstring{split()}{split()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ \mbox{\hyperlink{class_a_string}{A\+String}} $>$ A\+String\+::split (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{separator,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_string_vector}{String\+Vector}} A\+String\+::split (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_a_string}{A\+String}} \&}]{separator,  }\item[{bool}]{case\+Sensitive = {\ttfamily true} }\end{DoxyParamCaption}) const}
 
 
 
@@ -850,11 +850,11 @@ If case\+Sensitive is true (default), the separator will be searched case sensit
 \begin{DoxyReturn}{Returns}
 the new string vector containing the split result of the string 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_a_string_ab7375bf0b88b5923385b4cdc8fb02af8}\label{class_a_string_ab7375bf0b88b5923385b4cdc8fb02af8}} 
+\mbox{\Hypertarget{class_a_string_a16ed628b786ec5d4b570df1249637ef9}\label{class_a_string_a16ed628b786ec5d4b570df1249637ef9}} 
 \index{AString@{AString}!splitByNonNumerics@{splitByNonNumerics}}
 \index{splitByNonNumerics@{splitByNonNumerics}!AString@{AString}}
 \subsubsection{\texorpdfstring{splitByNonNumerics()}{splitByNonNumerics()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ \mbox{\hyperlink{class_a_string}{A\+String}} $>$ A\+String\+::split\+By\+Non\+Numerics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_string_vector}{String\+Vector}} A\+String\+::split\+By\+Non\+Numerics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 
@@ -863,11 +863,11 @@ Splits the current string by non numeric chars and returns a new string vector.
 \begin{DoxyReturn}{Returns}
 the new string vector containing the split result of the string 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_a_string_a06ca78b1328505ba7c29ea2d1618ef6c}\label{class_a_string_a06ca78b1328505ba7c29ea2d1618ef6c}} 
+\mbox{\Hypertarget{class_a_string_aaae243575004e5091025cacf9313ea76}\label{class_a_string_aaae243575004e5091025cacf9313ea76}} 
 \index{AString@{AString}!splitByNumerics@{splitByNumerics}}
 \index{splitByNumerics@{splitByNumerics}!AString@{AString}}
 \subsubsection{\texorpdfstring{splitByNumerics()}{splitByNumerics()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_a_vector}{A\+Vector}}$<$ \mbox{\hyperlink{class_a_string}{A\+String}} $>$ A\+String\+::split\+By\+Numerics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_string_vector}{String\+Vector}} A\+String\+::split\+By\+Numerics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 
 

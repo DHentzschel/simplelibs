@@ -6,9 +6,14 @@
 #include "dir.h"
 #include <filesystem>
 
-IniFile::IniFile(const AString& filepath) :
+IniFile::IniFile() :
 	groupCount_(0),
 	keyCount_(0)
+{
+}
+
+IniFile::IniFile(const AString& filepath) :
+	IniFile()
 {
 	setFilepath(filepath);
 }

@@ -19,7 +19,7 @@ Console::Console()
 #ifdef OS_WIN32
 	inputHandle_ = GetStdHandle(STD_INPUT_HANDLE);
 	outputHandle_ = GetStdHandle(STD_OUTPUT_HANDLE);
-	defaultColor_ = static_cast<int>(LightGray);
+	defaultColor_ = static_cast<int>(ConsoleColor::LightGray);
 	//   setControlEventHandler();
 #endif OS_WIN32
 }
@@ -30,10 +30,10 @@ void Console::print(const AString& string,
 	const ConsoleColor backgroundColor,
 	const bool centered)
 {
-	const auto colorChanged = color != LightGray || backgroundColor != Black;
+	const auto colorChanged = color != ConsoleColor::LightGray || backgroundColor != ConsoleColor::Black;
 
 	if (colorChanged) {
-		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color + backgroundColor * 16));
+		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color) + static_cast<int>(backgroundColor) * 16);
 	}
 	if (centered) {
 		const auto factor = (getConsoleWidth() - string.size()) * 0.5F;
@@ -49,10 +49,10 @@ void Console::print(const AString& string,
 
 void Console::printLine(const ConsoleColor color, const ConsoleColor backgroundColor)
 {
-	const auto colorChanged = color != LightGray || backgroundColor != Black;
+	const auto colorChanged = color != ConsoleColor::LightGray || backgroundColor != ConsoleColor::Black;
 
 	if (colorChanged) {
-		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color + backgroundColor * 16));
+		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color) + static_cast<int>(backgroundColor) * 16);
 	}
 
 	const auto width = getConsoleWidth();

@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SimpleNetwork
-   &#160;<span id="projectnumber">1.0.0</span>
+   &#160;<span id="projectnumber">1.0.1</span>
    </div>
   </td>
  </tr>
@@ -93,7 +93,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3d6f7243d828830ed9373a2e488c95b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tcp_event_listener.html#a3d6f7243d828830ed9373a2e488c95b6">TcpEventListener</a> (<a class="el" href="class_tcp_socket.html">TcpSocket</a> *socket)</td></tr>
 <tr class="memdesc:a3d6f7243d828830ed9373a2e488c95b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the socket pointer to the specified value.  <a href="#a3d6f7243d828830ed9373a2e488c95b6">More...</a><br /></td></tr>
 <tr class="separator:a3d6f7243d828830ed9373a2e488c95b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba0cb36a5016a7c081b277ff4030fbf6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tcp_event_listener.html#aba0cb36a5016a7c081b277ff4030fbf6">TcpEventListener</a> (<a class="el" href="class_tcp_server.html">TcpServer</a> *<a class="el" href="class_tcp_event_listener.html#aa0a66ee360e15e349eda1c10041c3219">server</a>)</td></tr>
+<tr class="memitem:aba0cb36a5016a7c081b277ff4030fbf6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tcp_event_listener.html#aba0cb36a5016a7c081b277ff4030fbf6">TcpEventListener</a> (<a class="el" href="class_tcp_server.html">TcpServer</a> *server)</td></tr>
 <tr class="memdesc:aba0cb36a5016a7c081b277ff4030fbf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the server pointer to the specified value.  <a href="#aba0cb36a5016a7c081b277ff4030fbf6">More...</a><br /></td></tr>
 <tr class="separator:aba0cb36a5016a7c081b277ff4030fbf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac35550b2da7ba7b4f27e8dd169a436b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tcp_event_listener.html#aac35550b2da7ba7b4f27e8dd169a436b">setIsRunning</a> (bool isRunning)</td></tr>
@@ -111,14 +111,14 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a2d916c707cc58771608ffdc8ae9dfa13"><td class="memItemLeft" ><a id="a2d916c707cc58771608ffdc8ae9dfa13"></a>
 union {</td></tr>
-<tr class="memitem:a18785ab9edcf8aa89dd0fcc1b71e3c83"><td class="memItemLeft" >
-&#160;&#160;&#160;<a class="el" href="class_tcp_server.html">TcpServer</a> *&#160;&#160;&#160;<a class="el" href="class_tcp_event_listener.html#aa0a66ee360e15e349eda1c10041c3219">server</a></td></tr>
-<tr class="memdesc:a18785ab9edcf8aa89dd0fcc1b71e3c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the pointer to the listenable server. <br /></td></tr>
-<tr class="separator:a18785ab9edcf8aa89dd0fcc1b71e3c83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab93dd74e863626d1f366e17a189e8348"><td class="memItemLeft" >
-&#160;&#160;&#160;<a class="el" href="class_tcp_socket.html">TcpSocket</a> *&#160;&#160;&#160;<a class="el" href="class_tcp_event_listener.html#a0a05150db3b589bb5fe136b18e5418f3">client</a></td></tr>
-<tr class="memdesc:ab93dd74e863626d1f366e17a189e8348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the pointer to the listenable client. <br /></td></tr>
-<tr class="separator:ab93dd74e863626d1f366e17a189e8348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba751946a29cdd43c714dbd855cf32ad"><td class="memItemLeft" >
+&#160;&#160;&#160;<a class="el" href="class_tcp_server.html">TcpServer</a> *&#160;&#160;&#160;<a class="el" href="class_tcp_event_listener.html#ab8e2c46397bc14530531bff274c9d3f1">server_</a></td></tr>
+<tr class="memdesc:aba751946a29cdd43c714dbd855cf32ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the pointer to the listenable server. <br /></td></tr>
+<tr class="separator:aba751946a29cdd43c714dbd855cf32ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab83ce90780bb2ab5ea4ab6ad92937dcb"><td class="memItemLeft" >
+&#160;&#160;&#160;<a class="el" href="class_tcp_socket.html">TcpSocket</a> *&#160;&#160;&#160;<a class="el" href="class_tcp_event_listener.html#a17a09698431a0433650c21562dd295ee">client_</a></td></tr>
+<tr class="memdesc:ab83ce90780bb2ab5ea4ab6ad92937dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents the pointer to the listenable client. <br /></td></tr>
+<tr class="separator:ab83ce90780bb2ab5ea4ab6ad92937dcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d916c707cc58771608ffdc8ae9dfa13"><td class="memItemLeft" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="separator:a2d916c707cc58771608ffdc8ae9dfa13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b623004e10074b2375a3bb7bc9c6c28"><td class="memItemLeft" align="right" valign="top"><a id="a3b623004e10074b2375a3bb7bc9c6c28"></a>
