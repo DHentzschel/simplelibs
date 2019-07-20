@@ -3,6 +3,7 @@
 
 #include <WinSock2.h>
 
+#include "simplenetwork.h"
 #include "astring.h"
 #include "tcpsocket.h"
 #include "types.h"
@@ -16,17 +17,19 @@ class TcpServerEventListener;
  */
 class TcpServer : public TcpSocket {
 	friend class TcpServerEventListener;
+	
+	friend class LocalTcpServer;
 
 public:
 	/**
 	 * Sets default values.
 	 */
-	explicit TcpServer();
+	SIMPLENETWORK_API explicit TcpServer();
 
 	/**
 	 * Closes the server socket.
 	 */
-	~TcpServer();
+	SIMPLENETWORK_API ~TcpServer();
 
 	/**
 	 * Tries to listen to the specified hostaddress and port and returns success.
@@ -35,36 +38,27 @@ public:
 	 * @param port the port to connect to
 	 * @return whether to the hostaddress and port could be listened
 	 */
-	virtual bool listen(const AString& hostaddress, ushort port);
+	SIMPLENETWORK_API virtual bool listen(const AString& hostaddress, ushort port);
 
 	/**
 	 * Terminates the serverEventListener thread.
 	 */
-	void terminate() const;
+	SIMPLENETWORK_API void terminate() const;
 
 protected:
-	/** The most recent socket pointer */
-	TcpSocket* currentSocket_;
-
-	/** Contains all TcpSocket connected */
-	AVector<TcpSocket*> socketList_;
-
-	/** Contains the address length */
-	uint addressLength_;
-
 	/**
 	 * Will be called when a client connects to the server.
 	 *
 	 * @param socket the socket which connected
 	 */
-	virtual void incomingConnection(const TcpSocket& socket) = 0;
+	SIMPLENETWORK_API virtual void incomingConnection(const TcpSocket& socket) = 0;
 
 	/**
 	 * Will be called when a client disconnects from the server.
 	 *
 	 * @param socket the socket which disconnected
 	 */
-	virtual void disconnected(const TcpSocket& socket) = 0;
+	SIMPLENETWORK_API virtual void disconnected(const TcpSocket& socket) = 0;
 
 	/**
 	 * Will be called when the server receives a packet from a client.
@@ -72,10 +66,7 @@ protected:
 	 * @param packet the packet received from client
 	 * @param length the length of the packet received from the client
 	 */
-	virtual void receive(const char* packet, uint length) override = 0;
-
-	/** Represents the serverEventListener instance */
-	std::shared_ptr<TcpServerEventListener> serverEventListener_;
+	SIMPLENETWORK_API virtual void receive(const char* packet, uint length) override = 0;
 
 private:
 	/**
@@ -91,6 +82,18 @@ private:
 	 * @return the pointer to the TcpSocket
 	 */
 	TcpSocket* getSocket(const SOCKET& socket);
+
+	/** The most recent socket pointer */
+	TcpSocket* currentSocket_;
+
+	/** Contains all TcpSocket connected */
+	AVector<TcpSocket*> socketList_;
+
+	/** Contains the address length */
+	uint addressLength_;
+
+	/** Represents the serverEventListener instance */
+	std::shared_ptr<TcpServerEventListener> serverEventListener_;
 };
 
 #endif   // TCPSERVER_H

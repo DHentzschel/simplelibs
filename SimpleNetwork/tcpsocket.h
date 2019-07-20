@@ -6,6 +6,7 @@
 #include <WinSock2.h>
 
 #include "astring.h"
+#include "simplenetwork.h"
 
 class TcpClientEventListener;
 
@@ -21,18 +22,22 @@ class TcpSocket {
 
 	friend class TcpServerEventListener;
 
+	friend class LocalTcpSocket;
+
+	friend class LocalTcpServer;
+
 public:
 	/**
 	 * Sets some default values.
 	 */
-	TcpSocket();
+	SIMPLENETWORK_API TcpSocket();
 
 	/**
 	 * Copies the values from the specified socket.
 	 *
 	 * @param tcpSocket the socket to copy from
 	 */
-	TcpSocket(const TcpSocket& tcpSocket);
+	SIMPLENETWORK_API TcpSocket(const TcpSocket& tcpSocket);
 
 	/**
 	 * Sets the specified socket and address.
@@ -40,12 +45,12 @@ public:
 	 * @param socket the socket to set
 	 * @param address the address to set
 	 */
-	TcpSocket(SOCKET& socket, SOCKADDR_IN& address);
+	SIMPLENETWORK_API TcpSocket(SOCKET& socket, SOCKADDR_IN& address);
 
 	/**
 	 * Terminates the clientEventListener thread and disconnects (if connected).
 	 */
-	~TcpSocket();
+	SIMPLENETWORK_API ~TcpSocket();
 
 	/**
 	 * Compares both sockets and returns whether they are equal.
@@ -53,7 +58,7 @@ public:
 	 * @param socket the socket to compare
 	 * @return whether both sockets are equal
 	 */
-	bool operator==(const TcpSocket& socket) const;
+	SIMPLENETWORK_API bool operator==(const TcpSocket& socket) const;
 
 	/**
 	 * Tries to connect to the specified hostaddress and port and returns the success.
@@ -62,12 +67,12 @@ public:
 	 * @param port the port to connect to
 	 * @return whether the socket could connect to the specified hostaddress and port
 	 */
-	virtual bool connect(const AString& hostaddress, ushort port);
+	SIMPLENETWORK_API virtual bool connect(const AString& hostaddress, ushort port);
 
 	/**
 	 * Disconnects the socket (if connected).
 	 */
-	void disconnect() const;
+	SIMPLENETWORK_API void disconnect() const;
 
 	/**
 	 * Sends the specified packet as char array to the socket.
@@ -75,7 +80,7 @@ public:
 	 * @param packet the char array
 	 * @param length the packet length
 	 */
-	void send(const char* packet, uint length);
+	SIMPLENETWORK_API void send(const char* packet, uint length);
 
 	/**
 	* Returns whether the specified port is available under the specified hostaddress.
@@ -84,7 +89,7 @@ public:
 	* @param port the port to check
 	* @return whether the specified port is available under the specified hostaddress
 	*/
-	static bool isPortAvailable(const AString& hostaddress, ushort port);
+	SIMPLENETWORK_API static bool isPortAvailable(const AString& hostaddress, ushort port);
 
 	/**
 	* Returns whether the specified port is available on localhost.
@@ -92,14 +97,14 @@ public:
 	* @param port the port to check
 	* @return whether the specified port is available on localhost
 	*/
-	static bool isLocalPortAvailable(ushort port);
+	SIMPLENETWORK_API static bool isLocalPortAvailable(ushort port);
 
 	/* Events */
 
 	/**
 	 * This function will be called when the socket disconnects.
 	 */
-	virtual void disconnected()
+	SIMPLENETWORK_API virtual void disconnected()
 	{}
 
 	/**
@@ -108,7 +113,7 @@ public:
 	 * @param packet the received packet
 	 * @param length the length of the packet received
 	 */
-	virtual void receive(const char* packet, uint length)
+	SIMPLENETWORK_API virtual void receive(const char* packet, uint length)
 	{}
 
 	/**
@@ -116,22 +121,31 @@ public:
 	 *
 	 * @return the hostaddress as string
 	 */
-	AString getHostAddress() const;
+	SIMPLENETWORK_API AString getHostAddress() const;
 
 	/**
 	 * Returns the port.
 	 *
 	 * @return port
 	 */
-	ushort getPort() const;
+	SIMPLENETWORK_API ushort getPort() const;
 
 	/**
 	 * Returns the WINAPI socket.
 	 *
 	 * @return the WINAPI socket
 	 */
-	SOCKET getSocket() const;
+	SIMPLENETWORK_API SOCKET getSocket() const;
 protected:
+	/**
+	 * Terminates the clientEventListener thread.
+	 */
+	void terminate() const;
+
+private:
+	/** The stopwatch instance of the socket */
+	Stopwatch stopwatch_;
+
 	/** The WINAPI socket */
 	SOCKET socket_;
 
@@ -143,15 +157,6 @@ protected:
 
 	/** The clientEventListener instance of the socket */
 	std::shared_ptr<TcpClientEventListener> clientEventListener_;
-
-	/**
-	 * Terminates the clientEventListener thread.
-	 */
-	void terminate() const;
-
-private:
-	/** The stopwatch instance of the socket */
-	Stopwatch stopwatch_;
 };
 
 #endif   // TCPSOCKET_H

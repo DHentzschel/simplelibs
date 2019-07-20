@@ -16,7 +16,7 @@ public:
 	/**
 	 * Calls the default constructor and initializes default values.
 	 */
-	Console();
+	SIMPLECORE_API Console();
 
 	/**
 	 * Prints the specified string to console with new line depending on newLine parameter.
@@ -30,8 +30,8 @@ public:
 	 * @param backgroundColor the background color of the string to print
 	 * @param centered whether the string should be printed centered
 	 */
-	static void print(const AString& string, bool newLine = true, ConsoleColor color = LightGray,
-		ConsoleColor backgroundColor = Black, bool centered = false);
+	SIMPLECORE_API static void print(const AString& string, bool newLine = true, ConsoleColor color = ConsoleColor::LightGray,
+		ConsoleColor backgroundColor = ConsoleColor::Black, bool centered = false);
 
 	/**
 	 * Prints a line consisting of minuses to console in the amount of columns.
@@ -39,43 +39,43 @@ public:
 	 * @param color the foreground color of the string to print
 	 * @param backgroundColor the background color of the string to print
 	 */
-	static void printLine(ConsoleColor color = LightGray, ConsoleColor backgroundColor = Black);
+	SIMPLECORE_API static void printLine(ConsoleColor color = ConsoleColor::LightGray, ConsoleColor backgroundColor = ConsoleColor::Black);
 
 	/**
 	 * Keeps console alive. Cancel by pressing return.
 	 */
-	static void keep();
+	SIMPLECORE_API static void keep();
 
 	/**
 	 * Disables the close button of the console window.
 	 */
-	static void disableCloseButton();
+	SIMPLECORE_API static void disableCloseButton();
 
 	/**
 	 * Sets the console tile to the specified title.
 	 *
 	 * @param title the new console title
 	 */
-	static void setConsoleTitle(const AString& title);
+	SIMPLECORE_API static void setConsoleTitle(const AString& title);
 
 	/**
 	 * Returns the console width. Width means column count of chars.
 	 *
 	 * @return the console width (count of columns)
 	 */
-	static int getConsoleWidth();
+	SIMPLECORE_API static int getConsoleWidth();
 
 	/**
 	 * Returns th console height. Height means row count of chars.
 	 *
 	 * @return the console height (count of rows)
 	 */
-	static int getConsoleHeight();
+	SIMPLECORE_API static int getConsoleHeight();
 
 	/**
 	 * Prints an example of colorizing the console. Only for testing.
 	 */
-	static void printColorExample();
+	SIMPLECORE_API static void printColorExample();
 
 private:
 	static CONSOLE_SCREEN_BUFFER_INFO consoleBufferInfo_;

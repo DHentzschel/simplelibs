@@ -9,7 +9,7 @@
  *
  * @author Daniel Hentzschel on 11.05.2019.
  */
-class IEncryption {
+class SIMPLECORE_API IEncryption {
 protected:
 	/**
 	 * Encrypts the plain byte vector and returns the encrypted byte vector.

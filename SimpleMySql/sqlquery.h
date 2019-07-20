@@ -12,33 +12,33 @@ struct SqlQueryPrivate;
 
 class SqlQuery {
 public:
-    explicit SqlQuery(const AString& connectionName = defaultConnection);
+	SIMPLEMYSQL_API explicit SqlQuery(const AString& connectionName = defaultConnection);
 
-    SqlQuery(const SqlQuery& query);
+	SIMPLEMYSQL_API SqlQuery(const SqlQuery& query);
 
-    ~SqlQuery();
+	SIMPLEMYSQL_API ~SqlQuery();
 
-    bool prepare(const AString& query) const;
+	SIMPLEMYSQL_API bool prepare(const AString& query) const;
 
-    void addBindValue(const SqlVariantParam&) const;
+	SIMPLEMYSQL_API void addBindValue(const SqlVariantParam&) const;
 
-    bool exec() const;
+	SIMPLEMYSQL_API bool exec() const;
 
-    bool exec(const AString& query) const;
+	SIMPLEMYSQL_API bool exec(const AString& query) const;
 
-    bool next() const;
+	SIMPLEMYSQL_API bool next() const;
 
-    SqlVariant value(const AString& column) const;
+	SIMPLEMYSQL_API SqlVariant value(const AString& column) const;
 
-    uint64 getRecordCount() const;
+	SIMPLEMYSQL_API uint64 getRecordCount() const;
 
-    uint64 getFieldCount() const;
+	SIMPLEMYSQL_API uint64 getFieldCount() const;
 
-    void clear() const;
+	SIMPLEMYSQL_API void clear() const;
 
-    void setDatabase(const AString& connectionName) const;
+	SIMPLEMYSQL_API void setDatabase(const AString& connectionName) const;
 
-    void printSqlError();
+	SIMPLEMYSQL_API void printSqlError();
 
 private:
     void addBindValue(int type,

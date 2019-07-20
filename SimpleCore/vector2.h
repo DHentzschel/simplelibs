@@ -1,6 +1,8 @@
 ﻿#ifndef VECTOR2_H
 #define VECTOR2_H
 
+#include "types.h"
+
 /**
  * Provides a template class for a vector which can store two integral values.
  *

@@ -66,6 +66,9 @@
     <ClInclude Include="sqlutils.h">
       <Filter>src\SqlUtils</Filter>
     </ClInclude>
+    <ClInclude Include="simplemysql.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="libmysql.dll">

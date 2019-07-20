@@ -7,6 +7,8 @@
 #include "avector.h"
 #include "openmode.h"
 
+#include "simplecore.h"
+
 /**
  * Provides simple functions to create, modify, erase etc. files.
  *
@@ -17,26 +19,26 @@ public:
 	/**
 	 * Sets the openMode to NotOpen on default.
 	 */
-	File();
+	SIMPLECORE_API File();
 
 	/**
 	 * Copies the openMode and file path from the given parameter.
 	 *
 	 * @param file the copyable object
 	 */
-	File(const File& file);
+	SIMPLECORE_API File(const File& file);
 
 	/**
 	 * Sets the filepath to the parameter and sets the openMode to NotOpen on default.
 	 *
 	 * @param filepath the filepath to use
 	 */
-	explicit File(const AString& filepath) noexcept;
+	SIMPLECORE_API explicit File(const AString& filepath) noexcept;
 
 	/**
 	 * Closes the current filestream if opened.
 	 */
-	~File();
+	SIMPLECORE_API ~File();
 
 	/**
 	* Tries to create the current filepath.
@@ -44,7 +46,7 @@ public:
 	* @param recursively if not existing, subfolders should be created
 	* @return if the filepath could be created
 	*/
-	bool create(bool recursively = true) const;
+	SIMPLECORE_API bool create(bool recursively = true) const;
 
 	/**
 	* Tries to create the filepath given as parameter.
@@ -53,14 +55,14 @@ public:
 	* @param recursively if not existing, subfolders should be created
 	* @return if the file path could be created
 	*/
-	static bool create(const AString& filepath, bool recursively = true);
+	SIMPLECORE_API static bool create(const AString& filepath, bool recursively = true);
 
 	/**
 	 * Tries to erase the file in filepath and returns the success.
 	 *
 	 * @return whether the file has been erased or not
 	 */
-	bool erase() const;
+	SIMPLECORE_API bool erase() const;
 
 	/**
 	 * Tries to erase the file in filepath given as parameter and returns the success.
@@ -68,14 +70,14 @@ public:
 	 * @param filepath the filepath to erase
 	 * @return whether the file has been erased or not
 	 */
-	static bool erase(const AString& filepath);
+	SIMPLECORE_API static bool erase(const AString& filepath);
 
 	/**
 	 * Returns whether the current filepath exists.
 	 *
 	 * @return whether the current filepath set exists
 	 */
-	bool exists() const;
+	SIMPLECORE_API bool exists() const;
 
 	/**
 	 * Returns whether the filepath given as parameter exists.
@@ -83,7 +85,7 @@ public:
 	 * @param filepath the filepath to check for existence
 	 * @return whether the given filepath exists
 	 */
-	static bool exists(const AString& filepath);
+	SIMPLECORE_API static bool exists(const AString& filepath);
 
 	/**
 	 * Returns the directory of the filepath.
@@ -91,7 +93,7 @@ public:
 	 *
 	 * @return the directory of the current filepath
 	 */
-	AString getDirectory() const;
+	SIMPLECORE_API AString getDirectory() const;
 
 	/**
 	 * Returns the filename of the filepath.
@@ -99,28 +101,28 @@ public:
 	 *
 	 * @return the filename of the current filepath
 	 */
-	AString getFilename() const;
+	SIMPLECORE_API AString getFilename() const;
 
 	/**
 	 * Returns the current filepath set.
 	 *
 	 * @return the current filepath
 	 */
-	AString getFilepath() const;
+	SIMPLECORE_API AString getFilepath() const;
 
 	/**
 	 * Sets the filepath for the next filestream.
 	 *
 	 * @param filepath the filepath for the filestream
 	 */
-	void setFilepath(const AString& filepath);
+	SIMPLECORE_API void setFilepath(const AString& filepath);
 
 	/**
 	 * Returns whether the filestream is open.
 	 *
 	 * @return whether the filestream is open
 	 */
-	bool isOpen() const;
+	SIMPLECORE_API bool isOpen() const;
 
 	/**
 	 * Tries to open the filestream by parameter openMode.
@@ -128,17 +130,17 @@ public:
 	 * @param openModeFlags the openMode flags
 	 * @return whether the filestream could be opened
 	 */
-	bool open(int openModeFlags = static_cast<int>(OpenMode::NotOpen));
+	SIMPLECORE_API bool open(int openModeFlags = static_cast<int>(OpenMode::NotOpen));
 
 	/**
 	 * Closes the current filestream.
 	 */
-	void close();
+	SIMPLECORE_API void close();
 
 	/**
 	 * Copies member variable from another File instance.
 	 */
-	void operator=(const File& file);
+	SIMPLECORE_API void operator=(const File& file);
 
 	/**
 	 * Writes the string from param string to file and returns the reference to std::fstream.
@@ -146,56 +148,56 @@ public:
 	 * @param string the string to write
 	 * @return the reference to the std::fstream object
 	 */
-	std::fstream& operator<<(const AString& string);
+	SIMPLECORE_API std::fstream& operator<<(const AString& string);
 
 	/**
 	 * Appends a string to the file. This only works if flags WriteOnly and Append were set.
 	 *
 	 * @param string the string to write to the file
 	 */
-	void append(const AString& string);
+	SIMPLECORE_API void append(const AString& string);
 
 	/**
 	 * Reads the complete file to an empty string and returns it.
 	 *
 	 * @return the string read from file
 	 */
-	AString readAllText();
+	SIMPLECORE_API AString readAllText();
 
 	/**
 	 * Clears the filestream and writes the complete param text string to file.
 	 *
 	 * @param text the string to write
 	 */
-	void writeAllText(const AString& text);
+	SIMPLECORE_API void writeAllText(const AString& text);
 
 	/**
 	 * Reads the complete filestream in binary mode and returns a new byte array.
 	 *
 	 * @return the read byte array
 	 */
-	ByteArray readAllBytes();
+	SIMPLECORE_API ByteArray readAllBytes();
 
 	/**
 	 * Clears the filestream and writes all bytes from param bytes to file.
 	 *
 	 * @param bytes the byte array to write
 	 */
-	void writeAllBytes(const ByteArray& bytes);
+	SIMPLECORE_API void writeAllBytes(const ByteArray& bytes);
 
 	/**
 	 * Returns the next line to read from filestream.
 	 *
 	 * @return the next line to read
 	 */
-	AString readLine();
+	SIMPLECORE_API AString readLine();
 
 	/**
 	 * Returns whether the filestream reader is at the end.
 	 *
 	 * @return whether the filestream is at the end
 	 */
-	bool atEnd() const;
+	SIMPLECORE_API bool atEnd() const;
 
 private:
 	AString filepath_;

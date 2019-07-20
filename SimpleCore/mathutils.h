@@ -9,7 +9,7 @@
  * 
  * @author Daniel Hentzschel on 11.05.2019.
  */
-class MathUtils {
+class SIMPLECORE_API MathUtils {
 public:
 	/**
 	 * Returns the euclidean distance of the parameters in a 2D area.

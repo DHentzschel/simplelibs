@@ -6,10 +6,7 @@
 
 #include "psqltp.h"
 
-// 4302 truncation from 'type 1' to 'type 2'
-// 4311 pointer truncation from 'type' to 'type'
-//#pragma warning(disable : 4302 4311)
-
+#pragma warning (disable : 4251)
 struct SqlQueryPrivate {
 	SqlQueryPrivate();
 
@@ -43,6 +40,7 @@ struct SqlQueryPrivate {
 
 	bool countRows;
 };
+#pragma warning (default : 4251)
 
 SqlQueryPrivate::SqlQueryPrivate() :
 	recordCount(0),
