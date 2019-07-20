@@ -16,9 +16,9 @@ public:
 	 * @param port the port to listen to
 	 * @return whether the server could listen to the specified port
 	 */
-	bool listen(ushort port);
+	SIMPLENETWORK_API bool listen(ushort port);
 private:
-	bool listen(const AString& hostaddress, ushort port) override {}
+	bool listen(const AString& hostaddress, ushort port) override { return false; }
 };
 
 #endif // LOCALTCPSERVER_H

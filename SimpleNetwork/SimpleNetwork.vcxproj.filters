@@ -72,5 +72,8 @@
     <ClInclude Include="tcpservereventlistener.h">
       <Filter>src\TcpEventListener\TcpServerEventListener</Filter>
     </ClInclude>
+    <ClInclude Include="simplenetwork.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

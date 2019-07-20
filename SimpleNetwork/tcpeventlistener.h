@@ -1,6 +1,8 @@
 #ifndef TCPEVENTLISTENER_H
 #define TCPEVENTLISTENER_H
 
+#include "simplenetwork.h"
+
 class TcpServer;
 
 class TcpSocket;
