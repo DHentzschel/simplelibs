@@ -1,5 +1,22 @@
-# Created by https://www.gitignore.io/api/c,c++,linux,macos,windows,visualstudio
-# Edit at https://www.gitignore.io/?templates=c,c++,linux,macos,windows,visualstudio
+# Created by https://www.gitignore.io/api/c,c++,linux,macos,windows,visualstudio,cmake
+# Edit at https://www.gitignore.io/?templates=c,c++,linux,macos,windows,visualstudio,cmake
+
+### CMake ###
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+### CMake Patch ###
+# External projects
+*-prefix/
 
 ### C ###
 # Prerequisites
@@ -490,7 +507,8 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
-# End of https://www.gitignore.io/api/c,c++,linux,macos,windows,visualstudio
+# End of https://www.gitignore.io/api/c,c++,linux,macos,windows,visualstudio,cmake
 glm/
 !doc/*
 !doc/
+/.metadata/
