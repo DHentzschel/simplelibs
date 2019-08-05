@@ -14,7 +14,7 @@
 #elif defined(SIMPLELIBS_TEST)
 #define SIMPLECORE_API 
 #else
-#define SIMPLECORE_API __declspec(dllimport)
+#define SIMPLECORE_API extern
 #endif // SIMPLECORE_EXPORTS
 
 #endif // !SIMPLECORE_H

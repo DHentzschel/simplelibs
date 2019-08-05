@@ -344,7 +344,7 @@ const T& AList<T>::at(int i) const
 			return *it;
 		}
 	}
-	throw std::out_of_range("AList::at(): out of range (" + AString::toString(i) + ")");
+	throw std::out_of_range("AList::at(): out of range");
 }
 
 template<class T>
