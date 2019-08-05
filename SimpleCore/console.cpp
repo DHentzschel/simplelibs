@@ -30,10 +30,18 @@ void Console::print(const AString& string,
 	const ConsoleColor backgroundColor,
 	const bool centered)
 {
+#ifdef OS_WIN
 	const auto colorChanged = color != ConsoleColor::LightGray || backgroundColor != ConsoleColor::Black;
+#elif defined (OS_LINUX)
+	const auto colorChanged = color != ConsoleColor::Default || backgroundColor != (static_cast<int>(ConsoleColor::Default) + 10);
+#endif // OS_LINUX
 
 	if (colorChanged) {
+#ifdef OS_WIN
 		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color) + static_cast<int>(backgroundColor) * 16);
+#elif defined (OS_LINUX) // OS_WIN
+		std::cout << "\033[0" << ';' << AString::toString(color) << ';' << backgroundColor << 'm';
+#endif //OS_LINUX
 	}
 	if (centered) {
 		const auto factor = (getConsoleWidth() - string.size()) * 0.5F;
@@ -43,7 +51,11 @@ void Console::print(const AString& string,
 	}
 	std::cout << string << (newLine ? "\n" : "");
 	if (colorChanged) {
+#ifdef OS_WIN
 		SetConsoleTextAttribute(outputHandle_, defaultColor_);
+#elif defined (OS_LINUX) // OS_WIN
+		std::cout << "\033[0m";
+#endif // OS_LINUX
 	}
 }
 
