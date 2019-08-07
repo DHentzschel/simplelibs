@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SimpleCore
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -48,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_r.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,6 +90,20 @@ $(function() {
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_r"></a>- r -</h3><ul>
+<li>RAPIDJSON_DISABLEIF_RETURN()
+: <a class="el" href="class_generic_pointer.html#aaf4d7d852098878d24188d134182d42f">GenericPointer&lt; ValueType, Allocator &gt;</a>
+, <a class="el" href="class_generic_value.html#a4a4418a93777942e1fb7ea71f8aaf680">GenericValue&lt; Encoding, Allocator &gt;</a>
+</li>
+<li>RawAssign()
+: <a class="el" href="class_generic_value.html#abb8ea2dfbe74ff4ee7dac6be31317f81">GenericValue&lt; Encoding, Allocator &gt;</a>
+</li>
+<li>RawNumber()
+: <a class="el" href="struct_base_reader_handler.html#a9ed0d83d5e6c8f5e4b32ca3735ff0bb7">BaseReaderHandler&lt; Encoding, Derived &gt;</a>
+</li>
+<li>RawValue()
+: <a class="el" href="class_pretty_writer.html#a440890a72408a150ef46edda6becdc94">PrettyWriter&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;</a>
+, <a class="el" href="class_writer.html#ae0d1615104e4e88040b9640e6784008a">Writer&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;</a>
+</li>
 <li>readAllBytes()
 : <a class="el" href="class_file.html#acc44c7f319708f0e378c08492d178fc0">File</a>
 </li>
@@ -75,17 +113,50 @@ $(function() {
 <li>readLine()
 : <a class="el" href="class_file.html#ad65ed49713d0b0e11a439cb3bc148171">File</a>
 </li>
+<li>Realloc()
+: <a class="el" href="class_memory_pool_allocator.html#aba75280d42184b0ad414243f7f5ac6c7">MemoryPoolAllocator&lt; BaseAllocator &gt;</a>
+</li>
+<li>Reference
+: <a class="el" href="class_generic_member_iterator.html#a8042a85a9e233d65de5b6c66d9a1109a">GenericMemberIterator&lt; Const, Encoding, Allocator &gt;</a>
+</li>
+<li>remove_all_attributes()
+: <a class="el" href="classrapidxml_1_1xml__node.html#aa8d5d9484aa1eb5ff1841a073c84c1aa">rapidxml::xml_node&lt; Ch &gt;</a>
+</li>
+<li>remove_all_nodes()
+: <a class="el" href="classrapidxml_1_1xml__node.html#a95735358b079ae0adcfbbac69aa1fbc3">rapidxml::xml_node&lt; Ch &gt;</a>
+</li>
+<li>remove_attribute()
+: <a class="el" href="classrapidxml_1_1xml__node.html#a6f97b1b4f46a94a4587915df3c0c6b57">rapidxml::xml_node&lt; Ch &gt;</a>
+</li>
+<li>remove_first_attribute()
+: <a class="el" href="classrapidxml_1_1xml__node.html#aa95192d2a165cca16c551ed2a2a06aec">rapidxml::xml_node&lt; Ch &gt;</a>
+</li>
+<li>remove_first_node()
+: <a class="el" href="classrapidxml_1_1xml__node.html#a62bf7b276cf7a651a3337f5e0a0ef6ac">rapidxml::xml_node&lt; Ch &gt;</a>
+</li>
+<li>remove_last_attribute()
+: <a class="el" href="classrapidxml_1_1xml__node.html#a1781a2cbedc9a51d609ad5b528125635">rapidxml::xml_node&lt; Ch &gt;</a>
+</li>
+<li>remove_last_node()
+: <a class="el" href="classrapidxml_1_1xml__node.html#a9182512e948ec451a83f116cce7c7674">rapidxml::xml_node&lt; Ch &gt;</a>
+</li>
+<li>remove_node()
+: <a class="el" href="classrapidxml_1_1xml__node.html#a98289923eb9e8889418a9eb0207ea35c">rapidxml::xml_node&lt; Ch &gt;</a>
+</li>
 <li>removeAll()
 : <a class="el" href="class_a_list.html#a32b8779cd05c79fe74f79c854b54a5f7">AList&lt; T &gt;</a>
 , <a class="el" href="class_a_string.html#aa5449e9044b69fa7987139d32981b374">AString</a>
+, <a class="el" href="class_async_a_list.html#af78e04865ba50836a55ba182e0964d48">AsyncAList&lt; T &gt;</a>
 , <a class="el" href="class_a_vector.html#a521f435b2b3c74c92d6cbe94bc3faddd">AVector&lt; T &gt;</a>
 </li>
 <li>removeAt()
 : <a class="el" href="class_a_list.html#a1b29a3946800bcb13e94668b952ae6c2">AList&lt; T &gt;</a>
+, <a class="el" href="class_async_a_list.html#ae351d669d054e0b1cf7e156a1601f6b4">AsyncAList&lt; T &gt;</a>
 , <a class="el" href="class_a_vector.html#a8da18d4cbfe89150ebecec53e2a6f73e">AVector&lt; T &gt;</a>
 </li>
 <li>removeDuplicates()
 : <a class="el" href="class_a_list.html#a33f188595f0da046cced105c2e441506">AList&lt; T &gt;</a>
+, <a class="el" href="class_async_a_list.html#a5895ea08c8efe6c79cb20e9a35d54020">AsyncAList&lt; T &gt;</a>
 , <a class="el" href="class_a_vector.html#aa0d05e2719478e74c93f54e8d7cffc6f">AVector&lt; T &gt;</a>
 </li>
 <li>removeEmpties()
@@ -97,10 +168,12 @@ $(function() {
 <li>removeFirst()
 : <a class="el" href="class_a_list.html#ada980037299e3dcbf05b50977216f32d">AList&lt; T &gt;</a>
 , <a class="el" href="class_a_string.html#a5fe11f844aa85e053fbf0bedc18cd557">AString</a>
+, <a class="el" href="class_async_a_list.html#ad860dedfdfde482e89fad0decfcd60dc">AsyncAList&lt; T &gt;</a>
 , <a class="el" href="class_a_vector.html#a020d395a9f706e2791a3c95f4766cfd8">AVector&lt; T &gt;</a>
 </li>
 <li>removeLast()
 : <a class="el" href="class_a_list.html#aff8e5c3e3f879ea5c8d6d9e29b321fc9">AList&lt; T &gt;</a>
+, <a class="el" href="class_async_a_list.html#a0d983a02b7d3e46192236d56ae8c1482">AsyncAList&lt; T &gt;</a>
 , <a class="el" href="class_a_vector.html#ad34deeefc2360e10c682d6b11831233a">AVector&lt; T &gt;</a>
 </li>
 <li>removeWhitespaces()
@@ -111,6 +184,7 @@ $(function() {
 </li>
 <li>replace()
 : <a class="el" href="class_a_list.html#a89447e683414a53f0dd0ac081c3c3f12">AList&lt; T &gt;</a>
+, <a class="el" href="class_async_a_list.html#aabfaa5fdecd8d8036385fdcc4ba6068b">AsyncAList&lt; T &gt;</a>
 , <a class="el" href="class_a_vector.html#aaa3f52e1356f810f38551cc877e0f32f">AVector&lt; T &gt;</a>
 </li>
 <li>replaceAll()
@@ -120,7 +194,21 @@ $(function() {
 : <a class="el" href="class_a_string.html#af28290e59b97962a365e89e475376ac7">AString</a>
 </li>
 <li>reset()
+: <a class="el" href="class_c_r_c32.html#a6313ae724e3cc191ec6fe4b1a3351978">CRC32</a>
+</li>
+<li>Reset()
+: <a class="el" href="class_generic_schema_validator.html#a49efbbe098cb77728be3d48cafed17e4">GenericSchemaValidator&lt; SchemaDocumentType, OutputHandler, StateAllocator &gt;</a>
+</li>
+<li>reset()
 : <a class="el" href="class_hash.html#a08e5a35e060d24b447731fd9893bcc76">Hash</a>
+, <a class="el" href="class_keccak.html#ae15be331e8d50522cdd47f880f0edead">Keccak</a>
+, <a class="el" href="class_m_d5.html#ab54d46fc9348504b4530c73aefb00be1">MD5</a>
+, <a class="el" href="class_s_h_a1.html#ab71aaf39ed956320054861a2fbfa454f">SHA1</a>
+, <a class="el" href="class_s_h_a256.html#ad9d80d8fdccffb15497bd36285afce65">SHA256</a>
+, <a class="el" href="class_s_h_a3.html#a0c262d808585468b81f4ef4036dbb836">SHA3</a>
+</li>
+<li>Reset()
+: <a class="el" href="class_writer.html#a8b53e8f137f7fcf694f5500711b3f58d">Writer&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;</a>
 </li>
 <li>restart()
 : <a class="el" href="class_stopwatch.html#acd64e7c6f80445f25640e7a5dbd4b3be">Stopwatch</a>
@@ -130,11 +218,14 @@ $(function() {
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

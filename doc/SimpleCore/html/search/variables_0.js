@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['day',['day',['../struct_date_time_info.html#a4ff9b3484f1fa18a4817950b728e70b8',1,'DateTimeInfo']]]
+  ['begin_5f',['begin_',['../struct_memory_stream.html#a91f0767b4f0ed2476d835e8344848a2f',1,'MemoryStream']]]
 ];

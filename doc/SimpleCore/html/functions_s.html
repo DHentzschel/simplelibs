@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SimpleCore
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -48,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_s.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,24 +90,66 @@ $(function() {
 <div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
 
 <h3><a id="index_s"></a>- s -</h3><ul>
+<li>s
+: <a class="el" href="struct_generic_string_ref.html#ac555994afd329bc9bc1780acf2f9d9be">GenericStringRef&lt; CharType &gt;</a>
+</li>
+<li>SchemaValidatingReader()
+: <a class="el" href="class_schema_validating_reader.html#ae7945b71687ad3dd13b9c3d096892eac">SchemaValidatingReader&lt; parseFlags, InputStream, SourceEncoding, SchemaDocumentType, StackAllocator &gt;</a>
+</li>
 <li>second
 : <a class="el" href="struct_date_time_info.html#a768d1180a0b5d2fca5a8cc5cce822a5e">DateTimeInfo</a>
+</li>
+<li>Set()
+: <a class="el" href="class_generic_pointer.html#aeec3daf051dfa8b8fbf23ea4f9a238e4">GenericPointer&lt; ValueType, Allocator &gt;</a>
+, <a class="el" href="struct_parse_result.html#aa81b4a7b776b77216cb752385203a8c1">ParseResult</a>
+</li>
+<li>set_allocator()
+: <a class="el" href="classrapidxml_1_1memory__pool.html#a84d3d8d2cdfc00501e1dcf26d889ae03">rapidxml::memory_pool&lt; Ch &gt;</a>
 </li>
 <li>setConsoleTitle()
 : <a class="el" href="class_console.html#a897788b6d4f90a73b1894c4a83bb8280">Console</a>
 </li>
 <li>setFilepath()
 : <a class="el" href="class_file.html#ae5b50c42cb117914a87347461b4bfb56">File</a>
-, <a class="el" href="class_ini_file.html#a3b3caa195a0be5077e8575e259ef7e53">IniFile</a>
+</li>
+<li>SetFormatOptions()
+: <a class="el" href="class_pretty_writer.html#a1ff9dbeff9b9c724080cb65987a41b73">PrettyWriter&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;</a>
+</li>
+<li>SetIndent()
+: <a class="el" href="class_pretty_writer.html#ad307b4c8d61af25042d0adcd0910c19a">PrettyWriter&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;</a>
+</li>
+<li>SetMaxDecimalPlaces()
+: <a class="el" href="class_writer.html#a58e3f94dc5af1432a8eace5ba427eca7">Writer&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;</a>
+</li>
+<li>SetObjectRaw()
+: <a class="el" href="class_generic_value.html#a26c8ec7d68858df1038506df7fcff22d">GenericValue&lt; Encoding, Allocator &gt;</a>
 </li>
 <li>setPath()
 : <a class="el" href="class_dir.html#a08bb155c0d0ae5150997dedce31aa56f">Dir</a>
 </li>
-<li>setValue()
-: <a class="el" href="class_ini_file.html#a5d6fe5d2b2364c88376d49115007007f">IniFile</a>
+<li>SetStringRaw()
+: <a class="el" href="class_generic_value.html#a1451603922dcdf34976f125dc60f70ee">GenericValue&lt; Encoding, Allocator &gt;</a>
+</li>
+<li>SHA1()
+: <a class="el" href="class_s_h_a1.html#ad49a5108ffd6996b1133bf41224ff726">SHA1</a>
+</li>
+<li>SHA256()
+: <a class="el" href="class_s_h_a256.html#ab672831c542df07ff03ded25760feec2">SHA256</a>
+</li>
+<li>SHA3()
+: <a class="el" href="class_s_h_a3.html#a64630e556f1e897495e1a8a16c7c0590">SHA3</a>
+</li>
+<li>Size()
+: <a class="el" href="class_memory_pool_allocator.html#ae7fcf0341c13e899cf488bc7c8949956">MemoryPoolAllocator&lt; BaseAllocator &gt;</a>
+</li>
+<li>size()
+: <a class="el" href="classrapidxml_1_1file.html#aacd451b3def3ad056fe8342dccee35cd">rapidxml::file&lt; Ch &gt;</a>
+</li>
+<li>size_
+: <a class="el" href="struct_memory_stream.html#ab26a1b5c6d5e8f52c0f6982feba47f36">MemoryStream</a>
 </li>
 <li>split()
-: <a class="el" href="class_a_string.html#a08266b27ed113b4a844b8eb9947b3e02">AString</a>
+: <a class="el" href="class_a_string.html#a025f539406111e39b0bf54a2ffcda8aa">AString</a>
 </li>
 <li>splitByNonNumerics()
 : <a class="el" href="class_a_string.html#a16ed628b786ec5d4b570df1249637ef9">AString</a>
@@ -91,16 +157,21 @@ $(function() {
 <li>splitByNumerics()
 : <a class="el" href="class_a_string.html#aaae243575004e5091025cacf9313ea76">AString</a>
 </li>
+<li>src_
+: <a class="el" href="struct_generic_string_stream.html#aeda813798e3f2d6bfdac86afc11b6b80">GenericStringStream&lt; Encoding &gt;</a>
+, <a class="el" href="struct_memory_stream.html#a57cf6cb5766e931a62928b9f92507443">MemoryStream</a>
+</li>
 <li>startsWith()
 : <a class="el" href="class_a_list.html#ac6b1d6dabb7177aa465019860aeacba1">AList&lt; T &gt;</a>
 , <a class="el" href="class_a_string.html#aef584231c6ddc8925fbfa92ccf22cf53">AString</a>
+, <a class="el" href="class_async_a_list.html#abaf8bcd5142988a5b910218420723ad7">AsyncAList&lt; T &gt;</a>
 , <a class="el" href="class_a_vector.html#a7cc825790e29f58f9425fd11efbdbbab">AVector&lt; T &gt;</a>
 </li>
 <li>Stopwatch()
 : <a class="el" href="class_stopwatch.html#a628b5ebeed5df065dd847e68fb6336cf">Stopwatch</a>
 </li>
 <li>StringVector()
-: <a class="el" href="class_string_vector.html#ad550561da75be936dda9071f6e0b4a58">StringVector</a>
+: <a class="el" href="class_string_vector.html#addbde509655caa4569142fcb91295df0">StringVector</a>
 </li>
 <li>subDays()
 : <a class="el" href="class_date_time.html#a8b49589808773b2bb330bc5414deae76">DateTime</a>
@@ -120,13 +191,23 @@ $(function() {
 <li>subYears()
 : <a class="el" href="class_date_time.html#a94bd3c5a6d9875368ba1795dedac8588">DateTime</a>
 </li>
+<li>swap
+: <a class="el" href="class_generic_document.html#a0d63efcc43758ac3aed77e868233369d">GenericDocument&lt; Encoding, Allocator, StackAllocator &gt;</a>
+</li>
+<li>Swap()
+: <a class="el" href="class_generic_document.html#a6290e1290fad74177625af5938c0c58f">GenericDocument&lt; Encoding, Allocator, StackAllocator &gt;</a>
+, <a class="el" href="class_generic_pointer.html#a3b40ad3e851640e295a4623b624af395">GenericPointer&lt; ValueType, Allocator &gt;</a>
+</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

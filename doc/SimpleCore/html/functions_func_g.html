@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SimpleCore
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -48,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_func_g.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -66,6 +90,36 @@ $(function() {
 &#160;
 
 <h3><a id="index_g"></a>- g -</h3><ul>
+<li>GenericDocument()
+: <a class="el" href="class_generic_document.html#ad8504c0ca5e8c8cb37ee4e9ed0395a9a">GenericDocument&lt; Encoding, Allocator, StackAllocator &gt;</a>
+</li>
+<li>GenericMemberIterator()
+: <a class="el" href="class_generic_member_iterator.html#a2697fd327a90654b0bf91c988e43f95e">GenericMemberIterator&lt; Const, Encoding, Allocator &gt;</a>
+</li>
+<li>GenericPointer()
+: <a class="el" href="class_generic_pointer.html#a524a9921eff68f389a817a20ca7f1d84">GenericPointer&lt; ValueType, Allocator &gt;</a>
+</li>
+<li>GenericReader()
+: <a class="el" href="class_generic_reader.html#aab875a34b3092df9fb4e2b8eac6dbb96">GenericReader&lt; SourceEncoding, TargetEncoding, StackAllocator &gt;</a>
+</li>
+<li>GenericSchemaDocument()
+: <a class="el" href="class_generic_schema_document.html#ae7982734214b1db916c8c60e711bba1e">GenericSchemaDocument&lt; ValueT, Allocator &gt;</a>
+</li>
+<li>GenericSchemaValidator()
+: <a class="el" href="class_generic_schema_validator.html#a202ee6fdbe5ae9eab3e77a81ecdfeb6d">GenericSchemaValidator&lt; SchemaDocumentType, OutputHandler, StateAllocator &gt;</a>
+</li>
+<li>GenericStringRef()
+: <a class="el" href="struct_generic_string_ref.html#a9e80d81d5ad49cf0fb4128ace8c548d9">GenericStringRef&lt; CharType &gt;</a>
+</li>
+<li>GenericValue()
+: <a class="el" href="class_generic_value.html#a953052ef91e54aabe9bdb9f9eaebf6cc">GenericValue&lt; Encoding, Allocator &gt;</a>
+</li>
+<li>GetAllocator()
+: <a class="el" href="class_generic_document.html#aa4609d6b19f86aec1a6b96edf2c27686">GenericDocument&lt; Encoding, Allocator, StackAllocator &gt;</a>
+</li>
+<li>GetColumn()
+: <a class="el" href="class_cursor_stream_wrapper.html#afdd243889599c9c9edfacea82674a8f4">CursorStreamWrapper&lt; InputStream, Encoding &gt;</a>
+</li>
 <li>getConsoleHeight()
 : <a class="el" href="class_console.html#ac4ec7d76d4dc49eb757728e98b2a1941">Console</a>
 </li>
@@ -102,6 +156,13 @@ $(function() {
 <li>getElapsedTimeInSeconds()
 : <a class="el" href="class_stopwatch.html#a8fd9786f99abeb8289ba235d0e47cf26">Stopwatch</a>
 </li>
+<li>GetError()
+: <a class="el" href="class_generic_schema_validator.html#a7af476e6940d935efcf79d823c933035">GenericSchemaValidator&lt; SchemaDocumentType, OutputHandler, StateAllocator &gt;</a>
+</li>
+<li>GetErrorOffset()
+: <a class="el" href="class_generic_document.html#ae1ef7ca99ced428e9300c68e5142afdb">GenericDocument&lt; Encoding, Allocator, StackAllocator &gt;</a>
+, <a class="el" href="class_generic_reader.html#ae9008523ccd06d839a57335835cb4091">GenericReader&lt; SourceEncoding, TargetEncoding, StackAllocator &gt;</a>
+</li>
 <li>getFileCount()
 : <a class="el" href="class_dir.html#ae69556b4b4495ac7fe5854d1f025488e">Dir</a>
 </li>
@@ -114,20 +175,35 @@ $(function() {
 <li>getFiles()
 : <a class="el" href="class_dir.html#ae573871f2f0ff5ec00ff20e7dc2ab709">Dir</a>
 </li>
-<li>getGroupCount()
-: <a class="el" href="class_ini_file.html#a0ce59b29c1e5a6ed6d8f52ed276524c1">IniFile</a>
-</li>
 <li>getHash()
-: <a class="el" href="class_hash.html#ae5acdfb8538e8ba0f8d1310f5feee28f">Hash</a>
+: <a class="el" href="class_c_r_c32.html#aa87d99270d85be4078ff9e6be0e739ee">CRC32</a>
+, <a class="el" href="class_hash.html#ae5acdfb8538e8ba0f8d1310f5feee28f">Hash</a>
+, <a class="el" href="class_keccak.html#ac33b0d5516851044892313854e119967">Keccak</a>
+, <a class="el" href="class_m_d5.html#a23fe294ddc56d9b3de6f7bcb35e63d59">MD5</a>
+, <a class="el" href="class_s_h_a1.html#a1f355a50b13bb115cbf5e5942eb180bd">SHA1</a>
+, <a class="el" href="class_s_h_a256.html#aec410898248e08a3806b969e16499acc">SHA256</a>
+, <a class="el" href="class_s_h_a3.html#a59591059e602eaac16b2f7019fd5eeef">SHA3</a>
 </li>
 <li>getHour()
 : <a class="el" href="class_date_time.html#ada00db60b48e636102d509a7b1b30296">DateTime</a>
 </li>
-<li>getKeyCount()
-: <a class="el" href="class_ini_file.html#ad7a83aa937129895253cf853726826d6">IniFile</a>
+<li>GetInvalidDocumentPointer()
+: <a class="el" href="class_generic_schema_validator.html#ac10a88c4dc138bbdbe2afd041658a3b0">GenericSchemaValidator&lt; SchemaDocumentType, OutputHandler, StateAllocator &gt;</a>
+</li>
+<li>GetInvalidSchemaKeyword()
+: <a class="el" href="class_generic_schema_validator.html#ab71ec18e5a013e5153a10b312a4f03bc">GenericSchemaValidator&lt; SchemaDocumentType, OutputHandler, StateAllocator &gt;</a>
+</li>
+<li>GetInvalidSchemaPointer()
+: <a class="el" href="class_generic_schema_validator.html#a5b8f2d5c466b2a362e2e4c3bcfbfc5a8">GenericSchemaValidator&lt; SchemaDocumentType, OutputHandler, StateAllocator &gt;</a>
 </li>
 <li>getLeapYearCountFromTo()
 : <a class="el" href="class_date_time.html#a8401d6a8ad1aec862f2a96bb9eda1870">DateTime</a>
+</li>
+<li>GetLength()
+: <a class="el" href="class_generic_string_buffer.html#ad324b8154be3354dda3aa4a0a7361499">GenericStringBuffer&lt; Encoding, Allocator &gt;</a>
+</li>
+<li>GetLine()
+: <a class="el" href="class_cursor_stream_wrapper.html#ad5cc5b06be7fb5afb7c3d4a82b5ef8ce">CursorStreamWrapper&lt; InputStream, Encoding &gt;</a>
 </li>
 <li>getMinute()
 : <a class="el" href="class_date_time.html#afcecea2d24e906df99b9105c116262b3">DateTime</a>
@@ -138,11 +214,26 @@ $(function() {
 <li>getMonthDayCount()
 : <a class="el" href="class_date_time.html#a88fcd4dec4b3d77e9abdbc2bb81ed18a">DateTime</a>
 </li>
+<li>GetParseError()
+: <a class="el" href="class_generic_document.html#a9400a5bd3169cc6ed545e681ccc06070">GenericDocument&lt; Encoding, Allocator, StackAllocator &gt;</a>
+</li>
+<li>GetParseErrorCode()
+: <a class="el" href="class_generic_reader.html#a937bf90919f50e1c370b312cee5833e8">GenericReader&lt; SourceEncoding, TargetEncoding, StackAllocator &gt;</a>
+</li>
 <li>getPath()
 : <a class="el" href="class_dir.html#a000627e9787773619bccc3d4ef76a7ac">Dir</a>
 </li>
+<li>GetRoot()
+: <a class="el" href="class_generic_schema_document.html#a3b86ad6eab393014cc5b3c52da5c4bc2">GenericSchemaDocument&lt; ValueT, Allocator &gt;</a>
+</li>
 <li>getSecond()
 : <a class="el" href="class_date_time.html#a16d1e909db200146199b6623fce55a81">DateTime</a>
+</li>
+<li>GetSize()
+: <a class="el" href="class_generic_string_buffer.html#a725e862b9a78375f5363b0b61ad789f3">GenericStringBuffer&lt; Encoding, Allocator &gt;</a>
+</li>
+<li>GetStackCapacity()
+: <a class="el" href="class_generic_document.html#a9e2e543c326b8b981d4f2c3d6793d15b">GenericDocument&lt; Encoding, Allocator, StackAllocator &gt;</a>
 </li>
 <li>getSystemTimeInSeconds()
 : <a class="el" href="class_stopwatch.html#aed8349df72b0a516d6d43022414d8620">Stopwatch</a>
@@ -155,11 +246,14 @@ $(function() {
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>
