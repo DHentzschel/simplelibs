@@ -192,6 +192,7 @@
     <ClInclude Include="functions.h" />
     <ClInclude Include="encryption.h" />
     <ClInclude Include="inifile.h" />
+    <ClInclude Include="iqueue.h" />
     <ClInclude Include="logger.h" />
     <ClInclude Include="mathutils.h" />
     <ClInclude Include="openmode.h" />

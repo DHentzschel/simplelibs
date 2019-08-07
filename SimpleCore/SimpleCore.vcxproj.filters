@@ -110,6 +110,9 @@
     <Filter Include="src\General\OsDetection">
       <UniqueIdentifier>{9374f11b-6839-40e3-b781-e14516d79293}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\AdvancedSTL\Queue">
+      <UniqueIdentifier>{f6ce6842-c555-4244-98e1-484d3698b3e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bytearray.cpp">
@@ -482,6 +485,9 @@
     </ClInclude>
     <ClInclude Include="simplecore.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="iqueue.h">
+      <Filter>src\AdvancedSTL\Queue</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
