@@ -7,6 +7,8 @@ public:
 	virtual void enqueue(T right) = 0;
 
 	virtual T dequeue() = 0;
+
+	virtual bool isEmpty() = 0;
 };
 
 #endif // !IQUEUE_H
