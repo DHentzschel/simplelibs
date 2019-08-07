@@ -102,7 +102,7 @@
 #      define OS_MACOS
 #    endif
 #  else
-#    error "SimpleLibs has not been ported to this Apple platform""
+#    error "SimpleLibs has not been ported to this Apple platform"
 #  endif
 #elif defined(__ANDROID__) || defined(ANDROID)
 #  define OS_ANDROID

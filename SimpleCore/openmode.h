@@ -6,7 +6,7 @@
  *
  * @author Daniel Hentzschel on 11.05.2019.
  */
-enum class OpenMode {
+enum OpenMode {
 	NotOpen = 0x0,
 	ReadOnly = 0x1,
 	WriteOnly = 0x2,
