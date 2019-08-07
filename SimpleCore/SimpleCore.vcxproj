@@ -198,6 +198,7 @@
     <ClInclude Include="openmode.h" />
     <ClInclude Include="osdetection.h" />
     <ClInclude Include="plogtp.h" />
+    <ClInclude Include="aqueue.h" />
     <ClInclude Include="rapidjson\allocators.h" />
     <ClInclude Include="rapidjson\cursorstreamwrapper.h" />
     <ClInclude Include="rapidjson\document.h" />
