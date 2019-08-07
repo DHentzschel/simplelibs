@@ -5,16 +5,14 @@
 
 #ifdef SIMPLECORE_EXPORTS
 
-#ifdef OS_WIN
+#ifdef _MSC_VER
 #define SIMPLECORE_API __declspec(dllexport)
-#elif defined (OS_LINUX)
+#else
 #define SIMPLECORE_API
 #endif // OS_LINUX
 
 #elif defined(SIMPLELIBS_TEST)
 #define SIMPLECORE_API 
-#else
-#define SIMPLECORE_API
 #endif // SIMPLECORE_EXPORTS
 
 #endif // !SIMPLECORE_H
