@@ -8,6 +8,7 @@
  *
  * @author Daniel Hentzschel on 11.05.2019.
  */
+#ifdef OS_WIN
 enum class Directory {
 	/** The current directory of the executable */
 	CurrentApplication = -1,
@@ -152,5 +153,9 @@ enum class Directory {
 	/** The CD burn area path e. g. C:\Users\Test\AppData\Local\Microsoft\Windows\Burn\Burn */
 	CdBurnArea = CSIDL_CDBURN_AREA
 };
+#elif defined(OS_LINUX)
+enum class Directory {
+}
+#endif // OS_LINUX
 
 #endif // !DIRECTORY_H
