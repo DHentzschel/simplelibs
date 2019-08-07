@@ -1,7 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"class_basic_i_stream_wrapper.html#a37d5e4cd8fdf3c83dad50737e95886a9":[2,0,14,2],
-"class_basic_i_stream_wrapper.html#a3e9a2dd2b6b28243f8f2a911f67cdf56":[2,0,14,1],
 "class_basic_i_stream_wrapper.html#a62a3fc10b009ea231fb9d2dc958c539c":[2,0,14,6],
 "class_basic_i_stream_wrapper.html#a88e4288ecdaa0d31ddf4e5917b9aa8d7":[2,0,14,0],
 "class_basic_i_stream_wrapper.html#ab2ead53490207a1cb0bdd674a03957f3":[2,0,14,7],
@@ -172,8 +170,8 @@ var NAVTREEINDEX1 =
 "class_chocobo1_1_1_hash_1_1_buffer.html#a1c3627a9887f18bac1e7fb4df8374728":[2,0,0,0,28,430],
 "class_chocobo1_1_1_hash_1_1_buffer.html#a1c3627a9887f18bac1e7fb4df8374728":[2,0,0,0,28,431],
 "class_chocobo1_1_1_hash_1_1_buffer.html#a1c3627a9887f18bac1e7fb4df8374728":[2,0,0,0,28,432],
-"class_chocobo1_1_1_hash_1_1_buffer.html#a1c3627a9887f18bac1e7fb4df8374728":[2,0,0,0,28,433],
 "class_chocobo1_1_1_hash_1_1_buffer.html#a1c3627a9887f18bac1e7fb4df8374728":[2,0,0,0,28,434],
+"class_chocobo1_1_1_hash_1_1_buffer.html#a1c3627a9887f18bac1e7fb4df8374728":[2,0,0,0,28,433],
 "class_chocobo1_1_1_hash_1_1_buffer.html#a1c3627a9887f18bac1e7fb4df8374728":[2,0,0,0,28,436],
 "class_chocobo1_1_1_hash_1_1_buffer.html#a1c3627a9887f18bac1e7fb4df8374728":[2,0,0,0,28,435],
 "class_chocobo1_1_1_hash_1_1_buffer.html#a1c3627a9887f18bac1e7fb4df8374728":[2,0,0,0,28,437],
@@ -249,5 +247,7 @@ var NAVTREEINDEX1 =
 "class_chocobo1_1_1_hash_1_1_buffer.html#a2f8b25d8f9d24b0f84801cd2366d0e54":[2,0,0,0,28,458],
 "class_chocobo1_1_1_hash_1_1_buffer.html#a2f8b25d8f9d24b0f84801cd2366d0e54":[2,0,0,0,28,460],
 "class_chocobo1_1_1_hash_1_1_buffer.html#a2f8b25d8f9d24b0f84801cd2366d0e54":[2,0,0,0,28,459],
-"class_chocobo1_1_1_hash_1_1_buffer.html#a2f8b25d8f9d24b0f84801cd2366d0e54":[2,0,0,0,28,461]
+"class_chocobo1_1_1_hash_1_1_buffer.html#a2f8b25d8f9d24b0f84801cd2366d0e54":[2,0,0,0,28,461],
+"class_chocobo1_1_1_hash_1_1_buffer.html#a2f8b25d8f9d24b0f84801cd2366d0e54":[2,0,0,0,28,462],
+"class_chocobo1_1_1_hash_1_1_buffer.html#a2f8b25d8f9d24b0f84801cd2366d0e54":[2,0,0,0,28,463]
 };

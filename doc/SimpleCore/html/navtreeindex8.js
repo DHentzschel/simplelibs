@@ -1,7 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"class_vector2.html":[2,0,77],
-"class_vector2.html#a6cfed8355591aa269f4dba43bd806ef9":[2,0,77,4],
 "class_vector2.html#a78fa1f2ed5e261c7fbeb8f3536a1ee34":[2,0,77,3],
 "class_vector2.html#ae1eb7e93804f74959b1d0e568e4f4bd9":[2,0,77,2],
 "class_vector2.html#ae2f1223cb0d664aa73afb789086a4174":[2,0,77,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX8 =
 "classdate_1_1weekday.html#ad1c8b2fc24ad6ef001ea088041f451ce":[2,0,1,12,16],
 "classdate_1_1weekday.html#adb992e4bedbcc92452101e70dcfa7afa":[2,0,1,12,5],
 "classdate_1_1weekday.html#ae96e1724ac8c13d49b617db033a39d32":[2,0,1,12,4],
-"classdate_1_1weekday.html#aeb8f547ed20b5b221cfa0b06212772b4":[2,0,1,12,7]
+"classdate_1_1weekday.html#aeb8f547ed20b5b221cfa0b06212772b4":[2,0,1,12,7],
+"classdate_1_1weekday.html#af367d6fede344b2b74e78ce59b3127c1":[2,0,1,12,17],
+"classdate_1_1weekday__indexed.html":[2,0,1,13]
 };

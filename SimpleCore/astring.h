@@ -8,6 +8,7 @@
 
 #include "bytearray.h"
 #include "stringvector.h"
+#include "simplecore.h"
 
 class StringVector;
 
