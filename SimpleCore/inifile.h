@@ -1,6 +1,9 @@
 #ifndef INIFILE_H
 #define INIFILE_H
 
+#include "osdetection.h"
+
+#ifdef OS_WIN
 #include "astring.h"
 
 /**
@@ -93,5 +96,7 @@ private:
 	 */
 	void calculateKeyCount();
 };
+#elif defined(OS_LINUX)
 
+#endif // OSLINUX_H
 #endif // INIFILE_H
