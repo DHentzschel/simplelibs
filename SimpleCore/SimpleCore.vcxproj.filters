@@ -489,6 +489,9 @@
     <ClInclude Include="iqueue.h">
       <Filter>src\AdvancedSTL\Queue</Filter>
     </ClInclude>
+    <ClInclude Include="asnycaqueue.h">
+      <Filter>src\AdvancedSTL\Queue</Filter>
+    </ClInclude>
     <ClInclude Include="aqueue.h">
       <Filter>src\AdvancedSTL\Queue</Filter>
     </ClInclude>

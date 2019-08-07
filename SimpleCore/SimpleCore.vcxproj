@@ -148,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="alist.h" />
+    <ClInclude Include="asnycaqueue.h" />
     <ClInclude Include="astring.h" />
     <ClInclude Include="avector.h" />
     <ClInclude Include="bytearray.h" />
