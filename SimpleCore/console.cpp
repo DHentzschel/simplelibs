@@ -4,6 +4,7 @@
 
 Console Console::consoleInitializer_ = Console();
 
+#ifdef OS_WIN32
 CONSOLE_SCREEN_BUFFER_INFO Console::consoleBufferInfo_;
 
 HANDLE Console::inputHandle_;
@@ -11,13 +12,16 @@ HANDLE Console::inputHandle_;
 HANDLE Console::outputHandle_;
 
 int Console::defaultColor_;
+#endif // OS_WIN32
 
 Console::Console()
 {
+#ifdef OS_WIN32
 	inputHandle_ = GetStdHandle(STD_INPUT_HANDLE);
 	outputHandle_ = GetStdHandle(STD_OUTPUT_HANDLE);
 	defaultColor_ = static_cast<int>(ConsoleColor::LightGray);
 	//   setControlEventHandler();
+#endif OS_WIN32
 }
 
 void Console::print(const AString& string,
@@ -78,42 +82,55 @@ void Console::keep()
 	std::cin.get();
 }
 
+#ifdef OS_WIN32
 void Console::setControlEventHandler()
 {
 	DWORD mode = 0;
 	GetConsoleMode(inputHandle_, &mode);
 	SetConsoleMode(inputHandle_, mode &= ~ENABLE_PROCESSED_INPUT);
 }
+#endif // OS_WIN32
 
+#ifdef OS_WIN32
 void Console::disableCloseButton()
 {
 	const auto hmenu = GetSystemMenu(GetConsoleWindow(), FALSE);
 	while (DeleteMenu(hmenu, 0, MF_BYPOSITION));
 }
+#endif // OS_WIN32
 
 void Console::setConsoleTitle(const AString & title)
 {
+#ifdef OS_WIN32
 	SetConsoleTitleA(title.c_str());
+#endif // OS_WIN32
 }
 
 int Console::getConsoleWidth()
 {
+#ifdef OS_WIN32
 	ZeroMemory(&consoleBufferInfo_, sizeof CONSOLE_SCREEN_BUFFER_INFO);
 	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &consoleBufferInfo_);
 	return consoleBufferInfo_.srWindow.Right - consoleBufferInfo_.srWindow.Left + 1;
+#endif // OS_WIN32
 }
 
 int Console::getConsoleHeight()
 {
+#ifdef OS_WIN32
 	ZeroMemory(&consoleBufferInfo_, sizeof CONSOLE_SCREEN_BUFFER_INFO);
 	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &consoleBufferInfo_);
 	return consoleBufferInfo_.srWindow.Bottom - consoleBufferInfo_.srWindow.Top + 1;
+#endif // OS_WIN32
+
 }
 
 void Console::printColorExample()
 {
+#ifdef OS_WIN32
 	for (int i = 1; i < 0x10; i++) {
 		SetConsoleTextAttribute(outputHandle_, i);
 		std::cout << i << "This is a test!" << std::endl;
 	}
+#endif //OS_WIN32
 }

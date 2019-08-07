@@ -1,48 +1,38 @@
-#ifndef ALIST_H
-#define ALIST_H
+#ifndef ASYNCLIST_H
+#define ASYNCLIST_H
 
-#include <list>
-#include <vector>
-
+#include "alist.h"
+#include <mutex>
 #include "avector.h"
 
-template<class T>
-class AVector;
-
-/**
- * This class extends the std::list class by auxiliary functions.
- *
- * @author Daniel Hentzschel on 12.05.2019.
- */
-template<class T>
-class AList : public std::list<T> {
+template <class T>
+class AsyncAList : protected AList<T> {
 public:
-	using std::list<T>::list;
 	/**
 	 * Initializes the list with default values.
 	 */
-	AList();
+	AsyncAList() override;
 
 	/**
 	 * Initializes the list with the size passed as parameter.
 	 *
 	 * @param size the size of the list
 	 */
-	explicit AList(int64 size);
+	explicit AsyncAList(int64 size) override;
 
 	/**
 	 * Copies the values from another list to the current instance.
 	 *
 	 * @param list the list to copy from
 	 */
-	AList(const AList& list);
+	AsyncAList(const AsyncAList& list) override;
 
 	/**
 	 * Moves the values from another list to the current instance.
 	 *
 	 * @param list the list to move from
 	 */
-	AList(AList&& list);
+	AsyncAList(AsyncAList&& list) override;
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -50,7 +40,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the reference to the item on the ith position
 	 */
-	virtual T& at(int i);
+	T& at(int i) override;
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -58,7 +48,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the const reference to the item on the ith position
 	 */
-	virtual const T& at(int i) const;
+	const T& at(int i) const override;
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -66,7 +56,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the reference to the item on the ith position
 	 */
-	virtual T& operator[](int i);
+	T& operator[](int i) override;
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -74,35 +64,35 @@ public:
 	 * @param i the position index of the item
 	 * @return the const reference to the item on the ith position
 	 */
-	virtual const T& operator[](int i) const;
+	const T& operator[](int i) const override;
 
 	/**
 	 * Appends the value passed as parameter to the list.
 	 *
 	 * @param value the value to append
 	 */
-	virtual void append(const T& value);
+	void append(const T& value) override;
 
 	/**
 	 * Appends the value passed as parameter to the list.
 	 *
 	 * @param value the value to append
 	 */
-	virtual void append(T&& value);
+	void append(T&& value) override;
 
 	/**
 	 * Prepends the value passed as parameter to the list.
 	 *
 	 * @param value the value to prepend
 	 */
-	virtual void prepend(const T& value);
+	void prepend(const T& value) override;
 
 	/**
 	 * Prepends the value passed as parameter to the list.
 	 *
 	 * @param value the value to prepend
 	 */
-	virtual void prepend(T&& value);
+	void prepend(T&& value) override;
 
 	/**
 	 * Returns whether the list contains the item passed as parameter.
@@ -110,7 +100,7 @@ public:
 	 * @param value the value to check
 	 * @return whether the list contains the item passed as parameter
 	 */
-	virtual bool contains(const T& value) const;
+	bool contains(const T& value) const override;
 
 	/**
 	 * Returns whether the first item in the list is equal to the value passed as parameter.
@@ -118,7 +108,7 @@ public:
 	 * @param value the value to check
 	 * @return whether the list starts with the item passed as parameter
 	 */
-	virtual bool startsWith(const T& value) const;
+	bool startsWith(const T& value) const override;
 
 	/**
 	 * Returns whether the last item in the list is equal to the value passed as parameter.
@@ -126,14 +116,14 @@ public:
 	 * @param value the value to check
 	 * @return whether the list ends with the item passed as parameter
 	 */
-	virtual bool endsWith(const T& value) const;
+	bool endsWith(const T& value) const override;
 
 	/**
 	 * Returns whether the list is empty.
 	 *
 	 * @return whether the list empty
 	 */
-	virtual bool isEmpty() const;
+	bool isEmpty() const override;
 
 	/**
 	 * Counts the occurrences of the item passed as parameter in list and returns the count.
@@ -141,7 +131,7 @@ public:
 	 * @param value the value to count
 	 * @return the count of occurrences of the item passed as parameter
 	 */
-	virtual int64 count(const T& value) const;
+	int64 count(const T& value) const override;
 
 	/**
 	 * Returns the first index of the item in list which is equal to the specified item.
@@ -150,7 +140,7 @@ public:
 	 * @param value the value to find
 	 * @return the index of the first occurrence
 	 */
-	virtual int64 firstIndexOf(const T& value) const;
+	int64 firstIndexOf(const T& value) const override;
 
 	/**
 	 * Returns the first index of the item in list which is equal to the specified item.
@@ -159,7 +149,7 @@ public:
 	 * @param value the value to find
 	 * @return the index of the first occurrence
 	 */
-	virtual int64 indexOf(const T& value) const;
+	int64 indexOf(const T& value) const override;
 
 	/**
 	 * Returns the last index of the item in list which is equal to the specified item.
@@ -168,7 +158,7 @@ public:
 	 * @param value the value to find
 	 * @return the index of the last occurrence
 	 */
-	virtual int64 lastIndexOf(const T& value) const;
+	int64 lastIndexOf(const T& value) const override;
 
 	/**
 	 * Replaces the item on the position index passed as parameter by the value passed.
@@ -176,49 +166,49 @@ public:
 	 * @param i the position to replace
 	 * @param value the value to set
 	 */
-	virtual void replace(int64 i, const T& value);
+	void replace(int64 i, const T& value) override;
 
 	/**
 	 * Removes all duplicate items.
 	 */
-	virtual void removeDuplicates();
+	void removeDuplicates() override;
 
 	/**
 	 * Removes an item on a specific position.
 	 *
 	 * @param i the position of the item to remove
 	 */
-	virtual void removeAt(int i);
+	void removeAt(int i) override;
 
 	/**
 	 * Removes the first item in list.
 	 */
-	virtual void removeFirst();
+	void removeFirst() override;
 
 	/**
 	 * Removes the first item in list.
 	 * Just here for STL compatibility.
 	 */
-	virtual void pop_front();
+	void pop_front() override;
 
 	/**
 	 * Removes the last item in list.
 	 */
-	virtual void removeLast();
+	void removeLast() override;
 
 	/**
 	 * Removes the first occurrence in list which is equal to the item passed as parameter.
 	 *
 	 * @param value the value to remove
 	 */
-	virtual void removeFirst(const T& value);
+	void removeFirst(const T& value) override;
 
 	/**
 	 * Removes all occurrences in list which are equal to the item passed as parameter.
 	 *
 	 * @param value the value to remove
 	 */
-	virtual void removeAll(const T& value);
+	void removeAll(const T& value) override;
 
 	/**
 	 * Returns a list that contains length characters of this list, starting at the specified position index.
@@ -229,7 +219,7 @@ public:
 	 * @param length the length to use
 	 * @return a list copying the values of the current instance starting from position
 	 */
-	virtual AList<T> mid(int position, int length = -1) const;
+	AList<T> mid(int position, int length = -1) const override;
 
 	/**
 	 * Exchanges the value on position from with the value on position to.
@@ -237,49 +227,49 @@ public:
 	 * @param from the first exchangable
 	 * @param to the second exchangable
 	 */
-	virtual void move(int from, int to);
+	void move(int from, int to) override;
 
 	/**
 	 * Returns the current instance as a new std::vector.
 	 *
 	 * @return the current instance as new std::vector
 	 */
-	virtual std::vector<T> toStdVector() const;
+	std::vector<T> toStdVector() const override;
 
 	/**
 	 * Returns the current instance as a new AVector.
 	 *
 	 * @return the current instance as new AVector
 	 */
-	virtual AVector<T> toVector() const;
+	AVector<T> toVector() const override;
 
 	/**
 	 * Returns the reference of the first item in list.
 	 *
 	 * @return the reference of the first item in list
 	 */
-	virtual T& first();
+	T& first() override;
 
 	/**
 	 * Returns the const reference of the first item in list.
 	 *
 	 * @return the const reference of the first item in list
 	 */
-	virtual const T& first() const;
+	const T& first() const override;
 
 	/**
 	 * Returns the reference of the last item in list.
 	 *
 	 * @return the reference of the last item in list
 	 */
-	virtual T& last();
+	T& last() override;
 
 	/**
 	 * Returns the const reference of the last item in list.
 	 *
 	 * @return the const reference of the last item in list
 	 */
-	virtual const T& last() const;
+	const T& last() const override;
 
 	/**
 	 * Removes the item at the specified position and returns it.
@@ -287,336 +277,344 @@ public:
 	 * @param i the position to take at
 	 * @return the item to take
 	 */
-	virtual T takeAt(int64 i);
+	T takeAt(int64 i) override;
 
 	/**
 	 * Removes the first item and returns it.
 	 *
 	 * @return the first item
 	 */
-	virtual T takeFirst();
+	T takeFirst() override;
 
 	/**
 	 * Removes the last item and returns it.
 	 *
 	 * @return the lats item
 	 */
-	virtual T takeLast();
+	T takeLast() override;
 
 private:
 	using list_t = std::list<T>;
+
+	std::mutex mutex_;
 };
 
 template<class T>
-AList<T>::AList() :
-	list_t()
-{}
-
-template<class T>
-inline AList<T>::AList(int64 size) :
-	list_t(size)
-{}
-
-template<class T>
-AList<T>::AList(const AList& vector) :
-	list_t(vector)
-{}
-
-template<class T>
-AList<T>::AList(AList&& vector) :
-	list_t(vector)
-{}
-
-template<class T>
-T& AList<T>::at(int i)
+AsyncAList<T>::AsyncAList() :
+	AList<T>()
 {
-	auto it = list_t::begin();
-	for (int64 c = 0; it != list_t::end(); ++c, ++it) {
-		if (c == i) {
-			return *it;
-		}
-	}
-	return T();
+	mutex_.unlock();
 }
 
 template<class T>
-const T& AList<T>::at(int i) const
+AsyncAList<T>::AsyncAList(int64 size) :
+	AList<T>(size)
 {
-	auto it = list_t::begin();
-	for (int64 c = 0; it != list_t::end() && c != -1; ++c, ++it) {
-		if (c == i) {
-			return *it;
-		}
-	}
-	throw std::out_of_range("AList::at(): out of range");
+	mutex_.unlock();
 }
 
 template<class T>
-inline T& AList<T>::operator[](int i)
+AsyncAList<T>::AsyncAList(const AsyncAList& vector) :
+	AList<T>(vector)
 {
-	return at(i);
+	mutex_.unlock();
 }
 
 template<class T>
-inline const T& AList<T>::operator[](int i) const
+AsyncAList<T>::AsyncAList(AsyncAList&& vector) :
+	AList<T>(vector)
+{
+	mutex_.unlock();
+}
+
+template<class T>
+T& AsyncAList<T>::at(int i)
+{
+	mutex_.lock();
+	auto result = AList<T>::at(i);
+	mutex_.unlock();
+	return result;
+}
+
+template<class T>
+const T& AsyncAList<T>::at(int i) const
+{
+	mutex_.lock();
+	auto result = AList<T>::at(i);
+	mutex_.unlock();
+	return result;
+}
+
+template<class T>
+inline T& AsyncAList<T>::operator[](int i)
 {
 	return at(i);
 }
 
 template<class T>
-void AList<T>::append(const T& value)
+inline const T& AsyncAList<T>::operator[](int i) const
 {
-	list_t::push_back(value);
+	return at(i);
 }
 
 template<class T>
-void AList<T>::append(T&& value)
+void AsyncAList<T>::append(const T& value)
 {
-	list_t::push_back(value);
+	mutex_.lock();
+	AList<T>::append(value);
+	mutex_.lock();
 }
 
 template<class T>
-void AList<T>::prepend(const T& value)
+void AsyncAList<T>::append(T&& value)
 {
-	list_t::insert(list_t::begin(), value);
+	mutex_.lock();
+	AList<T>::append(value);
+	mutex_.lock();
 }
 
 template<class T>
-void AList<T>::prepend(T&& value)
+void AsyncAList<T>::prepend(const T& value)
 {
-	list_t::insert(list_t::begin(), value);
+	mutex_.lock();
+	AList<T>::prepend(value);
+	mutex_.unlock();
 }
 
 template<class T>
-inline bool AList<T>::contains(const T& value) const
+void AsyncAList<T>::prepend(T&& value)
 {
-	for (auto it = list_t::begin(); it != list_t::end(); ++it) {
-		if (*it == value) {
-			return true;
-		}
-	}
-	return false;
+	mutex_.lock();
+	AList<T>::prepend(value);
+	mutex_.unlock();
 }
 
 template<class T>
-bool AList<T>::startsWith(const T& value) const
+inline bool AsyncAList<T>::contains(const T& value) const
 {
-	return *list_t::begin() == value;
+	mutex_.lock();
+	auto result = AList<T>::contains(value);
+	mutex_.unlock();
+	return result;
 }
 
 template<class T>
-bool AList<T>::endsWith(const T& value) const
+bool AsyncAList<T>::startsWith(const T& value) const
 {
-	return *(list_t::end() - 1) == value;
+	mutex_.lock();
+	auto result = AList<T>::startsWith(value);
+	mutex_.unlock();
+	return result;
 }
 
 template<class T>
-bool AList<T>::isEmpty() const
+bool AsyncAList<T>::endsWith(const T& value) const
 {
-	return list_t::empty();
+	mutex_.lock();
+	auto result = AList<T>::endsWith(value);
+	mutex_.unlock();
+	return result;
 }
 
 template<class T>
-int64 AList<T>::count(const T& value) const
+bool AsyncAList<T>::isEmpty() const
 {
-	auto c = 0;
-	for (auto it = list_t::begin(); it != list_t::end(); ++it) {
-		if (*it == value) {
-			++c;
-		}
-	}
-	return c;
+	mutex_.lock();
+	auto result = AList<T>::isEmpty();
+	mutex_.unlock();
+	return result;
 }
 
 template<class T>
-int64 AList<T>::firstIndexOf(const T& value) const
+int64 AsyncAList<T>::count(const T& value) const
+{
+	mutex_.lock();
+	auto result = AList<T>::count(value);
+	mutex_.unlock();
+	return result;
+}
+
+template<class T>
+int64 AsyncAList<T>::firstIndexOf(const T& value) const
 {
 	return indexOf(value);
 }
 
 template<class T>
-int64 AList<T>::indexOf(const T& value) const
+int64 AsyncAList<T>::indexOf(const T& value) const
 {
-	auto it = list_t::begin();
-	for (int64 i = 0; it != list_t::end(); ++i, ++it) {
-		if (*it == value) {
-			return i;
-		}
-	}
-	return -1;
+	mutex_.lock();
+	auto result = AList<T>::indexOf(value);
+	mutex_.unlock();
+	return result;
 }
 
 template<class T>
-int64 AList<T>::lastIndexOf(const T& value) const
+int64 AsyncAList<T>::lastIndexOf(const T& value) const
 {
-	auto it = list_t::end();
-	for (auto i = 0; it != list_t::begin(); ++i, --it) {
-		if (*it == value) {
-			return i;
-		}
-	}
-	return -1;
+	mutex_.lock();
+	auto result = AList<T>::lastIndexOf(value);
+	mutex_.unlock();
+	return result;
 }
 
 template<class T>
-void AList<T>::replace(const int64 i, const T& value)
+void AsyncAList<T>::replace(const int64 i, const T& value)
 {
-	auto it = list_t::begin();
-	for (auto c = 0; it != list_t::end(); ++c, ++it) {
-		if (c == i) {
-			*it = value;
-		}
-	}
+	mutex_.lock();
+	AList<T>::replace(i, value);
+	mutex_.unlock();
 }
 
 template<class T>
-void AList<T>::removeDuplicates()
+void AsyncAList<T>::removeDuplicates()
 {
 	/* list_t::sort();
 	 list_t::unique();*/
 }
 
 template<class T>
-void AList<T>::removeAt(int i)
+void AsyncAList<T>::removeAt(int i)
 {
-	auto it = list_t::begin();
-	for (auto c = 0; it != list_t::end(); ++c, ++it) {
-		if (c == i) {
-			list_t::erase(it);
-			return;
-		}
-	}
+	mutex_.lock();
+	AList<T>::removeAt(i);
+	mutex_.unlock();
 }
 
 template<class T>
-void AList<T>::removeFirst()
+void AsyncAList<T>::removeFirst()
 {
-	list_t::erase(list_t::begin());
+	mutex_.lock();
+	AList<T>::removeFirst();
+	mutex_.unlock();
 }
 
 template<class T>
-void AList<T>::pop_front()
+void AsyncAList<T>::pop_front()
 {
 	removeFirst();
 }
 
 template<class T>
-void AList<T>::removeLast()
+void AsyncAList<T>::removeLast()
 {
-	list_t::pop_back();
+	mutex_.lock();
+	AList<T>::removeLast();
+	mutex_.unlock();
 }
 
 template<class T>
-void AList<T>::removeFirst(const T& value)
+void AsyncAList<T>::removeFirst(const T& value)
 {
-	auto it = list_t::begin();
-	for (; it != list_t::end(); ++it) {
-		if (*it == value) {
-			list_t::erase(it);
-			return;
-		}
-	}
+	mutex_.lock();
+	AList<T>::removeFirst(value);
+	mutex_.unlock();
 }
 
 template<class T>
-void AList<T>::removeAll(const T& value)
+void AsyncAList<T>::removeAll(const T& value)
 {
-	auto it = list_t::begin();
-	for (; it != list_t::end(); ++it) {
-		if (*it == value) {
-			it = list_t::erase(it);
-			if (it == list_t::end()) {
-				break;
-			}
-		}
-	}
+	mutex_.lock();
+	AList<T>::removeAll(value);
+	mutex_.unlock();
 }
 
 template<class T>
-AList<T> AList<T>::mid(int position, int length) const
+AList<T> AsyncAList<T>::mid(int position, int length) const
 {
-	AList<T> result;
-	int64 limit = length == -1 ? list_t::size() : position + length;
-	auto it = list_t::begin();
-	for (auto i = position; i < limit; ++i) {
-		result.append(*it);
-	}
+	mutex_.lock();
+	auto result = AList<T>::mid(position, length);
+	mutex_.unlock();
 	return result;
 }
 
 template<class T>
-void AList<T>::move(int from, int to)
+void AsyncAList<T>::move(int from, int to)
 {
-	T copyFrom = at(from);
-	T copyTo = at(to);
-	replace(from, copyTo);
-	replace(to, copyFrom);
+	mutex_.lock();
+	AList<T>::move(from, to);
+	mutex_.unlock();
 }
 
 template<class T>
-std::vector<T> AList<T>::toStdVector() const
+std::vector<T> AsyncAList<T>::toStdVector() const
 {
-	std::vector<T> result(list_t::size());
-	result.assign(list_t::begin(), list_t::end());
+	mutex_.lock();
+	auto result = AList<T>::toStdVector();
+	mutex_.unlock();
 	return result;
 }
 
 template<class T>
-AVector<T> AList<T>::toVector() const
+AVector<T> AsyncAList<T>::toVector() const
 {
-	AVector<T> result(list_t::size());
-	result.assign(list_t::begin(), list_t::end());
+	mutex_.lock();
+	auto result = AList<T>::toVector();
+	mutex_.unlock();
 	return result;
 }
 
 template<class T>
-T& AList<T>::first()
+T& AsyncAList<T>::first()
 {
-	return *list_t::begin();
-}
-
-template<class T>
-const T& AList<T>::first() const
-{
-	return *list_t::begin();
-}
-
-template<class T>
-T& AList<T>::last()
-{
-	auto it = list_t::end();
-	return *--it;
-}
-
-template<class T>
-const T& AList<T>::last() const
-{
-	auto it = list_t::end();
-	return *--it;
-}
-
-template<class T>
-T AList<T>::takeAt(int64 i)
-{
-	T result = at(i);
-	removeAt(i);
+	mutex_.lock();
+	auto result = AList<T>::first();
+	mutex_.unlock();
 	return result;
 }
 
 template<class T>
-T AList<T>::takeFirst()
+const T& AsyncAList<T>::first() const
 {
-	T result = *list_t::begin();
-	removeFirst();
+	mutex_.lock();
+	auto result = AList<T>::first();
+	mutex_.unlock();
 	return result;
 }
 
 template<class T>
-T AList<T>::takeLast()
+T& AsyncAList<T>::last()
 {
-	T result = *list_t::end();
-	removeLast();
+	mutex_.lock();
+	auto result = AList<T>::last();
+	mutex_.unlock();
 	return result;
 }
 
-#endif   // ALIST_H
+template<class T>
+const T& AsyncAList<T>::last() const
+{
+	mutex_.lock();
+	auto result = AList<T>::last();
+	mutex_.unlock();
+	return result;
+}
+
+template<class T>
+T AsyncAList<T>::takeAt(int64 i)
+{
+	mutex_.lock();
+	auto result = AList<T>::takeAt();
+	mutex_.unlock();
+	return result;
+}
+
+template<class T>
+T AsyncAList<T>::takeFirst()
+{
+	mutex_.lock();
+	auto result = AList<T>::takeFirst();
+	mutex_.unlock();
+	return result;
+}
+
+template<class T>
+T AsyncAList<T>::takeLast()
+{
+	mutex_.lock();
+	auto result = AList<T>::takeLast();
+	mutex_.unlock();
+	return result;
+}
+
+#endif // !ASYNCLIST_H

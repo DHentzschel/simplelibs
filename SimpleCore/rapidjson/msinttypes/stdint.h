@@ -34,6 +34,12 @@
 // THL A29 Limited ("Tencent Modifications"). 
 // All Tencent Modifications are Copyright (C) 2015 THL A29 Limited.
 
+#ifndef STDINT_H
+#define STDINT_H
+
+#include "..//..//osdetection.h"
+
+#ifdef OS_WIN
 #ifndef _MSC_VER // [
 #error "Use this header only with Microsoft Visual C++ compilers!"
 #endif // _MSC_VER ]
@@ -298,3 +304,9 @@ typedef uint64_t  uintmax_t;
 #endif // _MSC_VER >= 1600 ]
 
 #endif // _MSC_STDINT_H_ ]
+
+#elif defined(OS_LINUX)
+#error "Use this header only with Microsoft Visual C++ compilers!"
+#endif // OS_LINUX
+
+#endif // !STDINT_H

@@ -1,5 +1,5 @@
 #include "inifile.h"
-
+#ifdef OS_WIN
 #include <Windows.h>
 #include "file.h"
 #include "logger.h"
@@ -65,7 +65,7 @@ AString IniFile::value(const AString& key) const
 	return AString(buffer.data());
 }
 
-void IniFile::setValue(const AString & key, const AString & value) const
+void IniFile::setValue(const AString& key, const AString& value) const
 {
 	const AString formattedValue = value.startsWith(" ") ? AString(value) : " " + AString(value);
 	WritePrivateProfileStringA(group_.toCString(), key.toCString(),
@@ -93,3 +93,6 @@ void IniFile::calculateKeyCount()
 	}
 	keyCount_ = counter;
 }
+#elif defined(OS_LINUX)
+
+#endif // OS_LINUX
