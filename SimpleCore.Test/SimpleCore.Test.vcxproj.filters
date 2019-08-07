@@ -27,6 +27,9 @@
     <Filter Include="src\StopwatchTest">
       <UniqueIdentifier>{0145c2cf-dd6d-4947-8a52-8cb69742ba5d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\AQueueTest">
+      <UniqueIdentifier>{f491645a-ce51-44db-bf9b-aa0887ebf9b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -51,6 +54,9 @@
     </ClCompile>
     <ClCompile Include="stopwatchtest.cpp">
       <Filter>src\StopwatchTest</Filter>
+    </ClCompile>
+    <ClCompile Include="aqueuetest.cpp">
+      <Filter>src\AQueueTest</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
