@@ -48,14 +48,6 @@ public:
 	 * Returns the item on the ith position in the list.
 	 *
 	 * @param i the position index of the item
-	 * @return the reference to the item on the ith position
-	 */
-	virtual T& at(int i);
-
-	/**
-	 * Returns the item on the ith position in the list.
-	 *
-	 * @param i the position index of the item
 	 * @return the const reference to the item on the ith position
 	 */
 	virtual const T& at(int i) const;
@@ -66,7 +58,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the reference to the item on the ith position
 	 */
-	virtual T& operator[](int i);
+	SIMPLECORE_API virtual T& operator[](int i);
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -287,7 +279,7 @@ public:
 	 * @param i the position to take at
 	 * @return the item to take
 	 */
-	virtual T takeAt(int64 i);
+	virtual T takeAt(int i);
 
 	/**
 	 * Removes the first item and returns it.
@@ -328,19 +320,13 @@ AList<T>::AList(AList&& vector) :
 {}
 
 template<class T>
-T& AList<T>::at(int i)
+const T& AList<T>::at(int i) const
 {
-	auto it = list_t::begin();
-	for (int64 c = 0; it != list_t::end(); ++c, ++it) {
-		if (c == i) {
-			return *it;
-		}
-	}
-	return T();
+	return operator[](i);
 }
 
 template<class T>
-const T& AList<T>::at(int i) const
+inline T& AList<T>::operator[](int i)
 {
 	auto it = list_t::begin();
 	for (int64 c = 0; it != list_t::end() && c != -1; ++c, ++it) {
@@ -349,12 +335,6 @@ const T& AList<T>::at(int i) const
 		}
 	}
 	throw std::out_of_range("AList::at(): out of range");
-}
-
-template<class T>
-inline T& AList<T>::operator[](int i)
-{
-	return at(i);
 }
 
 template<class T>
@@ -407,7 +387,9 @@ bool AList<T>::startsWith(const T& value) const
 template<class T>
 bool AList<T>::endsWith(const T& value) const
 {
-	return *(list_t::end() - 1) == value;
+	auto it = list_t::end();
+	--it;
+	return *it == value;
 }
 
 template<class T>
@@ -596,7 +578,7 @@ const T& AList<T>::last() const
 }
 
 template<class T>
-T AList<T>::takeAt(int64 i)
+T AList<T>::takeAt(int i)
 {
 	T result = at(i);
 	removeAt(i);

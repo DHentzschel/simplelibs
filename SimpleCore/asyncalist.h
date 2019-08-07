@@ -33,15 +33,7 @@ public:
 	 * @param list the list to move from
 	 */
 	AsyncAList(AsyncAList&& list) override;
-
-	/**
-	 * Returns the item on the ith position in the list.
-	 *
-	 * @param i the position index of the item
-	 * @return the reference to the item on the ith position
-	 */
-	T& at(int i) override;
-
+	
 	/**
 	 * Returns the item on the ith position in the list.
 	 *
@@ -325,15 +317,6 @@ AsyncAList<T>::AsyncAList(AsyncAList&& vector) :
 	AList<T>(vector)
 {
 	mutex_.unlock();
-}
-
-template<class T>
-T& AsyncAList<T>::at(int i)
-{
-	mutex_.lock();
-	auto result = AList<T>::at(i);
-	mutex_.unlock();
-	return result;
 }
 
 template<class T>
