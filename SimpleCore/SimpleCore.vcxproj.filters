@@ -110,6 +110,9 @@
     <Filter Include="src\General\OsDetection">
       <UniqueIdentifier>{9374f11b-6839-40e3-b781-e14516d79293}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\AdvancedSTL\List\AsyncList">
+      <UniqueIdentifier>{c810bff0-c309-48dc-8f78-fe54b5545f15}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bytearray.cpp">
@@ -482,6 +485,9 @@
     </ClInclude>
     <ClInclude Include="simplecore.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="asyncalist.h">
+      <Filter>src\AdvancedSTL\List\AsyncList</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
