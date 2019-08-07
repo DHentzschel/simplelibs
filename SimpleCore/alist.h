@@ -50,7 +50,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the reference to the item on the ith position
 	 */
-	T& at(int i);
+	virtual T& at(int i);
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -58,7 +58,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the const reference to the item on the ith position
 	 */
-	const T& at(int i) const;
+	virtual const T& at(int i) const;
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -66,7 +66,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the reference to the item on the ith position
 	 */
-	T& operator[](int i);
+	virtual T& operator[](int i);
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -74,35 +74,35 @@ public:
 	 * @param i the position index of the item
 	 * @return the const reference to the item on the ith position
 	 */
-	const T& operator[](int i) const;
+	virtual const T& operator[](int i) const;
 
 	/**
 	 * Appends the value passed as parameter to the list.
 	 *
 	 * @param value the value to append
 	 */
-	void append(const T& value);
+	virtual void append(const T& value);
 
 	/**
 	 * Appends the value passed as parameter to the list.
 	 *
 	 * @param value the value to append
 	 */
-	void append(T&& value);
+	virtual void append(T&& value);
 
 	/**
 	 * Prepends the value passed as parameter to the list.
 	 *
 	 * @param value the value to prepend
 	 */
-	void prepend(const T& value);
+	virtual void prepend(const T& value);
 
 	/**
 	 * Prepends the value passed as parameter to the list.
 	 *
 	 * @param value the value to prepend
 	 */
-	void prepend(T&& value);
+	virtual void prepend(T&& value);
 
 	/**
 	 * Returns whether the list contains the item passed as parameter.
@@ -110,7 +110,7 @@ public:
 	 * @param value the value to check
 	 * @return whether the list contains the item passed as parameter
 	 */
-	bool contains(const T& value) const;
+	virtual bool contains(const T& value) const;
 
 	/**
 	 * Returns whether the first item in the list is equal to the value passed as parameter.
@@ -118,7 +118,7 @@ public:
 	 * @param value the value to check
 	 * @return whether the list starts with the item passed as parameter
 	 */
-	bool startsWith(const T& value) const;
+	virtual bool startsWith(const T& value) const;
 
 	/**
 	 * Returns whether the last item in the list is equal to the value passed as parameter.
@@ -126,14 +126,14 @@ public:
 	 * @param value the value to check
 	 * @return whether the list ends with the item passed as parameter
 	 */
-	bool endsWith(const T& value) const;
+	virtual bool endsWith(const T& value) const;
 
 	/**
 	 * Returns whether the list is empty.
 	 *
 	 * @return whether the list empty
 	 */
-	bool isEmpty() const;
+	virtual bool isEmpty() const;
 
 	/**
 	 * Counts the occurrences of the item passed as parameter in list and returns the count.
@@ -141,7 +141,7 @@ public:
 	 * @param value the value to count
 	 * @return the count of occurrences of the item passed as parameter
 	 */
-	int64 count(const T& value) const;
+	virtual int64 count(const T& value) const;
 
 	/**
 	 * Returns the first index of the item in list which is equal to the specified item.
@@ -150,7 +150,7 @@ public:
 	 * @param value the value to find
 	 * @return the index of the first occurrence
 	 */
-	int64 firstIndexOf(const T& value) const;
+	virtual int64 firstIndexOf(const T& value) const;
 
 	/**
 	 * Returns the first index of the item in list which is equal to the specified item.
@@ -159,7 +159,7 @@ public:
 	 * @param value the value to find
 	 * @return the index of the first occurrence
 	 */
-	int64 indexOf(const T& value) const;
+	virtual int64 indexOf(const T& value) const;
 
 	/**
 	 * Returns the last index of the item in list which is equal to the specified item.
@@ -168,7 +168,7 @@ public:
 	 * @param value the value to find
 	 * @return the index of the last occurrence
 	 */
-	int64 lastIndexOf(const T& value) const;
+	virtual int64 lastIndexOf(const T& value) const;
 
 	/**
 	 * Replaces the item on the position index passed as parameter by the value passed.
@@ -176,49 +176,49 @@ public:
 	 * @param i the position to replace
 	 * @param value the value to set
 	 */
-	void replace(int64 i, const T& value);
+	virtual void replace(int64 i, const T& value);
 
 	/**
 	 * Removes all duplicate items.
 	 */
-	void removeDuplicates();
+	virtual void removeDuplicates();
 
 	/**
 	 * Removes an item on a specific position.
 	 *
 	 * @param i the position of the item to remove
 	 */
-	void removeAt(int i);
+	virtual void removeAt(int i);
 
 	/**
 	 * Removes the first item in list.
 	 */
-	void removeFirst();
+	virtual void removeFirst();
 
 	/**
 	 * Removes the first item in list.
 	 * Just here for STL compatibility.
 	 */
-	void pop_front();
+	virtual void pop_front();
 
 	/**
 	 * Removes the last item in list.
 	 */
-	void removeLast();
+	virtual void removeLast();
 
 	/**
 	 * Removes the first occurrence in list which is equal to the item passed as parameter.
 	 *
 	 * @param value the value to remove
 	 */
-	void removeFirst(const T& value);
+	virtual void removeFirst(const T& value);
 
 	/**
 	 * Removes all occurrences in list which are equal to the item passed as parameter.
 	 *
 	 * @param value the value to remove
 	 */
-	void removeAll(const T& value);
+	virtual void removeAll(const T& value);
 
 	/**
 	 * Returns a list that contains length characters of this list, starting at the specified position index.
@@ -229,7 +229,7 @@ public:
 	 * @param length the length to use
 	 * @return a list copying the values of the current instance starting from position
 	 */
-	AList<T> mid(int position, int length = -1) const;
+	virtual AList<T> mid(int position, int length = -1) const;
 
 	/**
 	 * Exchanges the value on position from with the value on position to.
@@ -237,49 +237,49 @@ public:
 	 * @param from the first exchangable
 	 * @param to the second exchangable
 	 */
-	void move(int from, int to);
+	virtual void move(int from, int to);
 
 	/**
 	 * Returns the current instance as a new std::vector.
 	 *
 	 * @return the current instance as new std::vector
 	 */
-	std::vector<T> toStdVector() const;
+	virtual std::vector<T> toStdVector() const;
 
 	/**
 	 * Returns the current instance as a new AVector.
 	 *
 	 * @return the current instance as new AVector
 	 */
-	AVector<T> toVector() const;
+	virtual AVector<T> toVector() const;
 
 	/**
 	 * Returns the reference of the first item in list.
 	 *
 	 * @return the reference of the first item in list
 	 */
-	T& first();
+	virtual T& first();
 
 	/**
 	 * Returns the const reference of the first item in list.
 	 *
 	 * @return the const reference of the first item in list
 	 */
-	const T& first() const;
+	virtual const T& first() const;
 
 	/**
 	 * Returns the reference of the last item in list.
 	 *
 	 * @return the reference of the last item in list
 	 */
-	T& last();
+	virtual T& last();
 
 	/**
 	 * Returns the const reference of the last item in list.
 	 *
 	 * @return the const reference of the last item in list
 	 */
-	const T& last() const;
+	virtual const T& last() const;
 
 	/**
 	 * Removes the item at the specified position and returns it.
@@ -287,40 +287,44 @@ public:
 	 * @param i the position to take at
 	 * @return the item to take
 	 */
-	T takeAt(int64 i);
+	virtual T takeAt(int64 i);
 
 	/**
 	 * Removes the first item and returns it.
 	 *
 	 * @return the first item
 	 */
-	T takeFirst();
+	virtual T takeFirst();
 
 	/**
 	 * Removes the last item and returns it.
 	 *
 	 * @return the lats item
 	 */
-	T takeLast();
+	virtual T takeLast();
 
 private:
 	using list_t = std::list<T>;
 };
 
 template<class T>
-AList<T>::AList() : list_t()
+AList<T>::AList() :
+	list_t()
 {}
 
 template<class T>
-AList<T>::AList(int64 size) : list_t(size)
+inline AList<T>::AList(int64 size) :
+	list_t(size)
 {}
 
 template<class T>
-AList<T>::AList(const AList& vector) : list_t(vector)
+AList<T>::AList(const AList& vector) :
+	list_t(vector)
 {}
 
 template<class T>
-AList<T>::AList(AList&& vector) : AList<T>(vector)
+AList<T>::AList(AList&& vector) :
+	list_t(vector)
 {}
 
 template<class T>
