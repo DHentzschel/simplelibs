@@ -1,6 +1,9 @@
 #ifndef INIFILE_H
 #define INIFILE_H
 
+#include "osdetection.h"
+
+#ifdef OS_WIN
 #include "astring.h"
 
 /**
@@ -13,47 +16,47 @@ public:
 	/**
 	 * Calls the default constructor.
 	 */
-	IniFile() = default;
+	SIMPLECORE_API IniFile();
 
 	/**
 	 * Sets the filepath passed by parameter.
 	 *
 	 * @param filepath the filepath to set
 	 */
-	explicit IniFile(const AString& filepath);
+	SIMPLECORE_API explicit IniFile(const AString& filepath);
 
 	/**
 	 * Sets the current filepath and calculates the group and key count.
 	 *
 	 * @param filepath the filepath to set
 	 */
-	void setFilepath(const AString& filepath);
+	SIMPLECORE_API void setFilepath(const AString& filepath);
 
 	/**
 	 * Sets the current focus to the group specified.
 	 *
 	 * @param group the group to focus on
 	 */
-	void beginGroup(const AString& group);
+	SIMPLECORE_API void beginGroup(const AString& group);
 
 	/**
 	 * Sets the current group focus to none.
 	 */
-	void endGroup();
+	SIMPLECORE_API void endGroup();
 
 	/**
 	 * Returns the group count.
 	 *
 	 * @return the group count
 	 */
-	uint getGroupCount();
+	SIMPLECORE_API uint getGroupCount();
 
 	/**
 	 * Returns the key count.
 	 *
 	 * @return the key count
 	 */
-	uint getKeyCount();
+	SIMPLECORE_API uint getKeyCount();
 
 	/**
 	 * Returns the value of the key specified.
@@ -62,7 +65,7 @@ public:
 	 * @param key the key to find
 	 * @return the value
 	 */
-	AString value(const AString& key) const;
+	SIMPLECORE_API AString value(const AString& key) const;
 
 	/**
 	 * Sets the value of the key specified.
@@ -70,7 +73,7 @@ public:
 	 * @param key the key to find
 	 * @param value the value to set
 	 */
-	void setValue(const AString& key, const AString& value) const;
+	SIMPLECORE_API void setValue(const AString& key, const AString& value) const;
 
 private:
 	AString filepath_;
@@ -93,5 +96,7 @@ private:
 	 */
 	void calculateKeyCount();
 };
+#elif defined(OS_LINUX)
 
+#endif // OSLINUX_H
 #endif // INIFILE_H

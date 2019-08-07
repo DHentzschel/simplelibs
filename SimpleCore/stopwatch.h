@@ -1,6 +1,7 @@
 #ifndef STOPWATCH_H
 #define STOPWATCH_H
 
+#include "types.h"
 #include <chrono>
 
 /**
@@ -13,47 +14,47 @@ public:
 	/**
 	 * Calls the restart functions on default.
 	 */
-	Stopwatch();
+	SIMPLECORE_API Stopwatch();
 
 	/**
 	 * Resets the time variable to the current time.
 	 */
-	void restart();
+	SIMPLECORE_API void restart();
 
 	/**
 	 * Returns the elapsed time in seconds since the application startup.
 	 *
 	 * @return the elapsed time in seconds
 	 */
-	static std::chrono::duration<float, std::milli> getElapsedSystemTimeInSeconds();
+	SIMPLECORE_API static std::chrono::duration<float, std::milli> getElapsedSystemTimeInSeconds();
 
 	/**
 	 * Returns the elapsed time in seconds.
 	 *
 	 * @return the elapsed time in seconds
 	 */
-	std::chrono::duration<float, std::milli> getElapsedTimeInSeconds() const;
+	SIMPLECORE_API std::chrono::duration<float, std::milli> getElapsedTimeInSeconds() const;
 
 	/**
 	 * Returns the elapsed time in milliseconds since the application startup.
 	 *
 	 * @return the elapsed time in milliseconds
 	 */
-	static std::chrono::duration<float, std::milli> getElapsedSystemTimeInMillis();
+	SIMPLECORE_API static std::chrono::duration<float, std::milli> getElapsedSystemTimeInMillis();
 
 	/**
 	 * Returns the elapsed time in milliseconds.
 	 *
 	 * @return the elapsed time in milliseconds
 	 */
-	std::chrono::duration<float, std::milli> getElapsedTimeInMillis() const;
+	SIMPLECORE_API std::chrono::duration<float, std::milli> getElapsedTimeInMillis() const;
 
 	/**
 	 * Returns the current system time in seconds.
 	 *
 	 * @return the current system time in seconds
 	 */
-	static std::chrono::time_point<std::chrono::steady_clock> getSystemTimeInSeconds();
+	SIMPLECORE_API static std::chrono::time_point<std::chrono::steady_clock> getSystemTimeInSeconds();
 
 private:
 	typedef std::chrono::time_point<std::chrono::steady_clock> TimePoint;

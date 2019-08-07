@@ -73,22 +73,22 @@ void Logger::printPrefix(LogType type)
 	Console::print(string, false);
 	if (type == LogType::Debug) {
 		const auto label = " DBG";
-		Console::print(label, false, Turquoise);
+		Console::print(label, false, ConsoleColor::Turquoise);
 		string += label;
 	}
 	else if (type == LogType::Info) {
 		const auto label = " INFO";
-		Console::print(label, false, Green);
+		Console::print(label, false, ConsoleColor::Green);
 		string += label;
 	}
 	else if (type == LogType::Error) {
 		const auto label = " ERR";
-		Console::print(label, false, Red);
+		Console::print(label, false, ConsoleColor::Red);
 		string += label;
 	}
 	else if (type == LogType::Warn) {
 		const auto label = " WARN";
-		Console::print(label, false, Yellow);
+		Console::print(label, false, ConsoleColor::Yellow);
 		string += label;
 	}
 

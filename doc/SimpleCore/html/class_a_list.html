@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SimpleCore
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_a_list.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,7 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -79,8 +103,11 @@ $(function() {
 Inheritance diagram for AList&lt; T &gt;:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_a_list.png" alt=""/>
- </div></div>
+  <img src="class_a_list.png" usemap="#AList_3C_20T_20_3E_map" alt=""/>
+  <map id="AList_3C_20T_20_3E_map" name="AList_3C_20T_20_3E_map">
+<area href="class_async_a_list.html" alt="AsyncAList&lt; T &gt;" shape="rect" coords="0,112,107,136"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -97,112 +124,112 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0e4ad9eb6d7cbb883a56f67589c65be9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a0e4ad9eb6d7cbb883a56f67589c65be9">AList</a> (<a class="el" href="class_a_list.html">AList</a> &amp;&amp;list)</td></tr>
 <tr class="memdesc:a0e4ad9eb6d7cbb883a56f67589c65be9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the values from another list to the current instance.  <a href="#a0e4ad9eb6d7cbb883a56f67589c65be9">More...</a><br /></td></tr>
 <tr class="separator:a0e4ad9eb6d7cbb883a56f67589c65be9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae43013270783ff87b26c3dc559874681"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ae43013270783ff87b26c3dc559874681">at</a> (int i)</td></tr>
+<tr class="memitem:ae43013270783ff87b26c3dc559874681"><td class="memItemLeft" align="right" valign="top">virtual T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ae43013270783ff87b26c3dc559874681">at</a> (int i)</td></tr>
 <tr class="memdesc:ae43013270783ff87b26c3dc559874681"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the item on the ith position in the list.  <a href="#ae43013270783ff87b26c3dc559874681">More...</a><br /></td></tr>
 <tr class="separator:ae43013270783ff87b26c3dc559874681"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10107fe182383d368c18992eb5be7127"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a10107fe182383d368c18992eb5be7127">at</a> (int i) const</td></tr>
+<tr class="memitem:a10107fe182383d368c18992eb5be7127"><td class="memItemLeft" align="right" valign="top">virtual const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a10107fe182383d368c18992eb5be7127">at</a> (int i) const</td></tr>
 <tr class="memdesc:a10107fe182383d368c18992eb5be7127"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the item on the ith position in the list.  <a href="#a10107fe182383d368c18992eb5be7127">More...</a><br /></td></tr>
 <tr class="separator:a10107fe182383d368c18992eb5be7127"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae14e6bff6596b91b77a40b0d03777e66"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ae14e6bff6596b91b77a40b0d03777e66">operator[]</a> (int i)</td></tr>
+<tr class="memitem:ae14e6bff6596b91b77a40b0d03777e66"><td class="memItemLeft" align="right" valign="top">virtual T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ae14e6bff6596b91b77a40b0d03777e66">operator[]</a> (int i)</td></tr>
 <tr class="memdesc:ae14e6bff6596b91b77a40b0d03777e66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the item on the ith position in the list.  <a href="#ae14e6bff6596b91b77a40b0d03777e66">More...</a><br /></td></tr>
 <tr class="separator:ae14e6bff6596b91b77a40b0d03777e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7dd2c5a1bef44beabc15070eb14c050"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ab7dd2c5a1bef44beabc15070eb14c050">operator[]</a> (int i) const</td></tr>
+<tr class="memitem:ab7dd2c5a1bef44beabc15070eb14c050"><td class="memItemLeft" align="right" valign="top">virtual const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ab7dd2c5a1bef44beabc15070eb14c050">operator[]</a> (int i) const</td></tr>
 <tr class="memdesc:ab7dd2c5a1bef44beabc15070eb14c050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the item on the ith position in the list.  <a href="#ab7dd2c5a1bef44beabc15070eb14c050">More...</a><br /></td></tr>
 <tr class="separator:ab7dd2c5a1bef44beabc15070eb14c050"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a210e9e0657a0f4541247a290d21b6d23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a210e9e0657a0f4541247a290d21b6d23">append</a> (const T &amp;value)</td></tr>
+<tr class="memitem:a210e9e0657a0f4541247a290d21b6d23"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a210e9e0657a0f4541247a290d21b6d23">append</a> (const T &amp;value)</td></tr>
 <tr class="memdesc:a210e9e0657a0f4541247a290d21b6d23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the value passed as parameter to the list.  <a href="#a210e9e0657a0f4541247a290d21b6d23">More...</a><br /></td></tr>
 <tr class="separator:a210e9e0657a0f4541247a290d21b6d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8e33a3962d74310ebafc8d99be5437a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ac8e33a3962d74310ebafc8d99be5437a">append</a> (T &amp;&amp;value)</td></tr>
+<tr class="memitem:ac8e33a3962d74310ebafc8d99be5437a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ac8e33a3962d74310ebafc8d99be5437a">append</a> (T &amp;&amp;value)</td></tr>
 <tr class="memdesc:ac8e33a3962d74310ebafc8d99be5437a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends the value passed as parameter to the list.  <a href="#ac8e33a3962d74310ebafc8d99be5437a">More...</a><br /></td></tr>
 <tr class="separator:ac8e33a3962d74310ebafc8d99be5437a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35838eb653492086769df4c444e08281"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a35838eb653492086769df4c444e08281">prepend</a> (const T &amp;value)</td></tr>
+<tr class="memitem:a35838eb653492086769df4c444e08281"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a35838eb653492086769df4c444e08281">prepend</a> (const T &amp;value)</td></tr>
 <tr class="memdesc:a35838eb653492086769df4c444e08281"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends the value passed as parameter to the list.  <a href="#a35838eb653492086769df4c444e08281">More...</a><br /></td></tr>
 <tr class="separator:a35838eb653492086769df4c444e08281"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6cae264346546d9e6cc68252a2e0b3d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a6cae264346546d9e6cc68252a2e0b3d5">prepend</a> (T &amp;&amp;value)</td></tr>
+<tr class="memitem:a6cae264346546d9e6cc68252a2e0b3d5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a6cae264346546d9e6cc68252a2e0b3d5">prepend</a> (T &amp;&amp;value)</td></tr>
 <tr class="memdesc:a6cae264346546d9e6cc68252a2e0b3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends the value passed as parameter to the list.  <a href="#a6cae264346546d9e6cc68252a2e0b3d5">More...</a><br /></td></tr>
 <tr class="separator:a6cae264346546d9e6cc68252a2e0b3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3db4e8f60d5abf4e7a12d928fb244a0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ab3db4e8f60d5abf4e7a12d928fb244a0">contains</a> (const T &amp;value) const</td></tr>
+<tr class="memitem:ab3db4e8f60d5abf4e7a12d928fb244a0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ab3db4e8f60d5abf4e7a12d928fb244a0">contains</a> (const T &amp;value) const</td></tr>
 <tr class="memdesc:ab3db4e8f60d5abf4e7a12d928fb244a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the list contains the item passed as parameter.  <a href="#ab3db4e8f60d5abf4e7a12d928fb244a0">More...</a><br /></td></tr>
 <tr class="separator:ab3db4e8f60d5abf4e7a12d928fb244a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6b1d6dabb7177aa465019860aeacba1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ac6b1d6dabb7177aa465019860aeacba1">startsWith</a> (const T &amp;value) const</td></tr>
+<tr class="memitem:ac6b1d6dabb7177aa465019860aeacba1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ac6b1d6dabb7177aa465019860aeacba1">startsWith</a> (const T &amp;value) const</td></tr>
 <tr class="memdesc:ac6b1d6dabb7177aa465019860aeacba1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the first item in the list is equal to the value passed as parameter.  <a href="#ac6b1d6dabb7177aa465019860aeacba1">More...</a><br /></td></tr>
 <tr class="separator:ac6b1d6dabb7177aa465019860aeacba1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6383e2209b2baa7c0e602b82d586cf9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#af6383e2209b2baa7c0e602b82d586cf9">endsWith</a> (const T &amp;value) const</td></tr>
+<tr class="memitem:af6383e2209b2baa7c0e602b82d586cf9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#af6383e2209b2baa7c0e602b82d586cf9">endsWith</a> (const T &amp;value) const</td></tr>
 <tr class="memdesc:af6383e2209b2baa7c0e602b82d586cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the last item in the list is equal to the value passed as parameter.  <a href="#af6383e2209b2baa7c0e602b82d586cf9">More...</a><br /></td></tr>
 <tr class="separator:af6383e2209b2baa7c0e602b82d586cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0c4bd9783b1a181471e05f9fda79138"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ab0c4bd9783b1a181471e05f9fda79138">isEmpty</a> () const</td></tr>
+<tr class="memitem:ab0c4bd9783b1a181471e05f9fda79138"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ab0c4bd9783b1a181471e05f9fda79138">isEmpty</a> () const</td></tr>
 <tr class="memdesc:ab0c4bd9783b1a181471e05f9fda79138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the list is empty.  <a href="#ab0c4bd9783b1a181471e05f9fda79138">More...</a><br /></td></tr>
 <tr class="separator:ab0c4bd9783b1a181471e05f9fda79138"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4769f724fc264fae0cd1ebbc6f70ec2e"><td class="memItemLeft" align="right" valign="top">int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a4769f724fc264fae0cd1ebbc6f70ec2e">count</a> (const T &amp;value) const</td></tr>
+<tr class="memitem:a4769f724fc264fae0cd1ebbc6f70ec2e"><td class="memItemLeft" align="right" valign="top">virtual int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a4769f724fc264fae0cd1ebbc6f70ec2e">count</a> (const T &amp;value) const</td></tr>
 <tr class="memdesc:a4769f724fc264fae0cd1ebbc6f70ec2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the occurrences of the item passed as parameter in list and returns the count.  <a href="#a4769f724fc264fae0cd1ebbc6f70ec2e">More...</a><br /></td></tr>
 <tr class="separator:a4769f724fc264fae0cd1ebbc6f70ec2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af785e824aa6822fa079fd146fdfbda8e"><td class="memItemLeft" align="right" valign="top">int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#af785e824aa6822fa079fd146fdfbda8e">firstIndexOf</a> (const T &amp;value) const</td></tr>
+<tr class="memitem:af785e824aa6822fa079fd146fdfbda8e"><td class="memItemLeft" align="right" valign="top">virtual int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#af785e824aa6822fa079fd146fdfbda8e">firstIndexOf</a> (const T &amp;value) const</td></tr>
 <tr class="memdesc:af785e824aa6822fa079fd146fdfbda8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first index of the item in list which is equal to the specified item.  <a href="#af785e824aa6822fa079fd146fdfbda8e">More...</a><br /></td></tr>
 <tr class="separator:af785e824aa6822fa079fd146fdfbda8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b097672b446185673cf1ec2df799110"><td class="memItemLeft" align="right" valign="top">int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a4b097672b446185673cf1ec2df799110">indexOf</a> (const T &amp;value) const</td></tr>
+<tr class="memitem:a4b097672b446185673cf1ec2df799110"><td class="memItemLeft" align="right" valign="top">virtual int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a4b097672b446185673cf1ec2df799110">indexOf</a> (const T &amp;value) const</td></tr>
 <tr class="memdesc:a4b097672b446185673cf1ec2df799110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the first index of the item in list which is equal to the specified item.  <a href="#a4b097672b446185673cf1ec2df799110">More...</a><br /></td></tr>
 <tr class="separator:a4b097672b446185673cf1ec2df799110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e83dd4da23beeda52e15e8a2cc9f799"><td class="memItemLeft" align="right" valign="top">int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a6e83dd4da23beeda52e15e8a2cc9f799">lastIndexOf</a> (const T &amp;value) const</td></tr>
+<tr class="memitem:a6e83dd4da23beeda52e15e8a2cc9f799"><td class="memItemLeft" align="right" valign="top">virtual int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a6e83dd4da23beeda52e15e8a2cc9f799">lastIndexOf</a> (const T &amp;value) const</td></tr>
 <tr class="memdesc:a6e83dd4da23beeda52e15e8a2cc9f799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last index of the item in list which is equal to the specified item.  <a href="#a6e83dd4da23beeda52e15e8a2cc9f799">More...</a><br /></td></tr>
 <tr class="separator:a6e83dd4da23beeda52e15e8a2cc9f799"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89447e683414a53f0dd0ac081c3c3f12"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a89447e683414a53f0dd0ac081c3c3f12">replace</a> (int64 i, const T &amp;value)</td></tr>
+<tr class="memitem:a89447e683414a53f0dd0ac081c3c3f12"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a89447e683414a53f0dd0ac081c3c3f12">replace</a> (int64 i, const T &amp;value)</td></tr>
 <tr class="memdesc:a89447e683414a53f0dd0ac081c3c3f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the item on the position index passed as parameter by the value passed.  <a href="#a89447e683414a53f0dd0ac081c3c3f12">More...</a><br /></td></tr>
 <tr class="separator:a89447e683414a53f0dd0ac081c3c3f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33f188595f0da046cced105c2e441506"><td class="memItemLeft" align="right" valign="top"><a id="a33f188595f0da046cced105c2e441506"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a33f188595f0da046cced105c2e441506">removeDuplicates</a> ()</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a33f188595f0da046cced105c2e441506">removeDuplicates</a> ()</td></tr>
 <tr class="memdesc:a33f188595f0da046cced105c2e441506"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all duplicate items. <br /></td></tr>
 <tr class="separator:a33f188595f0da046cced105c2e441506"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b29a3946800bcb13e94668b952ae6c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a1b29a3946800bcb13e94668b952ae6c2">removeAt</a> (int i)</td></tr>
+<tr class="memitem:a1b29a3946800bcb13e94668b952ae6c2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a1b29a3946800bcb13e94668b952ae6c2">removeAt</a> (int i)</td></tr>
 <tr class="memdesc:a1b29a3946800bcb13e94668b952ae6c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an item on a specific position.  <a href="#a1b29a3946800bcb13e94668b952ae6c2">More...</a><br /></td></tr>
 <tr class="separator:a1b29a3946800bcb13e94668b952ae6c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada980037299e3dcbf05b50977216f32d"><td class="memItemLeft" align="right" valign="top"><a id="ada980037299e3dcbf05b50977216f32d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ada980037299e3dcbf05b50977216f32d">removeFirst</a> ()</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ada980037299e3dcbf05b50977216f32d">removeFirst</a> ()</td></tr>
 <tr class="memdesc:ada980037299e3dcbf05b50977216f32d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first item in list. <br /></td></tr>
 <tr class="separator:ada980037299e3dcbf05b50977216f32d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2240edc5f38fa7e57a868bb30b747c51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a2240edc5f38fa7e57a868bb30b747c51">pop_front</a> ()</td></tr>
+<tr class="memitem:a2240edc5f38fa7e57a868bb30b747c51"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a2240edc5f38fa7e57a868bb30b747c51">pop_front</a> ()</td></tr>
 <tr class="memdesc:a2240edc5f38fa7e57a868bb30b747c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first item in list.  <a href="#a2240edc5f38fa7e57a868bb30b747c51">More...</a><br /></td></tr>
 <tr class="separator:a2240edc5f38fa7e57a868bb30b747c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff8e5c3e3f879ea5c8d6d9e29b321fc9"><td class="memItemLeft" align="right" valign="top"><a id="aff8e5c3e3f879ea5c8d6d9e29b321fc9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#aff8e5c3e3f879ea5c8d6d9e29b321fc9">removeLast</a> ()</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#aff8e5c3e3f879ea5c8d6d9e29b321fc9">removeLast</a> ()</td></tr>
 <tr class="memdesc:aff8e5c3e3f879ea5c8d6d9e29b321fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the last item in list. <br /></td></tr>
 <tr class="separator:aff8e5c3e3f879ea5c8d6d9e29b321fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4ac4af0fb772a55168ddcba13c508c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#aa4ac4af0fb772a55168ddcba13c508c3">removeFirst</a> (const T &amp;value)</td></tr>
+<tr class="memitem:aa4ac4af0fb772a55168ddcba13c508c3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#aa4ac4af0fb772a55168ddcba13c508c3">removeFirst</a> (const T &amp;value)</td></tr>
 <tr class="memdesc:aa4ac4af0fb772a55168ddcba13c508c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first occurrence in list which is equal to the item passed as parameter.  <a href="#aa4ac4af0fb772a55168ddcba13c508c3">More...</a><br /></td></tr>
 <tr class="separator:aa4ac4af0fb772a55168ddcba13c508c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32b8779cd05c79fe74f79c854b54a5f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a32b8779cd05c79fe74f79c854b54a5f7">removeAll</a> (const T &amp;value)</td></tr>
+<tr class="memitem:a32b8779cd05c79fe74f79c854b54a5f7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a32b8779cd05c79fe74f79c854b54a5f7">removeAll</a> (const T &amp;value)</td></tr>
 <tr class="memdesc:a32b8779cd05c79fe74f79c854b54a5f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all occurrences in list which are equal to the item passed as parameter.  <a href="#a32b8779cd05c79fe74f79c854b54a5f7">More...</a><br /></td></tr>
 <tr class="separator:a32b8779cd05c79fe74f79c854b54a5f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b9c07f197f9017a7d231a8cf2f19f7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_list.html">AList</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a7b9c07f197f9017a7d231a8cf2f19f7b">mid</a> (int position, int length=-1) const</td></tr>
+<tr class="memitem:a7b9c07f197f9017a7d231a8cf2f19f7b"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a7b9c07f197f9017a7d231a8cf2f19f7b">mid</a> (int position, int length=-1) const</td></tr>
 <tr class="memdesc:a7b9c07f197f9017a7d231a8cf2f19f7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list that contains length characters of this list, starting at the specified position index.  <a href="#a7b9c07f197f9017a7d231a8cf2f19f7b">More...</a><br /></td></tr>
 <tr class="separator:a7b9c07f197f9017a7d231a8cf2f19f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9979a4b71ae418f1ba7a36b2d9c1a77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ac9979a4b71ae418f1ba7a36b2d9c1a77">move</a> (int from, int to)</td></tr>
+<tr class="memitem:ac9979a4b71ae418f1ba7a36b2d9c1a77"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ac9979a4b71ae418f1ba7a36b2d9c1a77">move</a> (int from, int to)</td></tr>
 <tr class="memdesc:ac9979a4b71ae418f1ba7a36b2d9c1a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exchanges the value on position from with the value on position to.  <a href="#ac9979a4b71ae418f1ba7a36b2d9c1a77">More...</a><br /></td></tr>
 <tr class="separator:ac9979a4b71ae418f1ba7a36b2d9c1a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53cbab789aed68750822a67ee6ae4d13"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a53cbab789aed68750822a67ee6ae4d13">toStdVector</a> () const</td></tr>
+<tr class="memitem:a53cbab789aed68750822a67ee6ae4d13"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a53cbab789aed68750822a67ee6ae4d13">toStdVector</a> () const</td></tr>
 <tr class="memdesc:a53cbab789aed68750822a67ee6ae4d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current instance as a new std::vector.  <a href="#a53cbab789aed68750822a67ee6ae4d13">More...</a><br /></td></tr>
 <tr class="separator:a53cbab789aed68750822a67ee6ae4d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7be198818f6459df77cdc29a2f8d8d5e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_vector.html">AVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a7be198818f6459df77cdc29a2f8d8d5e">toVector</a> () const</td></tr>
+<tr class="memitem:a7be198818f6459df77cdc29a2f8d8d5e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_a_vector.html">AVector</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a7be198818f6459df77cdc29a2f8d8d5e">toVector</a> () const</td></tr>
 <tr class="memdesc:a7be198818f6459df77cdc29a2f8d8d5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current instance as a new <a class="el" href="class_a_vector.html" title="This class extends the std::vector class by auxiliary functions.">AVector</a>.  <a href="#a7be198818f6459df77cdc29a2f8d8d5e">More...</a><br /></td></tr>
 <tr class="separator:a7be198818f6459df77cdc29a2f8d8d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca24663d0fe32d878cd4a214ade18372"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#aca24663d0fe32d878cd4a214ade18372">first</a> ()</td></tr>
+<tr class="memitem:aca24663d0fe32d878cd4a214ade18372"><td class="memItemLeft" align="right" valign="top">virtual T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#aca24663d0fe32d878cd4a214ade18372">first</a> ()</td></tr>
 <tr class="memdesc:aca24663d0fe32d878cd4a214ade18372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reference of the first item in list.  <a href="#aca24663d0fe32d878cd4a214ade18372">More...</a><br /></td></tr>
 <tr class="separator:aca24663d0fe32d878cd4a214ade18372"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cf9c09ee90e96a5f72a39344f8240be"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a1cf9c09ee90e96a5f72a39344f8240be">first</a> () const</td></tr>
+<tr class="memitem:a1cf9c09ee90e96a5f72a39344f8240be"><td class="memItemLeft" align="right" valign="top">virtual const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a1cf9c09ee90e96a5f72a39344f8240be">first</a> () const</td></tr>
 <tr class="memdesc:a1cf9c09ee90e96a5f72a39344f8240be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the const reference of the first item in list.  <a href="#a1cf9c09ee90e96a5f72a39344f8240be">More...</a><br /></td></tr>
 <tr class="separator:a1cf9c09ee90e96a5f72a39344f8240be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41b07290930bbfa06ec02f9106a52b74"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a41b07290930bbfa06ec02f9106a52b74">last</a> ()</td></tr>
+<tr class="memitem:a41b07290930bbfa06ec02f9106a52b74"><td class="memItemLeft" align="right" valign="top">virtual T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a41b07290930bbfa06ec02f9106a52b74">last</a> ()</td></tr>
 <tr class="memdesc:a41b07290930bbfa06ec02f9106a52b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the reference of the last item in list.  <a href="#a41b07290930bbfa06ec02f9106a52b74">More...</a><br /></td></tr>
 <tr class="separator:a41b07290930bbfa06ec02f9106a52b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6c0fc542c318f68199ef3b4d97c82f4"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ab6c0fc542c318f68199ef3b4d97c82f4">last</a> () const</td></tr>
+<tr class="memitem:ab6c0fc542c318f68199ef3b4d97c82f4"><td class="memItemLeft" align="right" valign="top">virtual const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#ab6c0fc542c318f68199ef3b4d97c82f4">last</a> () const</td></tr>
 <tr class="memdesc:ab6c0fc542c318f68199ef3b4d97c82f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the const reference of the last item in list.  <a href="#ab6c0fc542c318f68199ef3b4d97c82f4">More...</a><br /></td></tr>
 <tr class="separator:ab6c0fc542c318f68199ef3b4d97c82f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a626da346e2e3fdbc42f14fa11926f79c"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a626da346e2e3fdbc42f14fa11926f79c">takeAt</a> (int64 i)</td></tr>
+<tr class="memitem:a626da346e2e3fdbc42f14fa11926f79c"><td class="memItemLeft" align="right" valign="top">virtual T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a626da346e2e3fdbc42f14fa11926f79c">takeAt</a> (int64 i)</td></tr>
 <tr class="memdesc:a626da346e2e3fdbc42f14fa11926f79c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the item at the specified position and returns it.  <a href="#a626da346e2e3fdbc42f14fa11926f79c">More...</a><br /></td></tr>
 <tr class="separator:a626da346e2e3fdbc42f14fa11926f79c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2da906ed8c9bf282fc9f6f726864d9f"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#af2da906ed8c9bf282fc9f6f726864d9f">takeFirst</a> ()</td></tr>
+<tr class="memitem:af2da906ed8c9bf282fc9f6f726864d9f"><td class="memItemLeft" align="right" valign="top">virtual T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#af2da906ed8c9bf282fc9f6f726864d9f">takeFirst</a> ()</td></tr>
 <tr class="memdesc:af2da906ed8c9bf282fc9f6f726864d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first item and returns it.  <a href="#af2da906ed8c9bf282fc9f6f726864d9f">More...</a><br /></td></tr>
 <tr class="separator:af2da906ed8c9bf282fc9f6f726864d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa210fddef3bf64dd63dd68f3d5f2fe05"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#aa210fddef3bf64dd63dd68f3d5f2fe05">takeLast</a> ()</td></tr>
+<tr class="memitem:aa210fddef3bf64dd63dd68f3d5f2fe05"><td class="memItemLeft" align="right" valign="top">virtual T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#aa210fddef3bf64dd63dd68f3d5f2fe05">takeLast</a> ()</td></tr>
 <tr class="memdesc:aa210fddef3bf64dd63dd68f3d5f2fe05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the last item and returns it.  <a href="#aa210fddef3bf64dd63dd68f3d5f2fe05">More...</a><br /></td></tr>
 <tr class="separator:aa210fddef3bf64dd63dd68f3d5f2fe05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -234,7 +261,7 @@ template&lt;class T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -313,6 +340,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::append </td>
@@ -322,6 +352,11 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Appends the value passed as parameter to the list. </p>
@@ -331,6 +366,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#aa277c339c35c2c793b126f5a21aeb86d">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -341,6 +378,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::append </td>
@@ -350,6 +390,11 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Appends the value passed as parameter to the list. </p>
@@ -360,6 +405,8 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a6184b21ebeb17fb56c4ea657bd2d4b61">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="ae43013270783ff87b26c3dc559874681"></a>
@@ -369,6 +416,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">T &amp; <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::at </td>
@@ -378,6 +428,11 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the item on the ith position in the list. </p>
@@ -389,6 +444,8 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the reference to the item on the ith position </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a77b7d5604941bd5c500c08d1a55d9c99">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="a10107fe182383d368c18992eb5be7127"></a>
@@ -398,6 +455,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const T &amp; <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::at </td>
@@ -407,6 +467,11 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the item on the ith position in the list. </p>
@@ -417,6 +482,8 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the const reference to the item on the ith position </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a91533d0d79074f4ab4cd1a41d81b65ac">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -441,7 +508,7 @@ template&lt;class T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -455,6 +522,8 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>whether the list contains the item passed as parameter </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a033ed410776af84702517b6c535839e8">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="a4769f724fc264fae0cd1ebbc6f70ec2e"></a>
@@ -464,6 +533,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int64 <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::count </td>
@@ -473,6 +545,11 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Counts the occurrences of the item passed as parameter in list and returns the count. </p>
@@ -484,6 +561,8 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the count of occurrences of the item passed as parameter </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#ae5e14b569f99294b0dbefffe3039731b">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="af6383e2209b2baa7c0e602b82d586cf9"></a>
@@ -493,6 +572,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::endsWith </td>
@@ -502,6 +584,11 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns whether the last item in the list is equal to the value passed as parameter. </p>
@@ -513,6 +600,8 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>whether the list ends with the item passed as parameter </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a647fed18962a89c3ea98f79a500b9f4c">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="aca24663d0fe32d878cd4a214ade18372"></a>
@@ -522,6 +611,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">T &amp; <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::first </td>
@@ -530,10 +622,17 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the reference of the first item in list. </p>
 <dl class="section return"><dt>Returns</dt><dd>the reference of the first item in list </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#acfca60def683d329c374fb723b9bcc8c">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -544,6 +643,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const T &amp; <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::first </td>
@@ -552,10 +654,17 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the const reference of the first item in list. </p>
 <dl class="section return"><dt>Returns</dt><dd>the const reference of the first item in list </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a210e586d23d2a459fae257d40200056e">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -566,6 +675,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int64 <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::firstIndexOf </td>
@@ -575,6 +687,11 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the first index of the item in list which is equal to the specified item. </p>
@@ -586,6 +703,8 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the index of the first occurrence </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a16f1129c25baedc8908fa40f7adb5433">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -596,6 +715,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int64 <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::indexOf </td>
@@ -605,6 +727,11 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the first index of the item in list which is equal to the specified item. </p>
@@ -617,6 +744,8 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the index of the first occurrence </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a9c843687bd496bf858d653764fb78600">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="ab0c4bd9783b1a181471e05f9fda79138"></a>
@@ -626,6 +755,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::isEmpty </td>
@@ -634,10 +766,17 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns whether the list is empty. </p>
 <dl class="section return"><dt>Returns</dt><dd>whether the list empty </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#afea6b9a534c895ae3063c0ea1c21118e">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -648,6 +787,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">T &amp; <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::last </td>
@@ -656,10 +798,17 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the reference of the last item in list. </p>
 <dl class="section return"><dt>Returns</dt><dd>the reference of the last item in list </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a1504caea527301b20dad8680440a17e1">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -670,6 +819,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">const T &amp; <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::last </td>
@@ -678,10 +830,17 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the const reference of the last item in list. </p>
 <dl class="section return"><dt>Returns</dt><dd>the const reference of the last item in list </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#afa73ecb99d143ffdd517ad196bcfd1d2">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -692,6 +851,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">int64 <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::lastIndexOf </td>
@@ -701,6 +863,11 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the last index of the item in list which is equal to the specified item. </p>
@@ -713,6 +880,8 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the index of the last occurrence </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a54fe2d47229a31bdadd4665b3b12fc26">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="a7b9c07f197f9017a7d231a8cf2f19f7b"></a>
@@ -722,6 +891,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_a_list.html">AList</a>&lt; T &gt; <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::mid </td>
@@ -741,6 +913,11 @@ template&lt;class T &gt; </div>
           <td></td><td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns a list that contains length characters of this list, starting at the specified position index. </p>
@@ -754,6 +931,8 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>a list copying the values of the current instance starting from position </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a3d91642fd384debcacedfaf8279519da">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="ac9979a4b71ae418f1ba7a36b2d9c1a77"></a>
@@ -763,6 +942,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::move </td>
@@ -782,6 +964,11 @@ template&lt;class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Exchanges the value on position from with the value on position to. </p>
@@ -792,6 +979,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#ac4ad16d51243cc9bca621ba0a2937b08">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -816,7 +1005,7 @@ template&lt;class T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -829,6 +1018,8 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the reference to the item on the ith position </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a4906a869b65873ecdf932cbabc16963d">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -853,7 +1044,7 @@ template&lt;class T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -867,6 +1058,8 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the const reference to the item on the ith position </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a34e5cc3e1bc6c750e8212a465de633f8">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="a2240edc5f38fa7e57a868bb30b747c51"></a>
@@ -876,6 +1069,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::pop_front </td>
@@ -884,10 +1080,17 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Removes the first item in list. </p>
 <p>Just here for STL compatibility. </p>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a5a09a867d81f665ba2c05c0982eada7a">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -898,6 +1101,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::prepend </td>
@@ -907,6 +1113,11 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Prepends the value passed as parameter to the list. </p>
@@ -916,6 +1127,8 @@ template&lt;class T &gt; </div>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a1d99023283e8068806b4a8ce8cd8beb9">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -926,6 +1139,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::prepend </td>
@@ -935,6 +1151,11 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Prepends the value passed as parameter to the list. </p>
@@ -945,6 +1166,8 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a65304a4c0010d0bf9dd2ae0039ecad1c">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="a32b8779cd05c79fe74f79c854b54a5f7"></a>
@@ -954,6 +1177,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::removeAll </td>
@@ -963,6 +1189,11 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Removes all occurrences in list which are equal to the item passed as parameter. </p>
@@ -973,6 +1204,8 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#af78e04865ba50836a55ba182e0964d48">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="a1b29a3946800bcb13e94668b952ae6c2"></a>
@@ -982,6 +1215,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::removeAt </td>
@@ -991,6 +1227,11 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Removes an item on a specific position. </p>
@@ -1001,6 +1242,8 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#ae351d669d054e0b1cf7e156a1601f6b4">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="aa4ac4af0fb772a55168ddcba13c508c3"></a>
@@ -1010,6 +1253,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::removeFirst </td>
@@ -1019,6 +1265,11 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Removes the first occurrence in list which is equal to the item passed as parameter. </p>
@@ -1029,6 +1280,8 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#ad860dedfdfde482e89fad0decfcd60dc">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="a89447e683414a53f0dd0ac081c3c3f12"></a>
@@ -1038,6 +1291,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::replace </td>
@@ -1057,6 +1313,11 @@ template&lt;class T &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Replaces the item on the position index passed as parameter by the value passed. </p>
@@ -1068,6 +1329,8 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#aabfaa5fdecd8d8036385fdcc4ba6068b">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="ac6b1d6dabb7177aa465019860aeacba1"></a>
@@ -1077,6 +1340,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::startsWith </td>
@@ -1086,6 +1352,11 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns whether the first item in the list is equal to the value passed as parameter. </p>
@@ -1097,6 +1368,8 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>whether the list starts with the item passed as parameter </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#abaf8bcd5142988a5b910218420723ad7">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="a626da346e2e3fdbc42f14fa11926f79c"></a>
@@ -1106,6 +1379,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">T <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::takeAt </td>
@@ -1115,6 +1391,11 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Removes the item at the specified position and returns it. </p>
@@ -1126,6 +1407,8 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the item to take </dd></dl>
 
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a7a20f41901a5cfe532f717268a10af7a">AsyncAList&lt; T &gt;</a>.</p>
+
 </div>
 </div>
 <a id="af2da906ed8c9bf282fc9f6f726864d9f"></a>
@@ -1135,6 +1418,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">T <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::takeFirst </td>
@@ -1143,10 +1429,17 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Removes the first item and returns it. </p>
 <dl class="section return"><dt>Returns</dt><dd>the first item </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a530b932f7b80f7da05dd51f67e077e76">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -1157,6 +1450,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">T <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::takeLast </td>
@@ -1165,10 +1461,17 @@ template&lt;class T &gt; </div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Removes the last item and returns it. </p>
 <dl class="section return"><dt>Returns</dt><dd>the lats item </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a4e44eed4a5a4e84f57ea14c9fdda6b91">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -1179,6 +1482,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; T &gt; <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::toStdVector </td>
@@ -1187,10 +1493,17 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the current instance as a new std::vector. </p>
 <dl class="section return"><dt>Returns</dt><dd>the current instance as new std::vector </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a05cac5fba0e94b75e906a30d9787cfd9">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -1201,6 +1514,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_a_vector.html">AVector</a>&lt; T &gt; <a class="el" href="class_a_list.html">AList</a>&lt; T &gt;::toVector </td>
@@ -1209,10 +1525,17 @@ template&lt;class T &gt; </div>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Returns the current instance as a new <a class="el" href="class_a_vector.html" title="This class extends the std::vector class by auxiliary functions.">AVector</a>. </p>
 <dl class="section return"><dt>Returns</dt><dd>the current instance as new <a class="el" href="class_a_vector.html" title="This class extends the std::vector class by auxiliary functions.">AVector</a> </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_async_a_list.html#a2ae46646a173f70d140a98eb48b164db">AsyncAList&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -1220,11 +1543,15 @@ template&lt;class T &gt; </div>
 <li>D:/_git/_github/simplelibs/SimpleCore/<a class="el" href="alist_8h_source.html">alist.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_a_list.html">AList</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SimpleCore
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_date_time.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,7 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -80,113 +104,113 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ccfb87f7a2e9683b91964e32d907161"><td class="memItemLeft" align="right" valign="top"><a id="a3ccfb87f7a2e9683b91964e32d907161"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a3ccfb87f7a2e9683b91964e32d907161">DateTime</a> ()</td></tr>
+SIMPLECORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a3ccfb87f7a2e9683b91964e32d907161">DateTime</a> ()</td></tr>
 <tr class="memdesc:a3ccfb87f7a2e9683b91964e32d907161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the unixTimestamp member variable to zero. <br /></td></tr>
 <tr class="separator:a3ccfb87f7a2e9683b91964e32d907161"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acae25c3bcabd5636220ab73b4794b90e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#acae25c3bcabd5636220ab73b4794b90e">DateTime</a> (const <a class="el" href="struct_date_time_info.html">DateTimeInfo</a> &amp;dateTimeInfo)</td></tr>
+<tr class="memitem:acae25c3bcabd5636220ab73b4794b90e"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#acae25c3bcabd5636220ab73b4794b90e">DateTime</a> (const <a class="el" href="struct_date_time_info.html">DateTimeInfo</a> &amp;dateTimeInfo)</td></tr>
 <tr class="memdesc:acae25c3bcabd5636220ab73b4794b90e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the unixTimestamp member variable to zero and copies the dateTimeInfo from parameter.  <a href="#acae25c3bcabd5636220ab73b4794b90e">More...</a><br /></td></tr>
 <tr class="separator:acae25c3bcabd5636220ab73b4794b90e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae5852ec64aa634b1e4a81effb7df049"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#aae5852ec64aa634b1e4a81effb7df049">DateTime</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;string)</td></tr>
+<tr class="memitem:aae5852ec64aa634b1e4a81effb7df049"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#aae5852ec64aa634b1e4a81effb7df049">DateTime</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;string)</td></tr>
 <tr class="memdesc:aae5852ec64aa634b1e4a81effb7df049"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the unixTimestamp member variable to zero and parses the datetime from string parameter.  <a href="#aae5852ec64aa634b1e4a81effb7df049">More...</a><br /></td></tr>
 <tr class="separator:aae5852ec64aa634b1e4a81effb7df049"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9209722e2520862295252b12947d0f97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a9209722e2520862295252b12947d0f97">addDays</a> (uint count)</td></tr>
+<tr class="memitem:a9209722e2520862295252b12947d0f97"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a9209722e2520862295252b12947d0f97">addDays</a> (uint count)</td></tr>
 <tr class="memdesc:a9209722e2520862295252b12947d0f97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the count of days given by parameter.  <a href="#a9209722e2520862295252b12947d0f97">More...</a><br /></td></tr>
 <tr class="separator:a9209722e2520862295252b12947d0f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b49589808773b2bb330bc5414deae76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a8b49589808773b2bb330bc5414deae76">subDays</a> (uint count)</td></tr>
+<tr class="memitem:a8b49589808773b2bb330bc5414deae76"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a8b49589808773b2bb330bc5414deae76">subDays</a> (uint count)</td></tr>
 <tr class="memdesc:a8b49589808773b2bb330bc5414deae76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts the count of days given by parameter.  <a href="#a8b49589808773b2bb330bc5414deae76">More...</a><br /></td></tr>
 <tr class="separator:a8b49589808773b2bb330bc5414deae76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07122467e69f11dd79a615af9c5097d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a07122467e69f11dd79a615af9c5097d1">addMonths</a> (uint count)</td></tr>
+<tr class="memitem:a07122467e69f11dd79a615af9c5097d1"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a07122467e69f11dd79a615af9c5097d1">addMonths</a> (uint count)</td></tr>
 <tr class="memdesc:a07122467e69f11dd79a615af9c5097d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the count of months given by parameter.  <a href="#a07122467e69f11dd79a615af9c5097d1">More...</a><br /></td></tr>
 <tr class="separator:a07122467e69f11dd79a615af9c5097d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2030620c1d44592ee63d92a7f1161c26"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a2030620c1d44592ee63d92a7f1161c26">subMonths</a> (uint count)</td></tr>
+<tr class="memitem:a2030620c1d44592ee63d92a7f1161c26"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a2030620c1d44592ee63d92a7f1161c26">subMonths</a> (uint count)</td></tr>
 <tr class="memdesc:a2030620c1d44592ee63d92a7f1161c26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts the count of months given by parameter.  <a href="#a2030620c1d44592ee63d92a7f1161c26">More...</a><br /></td></tr>
 <tr class="separator:a2030620c1d44592ee63d92a7f1161c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a831ab5e9d50c8157ee0c23dc292b8ef5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a831ab5e9d50c8157ee0c23dc292b8ef5">addYears</a> (uint count)</td></tr>
+<tr class="memitem:a831ab5e9d50c8157ee0c23dc292b8ef5"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a831ab5e9d50c8157ee0c23dc292b8ef5">addYears</a> (uint count)</td></tr>
 <tr class="memdesc:a831ab5e9d50c8157ee0c23dc292b8ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the count of years given by parameter.  <a href="#a831ab5e9d50c8157ee0c23dc292b8ef5">More...</a><br /></td></tr>
 <tr class="separator:a831ab5e9d50c8157ee0c23dc292b8ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94bd3c5a6d9875368ba1795dedac8588"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a94bd3c5a6d9875368ba1795dedac8588">subYears</a> (uint count)</td></tr>
+<tr class="memitem:a94bd3c5a6d9875368ba1795dedac8588"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a94bd3c5a6d9875368ba1795dedac8588">subYears</a> (uint count)</td></tr>
 <tr class="memdesc:a94bd3c5a6d9875368ba1795dedac8588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts the count of years given by parameter.  <a href="#a94bd3c5a6d9875368ba1795dedac8588">More...</a><br /></td></tr>
 <tr class="separator:a94bd3c5a6d9875368ba1795dedac8588"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4ba03bfc47a41d0fcbf5087908fe7ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#aa4ba03bfc47a41d0fcbf5087908fe7ab">addHours</a> (uint count)</td></tr>
+<tr class="memitem:aa4ba03bfc47a41d0fcbf5087908fe7ab"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#aa4ba03bfc47a41d0fcbf5087908fe7ab">addHours</a> (uint count)</td></tr>
 <tr class="memdesc:aa4ba03bfc47a41d0fcbf5087908fe7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the count of hours given by parameter.  <a href="#aa4ba03bfc47a41d0fcbf5087908fe7ab">More...</a><br /></td></tr>
 <tr class="separator:aa4ba03bfc47a41d0fcbf5087908fe7ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8731709f4f22cc39dd40b7facdbe058"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#ad8731709f4f22cc39dd40b7facdbe058">subHours</a> (uint count)</td></tr>
+<tr class="memitem:ad8731709f4f22cc39dd40b7facdbe058"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#ad8731709f4f22cc39dd40b7facdbe058">subHours</a> (uint count)</td></tr>
 <tr class="memdesc:ad8731709f4f22cc39dd40b7facdbe058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts the count of hours given by parameter.  <a href="#ad8731709f4f22cc39dd40b7facdbe058">More...</a><br /></td></tr>
 <tr class="separator:ad8731709f4f22cc39dd40b7facdbe058"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1da975e9de48724cc5c0b08dbfdb1b3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a1da975e9de48724cc5c0b08dbfdb1b3c">addMinutes</a> (uint count)</td></tr>
+<tr class="memitem:a1da975e9de48724cc5c0b08dbfdb1b3c"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a1da975e9de48724cc5c0b08dbfdb1b3c">addMinutes</a> (uint count)</td></tr>
 <tr class="memdesc:a1da975e9de48724cc5c0b08dbfdb1b3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the count of minutes given by parameter.  <a href="#a1da975e9de48724cc5c0b08dbfdb1b3c">More...</a><br /></td></tr>
 <tr class="separator:a1da975e9de48724cc5c0b08dbfdb1b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5046fae9b637fc3dc994fb5544133585"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a5046fae9b637fc3dc994fb5544133585">subMinutes</a> (uint count)</td></tr>
+<tr class="memitem:a5046fae9b637fc3dc994fb5544133585"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a5046fae9b637fc3dc994fb5544133585">subMinutes</a> (uint count)</td></tr>
 <tr class="memdesc:a5046fae9b637fc3dc994fb5544133585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts the count of minutes given by parameter.  <a href="#a5046fae9b637fc3dc994fb5544133585">More...</a><br /></td></tr>
 <tr class="separator:a5046fae9b637fc3dc994fb5544133585"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79bda8c555092ea62255498f86a07655"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a79bda8c555092ea62255498f86a07655">addSeconds</a> (uint count)</td></tr>
+<tr class="memitem:a79bda8c555092ea62255498f86a07655"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a79bda8c555092ea62255498f86a07655">addSeconds</a> (uint count)</td></tr>
 <tr class="memdesc:a79bda8c555092ea62255498f86a07655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the count of seconds given by parameter.  <a href="#a79bda8c555092ea62255498f86a07655">More...</a><br /></td></tr>
 <tr class="separator:a79bda8c555092ea62255498f86a07655"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a985cb277733445af6b172ac9ec2630e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a985cb277733445af6b172ac9ec2630e9">subSeconds</a> (uint count)</td></tr>
+<tr class="memitem:a985cb277733445af6b172ac9ec2630e9"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a985cb277733445af6b172ac9ec2630e9">subSeconds</a> (uint count)</td></tr>
 <tr class="memdesc:a985cb277733445af6b172ac9ec2630e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts the count of seconds given by parameter.  <a href="#a985cb277733445af6b172ac9ec2630e9">More...</a><br /></td></tr>
 <tr class="separator:a985cb277733445af6b172ac9ec2630e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ffb237255a73bbe9f8000d18c870ea8"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a3ffb237255a73bbe9f8000d18c870ea8">getDay</a> () const</td></tr>
+<tr class="memitem:a3ffb237255a73bbe9f8000d18c870ea8"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a3ffb237255a73bbe9f8000d18c870ea8">getDay</a> () const</td></tr>
 <tr class="memdesc:a3ffb237255a73bbe9f8000d18c870ea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the day set.  <a href="#a3ffb237255a73bbe9f8000d18c870ea8">More...</a><br /></td></tr>
 <tr class="separator:a3ffb237255a73bbe9f8000d18c870ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18d5987a6def22fa88302cdb50941add"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a18d5987a6def22fa88302cdb50941add">getMonth</a> () const</td></tr>
+<tr class="memitem:a18d5987a6def22fa88302cdb50941add"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a18d5987a6def22fa88302cdb50941add">getMonth</a> () const</td></tr>
 <tr class="memdesc:a18d5987a6def22fa88302cdb50941add"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the month set.  <a href="#a18d5987a6def22fa88302cdb50941add">More...</a><br /></td></tr>
 <tr class="separator:a18d5987a6def22fa88302cdb50941add"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bab8648961a46a2a3cbca3868efecce"><td class="memItemLeft" align="right" valign="top">ushort&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a5bab8648961a46a2a3cbca3868efecce">getYear</a> () const</td></tr>
+<tr class="memitem:a5bab8648961a46a2a3cbca3868efecce"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API ushort&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a5bab8648961a46a2a3cbca3868efecce">getYear</a> () const</td></tr>
 <tr class="memdesc:a5bab8648961a46a2a3cbca3868efecce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the year set.  <a href="#a5bab8648961a46a2a3cbca3868efecce">More...</a><br /></td></tr>
 <tr class="separator:a5bab8648961a46a2a3cbca3868efecce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada00db60b48e636102d509a7b1b30296"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#ada00db60b48e636102d509a7b1b30296">getHour</a> () const</td></tr>
+<tr class="memitem:ada00db60b48e636102d509a7b1b30296"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#ada00db60b48e636102d509a7b1b30296">getHour</a> () const</td></tr>
 <tr class="memdesc:ada00db60b48e636102d509a7b1b30296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hour set.  <a href="#ada00db60b48e636102d509a7b1b30296">More...</a><br /></td></tr>
 <tr class="separator:ada00db60b48e636102d509a7b1b30296"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcecea2d24e906df99b9105c116262b3"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#afcecea2d24e906df99b9105c116262b3">getMinute</a> () const</td></tr>
+<tr class="memitem:afcecea2d24e906df99b9105c116262b3"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#afcecea2d24e906df99b9105c116262b3">getMinute</a> () const</td></tr>
 <tr class="memdesc:afcecea2d24e906df99b9105c116262b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the minute set.  <a href="#afcecea2d24e906df99b9105c116262b3">More...</a><br /></td></tr>
 <tr class="separator:afcecea2d24e906df99b9105c116262b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16d1e909db200146199b6623fce55a81"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a16d1e909db200146199b6623fce55a81">getSecond</a> () const</td></tr>
+<tr class="memitem:a16d1e909db200146199b6623fce55a81"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a16d1e909db200146199b6623fce55a81">getSecond</a> () const</td></tr>
 <tr class="memdesc:a16d1e909db200146199b6623fce55a81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the second set.  <a href="#a16d1e909db200146199b6623fce55a81">More...</a><br /></td></tr>
 <tr class="separator:a16d1e909db200146199b6623fce55a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88fcd4dec4b3d77e9abdbc2bb81ed18a"><td class="memItemLeft" align="right" valign="top">byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a88fcd4dec4b3d77e9abdbc2bb81ed18a">getMonthDayCount</a> (ushort year, byte month)</td></tr>
+<tr class="memitem:a88fcd4dec4b3d77e9abdbc2bb81ed18a"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API byte&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a88fcd4dec4b3d77e9abdbc2bb81ed18a">getMonthDayCount</a> (ushort year, byte month)</td></tr>
 <tr class="memdesc:a88fcd4dec4b3d77e9abdbc2bb81ed18a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the count of month days from parameters.  <a href="#a88fcd4dec4b3d77e9abdbc2bb81ed18a">More...</a><br /></td></tr>
 <tr class="separator:a88fcd4dec4b3d77e9abdbc2bb81ed18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae25042a72973b5192469bb84f08857a"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#aae25042a72973b5192469bb84f08857a">toUnixTimestamp</a> ()</td></tr>
+<tr class="memitem:aae25042a72973b5192469bb84f08857a"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#aae25042a72973b5192469bb84f08857a">toUnixTimestamp</a> ()</td></tr>
 <tr class="memdesc:aae25042a72973b5192469bb84f08857a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unix timestamp set.  <a href="#aae25042a72973b5192469bb84f08857a">More...</a><br /></td></tr>
 <tr class="separator:aae25042a72973b5192469bb84f08857a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26824c34470bf04d3ee6343c4ec872d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a26824c34470bf04d3ee6343c4ec872d8">toString</a> () const</td></tr>
+<tr class="memitem:a26824c34470bf04d3ee6343c4ec872d8"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a26824c34470bf04d3ee6343c4ec872d8">toString</a> () const</td></tr>
 <tr class="memdesc:a26824c34470bf04d3ee6343c4ec872d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the datetime set as string.  <a href="#a26824c34470bf04d3ee6343c4ec872d8">More...</a><br /></td></tr>
 <tr class="separator:a26824c34470bf04d3ee6343c4ec872d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69f433ebbc09ac4c201ca8c2ea6e5015"><td class="memItemLeft" align="right" valign="top">std::tm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a69f433ebbc09ac4c201ca8c2ea6e5015">toStdTm</a> ()</td></tr>
+<tr class="memitem:a69f433ebbc09ac4c201ca8c2ea6e5015"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API std::tm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a69f433ebbc09ac4c201ca8c2ea6e5015">toStdTm</a> ()</td></tr>
 <tr class="memdesc:a69f433ebbc09ac4c201ca8c2ea6e5015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the datetime values to the standard time struct.  <a href="#a69f433ebbc09ac4c201ca8c2ea6e5015">More...</a><br /></td></tr>
 <tr class="separator:a69f433ebbc09ac4c201ca8c2ea6e5015"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af28627b5a5a2cdc02f5fc388b07c91e7"><td class="memItemLeft" align="right" valign="top"><a id="af28627b5a5a2cdc02f5fc388b07c91e7"></a>
-static <a class="el" href="class_date_time.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#af28627b5a5a2cdc02f5fc388b07c91e7">now</a> ()</td></tr>
+static SIMPLECORE_API <a class="el" href="class_date_time.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#af28627b5a5a2cdc02f5fc388b07c91e7">now</a> ()</td></tr>
 <tr class="memdesc:af28627b5a5a2cdc02f5fc388b07c91e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current datetime as object. <br /></td></tr>
 <tr class="separator:af28627b5a5a2cdc02f5fc388b07c91e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8bbdb70e38a18cad9269b6f856f5634"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#ab8bbdb70e38a18cad9269b6f856f5634">getDatestamp</a> ()</td></tr>
+<tr class="memitem:ab8bbdb70e38a18cad9269b6f856f5634"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#ab8bbdb70e38a18cad9269b6f856f5634">getDatestamp</a> ()</td></tr>
 <tr class="memdesc:ab8bbdb70e38a18cad9269b6f856f5634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current datestamp in the format "dd.MM.yyyy".  <a href="#ab8bbdb70e38a18cad9269b6f856f5634">More...</a><br /></td></tr>
 <tr class="separator:ab8bbdb70e38a18cad9269b6f856f5634"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a272b1eca3f3aafc7d275ec5e8831a6ca"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a272b1eca3f3aafc7d275ec5e8831a6ca">getTimestamp</a> ()</td></tr>
+<tr class="memitem:a272b1eca3f3aafc7d275ec5e8831a6ca"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a272b1eca3f3aafc7d275ec5e8831a6ca">getTimestamp</a> ()</td></tr>
 <tr class="memdesc:a272b1eca3f3aafc7d275ec5e8831a6ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current timestamp in the following format: hh:mm:ss.  <a href="#a272b1eca3f3aafc7d275ec5e8831a6ca">More...</a><br /></td></tr>
 <tr class="separator:a272b1eca3f3aafc7d275ec5e8831a6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee3108295b202fc4807984c25778c942"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#aee3108295b202fc4807984c25778c942">getCurrentTimestamp</a> ()</td></tr>
+<tr class="memitem:aee3108295b202fc4807984c25778c942"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#aee3108295b202fc4807984c25778c942">getCurrentTimestamp</a> ()</td></tr>
 <tr class="memdesc:aee3108295b202fc4807984c25778c942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current date and timestamp in the following format: dd.MM.yyyy hh:mm:ss.  <a href="#aee3108295b202fc4807984c25778c942">More...</a><br /></td></tr>
 <tr class="separator:aee3108295b202fc4807984c25778c942"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14a0e5a9af8caf8ab46bebd6e101daf0"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a14a0e5a9af8caf8ab46bebd6e101daf0">isDateTimeReached</a> (const <a class="el" href="class_date_time.html">DateTime</a> &amp;reachableDatetime)</td></tr>
+<tr class="memitem:a14a0e5a9af8caf8ab46bebd6e101daf0"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a14a0e5a9af8caf8ab46bebd6e101daf0">isDateTimeReached</a> (const <a class="el" href="class_date_time.html">DateTime</a> &amp;reachableDatetime)</td></tr>
 <tr class="memdesc:a14a0e5a9af8caf8ab46bebd6e101daf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the datetime specified was reached.  <a href="#a14a0e5a9af8caf8ab46bebd6e101daf0">More...</a><br /></td></tr>
 <tr class="separator:a14a0e5a9af8caf8ab46bebd6e101daf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9793671179a12cd08dc371a2668a321"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#aa9793671179a12cd08dc371a2668a321">isDateTimeReached</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;reachableDatetime)</td></tr>
+<tr class="memitem:aa9793671179a12cd08dc371a2668a321"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#aa9793671179a12cd08dc371a2668a321">isDateTimeReached</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;reachableDatetime)</td></tr>
 <tr class="memdesc:aa9793671179a12cd08dc371a2668a321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the datetime specified was reached.  <a href="#aa9793671179a12cd08dc371a2668a321">More...</a><br /></td></tr>
 <tr class="separator:aa9793671179a12cd08dc371a2668a321"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5098104322ff5c66131299c5a8659999"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a5098104322ff5c66131299c5a8659999">isDateTimeReached</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;target, const <a class="el" href="class_a_string.html">AString</a> &amp;reachableDatetime)</td></tr>
+<tr class="memitem:a5098104322ff5c66131299c5a8659999"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a5098104322ff5c66131299c5a8659999">isDateTimeReached</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;target, const <a class="el" href="class_a_string.html">AString</a> &amp;reachableDatetime)</td></tr>
 <tr class="memdesc:a5098104322ff5c66131299c5a8659999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the datetime specified was reached.  <a href="#a5098104322ff5c66131299c5a8659999">More...</a><br /></td></tr>
 <tr class="separator:a5098104322ff5c66131299c5a8659999"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd597cb69bb422b066bac46c96cc5f12"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#afd597cb69bb422b066bac46c96cc5f12">isLeapYear</a> (ushort year)</td></tr>
+<tr class="memitem:afd597cb69bb422b066bac46c96cc5f12"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#afd597cb69bb422b066bac46c96cc5f12">isLeapYear</a> (ushort year)</td></tr>
 <tr class="memdesc:afd597cb69bb422b066bac46c96cc5f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the year given as parameter is a leap year.  <a href="#afd597cb69bb422b066bac46c96cc5f12">More...</a><br /></td></tr>
 <tr class="separator:afd597cb69bb422b066bac46c96cc5f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8401d6a8ad1aec862f2a96bb9eda1870"><td class="memItemLeft" align="right" valign="top">static ushort&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a8401d6a8ad1aec862f2a96bb9eda1870">getLeapYearCountFromTo</a> (ushort to, ushort from=beginDateTime_.year)</td></tr>
+<tr class="memitem:a8401d6a8ad1aec862f2a96bb9eda1870"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API ushort&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#a8401d6a8ad1aec862f2a96bb9eda1870">getLeapYearCountFromTo</a> (ushort to, ushort from=beginDateTime_.year)</td></tr>
 <tr class="memdesc:a8401d6a8ad1aec862f2a96bb9eda1870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the count of leap years from the first year to the second year.  <a href="#a8401d6a8ad1aec862f2a96bb9eda1870">More...</a><br /></td></tr>
 <tr class="separator:a8401d6a8ad1aec862f2a96bb9eda1870"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdc41a37a33bc6c5643430494f959c1b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_date_time.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#afdc41a37a33bc6c5643430494f959c1b">fromUnixTimestamp</a> (int64 timestamp)</td></tr>
+<tr class="memitem:afdc41a37a33bc6c5643430494f959c1b"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API <a class="el" href="class_date_time.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_date_time.html#afdc41a37a33bc6c5643430494f959c1b">fromUnixTimestamp</a> (int64 timestamp)</td></tr>
 <tr class="memdesc:afdc41a37a33bc6c5643430494f959c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the datetime instance calculated from given timestamp parameter.  <a href="#afdc41a37a33bc6c5643430494f959c1b">More...</a><br /></td></tr>
 <tr class="separator:afdc41a37a33bc6c5643430494f959c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -1097,11 +1121,15 @@ static <a class="el" href="class_date_time.html">DateTime</a>&#160;</td><td clas
 <li>D:/_git/_github/simplelibs/SimpleCore/datetime.cpp</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_date_time.html">DateTime</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

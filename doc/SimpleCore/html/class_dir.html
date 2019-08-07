@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SimpleCore
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_dir.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,7 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -79,50 +103,50 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a980b2eede48ad286e81ac910871985ad"><td class="memItemLeft" align="right" valign="top"><a id="a980b2eede48ad286e81ac910871985ad"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a980b2eede48ad286e81ac910871985ad">Dir</a> ()=default</td></tr>
-<tr class="memdesc:a980b2eede48ad286e81ac910871985ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the default constructor. <br /></td></tr>
-<tr class="separator:a980b2eede48ad286e81ac910871985ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11b1a16ab3197a15c3807df0e09fce4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a11b1a16ab3197a15c3807df0e09fce4e">Dir</a> (const <a class="el" href="class_dir.html">Dir</a> &amp;dir)</td></tr>
+<tr class="memitem:aa77e1a8252f6ffeead095bf1b678bb6a"><td class="memItemLeft" align="right" valign="top"><a id="aa77e1a8252f6ffeead095bf1b678bb6a"></a>
+SIMPLECORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#aa77e1a8252f6ffeead095bf1b678bb6a">Dir</a> ()=default</td></tr>
+<tr class="memdesc:aa77e1a8252f6ffeead095bf1b678bb6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides the default constructor. <br /></td></tr>
+<tr class="separator:aa77e1a8252f6ffeead095bf1b678bb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11b1a16ab3197a15c3807df0e09fce4e"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a11b1a16ab3197a15c3807df0e09fce4e">Dir</a> (const <a class="el" href="class_dir.html">Dir</a> &amp;dir)</td></tr>
 <tr class="memdesc:a11b1a16ab3197a15c3807df0e09fce4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the values from the specified <a class="el" href="class_dir.html" title="Provides simple functions to create, modify, erase etc.">Dir</a> instance.  <a href="#a11b1a16ab3197a15c3807df0e09fce4e">More...</a><br /></td></tr>
 <tr class="separator:a11b1a16ab3197a15c3807df0e09fce4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af683b1177318b82b880e21356750a6e0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#af683b1177318b82b880e21356750a6e0">Dir</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;path) noexcept</td></tr>
+<tr class="memitem:af683b1177318b82b880e21356750a6e0"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#af683b1177318b82b880e21356750a6e0">Dir</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;path) noexcept</td></tr>
 <tr class="memdesc:af683b1177318b82b880e21356750a6e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the default value path.  <a href="#af683b1177318b82b880e21356750a6e0">More...</a><br /></td></tr>
 <tr class="separator:af683b1177318b82b880e21356750a6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a000627e9787773619bccc3d4ef76a7ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a000627e9787773619bccc3d4ef76a7ac">getPath</a> () const</td></tr>
+<tr class="memitem:a000627e9787773619bccc3d4ef76a7ac"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a000627e9787773619bccc3d4ef76a7ac">getPath</a> () const</td></tr>
 <tr class="memdesc:a000627e9787773619bccc3d4ef76a7ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the directory path as string.  <a href="#a000627e9787773619bccc3d4ef76a7ac">More...</a><br /></td></tr>
 <tr class="separator:a000627e9787773619bccc3d4ef76a7ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08bb155c0d0ae5150997dedce31aa56f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a08bb155c0d0ae5150997dedce31aa56f">setPath</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;path)</td></tr>
+<tr class="memitem:a08bb155c0d0ae5150997dedce31aa56f"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a08bb155c0d0ae5150997dedce31aa56f">setPath</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;path)</td></tr>
 <tr class="memdesc:a08bb155c0d0ae5150997dedce31aa56f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the path by parameter and replaces \ by /.  <a href="#a08bb155c0d0ae5150997dedce31aa56f">More...</a><br /></td></tr>
 <tr class="separator:a08bb155c0d0ae5150997dedce31aa56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58485e06d15995822a108246d2b76b47"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a58485e06d15995822a108246d2b76b47">create</a> (bool overrideIfExisting=false) const</td></tr>
+<tr class="memitem:a58485e06d15995822a108246d2b76b47"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a58485e06d15995822a108246d2b76b47">create</a> (bool overrideIfExisting=false) const</td></tr>
 <tr class="memdesc:a58485e06d15995822a108246d2b76b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to create the directory in path variable set.  <a href="#a58485e06d15995822a108246d2b76b47">More...</a><br /></td></tr>
 <tr class="separator:a58485e06d15995822a108246d2b76b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6bf80b5b3a034e8c144c86ef48ae309"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#ac6bf80b5b3a034e8c144c86ef48ae309">exists</a> () const</td></tr>
+<tr class="memitem:ac6bf80b5b3a034e8c144c86ef48ae309"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#ac6bf80b5b3a034e8c144c86ef48ae309">exists</a> () const</td></tr>
 <tr class="memdesc:ac6bf80b5b3a034e8c144c86ef48ae309"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the directory located in the path exists.  <a href="#ac6bf80b5b3a034e8c144c86ef48ae309">More...</a><br /></td></tr>
 <tr class="separator:ac6bf80b5b3a034e8c144c86ef48ae309"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac07ff8b32d21e0dbdfdedf4116b927eb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#ac07ff8b32d21e0dbdfdedf4116b927eb">erase</a> (bool recursively=true) const</td></tr>
+<tr class="memitem:ac07ff8b32d21e0dbdfdedf4116b927eb"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#ac07ff8b32d21e0dbdfdedf4116b927eb">erase</a> (bool recursively=true) const</td></tr>
 <tr class="memdesc:ac07ff8b32d21e0dbdfdedf4116b927eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases the directory located in the path, depending on recursively if recursively.  <a href="#ac07ff8b32d21e0dbdfdedf4116b927eb">More...</a><br /></td></tr>
 <tr class="separator:ac07ff8b32d21e0dbdfdedf4116b927eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae69556b4b4495ac7fe5854d1f025488e"><td class="memItemLeft" align="right" valign="top">int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#ae69556b4b4495ac7fe5854d1f025488e">getFileCount</a> () const</td></tr>
+<tr class="memitem:ae69556b4b4495ac7fe5854d1f025488e"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API int64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#ae69556b4b4495ac7fe5854d1f025488e">getFileCount</a> () const</td></tr>
 <tr class="memdesc:ae69556b4b4495ac7fe5854d1f025488e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the count of the files inside the directory.  <a href="#ae69556b4b4495ac7fe5854d1f025488e">More...</a><br /></td></tr>
 <tr class="separator:ae69556b4b4495ac7fe5854d1f025488e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae573871f2f0ff5ec00ff20e7dc2ab709"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_a_vector.html">AVector</a>&lt; std::filesystem::directory_entry &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#ae573871f2f0ff5ec00ff20e7dc2ab709">getFiles</a> ()</td></tr>
+<tr class="memitem:ae573871f2f0ff5ec00ff20e7dc2ab709"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API const <a class="el" href="class_a_vector.html">AVector</a>&lt; std::filesystem::directory_entry &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#ae573871f2f0ff5ec00ff20e7dc2ab709">getFiles</a> ()</td></tr>
 <tr class="memdesc:ae573871f2f0ff5ec00ff20e7dc2ab709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a list of filenames inside the directory.  <a href="#ae573871f2f0ff5ec00ff20e7dc2ab709">More...</a><br /></td></tr>
 <tr class="separator:ae573871f2f0ff5ec00ff20e7dc2ab709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ac663fd2a33309bdb6b501439532d7477"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#ac663fd2a33309bdb6b501439532d7477">create</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;path, bool overrideIfExisting=false)</td></tr>
+<tr class="memitem:ac663fd2a33309bdb6b501439532d7477"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#ac663fd2a33309bdb6b501439532d7477">create</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;path, bool overrideIfExisting=false)</td></tr>
 <tr class="memdesc:ac663fd2a33309bdb6b501439532d7477"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to create the directory in path variable set.  <a href="#ac663fd2a33309bdb6b501439532d7477">More...</a><br /></td></tr>
 <tr class="separator:ac663fd2a33309bdb6b501439532d7477"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27343faa005694b64f6c320f992d5937"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a27343faa005694b64f6c320f992d5937">exists</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;path)</td></tr>
+<tr class="memitem:a27343faa005694b64f6c320f992d5937"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a27343faa005694b64f6c320f992d5937">exists</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;path)</td></tr>
 <tr class="memdesc:a27343faa005694b64f6c320f992d5937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns if the directory located in the path exists.  <a href="#a27343faa005694b64f6c320f992d5937">More...</a><br /></td></tr>
 <tr class="separator:a27343faa005694b64f6c320f992d5937"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bc8cdb4747c026b114f3e89b34d627f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a6bc8cdb4747c026b114f3e89b34d627f">erase</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;path, bool recursively=true)</td></tr>
+<tr class="memitem:a6bc8cdb4747c026b114f3e89b34d627f"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#a6bc8cdb4747c026b114f3e89b34d627f">erase</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;path, bool recursively=true)</td></tr>
 <tr class="memdesc:a6bc8cdb4747c026b114f3e89b34d627f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases the directory located in the path, depending on recursively if recursively.  <a href="#a6bc8cdb4747c026b114f3e89b34d627f">More...</a><br /></td></tr>
 <tr class="separator:a6bc8cdb4747c026b114f3e89b34d627f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa7ce6cd68c2ba64a8511d3480a198f6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#afa7ce6cd68c2ba64a8511d3480a198f6">getDir</a> (Directory directory)</td></tr>
+<tr class="memitem:afa7ce6cd68c2ba64a8511d3480a198f6"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dir.html#afa7ce6cd68c2ba64a8511d3480a198f6">getDir</a> (Directory directory)</td></tr>
 <tr class="memdesc:afa7ce6cd68c2ba64a8511d3480a198f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the path by directoy type.  <a href="#afa7ce6cd68c2ba64a8511d3480a198f6">More...</a><br /></td></tr>
 <tr class="separator:afa7ce6cd68c2ba64a8511d3480a198f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -521,11 +545,15 @@ Static Public Member Functions</h2></td></tr>
 <li>D:/_git/_github/simplelibs/SimpleCore/dir.cpp</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_dir.html">Dir</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

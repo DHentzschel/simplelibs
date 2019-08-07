@@ -15,9 +15,9 @@ public:
 	 *
 	 * @param port the port to connect to
 	 */
-	bool connect(ushort port);
+	SIMPLENETWORK_API bool connect(ushort port);
 private:
-	bool connect(const AString& hostaddress, ushort port) override {}
+	bool connect(const AString& hostaddress, ushort port) override { return false; }
 };
 
 #endif // LOCALTCPSOCKET_H

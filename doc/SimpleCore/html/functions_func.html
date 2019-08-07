@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SimpleCore
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -48,6 +56,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_func.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -67,7 +91,13 @@ $(function() {
 
 <h3><a id="index_a"></a>- a -</h3><ul>
 <li>add()
-: <a class="el" href="class_hash.html#a2bf97759f3368581d788c5892b61b960">Hash</a>
+: <a class="el" href="class_c_r_c32.html#a9586344a9211654dd2630d159ab3c5db">CRC32</a>
+, <a class="el" href="class_hash.html#a2bf97759f3368581d788c5892b61b960">Hash</a>
+, <a class="el" href="class_keccak.html#a2b7eebc746ce2d94d333fd0867bc210a">Keccak</a>
+, <a class="el" href="class_m_d5.html#a39843b295d1c0be08c4a606a156e3841">MD5</a>
+, <a class="el" href="class_s_h_a1.html#a92b7c4988af04ffa4cc85565edd8cccc">SHA1</a>
+, <a class="el" href="class_s_h_a256.html#aa03e068586e2b5ffb657383d566fdc19">SHA256</a>
+, <a class="el" href="class_s_h_a3.html#ad7cc95b855005451fcba2fbf5bd9f129">SHA3</a>
 </li>
 <li>addDays()
 : <a class="el" href="class_date_time.html#a9209722e2520862295252b12947d0f97">DateTime</a>
@@ -88,33 +118,70 @@ $(function() {
 : <a class="el" href="class_date_time.html#a831ab5e9d50c8157ee0c23dc292b8ef5">DateTime</a>
 </li>
 <li>AList()
-: <a class="el" href="class_a_list.html#a0a4bc6509f21976058b3bd0b4fbc5d31">AList&lt; T &gt;</a>
+: <a class="el" href="class_a_list.html#a6009559ea4861f2a9263e447485dfeb2">AList&lt; T &gt;</a>
+</li>
+<li>allocate_attribute()
+: <a class="el" href="classrapidxml_1_1memory__pool.html#a3de2a66c983336e006ea3844e244ed30">rapidxml::memory_pool&lt; Ch &gt;</a>
+</li>
+<li>allocate_node()
+: <a class="el" href="classrapidxml_1_1memory__pool.html#a4118581c29ee9a2f6b55ebf7dac185f8">rapidxml::memory_pool&lt; Ch &gt;</a>
+</li>
+<li>allocate_string()
+: <a class="el" href="classrapidxml_1_1memory__pool.html#a171941b39d55b868358da97462185f58">rapidxml::memory_pool&lt; Ch &gt;</a>
 </li>
 <li>append()
 : <a class="el" href="class_a_list.html#a210e9e0657a0f4541247a290d21b6d23">AList&lt; T &gt;</a>
-, <a class="el" href="class_a_string.html#aeac95119d8284d146b4b59ba773a351a">AString</a>
+, <a class="el" href="class_a_string.html#a7f87ec8aea6fbd0605ac5b987e8d2d6e">AString</a>
+, <a class="el" href="class_async_a_list.html#aa277c339c35c2c793b126f5a21aeb86d">AsyncAList&lt; T &gt;</a>
 , <a class="el" href="class_a_vector.html#ab998b222eb341c26f4eafd8da65f2274">AVector&lt; T &gt;</a>
 , <a class="el" href="class_file.html#a7598c356f21d695e7e69fc523500588a">File</a>
+</li>
+<li>Append()
+: <a class="el" href="class_generic_pointer.html#a9f8a1711f5b8e0d951c25c6c65326f77">GenericPointer&lt; ValueType, Allocator &gt;</a>
+</li>
+<li>append_attribute()
+: <a class="el" href="classrapidxml_1_1xml__node.html#a33ce3386f8c42dd4db658b75cbb6e6c4">rapidxml::xml_node&lt; Ch &gt;</a>
+</li>
+<li>append_node()
+: <a class="el" href="classrapidxml_1_1xml__node.html#a8696d098ecc9c4d2a646b43e91d58e31">rapidxml::xml_node&lt; Ch &gt;</a>
 </li>
 <li>arg()
 : <a class="el" href="class_a_string.html#abe25a22470606db76c275a7d73563bf6">AString</a>
 </li>
 <li>AString()
-: <a class="el" href="class_a_string.html#a2cf05e679f64fb2d5e6e4154d6f7abcd">AString</a>
+: <a class="el" href="class_a_string.html#a0d8d5ba424e88b1a4b466c63f9d32d6d">AString</a>
+, <a class="el" href="class_pretty_writer.html#a0b54a13b89235de04f43fd0c62114ffe">PrettyWriter&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;</a>
+, <a class="el" href="class_writer.html#a20187afaa59843aa3761b7389cbe7b72">Writer&lt; OutputStream, SourceEncoding, TargetEncoding, StackAllocator, writeFlags &gt;</a>
+</li>
+<li>AStringRef()
+: <a class="el" href="struct_generic_string_ref.html#acc2f85799e31bf01024b60bec12d4d73">GenericStringRef&lt; CharType &gt;</a>
+</li>
+<li>AsyncAList()
+: <a class="el" href="class_async_a_list.html#a4c21f337f9c1844b0e27bc10f8c69b28">AsyncAList&lt; T &gt;</a>
 </li>
 <li>at()
-: <a class="el" href="class_a_list.html#ae43013270783ff87b26c3dc559874681">AList&lt; T &gt;</a>
+: <a class="el" href="class_a_list.html#a10107fe182383d368c18992eb5be7127">AList&lt; T &gt;</a>
+, <a class="el" href="class_async_a_list.html#a77b7d5604941bd5c500c08d1a55d9c99">AsyncAList&lt; T &gt;</a>
 </li>
 <li>atEnd()
 : <a class="el" href="class_file.html#a6f433c3bbc327cf15217d2f3c4cd043d">File</a>
 </li>
+<li>AutoUTFInputStream()
+: <a class="el" href="class_auto_u_t_f_input_stream.html#a83837fced0971ba26dd9a8ec1575abb0">AutoUTFInputStream&lt; CharType, InputByteStream &gt;</a>
+</li>
+<li>AutoUTFOutputStream()
+: <a class="el" href="class_auto_u_t_f_output_stream.html#a2fe7dbc8e43d11295f66df5653148137">AutoUTFOutputStream&lt; CharType, OutputByteStream &gt;</a>
+</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

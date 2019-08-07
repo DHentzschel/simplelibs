@@ -1,6 +1,7 @@
 #ifndef TCPCLIENTEVENTLISTENER_H
 #define TCPCLIENTEVENTLISTENER_H
 
+#include <types.h>
 #include <thread>
 
 #include "tcpeventlistener.h"
@@ -17,12 +18,12 @@ public:
 	 *
 	 * @param socket the pointer to the TcpSocket to listen for
 	 */
-	explicit TcpClientEventListener(TcpSocket* socket);
+	SIMPLENETWORK_API explicit TcpClientEventListener(TcpSocket* socket);
 
 	/**
 	 * Joins the thread to the main thread.
 	 */
-	void join();
+	SIMPLENETWORK_API void join();
 private:
 	std::thread thread_;
 

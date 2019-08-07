@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['receive',['receive',['../class_tcp_server.html#a4a506d4903c2a5ef92ed1ef5542fdedb',1,'TcpServer::receive()'],['../class_tcp_socket.html#a5c3aedf1e5387e02204d423e39dd6bee',1,'TcpSocket::receive()']]]
+  ['_7etcpserver',['~TcpServer',['../class_tcp_server.html#a728a9e31c53cf86887f1f6149b1c46dd',1,'TcpServer']]],
+  ['_7etcpsocket',['~TcpSocket',['../class_tcp_socket.html#a4c6d246451c51ac4226a9301f6711086',1,'TcpSocket']]]
 ];

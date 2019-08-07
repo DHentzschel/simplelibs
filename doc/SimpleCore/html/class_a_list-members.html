@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SimpleCore
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_a_list.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,7 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">AList&lt; T &gt; Member List</div>  </div>
@@ -71,50 +95,53 @@ $(function() {
 <p>This is the complete list of members for <a class="el" href="class_a_list.html">AList&lt; T &gt;</a>, including all inherited members.</p>
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a0a4bc6509f21976058b3bd0b4fbc5d31">AList</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#a8cec560bb9216051a7f2ba0676d6aabf">AList</a>(int64 size)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">explicit</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#a8cec560bb9216051a7f2ba0676d6aabf">AList</a>(int64 size)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a6009559ea4861f2a9263e447485dfeb2">AList</a>(const AList &amp;list)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_a_list.html#a0e4ad9eb6d7cbb883a56f67589c65be9">AList</a>(AList &amp;&amp;list)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a210e9e0657a0f4541247a290d21b6d23">append</a>(const T &amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#ac8e33a3962d74310ebafc8d99be5437a">append</a>(T &amp;&amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#ae43013270783ff87b26c3dc559874681">at</a>(int i)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#a10107fe182383d368c18992eb5be7127">at</a>(int i) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#ab3db4e8f60d5abf4e7a12d928fb244a0">contains</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#a4769f724fc264fae0cd1ebbc6f70ec2e">count</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#af6383e2209b2baa7c0e602b82d586cf9">endsWith</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#aca24663d0fe32d878cd4a214ade18372">first</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a1cf9c09ee90e96a5f72a39344f8240be">first</a>() const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#af785e824aa6822fa079fd146fdfbda8e">firstIndexOf</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a4b097672b446185673cf1ec2df799110">indexOf</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#ab0c4bd9783b1a181471e05f9fda79138">isEmpty</a>() const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a41b07290930bbfa06ec02f9106a52b74">last</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#ab6c0fc542c318f68199ef3b4d97c82f4">last</a>() const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a6e83dd4da23beeda52e15e8a2cc9f799">lastIndexOf</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#a7b9c07f197f9017a7d231a8cf2f19f7b">mid</a>(int position, int length=-1) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#ac9979a4b71ae418f1ba7a36b2d9c1a77">move</a>(int from, int to)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#ae14e6bff6596b91b77a40b0d03777e66">operator[]</a>(int i)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#ab7dd2c5a1bef44beabc15070eb14c050">operator[]</a>(int i) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#a2240edc5f38fa7e57a868bb30b747c51">pop_front</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a35838eb653492086769df4c444e08281">prepend</a>(const T &amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#a6cae264346546d9e6cc68252a2e0b3d5">prepend</a>(T &amp;&amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a32b8779cd05c79fe74f79c854b54a5f7">removeAll</a>(const T &amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#a1b29a3946800bcb13e94668b952ae6c2">removeAt</a>(int i)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a33f188595f0da046cced105c2e441506">removeDuplicates</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#ada980037299e3dcbf05b50977216f32d">removeFirst</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#aa4ac4af0fb772a55168ddcba13c508c3">removeFirst</a>(const T &amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#aff8e5c3e3f879ea5c8d6d9e29b321fc9">removeLast</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a89447e683414a53f0dd0ac081c3c3f12">replace</a>(int64 i, const T &amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#ac6b1d6dabb7177aa465019860aeacba1">startsWith</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a626da346e2e3fdbc42f14fa11926f79c">takeAt</a>(int64 i)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#af2da906ed8c9bf282fc9f6f726864d9f">takeFirst</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#aa210fddef3bf64dd63dd68f3d5f2fe05">takeLast</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_a_list.html#a53cbab789aed68750822a67ee6ae4d13">toStdVector</a>() const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a7be198818f6459df77cdc29a2f8d8d5e">toVector</a>() const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a210e9e0657a0f4541247a290d21b6d23">append</a>(const T &amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#ac8e33a3962d74310ebafc8d99be5437a">append</a>(T &amp;&amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#ae43013270783ff87b26c3dc559874681">at</a>(int i)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#a10107fe182383d368c18992eb5be7127">at</a>(int i) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#ab3db4e8f60d5abf4e7a12d928fb244a0">contains</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#a4769f724fc264fae0cd1ebbc6f70ec2e">count</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#af6383e2209b2baa7c0e602b82d586cf9">endsWith</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#aca24663d0fe32d878cd4a214ade18372">first</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a1cf9c09ee90e96a5f72a39344f8240be">first</a>() const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#af785e824aa6822fa079fd146fdfbda8e">firstIndexOf</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a4b097672b446185673cf1ec2df799110">indexOf</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#ab0c4bd9783b1a181471e05f9fda79138">isEmpty</a>() const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a41b07290930bbfa06ec02f9106a52b74">last</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#ab6c0fc542c318f68199ef3b4d97c82f4">last</a>() const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a6e83dd4da23beeda52e15e8a2cc9f799">lastIndexOf</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#a7b9c07f197f9017a7d231a8cf2f19f7b">mid</a>(int position, int length=-1) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#ac9979a4b71ae418f1ba7a36b2d9c1a77">move</a>(int from, int to)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#ae14e6bff6596b91b77a40b0d03777e66">operator[]</a>(int i)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#ab7dd2c5a1bef44beabc15070eb14c050">operator[]</a>(int i) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#a2240edc5f38fa7e57a868bb30b747c51">pop_front</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a35838eb653492086769df4c444e08281">prepend</a>(const T &amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#a6cae264346546d9e6cc68252a2e0b3d5">prepend</a>(T &amp;&amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a32b8779cd05c79fe74f79c854b54a5f7">removeAll</a>(const T &amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#a1b29a3946800bcb13e94668b952ae6c2">removeAt</a>(int i)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a33f188595f0da046cced105c2e441506">removeDuplicates</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#ada980037299e3dcbf05b50977216f32d">removeFirst</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#aa4ac4af0fb772a55168ddcba13c508c3">removeFirst</a>(const T &amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#aff8e5c3e3f879ea5c8d6d9e29b321fc9">removeLast</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a89447e683414a53f0dd0ac081c3c3f12">replace</a>(int64 i, const T &amp;value)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#ac6b1d6dabb7177aa465019860aeacba1">startsWith</a>(const T &amp;value) const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a626da346e2e3fdbc42f14fa11926f79c">takeAt</a>(int64 i)</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#af2da906ed8c9bf282fc9f6f726864d9f">takeFirst</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#aa210fddef3bf64dd63dd68f3d5f2fe05">takeLast</a>()</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr><td class="entry"><a class="el" href="class_a_list.html#a53cbab789aed68750822a67ee6ae4d13">toStdVector</a>() const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_a_list.html#a7be198818f6459df77cdc29a2f8d8d5e">toVector</a>() const</td><td class="entry"><a class="el" href="class_a_list.html">AList&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

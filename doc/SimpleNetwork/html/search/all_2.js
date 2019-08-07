@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['disconnect',['disconnect',['../class_tcp_socket.html#a9f1317cd06b134fc78d01fe8554224a2',1,'TcpSocket']]],
-  ['disconnected',['disconnected',['../class_tcp_server.html#aa46b3b62f38d3ff8c6ad122e6201c094',1,'TcpServer::disconnected()'],['../class_tcp_socket.html#af177ab759106456e4c46b81a90a5c8ed',1,'TcpSocket::disconnected()']]]
+  ['gethostaddress',['getHostAddress',['../class_tcp_socket.html#a1638a4368afb26acee666ea497ba737e',1,'TcpSocket']]],
+  ['getport',['getPort',['../class_tcp_socket.html#aae788fccc721be52ff85c0fcbb1424c5',1,'TcpSocket']]],
+  ['getsocket',['getSocket',['../class_tcp_socket.html#af08fd94259257c41adcc7b3722574dc6',1,'TcpSocket']]]
 ];

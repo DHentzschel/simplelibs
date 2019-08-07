@@ -9,6 +9,14 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+  $(document).ready(initResizable);
+/* @license-end */</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -23,7 +31,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">SimpleCore
-   &#160;<span id="projectnumber">1.0.1</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -47,6 +55,23 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('class_file.html','');});
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,7 +86,6 @@ $(function() {
 </iframe>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
@@ -80,88 +104,88 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae039af5807fc385f41b60644725d15d0"><td class="memItemLeft" align="right" valign="top"><a id="ae039af5807fc385f41b60644725d15d0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ae039af5807fc385f41b60644725d15d0">File</a> ()</td></tr>
+SIMPLECORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ae039af5807fc385f41b60644725d15d0">File</a> ()</td></tr>
 <tr class="memdesc:ae039af5807fc385f41b60644725d15d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the openMode to NotOpen on default. <br /></td></tr>
 <tr class="separator:ae039af5807fc385f41b60644725d15d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59bf1e7bb0c6b8dd83dccef6b942a0f9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a59bf1e7bb0c6b8dd83dccef6b942a0f9">File</a> (const <a class="el" href="class_file.html">File</a> &amp;file)</td></tr>
+<tr class="memitem:a59bf1e7bb0c6b8dd83dccef6b942a0f9"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a59bf1e7bb0c6b8dd83dccef6b942a0f9">File</a> (const <a class="el" href="class_file.html">File</a> &amp;file)</td></tr>
 <tr class="memdesc:a59bf1e7bb0c6b8dd83dccef6b942a0f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the openMode and file path from the given parameter.  <a href="#a59bf1e7bb0c6b8dd83dccef6b942a0f9">More...</a><br /></td></tr>
 <tr class="separator:a59bf1e7bb0c6b8dd83dccef6b942a0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cc4f22d64e80a380dbd04141b772080"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a2cc4f22d64e80a380dbd04141b772080">File</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;filepath) noexcept</td></tr>
+<tr class="memitem:a2cc4f22d64e80a380dbd04141b772080"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a2cc4f22d64e80a380dbd04141b772080">File</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;filepath) noexcept</td></tr>
 <tr class="memdesc:a2cc4f22d64e80a380dbd04141b772080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the filepath to the parameter and sets the openMode to NotOpen on default.  <a href="#a2cc4f22d64e80a380dbd04141b772080">More...</a><br /></td></tr>
 <tr class="separator:a2cc4f22d64e80a380dbd04141b772080"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac704ebdf5f57d7a1c5ddf409d797fb69"><td class="memItemLeft" align="right" valign="top"><a id="ac704ebdf5f57d7a1c5ddf409d797fb69"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ac704ebdf5f57d7a1c5ddf409d797fb69">~File</a> ()</td></tr>
+SIMPLECORE_API&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ac704ebdf5f57d7a1c5ddf409d797fb69">~File</a> ()</td></tr>
 <tr class="memdesc:ac704ebdf5f57d7a1c5ddf409d797fb69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the current filestream if opened. <br /></td></tr>
 <tr class="separator:ac704ebdf5f57d7a1c5ddf409d797fb69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a208b0649e571a157d00dd91c6927d4be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a208b0649e571a157d00dd91c6927d4be">create</a> (bool recursively=true) const</td></tr>
+<tr class="memitem:a208b0649e571a157d00dd91c6927d4be"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a208b0649e571a157d00dd91c6927d4be">create</a> (bool recursively=true) const</td></tr>
 <tr class="memdesc:a208b0649e571a157d00dd91c6927d4be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to create the current filepath.  <a href="#a208b0649e571a157d00dd91c6927d4be">More...</a><br /></td></tr>
 <tr class="separator:a208b0649e571a157d00dd91c6927d4be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1eb2efb9d067dded30d4ef54eb307d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ad1eb2efb9d067dded30d4ef54eb307d1">erase</a> () const</td></tr>
+<tr class="memitem:ad1eb2efb9d067dded30d4ef54eb307d1"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ad1eb2efb9d067dded30d4ef54eb307d1">erase</a> () const</td></tr>
 <tr class="memdesc:ad1eb2efb9d067dded30d4ef54eb307d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to erase the file in filepath and returns the success.  <a href="#ad1eb2efb9d067dded30d4ef54eb307d1">More...</a><br /></td></tr>
 <tr class="separator:ad1eb2efb9d067dded30d4ef54eb307d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53118ce36851cb1c6845a82f915fd8ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a53118ce36851cb1c6845a82f915fd8ba">exists</a> () const</td></tr>
+<tr class="memitem:a53118ce36851cb1c6845a82f915fd8ba"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a53118ce36851cb1c6845a82f915fd8ba">exists</a> () const</td></tr>
 <tr class="memdesc:a53118ce36851cb1c6845a82f915fd8ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the current filepath exists.  <a href="#a53118ce36851cb1c6845a82f915fd8ba">More...</a><br /></td></tr>
 <tr class="separator:a53118ce36851cb1c6845a82f915fd8ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3770227bca4efa56a4d3a33fe83fa8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ac3770227bca4efa56a4d3a33fe83fa8e">getDirectory</a> () const</td></tr>
+<tr class="memitem:ac3770227bca4efa56a4d3a33fe83fa8e"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ac3770227bca4efa56a4d3a33fe83fa8e">getDirectory</a> () const</td></tr>
 <tr class="memdesc:ac3770227bca4efa56a4d3a33fe83fa8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the directory of the filepath.  <a href="#ac3770227bca4efa56a4d3a33fe83fa8e">More...</a><br /></td></tr>
 <tr class="separator:ac3770227bca4efa56a4d3a33fe83fa8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a953668209fb0f4c62093ae2c31475902"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a953668209fb0f4c62093ae2c31475902">getFilename</a> () const</td></tr>
+<tr class="memitem:a953668209fb0f4c62093ae2c31475902"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a953668209fb0f4c62093ae2c31475902">getFilename</a> () const</td></tr>
 <tr class="memdesc:a953668209fb0f4c62093ae2c31475902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filename of the filepath.  <a href="#a953668209fb0f4c62093ae2c31475902">More...</a><br /></td></tr>
 <tr class="separator:a953668209fb0f4c62093ae2c31475902"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a033178594e2a60e489d7ab2936676e90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a033178594e2a60e489d7ab2936676e90">getFilepath</a> () const</td></tr>
+<tr class="memitem:a033178594e2a60e489d7ab2936676e90"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a033178594e2a60e489d7ab2936676e90">getFilepath</a> () const</td></tr>
 <tr class="memdesc:a033178594e2a60e489d7ab2936676e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current filepath set.  <a href="#a033178594e2a60e489d7ab2936676e90">More...</a><br /></td></tr>
 <tr class="separator:a033178594e2a60e489d7ab2936676e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5b50c42cb117914a87347461b4bfb56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ae5b50c42cb117914a87347461b4bfb56">setFilepath</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;filepath)</td></tr>
+<tr class="memitem:ae5b50c42cb117914a87347461b4bfb56"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ae5b50c42cb117914a87347461b4bfb56">setFilepath</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;filepath)</td></tr>
 <tr class="memdesc:ae5b50c42cb117914a87347461b4bfb56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the filepath for the next filestream.  <a href="#ae5b50c42cb117914a87347461b4bfb56">More...</a><br /></td></tr>
 <tr class="separator:ae5b50c42cb117914a87347461b4bfb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb0ce5b71ecf6fbaa538a812a622fc10"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#abb0ce5b71ecf6fbaa538a812a622fc10">isOpen</a> () const</td></tr>
+<tr class="memitem:abb0ce5b71ecf6fbaa538a812a622fc10"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#abb0ce5b71ecf6fbaa538a812a622fc10">isOpen</a> () const</td></tr>
 <tr class="memdesc:abb0ce5b71ecf6fbaa538a812a622fc10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the filestream is open.  <a href="#abb0ce5b71ecf6fbaa538a812a622fc10">More...</a><br /></td></tr>
 <tr class="separator:abb0ce5b71ecf6fbaa538a812a622fc10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a119cd771053819d0c82f7cccefb511ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a119cd771053819d0c82f7cccefb511ef">open</a> (int openModeFlags=static_cast&lt; int &gt;(OpenMode::NotOpen))</td></tr>
+<tr class="memitem:a119cd771053819d0c82f7cccefb511ef"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a119cd771053819d0c82f7cccefb511ef">open</a> (int openModeFlags=static_cast&lt; int &gt;(OpenMode::NotOpen))</td></tr>
 <tr class="memdesc:a119cd771053819d0c82f7cccefb511ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to open the filestream by parameter openMode.  <a href="#a119cd771053819d0c82f7cccefb511ef">More...</a><br /></td></tr>
 <tr class="separator:a119cd771053819d0c82f7cccefb511ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83cbce54d6c3b8c2f417b51f6b3f488c"><td class="memItemLeft" align="right" valign="top"><a id="a83cbce54d6c3b8c2f417b51f6b3f488c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a83cbce54d6c3b8c2f417b51f6b3f488c">close</a> ()</td></tr>
+SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a83cbce54d6c3b8c2f417b51f6b3f488c">close</a> ()</td></tr>
 <tr class="memdesc:a83cbce54d6c3b8c2f417b51f6b3f488c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the current filestream. <br /></td></tr>
 <tr class="separator:a83cbce54d6c3b8c2f417b51f6b3f488c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90d8fdab01cefa95038ac94cf058e43b"><td class="memItemLeft" align="right" valign="top"><a id="a90d8fdab01cefa95038ac94cf058e43b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a90d8fdab01cefa95038ac94cf058e43b">operator=</a> (const <a class="el" href="class_file.html">File</a> &amp;file)</td></tr>
+SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a90d8fdab01cefa95038ac94cf058e43b">operator=</a> (const <a class="el" href="class_file.html">File</a> &amp;file)</td></tr>
 <tr class="memdesc:a90d8fdab01cefa95038ac94cf058e43b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies member variable from another <a class="el" href="class_file.html" title="Provides simple functions to create, modify, erase etc.">File</a> instance. <br /></td></tr>
 <tr class="separator:a90d8fdab01cefa95038ac94cf058e43b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac58f65f7af68645c95050e0faa296bcd"><td class="memItemLeft" align="right" valign="top">std::fstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ac58f65f7af68645c95050e0faa296bcd">operator&lt;&lt;</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;string)</td></tr>
+<tr class="memitem:ac58f65f7af68645c95050e0faa296bcd"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API std::fstream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ac58f65f7af68645c95050e0faa296bcd">operator&lt;&lt;</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;string)</td></tr>
 <tr class="memdesc:ac58f65f7af68645c95050e0faa296bcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the string from param string to file and returns the reference to std::fstream.  <a href="#ac58f65f7af68645c95050e0faa296bcd">More...</a><br /></td></tr>
 <tr class="separator:ac58f65f7af68645c95050e0faa296bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7598c356f21d695e7e69fc523500588a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a7598c356f21d695e7e69fc523500588a">append</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;string)</td></tr>
+<tr class="memitem:a7598c356f21d695e7e69fc523500588a"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a7598c356f21d695e7e69fc523500588a">append</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;string)</td></tr>
 <tr class="memdesc:a7598c356f21d695e7e69fc523500588a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a string to the file.  <a href="#a7598c356f21d695e7e69fc523500588a">More...</a><br /></td></tr>
 <tr class="separator:a7598c356f21d695e7e69fc523500588a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad835c603c110f5e5d8359a9b271298dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ad835c603c110f5e5d8359a9b271298dd">readAllText</a> ()</td></tr>
+<tr class="memitem:ad835c603c110f5e5d8359a9b271298dd"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ad835c603c110f5e5d8359a9b271298dd">readAllText</a> ()</td></tr>
 <tr class="memdesc:ad835c603c110f5e5d8359a9b271298dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the complete file to an empty string and returns it.  <a href="#ad835c603c110f5e5d8359a9b271298dd">More...</a><br /></td></tr>
 <tr class="separator:ad835c603c110f5e5d8359a9b271298dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d0bdb094fd754890130f27493792d05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a3d0bdb094fd754890130f27493792d05">writeAllText</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;text)</td></tr>
+<tr class="memitem:a3d0bdb094fd754890130f27493792d05"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a3d0bdb094fd754890130f27493792d05">writeAllText</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;text)</td></tr>
 <tr class="memdesc:a3d0bdb094fd754890130f27493792d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the filestream and writes the complete param text string to file.  <a href="#a3d0bdb094fd754890130f27493792d05">More...</a><br /></td></tr>
 <tr class="separator:a3d0bdb094fd754890130f27493792d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc44c7f319708f0e378c08492d178fc0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_byte_array.html">ByteArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#acc44c7f319708f0e378c08492d178fc0">readAllBytes</a> ()</td></tr>
+<tr class="memitem:acc44c7f319708f0e378c08492d178fc0"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API <a class="el" href="class_byte_array.html">ByteArray</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#acc44c7f319708f0e378c08492d178fc0">readAllBytes</a> ()</td></tr>
 <tr class="memdesc:acc44c7f319708f0e378c08492d178fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the complete filestream in binary mode and returns a new byte array.  <a href="#acc44c7f319708f0e378c08492d178fc0">More...</a><br /></td></tr>
 <tr class="separator:acc44c7f319708f0e378c08492d178fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fd6b7ead40f02ea7e578e281465bf80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a7fd6b7ead40f02ea7e578e281465bf80">writeAllBytes</a> (const <a class="el" href="class_byte_array.html">ByteArray</a> &amp;bytes)</td></tr>
+<tr class="memitem:a7fd6b7ead40f02ea7e578e281465bf80"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a7fd6b7ead40f02ea7e578e281465bf80">writeAllBytes</a> (const <a class="el" href="class_byte_array.html">ByteArray</a> &amp;bytes)</td></tr>
 <tr class="memdesc:a7fd6b7ead40f02ea7e578e281465bf80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the filestream and writes all bytes from param bytes to file.  <a href="#a7fd6b7ead40f02ea7e578e281465bf80">More...</a><br /></td></tr>
 <tr class="separator:a7fd6b7ead40f02ea7e578e281465bf80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad65ed49713d0b0e11a439cb3bc148171"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ad65ed49713d0b0e11a439cb3bc148171">readLine</a> ()</td></tr>
+<tr class="memitem:ad65ed49713d0b0e11a439cb3bc148171"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API <a class="el" href="class_a_string.html">AString</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#ad65ed49713d0b0e11a439cb3bc148171">readLine</a> ()</td></tr>
 <tr class="memdesc:ad65ed49713d0b0e11a439cb3bc148171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next line to read from filestream.  <a href="#ad65ed49713d0b0e11a439cb3bc148171">More...</a><br /></td></tr>
 <tr class="separator:ad65ed49713d0b0e11a439cb3bc148171"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f433c3bbc327cf15217d2f3c4cd043d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a6f433c3bbc327cf15217d2f3c4cd043d">atEnd</a> () const</td></tr>
+<tr class="memitem:a6f433c3bbc327cf15217d2f3c4cd043d"><td class="memItemLeft" align="right" valign="top">SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a6f433c3bbc327cf15217d2f3c4cd043d">atEnd</a> () const</td></tr>
 <tr class="memdesc:a6f433c3bbc327cf15217d2f3c4cd043d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the filestream reader is at the end.  <a href="#a6f433c3bbc327cf15217d2f3c4cd043d">More...</a><br /></td></tr>
 <tr class="separator:a6f433c3bbc327cf15217d2f3c4cd043d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a255061b2a5ed2db1c9f8fce9ab78af4e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a255061b2a5ed2db1c9f8fce9ab78af4e">create</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;filepath, bool recursively=true)</td></tr>
+<tr class="memitem:a255061b2a5ed2db1c9f8fce9ab78af4e"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a255061b2a5ed2db1c9f8fce9ab78af4e">create</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;filepath, bool recursively=true)</td></tr>
 <tr class="memdesc:a255061b2a5ed2db1c9f8fce9ab78af4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to create the filepath given as parameter.  <a href="#a255061b2a5ed2db1c9f8fce9ab78af4e">More...</a><br /></td></tr>
 <tr class="separator:a255061b2a5ed2db1c9f8fce9ab78af4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a068634b55657c13f0f79691434c399b1"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a068634b55657c13f0f79691434c399b1">erase</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;filepath)</td></tr>
+<tr class="memitem:a068634b55657c13f0f79691434c399b1"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a068634b55657c13f0f79691434c399b1">erase</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;filepath)</td></tr>
 <tr class="memdesc:a068634b55657c13f0f79691434c399b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tries to erase the file in filepath given as parameter and returns the success.  <a href="#a068634b55657c13f0f79691434c399b1">More...</a><br /></td></tr>
 <tr class="separator:a068634b55657c13f0f79691434c399b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b28f74e97c46f0b95ec159c2425dca0"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a7b28f74e97c46f0b95ec159c2425dca0">exists</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;filepath)</td></tr>
+<tr class="memitem:a7b28f74e97c46f0b95ec159c2425dca0"><td class="memItemLeft" align="right" valign="top">static SIMPLECORE_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_file.html#a7b28f74e97c46f0b95ec159c2425dca0">exists</a> (const <a class="el" href="class_a_string.html">AString</a> &amp;filepath)</td></tr>
 <tr class="memdesc:a7b28f74e97c46f0b95ec159c2425dca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the filepath given as parameter exists.  <a href="#a7b28f74e97c46f0b95ec159c2425dca0">More...</a><br /></td></tr>
 <tr class="separator:a7b28f74e97c46f0b95ec159c2425dca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -740,11 +764,15 @@ Static Public Member Functions</h2></td></tr>
 <li>D:/_git/_github/simplelibs/SimpleCore/file.cpp</li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_file.html">File</a></li>
+    <li class="footer">Generated by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.15 </li>
+  </ul>
+</div>
 </body>
 </html>

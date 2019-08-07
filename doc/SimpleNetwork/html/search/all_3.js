@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['gethostaddress',['getHostAddress',['../class_tcp_socket.html#a1638a4368afb26acee666ea497ba737e',1,'TcpSocket']]],
-  ['getport',['getPort',['../class_tcp_socket.html#aae788fccc721be52ff85c0fcbb1424c5',1,'TcpSocket']]],
-  ['getsocket',['getSocket',['../class_tcp_socket.html#af08fd94259257c41adcc7b3722574dc6',1,'TcpSocket']]]
+  ['incomingconnection',['incomingConnection',['../class_tcp_server.html#ad6fd71a4984c07d2ca247ca0fe4e1af0',1,'TcpServer']]],
+  ['islocalportavailable',['isLocalPortAvailable',['../class_tcp_socket.html#a411dcd4e6875ed636eb96cdac1ab18b9',1,'TcpSocket']]],
+  ['isportavailable',['isPortAvailable',['../class_tcp_socket.html#a133a664281c276c9e75d961175814d7d',1,'TcpSocket']]],
+  ['isrunning_5f',['isRunning_',['../class_tcp_event_listener.html#a3b623004e10074b2375a3bb7bc9c6c28',1,'TcpEventListener']]]
 ];
