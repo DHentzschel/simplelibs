@@ -119,9 +119,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adc60733d56b9cbc412c2c8dfd856322e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_async_a_list.html#adc60733d56b9cbc412c2c8dfd856322e">AsyncAList</a> (<a class="el" href="class_async_a_list.html">AsyncAList</a> &amp;&amp;list) override</td></tr>
 <tr class="memdesc:adc60733d56b9cbc412c2c8dfd856322e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the values from another list to the current instance.  <a href="#adc60733d56b9cbc412c2c8dfd856322e">More...</a><br /></td></tr>
 <tr class="separator:adc60733d56b9cbc412c2c8dfd856322e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77b7d5604941bd5c500c08d1a55d9c99"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_async_a_list.html#a77b7d5604941bd5c500c08d1a55d9c99">at</a> (int i) override</td></tr>
-<tr class="memdesc:a77b7d5604941bd5c500c08d1a55d9c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the item on the ith position in the list.  <a href="#a77b7d5604941bd5c500c08d1a55d9c99">More...</a><br /></td></tr>
-<tr class="separator:a77b7d5604941bd5c500c08d1a55d9c99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a91533d0d79074f4ab4cd1a41d81b65ac"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_async_a_list.html#a91533d0d79074f4ab4cd1a41d81b65ac">at</a> (int i) const override</td></tr>
 <tr class="memdesc:a91533d0d79074f4ab4cd1a41d81b65ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the item on the ith position in the list.  <a href="#a91533d0d79074f4ab4cd1a41d81b65ac">More...</a><br /></td></tr>
 <tr class="separator:a91533d0d79074f4ab4cd1a41d81b65ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -244,6 +241,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a0e4ad9eb6d7cbb883a56f67589c65be9 inherit pro_methods_class_a_list"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#a0e4ad9eb6d7cbb883a56f67589c65be9">AList</a> (<a class="el" href="class_a_list.html">AList</a> &amp;&amp;list)</td></tr>
 <tr class="memdesc:a0e4ad9eb6d7cbb883a56f67589c65be9 inherit pro_methods_class_a_list"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the values from another list to the current instance.  <a href="class_a_list.html#a0e4ad9eb6d7cbb883a56f67589c65be9">More...</a><br /></td></tr>
 <tr class="separator:a0e4ad9eb6d7cbb883a56f67589c65be9 inherit pro_methods_class_a_list"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed835385dd63d707ed8cea1a68740b05 inherit pro_methods_class_a_list"><td class="memItemLeft" align="right" valign="top">virtual T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_list.html#aed835385dd63d707ed8cea1a68740b05">takeAt</a> (int i)</td></tr>
+<tr class="memdesc:aed835385dd63d707ed8cea1a68740b05 inherit pro_methods_class_a_list"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the item at the specified position and returns it.  <a href="class_a_list.html#aed835385dd63d707ed8cea1a68740b05">More...</a><br /></td></tr>
+<tr class="separator:aed835385dd63d707ed8cea1a68740b05 inherit pro_methods_class_a_list"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae086453da372d3f629edac5dd33c1abc"></a>
@@ -431,47 +431,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a77b7d5604941bd5c500c08d1a55d9c99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77b7d5604941bd5c500c08d1a55d9c99">&#9670;&nbsp;</a></span>at() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T &amp; <a class="el" href="class_async_a_list.html">AsyncAList</a>&lt; T &gt;::at </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the item on the ith position in the list. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">i</td><td>the position index of the item </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the reference to the item on the ith position </dd></dl>
-
-<p>Reimplemented from <a class="el" href="class_a_list.html#ae43013270783ff87b26c3dc559874681">AList&lt; T &gt;</a>.</p>
-
-</div>
-</div>
 <a id="a91533d0d79074f4ab4cd1a41d81b65ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91533d0d79074f4ab4cd1a41d81b65ac">&#9670;&nbsp;</a></span>at() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a91533d0d79074f4ab4cd1a41d81b65ac">&#9670;&nbsp;</a></span>at()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1415,7 +1376,7 @@ template&lt;class T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1428,8 +1389,6 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the item to take </dd></dl>
-
-<p>Reimplemented from <a class="el" href="class_a_list.html#a626da346e2e3fdbc42f14fa11926f79c">AList&lt; T &gt;</a>.</p>
 
 </div>
 </div>

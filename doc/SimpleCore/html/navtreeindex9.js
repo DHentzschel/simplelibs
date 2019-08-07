@@ -1,7 +1,5 @@
 var NAVTREEINDEX9 =
 {
-"classdate_1_1weekday.html#af367d6fede344b2b74e78ce59b3127c1":[2,0,1,12,17],
-"classdate_1_1weekday__indexed.html":[2,0,1,13],
 "classdate_1_1weekday__indexed.html#a2e7be193a460dc7b96589dbe8ed5aa57":[2,0,1,13,1],
 "classdate_1_1weekday__indexed.html#a3cdbc8a95d8b8650cf7c73fa092de370":[2,0,1,13,0],
 "classdate_1_1weekday__indexed.html#a5328075940e97b5f5ad717892935c15a":[2,0,1,13,2],
@@ -249,5 +247,7 @@ var NAVTREEINDEX9 =
 "classinternal_1_1_schema.html#a98043fca39adbf8b42e7472e3d80d6fa":[2,0,2,13,1],
 "classinternal_1_1_schema.html#a9ea269c3ca8099c2a14b6519fe34efb1":[2,0,2,13,3],
 "classinternal_1_1_schema.html#ab3a07540a27d4cc2b0e260290c5c5771":[2,0,2,13,7],
-"classinternal_1_1_schema.html#ab3d266cf235cf2f165952c0b8891a962":[2,0,2,13,13]
+"classinternal_1_1_schema.html#ab3d266cf235cf2f165952c0b8891a962":[2,0,2,13,13],
+"classinternal_1_1_schema.html#abd42af9c38c9a02cda760567751fb00f":[2,0,2,13,26],
+"classinternal_1_1_schema.html#abdd4db48f1b6deb7881777ddc539709a":[2,0,2,13,22]
 };
