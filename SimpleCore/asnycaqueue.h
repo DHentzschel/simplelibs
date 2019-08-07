@@ -6,13 +6,34 @@
 
 #include <mutex>
 
+/**
+ * This class implements the IQueue interface thread safely and an advanced queue data structure.
+ *
+ * @author Daniel Hentzschel on 07.08.2019.
+ */
 template <class T>
 class AsyncAQueue : protected AQueue<T> {
 public:
+	/**
+	  * Enqueues the specified element asyncronously to the queue.
+	  *
+	  * @param right the enqueuable template class
+	  */
 	void enqueue(const T& value) override;
 
+	/**
+	  * Dequeues the first element asyncronously from the queue and returns it.
+	  *
+	  * @param right the enqueuable template class
+	  * @return the first element
+	  */
 	T dequeue() override;
 
+	/**
+	  * Determines asyncronously whether the queue is empty and returns the result.
+	  *
+	  * @return whether the size of the list behind is empty
+	  */
 	bool isEmpty() override;
 
 private:
