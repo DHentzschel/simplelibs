@@ -8,7 +8,7 @@
  *
  * @author Daniel Hentzschel on 11.05.2019.
  */
-class Vector2d : public Vector2<double> {
+class SIMPLECORE_API Vector2d : public Vector2<double> {
 public:
 	/**
 	 * Sets the x and y values to zero.

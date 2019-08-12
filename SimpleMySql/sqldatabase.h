@@ -31,11 +31,8 @@ public:
 
 	SIMPLEMYSQL_API bool open() const;
 
-	SIMPLEMYSQL_API bool open(const AString& hostname,
-		ushort port,
-		const AString& username,
-		const AString& password,
-		const AString& databaseName) const;
+	SIMPLEMYSQL_API bool open(const AString& hostname, ushort port, const AString& username, 
+		const AString& password, const AString& databaseName) const;
 
 	SIMPLEMYSQL_API void switchDatabase(const AString&) const;
 
@@ -67,14 +64,11 @@ public:
 
 	SIMPLEMYSQL_API AString getLastError() const;
 
-	SIMPLEMYSQL_API static SqlDatabase
-		addDatabase(const AString& connectionName = defaultConnection);
+	SIMPLEMYSQL_API static SqlDatabase addDatabase(const AString& connectionName = defaultConnection);
 
-	SIMPLEMYSQL_API static void
-		removeDatabase(const AString& connectionName = defaultConnection);
+	SIMPLEMYSQL_API static void removeDatabase(const AString& connectionName = defaultConnection);
 
-	SIMPLEMYSQL_API static SqlDatabase*
-		database(const AString& connectionName = defaultConnection);
+	SIMPLEMYSQL_API static SqlDatabase* database(const AString& connectionName = defaultConnection);
 
 private:
 	SqlDatabasePrivate * private_;

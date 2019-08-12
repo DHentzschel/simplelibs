@@ -41,21 +41,15 @@ public:
 	SIMPLEMYSQL_API void printSqlError();
 
 private:
-    void addBindValue(int type,
-        void* buffer,
-        char isUnsigned = 0,
-        uint bufferLength = 0) const;
+	void addBindValue(int type, void* buffer, char isUnsigned = 0, uint bufferLength = 0) const;
 
-    std::shared_ptr<SqlTable> parseQuery() const;
+	std::shared_ptr<SqlTable> parseQuery() const;
 
-    void countRows(const AString& query) const;
+	void countRows(const AString& query) const;
 
-    void printSqlError(const char* file,
-        const char* function,
-        int line,
-        const char* reason = nullptr) const;
+	void printSqlError(const char* file, const char* function, int line, const char* reason = nullptr) const;
 
-    SqlQueryPrivate* private_;
+	SqlQueryPrivate* private_;
 };
 
 #endif   // SQLQUERY_H

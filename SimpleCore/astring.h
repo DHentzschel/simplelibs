@@ -10,6 +10,8 @@
 #include "stringvector.h"
 #include "simplecore.h"
 
+class ByteArray;
+
 class StringVector;
 
 /**

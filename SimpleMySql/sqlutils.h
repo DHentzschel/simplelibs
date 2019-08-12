@@ -6,14 +6,14 @@
 #include "simplemysql.h"
 
 class SqlUtils {
-  public:
+public:
 	SIMPLEMYSQL_API static enum_field_types getMySqlType(const AString& string);
 
 	SIMPLEMYSQL_API static short getMySqlLength(const AString& string);
 
-  private:
-    static bool startsWithEntry(const AString& string,
-                                const AVector<AString>& vector);
+private:
+	static bool startsWithEntry(const AString& string, const AVector<AString>& vector);
+
 };
 
 #endif   // SQLUTILS_H

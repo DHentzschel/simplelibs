@@ -14,6 +14,8 @@
 
 template<class T>
 class AList;
+
+#pragma warning (disable : 4251)
 /**
  * This class extends the std::vector class by auxiliary functions.
  *
@@ -23,7 +25,6 @@ template<class T>
 class AVector : public std::vector<T> {
 public:
 	using std::vector<T>::vector;
-
 	/**
 	 * Appends the specified item to the current vector.
 	 *
@@ -104,7 +105,7 @@ public:
 	 * @param value the value to count
 	 * @return the count of the specified item in the vector
 	 */
-	int64 count(const T& value) const;
+	int count(const T& value) const;
 
 	/**
 	 * Returns the first index of the item in vector which is equal to the specified item.
@@ -113,7 +114,7 @@ public:
 	 * @param value the value to find
 	 * @return the index of the first occurrence
 	 */
-	int64 firstIndexOf(const T& value) const;
+	int firstIndexOf(const T& value) const;
 
 	/**
 	 * Returns the first index of the item in vector which is equal to the specified item.
@@ -122,7 +123,7 @@ public:
 	 * @param value the value to find
 	 * @return the index of the first occurrence
 	 */
-	int64 indexOf(const T& value) const;
+	int indexOf(const T& value) const;
 
 	/**
 	 * Returns the last index of the first item in vector which is equal to the specified item.
@@ -131,7 +132,7 @@ public:
 	 * @param value the value to find
 	 * @return the index of the last occurrence
 	 */
-	int64 lastIndexOf(const T& value) const;
+	int lastIndexOf(const T& value) const;
 
 	/**
 	 * Replaces the item at the ith index by the specified value.
@@ -139,14 +140,14 @@ public:
 	 * @param i the index to replace
 	 * @param value the value to set
 	 */
-	void replace(int64 i, const T& value);
+	void replace(int i, const T& value);
 
 	/**
 	 * Removes the item at the ith index.
 	 *
 	 * @param i the index to remove
 	 */
-	void removeAt(int64 i);
+	void removeAt(int i);
 
 	/**
 	 * Removes the first item in vector.
@@ -191,7 +192,7 @@ public:
 	 * @param length the length to use
 	 * @return a vector copying the values of the current instance starting from position
 	 */
-	AVector<T> mid(int64 position, int64 length = -1) const;
+	AVector<T> mid(int position, int length = -1) const;
 
 	/**
 	 * Exchanges the item at index "from" with the item at index "to".
@@ -199,7 +200,7 @@ public:
 	 * @param from the first item
 	 * @param to the second item
 	 */
-	void move(int64 from, int64 to);
+	void move(int from, int to);
 
 	/**
 	 * Returns the reference to the first item in vector.
@@ -235,7 +236,7 @@ public:
 	 * @param i the index to take
 	 * @return the item at index i
 	 */
-	T takeAt(int64 i);
+	T takeAt(int i);
 
 	/**
 	 * Removes the first item and returns it.
@@ -267,6 +268,8 @@ public:
 private:
 	using vector_t = std::vector<T>;
 };
+
+#pragma warning (default : 4251)
 
 template<class T>
 using Vector = AVector<T>;
@@ -337,7 +340,7 @@ inline bool AVector<T>::contains(const T& value) const
 }
 
 template<class T>
-int64 AVector<T>::count(const T& value) const
+int AVector<T>::count(const T& value) const
 {
 	auto result = 0;
 	for (auto it = vector_t::begin(); it != vector_t::end(); ++it) {
@@ -349,13 +352,13 @@ int64 AVector<T>::count(const T& value) const
 }
 
 template<class T>
-int64 AVector<T>::firstIndexOf(const T& value) const
+int AVector<T>::firstIndexOf(const T& value) const
 {
 	return indexOf(value);
 }
 
 template<class T>
-int64 AVector<T>::indexOf(const T& value) const
+int AVector<T>::indexOf(const T& value) const
 {
 	for (auto i = 0; i != vector_t::size(); ++i) {
 		if (vector_t::operator[](i) == value) {
@@ -366,24 +369,24 @@ int64 AVector<T>::indexOf(const T& value) const
 }
 
 template<class T>
-int64 AVector<T>::lastIndexOf(const T& value) const
+int AVector<T>::lastIndexOf(const T& value) const
 {
 	for (auto i = vector_t::size() - 1; i >= 0 && i < vector_t::size(); --i) {
 		if (vector_t::operator[](i) == value) {
 			return i;
 		}
 	}
-	return static_cast<int64>(-1);
+	return static_cast<int>(-1);
 }
 
 template<class T>
-void AVector<T>::replace(int64 i, const T& value)
+void AVector<T>::replace(int i, const T& value)
 {
 	vector_t::data()[i] = value;
 }
 
 template<class T>
-void AVector<T>::removeAt(int64 i)
+void AVector<T>::removeAt(int i)
 {
 	vector_t::erase(vector_t::begin() + i);
 }
@@ -446,14 +449,14 @@ void AVector<T>::removeAll(const T& value)
 }
 
 template<class T>
-AVector<T> AVector<T>::mid(int64 position, int64 length) const
+AVector<T> AVector<T>::mid(int position, int length) const
 {
 	if (vector_t::size() == 0) {
 		return AVector<T>();
 	}
 
 	AVector<T> result;
-	int64 limit = length == -1 ? vector_t::size() : position + length;
+	int limit = length == -1 ? vector_t::size() : position + length;
 	const auto itEnd = vector_t::begin() + limit;
 	for (auto it = vector_t::begin() + position; it != itEnd; ++it) {
 		result.append(*it);
@@ -462,7 +465,7 @@ AVector<T> AVector<T>::mid(int64 position, int64 length) const
 }
 
 template<class T>
-void AVector<T>::move(int64 from, int64 to)
+void AVector<T>::move(int from, int to)
 {
 	if (vector_t::size() >= 0) {
 		T copyFrom = vector_t::operator[](from);
@@ -509,7 +512,7 @@ const T& AVector<T>::last() const
 }
 
 template<class T>
-T AVector<T>::takeAt(int64 i)
+T AVector<T>::takeAt(int i)
 {
 	T result = vector_t::operator[](i);
 	removeAt(i);

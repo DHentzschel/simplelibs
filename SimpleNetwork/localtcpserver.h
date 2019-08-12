@@ -1,6 +1,7 @@
 #ifndef LOCALTCPSERVER_H
 #define LOCALTCPSERVER_H
 
+#include <astring.h>
 #include "tcpserver.h"
 
 /**

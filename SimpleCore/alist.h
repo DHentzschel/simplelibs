@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "avector.h"
+#include "simplecore.h"
 
 template<class T>
 class AVector;
@@ -35,14 +36,14 @@ public:
 	 *
 	 * @param list the list to copy from
 	 */
-	AList(const AList& list);
-
+	AList(const AList<T>& list);
+	
 	/**
 	 * Moves the values from another list to the current instance.
 	 *
 	 * @param list the list to move from
 	 */
-	AList(AList&& list);
+	AList(AList<T>&& list) noexcept;
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -58,7 +59,7 @@ public:
 	 * @param i the position index of the item
 	 * @return the reference to the item on the ith position
 	 */
-	SIMPLECORE_API virtual T& operator[](int i);
+	virtual T& operator[](int i);
 
 	/**
 	 * Returns the item on the ith position in the list.
@@ -310,13 +311,13 @@ inline AList<T>::AList(int64 size) :
 {}
 
 template<class T>
-AList<T>::AList(const AList& vector) :
+AList<T>::AList(const AList<T>& vector) :
 	list_t(vector)
 {}
 
 template<class T>
-AList<T>::AList(AList&& vector) :
-	list_t(vector)
+AList<T>::AList(AList<T>&& vector) noexcept :
+	list_t(vector) 
 {}
 
 template<class T>

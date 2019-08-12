@@ -8,7 +8,7 @@
  *
  * @author Daniel Hentzschel on 11.05.2019.
  */
-class Vector2i : public Vector2<float> {
+class SIMPLECORE_API Vector2i : public Vector2<float> {
 public:
 	/**
 	 * Sets the x and y values to zero.

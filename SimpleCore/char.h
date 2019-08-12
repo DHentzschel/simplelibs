@@ -1,6 +1,8 @@
 #ifndef CHAR_H
 #define CHAR_H
 
+#include "simplecore.h"
+
 /**
  * These functions are used as auxiliary functions for characters.
  *

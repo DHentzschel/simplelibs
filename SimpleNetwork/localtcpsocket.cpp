@@ -3,10 +3,10 @@
 #include <chrono>
 #include <thread>
 #include <WS2tcpip.h>
-
+#include <astring.h>
 #include <functions.h>
 
-#include "logger.h"
+#include <logger.h>
 #include "tcpclienteventlistener.h"
 
 #pragma comment(lib, "ws2_32.lib")

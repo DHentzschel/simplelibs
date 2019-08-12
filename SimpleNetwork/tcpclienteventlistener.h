@@ -18,12 +18,12 @@ public:
 	 *
 	 * @param socket the pointer to the TcpSocket to listen for
 	 */
-	SIMPLENETWORK_API explicit TcpClientEventListener(TcpSocket* socket);
+	explicit TcpClientEventListener(TcpSocket* socket);
 
 	/**
 	 * Joins the thread to the main thread.
 	 */
-	SIMPLENETWORK_API void join();
+	void join();
 private:
 	std::thread thread_;
 

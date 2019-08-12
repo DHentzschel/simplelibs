@@ -19,12 +19,12 @@ public:
 	 *
 	 * @param server the pointer to the TcpServer to listen for
 	 */
-	SIMPLENETWORK_API explicit TcpServerEventListener(TcpServer* server);
+	explicit TcpServerEventListener(TcpServer* server);
 
 	/**
 	 * Joins the thread to the main thread.
 	 */
-	SIMPLENETWORK_API void join();
+	void join();
 
 private:
 	std::thread thread_;

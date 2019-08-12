@@ -23,6 +23,7 @@ public:
 	{
 		/* Testing relative path. All relative paths will be concatenated at the end with the sub path of the VS test unit */
 		Dir dir("test");
+		auto result = dir.getPath().contains("/COMMON7/IDE/EXTENSIONS/TESTPLATFORM", false);
 		Assert::IsTrue(dir.getPath().contains("/COMMON7/IDE/EXTENSIONS/TESTPLATFORM", false));
 	}
 

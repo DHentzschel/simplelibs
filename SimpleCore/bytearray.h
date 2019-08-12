@@ -3,6 +3,8 @@
 
 #include "avector.h"
 
+template<class T>
+class AVector;
 /**
  * This class is used for storing bytes in a vector.
  *

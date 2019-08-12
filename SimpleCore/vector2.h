@@ -9,7 +9,7 @@
  * @author Daniel Hentzschel on 11.05.2019.
  */
 template<class T>
-class Vector2 {
+class SIMPLECORE_API Vector2 {
 public:
 	/** The first value of the vector */
 	T x;

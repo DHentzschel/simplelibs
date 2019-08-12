@@ -4,9 +4,9 @@
 #include <WinSock2.h>
 
 #include "simplenetwork.h"
-#include "astring.h"
+#include <astring.h>
 #include "tcpsocket.h"
-#include "types.h"
+#include <types.h>
 
 class TcpServerEventListener;
 

@@ -288,7 +288,9 @@ namespace Blake1_224_NS
 
 	constexpr Blake1_224& Blake1_224::finalize()
 	{
-		const uint64_t sizeCounterBits = (m_sizeCounter + (m_buffer.size() * 8));
+#pragma warning (disable : 26451)
+		const uint64_t sizeCounterBits = (m_sizeCounter + (m_buffer.size() * static_cast<size_t>(8)));
+#pragma warning (default : 26451)
 		const uint32_t sizeCounterBitsL = ror<uint32_t>(sizeCounterBits, 0);
 		const uint32_t sizeCounterBitsH = ror<uint32_t>(sizeCounterBits, 32);
 

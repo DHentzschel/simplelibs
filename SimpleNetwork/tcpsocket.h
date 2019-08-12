@@ -140,7 +140,7 @@ protected:
 	/**
 	 * Terminates the clientEventListener thread.
 	 */
-	void terminate() const;
+	SIMPLENETWORK_API void terminate() const;
 
 private:
 	/** The stopwatch instance of the socket */

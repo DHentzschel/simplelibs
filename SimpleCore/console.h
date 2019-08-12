@@ -83,7 +83,7 @@ public:
 private:
 	static Console consoleInitializer_;
 
-#ifdef OS_WIN32
+#ifdef OS_WIN
 	static CONSOLE_SCREEN_BUFFER_INFO consoleBufferInfo_;
 
 	static HANDLE inputHandle_;
@@ -96,7 +96,7 @@ private:
 	 * Initializes the console mode and sets the some default stuff.
 	 */
 	static void setControlEventHandler();
-#endif // OS_WIN32
+#endif // OS_WIN
 };
 
 #endif // CONSOLE_H

@@ -41,6 +41,7 @@ void Dir::setPath(const AString& path)
 bool Dir::create(const bool overrideIfExisting) const
 {
 #ifdef OS_WIN
+	auto created = false;
 	auto dirParts = path_.split('/');
 	AString tempDirString;
 	for (auto& part : dirParts) {
@@ -56,8 +57,8 @@ bool Dir::create(const bool overrideIfExisting) const
 		if (!tempDir.exists()) {
 			if (!static_cast<bool>(CreateDirectoryA(tempDirString.toCString(), nullptr))) {
 				Logger::error("Couldn't create " + tempDirString);
+				return false;
 			}
-			return true;
 		}
 	}
 
@@ -68,7 +69,7 @@ bool Dir::create(const bool overrideIfExisting) const
 		}
 		removed = erase(true);
 	}
-	return removed && static_cast<bool>(CreateDirectoryA(path_.toCString(), nullptr));
+	return created || removed && static_cast<bool>(CreateDirectoryA(path_.toCString(), nullptr));
 #elif defined OS_LINUX
 	return false;
 #endif // OS_LINUX
