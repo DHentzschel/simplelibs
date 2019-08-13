@@ -298,7 +298,7 @@ private:
 	*/
 	static int64 getDaysCountUntil(byte month, bool leapYear);
 
-	static std::tm* getTmNow();
+	static std::tm* getTm(std::time_t* timestamp = nullptr);
 };
 
 #endif // DATETIME_H
