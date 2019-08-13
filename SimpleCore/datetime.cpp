@@ -409,14 +409,15 @@ void DateTime::calculateUnixTimestamp()
 
 int64 DateTime::getDaysCountUntil(byte month, bool leapYear)
 {
-    int64 daysResult = 0;
-    for (char i = month - 2; i >= 0; --i) {
-        daysResult += monthDays_[i];
-        if (i == 1 && leapYear) {
-            daysResult += 1;
-        }
-    }
-    return daysResult;
+	int64 daysResult = 0;
+	for (char i = month - 2; i >= 0; --i) {
+		daysResult += monthDays_[i];
+		if (i == 1 && leapYear) {
+			daysResult += 1;
+		}
+	}
+	return daysResult;
+}
 
 std::tm* DateTime::getTmNow()
 {
