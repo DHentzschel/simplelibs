@@ -477,9 +477,6 @@
     <ClInclude Include="encryption.h">
       <Filter>src\Encryption</Filter>
     </ClInclude>
-    <ClInclude Include="date\date.h">
-      <Filter>src\DateTime</Filter>
-    </ClInclude>
     <ClInclude Include="osdetection.h">
       <Filter>src\General\OsDetection</Filter>
     </ClInclude>

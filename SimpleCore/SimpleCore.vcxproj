@@ -191,7 +191,6 @@
     <ClInclude Include="consolecolor.h" />
     <ClInclude Include="datetime.h" />
     <ClInclude Include="datetimeinfo.h" />
-    <ClInclude Include="date\date.h" />
     <ClInclude Include="dir.h" />
     <ClInclude Include="directory.h" />
     <ClInclude Include="file.h" />
