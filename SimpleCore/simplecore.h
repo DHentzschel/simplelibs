@@ -10,7 +10,7 @@
 #    define SIMPLECORE_API __declspec(dllimport)
 #  endif
 #elif defined(OS_LINUX)
-#    define SIMPLECORE_API extern
+#    define SIMPLECORE_API
 #endif // OS_LINUX
 
 #ifdef SIMPLECORE_TEST

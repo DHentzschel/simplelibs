@@ -492,9 +492,11 @@
     <ClInclude Include="aqueue.h">
       <Filter>src\AdvancedSTL\Queue</Filter>
     </ClInclude>
-    <ClInclude Include="asyncalist.h" />
     <ClInclude Include="simplecore.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="asyncalist.h">
+      <Filter>src\AdvancedSTL\List</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

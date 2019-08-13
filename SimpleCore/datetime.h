@@ -297,6 +297,8 @@ private:
 	* @return the count of days until
 	*/
 	static int64 getDaysCountUntil(byte month, bool leapYear);
+
+	static std::tm* getTmNow();
 };
 
 #endif // DATETIME_H

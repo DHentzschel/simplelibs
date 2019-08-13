@@ -2,6 +2,7 @@
 
 #include "char.h"
 #include "date/date.h"
+#include "osdetection.h"
 
 DateTime DateTime::dateTimeInitializer_;
 
@@ -28,34 +29,28 @@ DateTime::DateTime(const AString& string) :
 
 DateTime DateTime::now()
 {
-    char buffer[20];
-    time_t timeNow = time(nullptr);
-    std::tm tm;
-    localtime_s(&tm, &timeNow);
-    strftime(buffer, sizeof buffer, "%d.%m.%Y %H:%M:%S", &tm);
-    DateTime dateTime;
-    dateTime.parse(AString(buffer));
-    return dateTime;
+	char buffer[20];
+	auto tm = getTmNow();
+	std::strftime(buffer, sizeof buffer, "%d.%m.%Y %H:%M:%S", tm);
+	DateTime dateTime;
+	dateTime.parse(buffer);
+	return dateTime;
 }
 
 AString DateTime::getDatestamp()
 {
-    char buffer[11];
-    time_t timeNow_ = time(nullptr);
-    std::tm tm;
-    localtime_s(&tm, &timeNow_);
-    strftime(buffer, sizeof buffer, "%d.%m.%Y", &tm);
-    return AString(buffer);
+	char buffer[11];
+	auto tm = getTmNow();
+	std::strftime(buffer, sizeof buffer, "%d.%m.%Y", tm);
+	return buffer;
 }
 
 AString DateTime::getTimestamp()
 {
-    char buffer[9];
-    time_t timeNow = time(nullptr);
-    std::tm tm;
-    localtime_s(&tm, &timeNow);
-    strftime(buffer, sizeof buffer, "%H:%M:%S", &tm);
-    return buffer;
+	char buffer[9];
+	auto tm = getTmNow();
+	std::strftime(buffer, sizeof buffer, "%H.%M.%S", tm);
+	return buffer;
 }
 
 AString DateTime::getCurrentTimestamp()
@@ -422,4 +417,17 @@ int64 DateTime::getDaysCountUntil(byte month, bool leapYear)
         }
     }
     return daysResult;
+
+std::tm* DateTime::getTmNow()
+{
+	std::tm* tm = nullptr;
+	std::time_t timeNow = time(nullptr);
+#ifdef OS_WIN
+#  pragma warning (disable : 6001)
+	localtime_s(tm, &timeNow);
+#  pragma warning (default : 6001)
+#elif defined (OS_LINUX) 
+	tm = std::localtime(&timeNow);
+#endif // OS_LINUX
+	return tm;
 }
