@@ -3,9 +3,11 @@
 #include "osdetection.h"
 
 #ifdef OS_WIN
-#include <ShlObj.h>
-#include <Windows.h>
+# include <ShlObj.h>
+# include <Windows.h>
 #elif defined (OS_LINUX) 
+# include <unistd.h>
+# include <limits.h>  
 #endif // OS_LINUX
 
 #include "console.h"
@@ -156,6 +158,13 @@ AString Dir::getDir(Directory directory)
 	SHGetFolderPath(nullptr, static_cast<int>(directory), nullptr, 0, buffer);
 	return AString(buffer);
 #elif defined OS_LINUX
-	return false;
+	if (directory == Directory::CurrentApplication) {
+		char buffer[PATH_MAX];
+		auto result = getcwd(buffer, sizeof buffer);
+		if (result != nullptr) {
+			return buffer;
+		}
+	}
+	return AString();
 #endif // OS_LINUX
 }

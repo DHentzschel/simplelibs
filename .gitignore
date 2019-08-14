@@ -512,3 +512,6 @@ glm/
 !doc/*
 !doc/
 /.metadata/
+
+*/.vscode/
+*/.vscode/*

@@ -22,8 +22,8 @@ void Logger::prepareLogFile(const AString& path)
 
 void Logger::print(const AString & text,
 	bool newLine,
-	ConsoleColor color,
-	ConsoleColor backgroundColor)
+	ConsoleColor::Type color,
+	ConsoleColor::Type backgroundColor)
 {
 	Console::print(text, newLine, color, backgroundColor);
 	if (file_.isOpen()) {
@@ -33,8 +33,8 @@ void Logger::print(const AString & text,
 
 void Logger::debug(const AString & text,
 	bool newLine,
-	ConsoleColor color,
-	ConsoleColor backgroundColor)
+	ConsoleColor::Type color,
+	ConsoleColor::Type backgroundColor)
 {
 	printPrefix(LogType::Debug);
 	print(text, newLine, color, backgroundColor);
@@ -42,8 +42,8 @@ void Logger::debug(const AString & text,
 
 void Logger::info(const AString & text,
 	bool newLine,
-	ConsoleColor color,
-	ConsoleColor backgroundColor)
+	ConsoleColor::Type color,
+	ConsoleColor::Type backgroundColor)
 {
 	printPrefix(LogType::Info);
 	print(text, newLine, color, backgroundColor);
@@ -51,8 +51,8 @@ void Logger::info(const AString & text,
 
 void Logger::error(const AString & text,
 	bool newLine,
-	ConsoleColor color,
-	ConsoleColor backgroundColor)
+	ConsoleColor::Type color,
+	ConsoleColor::Type backgroundColor)
 {
 	printPrefix(LogType::Error);
 	print(text, newLine, color, backgroundColor);
@@ -60,8 +60,8 @@ void Logger::error(const AString & text,
 
 void Logger::warn(const AString & text,
 	bool newLine,
-	ConsoleColor color,
-	ConsoleColor backgroundColor)
+	ConsoleColor::Type color,
+	ConsoleColor::Type backgroundColor)
 {
 	printPrefix(LogType::Warn);
 	print(text, newLine, color, backgroundColor);
@@ -73,7 +73,7 @@ void Logger::printPrefix(LogType type)
 	Console::print(string, false);
 	if (type == LogType::Debug) {
 		const auto label = " DBG";
-		Console::print(label, false, ConsoleColor::Turquoise);
+		Console::print(label, false, ConsoleColor::Cyan);
 		string += label;
 	}
 	else if (type == LogType::Info) {

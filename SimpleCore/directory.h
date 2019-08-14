@@ -1,6 +1,8 @@
 #ifndef DIRECTORY_H
 #define DIRECTORY_H
 
+#include "osdetection.h"
+#ifdef OS_WIN
 #include <ShlObj.h>
 
 /**
@@ -8,7 +10,6 @@
  *
  * @author Daniel Hentzschel on 11.05.2019.
  */
-#ifdef OS_WIN
 enum class Directory {
 	/** The current directory of the executable */
 	CurrentApplication = -1,
@@ -155,7 +156,8 @@ enum class Directory {
 };
 #elif defined(OS_LINUX)
 enum class Directory {
-}
+	CurrentApplication
+};
 #endif // OS_LINUX
 
 #endif // !DIRECTORY_H
