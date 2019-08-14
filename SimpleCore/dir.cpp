@@ -1,14 +1,16 @@
 #include "dir.h"
 
 #include "osdetection.h"
-
+#include <filesystem>
 #ifdef OS_WIN
-# include <ShlObj.h>
-# include <Windows.h>
-#elif defined (OS_LINUX) 
-# include <unistd.h>
-# include <limits.h>  
-#endif // OS_LINUX
+#  include <ShlObj.h>
+#  include <Windows.h>
+#elif defined OS_LINUX || defined OS_UNIX
+#  include <unistd.h>
+#  include <limits.h>
+#  include <sys/stat.h>
+#  include <dirent.h> 
+#endif // OS_LINUX || OS_UNIX
 
 #include "console.h"
 #include "logger.h"
@@ -42,7 +44,6 @@ void Dir::setPath(const AString& path)
 
 bool Dir::create(const bool overrideIfExisting) const
 {
-#ifdef OS_WIN
 	auto created = false;
 	auto dirParts = path_.split('/');
 	AString tempDirString;
@@ -57,7 +58,14 @@ bool Dir::create(const bool overrideIfExisting) const
 		}
 		auto tempDir = Dir(tempDirString);
 		if (!tempDir.exists()) {
-			if (!static_cast<bool>(CreateDirectoryA(tempDirString.toCString(), nullptr))) {
+			bool result = false;
+#ifdef OS_WIN
+			result = static_cast<bool>(CreateDirectoryA(tempDirString.toCString(), nullptr));
+#elif defined OS_LINUX || defined OS_UNIX
+			result = mkdir(tempDirString.toCString(), 
+				S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) != -1;
+#endif // OS_LINUX || OS_UNIX
+			if (!result) {
 				Logger::error("Couldn't create " + tempDirString);
 				return false;
 			}
@@ -71,10 +79,17 @@ bool Dir::create(const bool overrideIfExisting) const
 		}
 		removed = erase(true);
 	}
-	return created || removed && static_cast<bool>(CreateDirectoryA(path_.toCString(), nullptr));
-#elif defined OS_LINUX
-	return false;
-#endif // OS_LINUX
+
+	bool result = false;
+	if (!created) {
+#ifdef OS_WIN
+		result = static_cast<bool>(CreateDirectoryA(path_.toCString(), nullptr));
+#elif defined OS_LINUX || defined OS_UNIX
+		result = mkdir(tempDirString.toCString(), 
+			S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) != -1;
+#endif // OS_LINUX || defined OS_UNIX
+	}
+	return created || (removed && result);
 }
 
 bool Dir::create(const AString& getPath, const bool overrideIfExisting)
@@ -85,13 +100,11 @@ bool Dir::create(const AString& getPath, const bool overrideIfExisting)
 bool Dir::exists() const
 {
 #ifdef OS_WIN
-	if (path_.isEmpty()) {
-		Logger::error(AString(__FUNCTION__) + " failed, path is empty.");
-	}
-	const auto attributes = GetFileAttributesA(path_.c_str());
+	const auto attributes = GetFileAttributesA(path_.toCString());
 	return attributes != 0xFFFFFFFF && (attributes & FILE_ATTRIBUTE_DIRECTORY);
 #elif defined OS_LINUX
-	return false;
+	DIR *dir = opendir(path_.toCString());
+	return dir != nullptr;
 #endif // OS_LINUX
 }
 
@@ -102,7 +115,11 @@ bool Dir::exists(const AString& path)
 
 bool Dir::erase(const bool recursively) const
 {
-#ifdef OS_WIN
+	if (recursively) {
+		return std::filesystem::remove_all(path_.toStdString()) > 0;
+	}
+	return std::filesystem::remove(path_.toStdString());
+	/*
 	if (recursively) {
 		const auto length = path_.size() + 2;
 
@@ -114,6 +131,7 @@ bool Dir::erase(const bool recursively) const
 			str[i] = cstr[i];
 		}
 
+#ifdef OS_WIN
 		SHFILEOPSTRUCT fileOp = { nullptr, FO_DELETE, str.data(), "", FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_SILENT,
 								  false, nullptr, "" };
 		return !SHFileOperationA(&fileOp);
@@ -122,6 +140,7 @@ bool Dir::erase(const bool recursively) const
 #elif defined(OS_LINUX)
 	return false;
 #endif // OS_LINUX
+*/
 }
 
 bool Dir::erase(const AString& path, const bool recursively)
@@ -148,9 +167,9 @@ const AVector<std::filesystem::directory_entry>& Dir::getFiles()
 
 AString Dir::getDir(Directory directory)
 {
-#ifdef OS_WIN
-	char buffer[_MAX_PATH + 1];
 	if (directory == Directory::CurrentApplication) {
+#ifdef OS_WIN
+		char buffer[_MAX_PATH + 1];
 		GetModuleFileName(nullptr, buffer, _MAX_PATH);
 		auto string = AString(buffer);
 		string = string.left(static_cast<uint>(string.lastIndexOf('\\')));
@@ -158,8 +177,7 @@ AString Dir::getDir(Directory directory)
 	}
 	SHGetFolderPath(nullptr, static_cast<int>(directory), nullptr, 0, buffer);
 	return AString(buffer);
-#elif defined OS_LINUX
-	if (directory == Directory::CurrentApplication) {
+#elif defined OS_LINUX || defined OS_UNIX
 		char buffer[PATH_MAX];
 		auto result = getcwd(buffer, sizeof buffer);
 		if (result != nullptr) {
@@ -167,5 +185,5 @@ AString Dir::getDir(Directory directory)
 		}
 	}
 	return AString();
-#endif // OS_LINUX
+#endif // OS_LINUX || OS_UNIX
 }

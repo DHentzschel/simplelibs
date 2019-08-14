@@ -55,7 +55,7 @@ bool File::create(const AString& filepath, const bool recursively)
 
 bool File::erase() const
 {
-	return !remove(filepath_.toCString());
+	return !::remove(filepath_.toCString());
 }
 
 bool File::erase(const AString& filepath)

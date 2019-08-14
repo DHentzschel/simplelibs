@@ -426,8 +426,8 @@ std::tm* DateTime::getTm(std::time_t* timestamp)
 #  pragma warning (disable : 6001)
 	localtime_s(tm, &timeNow);
 #  pragma warning (default : 6001)
-#elif defined (OS_LINUX) 
+#else
 	tm = std::localtime(&timeNow);
-#endif // OS_LINUX
+#endif // !OS_WIN
 	return tm;
 }

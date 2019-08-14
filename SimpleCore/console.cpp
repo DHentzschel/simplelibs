@@ -8,7 +8,7 @@ CONSOLE_SCREEN_BUFFER_INFO Console::consoleBufferInfo_;
 HANDLE Console::inputHandle_;
 
 HANDLE Console::outputHandle_;
-#elif defined (OS_LINUX) || defined (OS_UNIX)
+#elif defined OS_LINUX || defined OS_UNIX
 # include <sys/ioctl.h> 
 #endif // OS_LINUX || OS_UNIX
 
@@ -37,7 +37,7 @@ void Console::print(const AString& string,
 	if (colorChanged) {
 #ifdef OS_WIN
 		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color) + static_cast<int>(tempBackgroundColor) * 16);
-#elif defined (OS_LINUX) || defined (OS_UNIX)
+#elif defined OS_LINUX || defined OS_UNIX
 		std::cout << "\033[0" << ';' << color << ';' << backgroundColor + 10 << 'm';
 #endif // OS_LINUX || OS_UNIX
 	}
@@ -51,7 +51,7 @@ void Console::print(const AString& string,
 	if (colorChanged) {
 #ifdef OS_WIN
 		SetConsoleTextAttribute(outputHandle_, defaultColor_);
-#elif defined (OS_LINUX) || defined (OS_UNIX)
+#elif defined OS_LINUX || defined OS_UNIX
 		std::cout << "\033[0m";
 #endif // OS_LINUX || OS_UNIX
 	}
@@ -93,7 +93,7 @@ void Console::setConsoleTitle(const AString & title)
 {
 #ifdef OS_WIN
 	SetConsoleTitleA(title.c_str());
-#elif defined (OS_LINUX) || defined (OS_UNIX) 
+#elif defined OS_LINUX || defined OS_UNIX
 	std::cout << "\033]0;" << title << "\007";
 #endif // OS_LINUX || OS_UNIX
 }
