@@ -34,6 +34,12 @@
 // THL A29 Limited ("Tencent Modifications"). 
 // All Tencent Modifications are Copyright (C) 2015 THL A29 Limited.
 
+#ifndef INTTYPES_H
+#define INTTYPES_H
+
+#include "..//..//osdetection.h"
+
+#ifdef OS_WIN
 #ifndef _MSC_VER // [
 #error "Use this header only with Microsoft Visual C++ compilers!"
 #endif // _MSC_VER ]
@@ -314,3 +320,9 @@ imaxdiv_t __cdecl imaxdiv(intmax_t numer, intmax_t denom)
 #endif // _MSC_VER >= 1800
 
 #endif // _MSC_INTTYPES_H_ ]
+
+#elif defined(OS_LINUX)
+#error "Use this header only with Microsoft Visual C++ compilers!"
+#endif // OS_LINUX
+
+#endif // !INTTYPES_H
