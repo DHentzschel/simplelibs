@@ -277,6 +277,9 @@ private:
 #  pragma warning (default : 4251)
 #endif // OS_WIN
 
+template <class T>
+using Vector = AVector<T>;
+
 template<class T>
 void AVector<T>::append(const T& value)
 {

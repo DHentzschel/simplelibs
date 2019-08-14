@@ -62,7 +62,7 @@ bool Dir::create(const bool overrideIfExisting) const
 #ifdef OS_WIN
 			result = static_cast<bool>(CreateDirectoryA(tempDirString.toCString(), nullptr));
 #elif defined OS_LINUX || defined OS_UNIX
-			result = mkdir(tempDirString.toCString(), 
+			result = mkdir(tempDirString.toCString(),
 				S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) != -1;
 #endif // OS_LINUX || OS_UNIX
 			if (!result) {
@@ -85,7 +85,7 @@ bool Dir::create(const bool overrideIfExisting) const
 #ifdef OS_WIN
 		result = static_cast<bool>(CreateDirectoryA(path_.toCString(), nullptr));
 #elif defined OS_LINUX || defined OS_UNIX
-		result = mkdir(tempDirString.toCString(), 
+		result = mkdir(tempDirString.toCString(),
 			S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH) != -1;
 #endif // OS_LINUX || defined OS_UNIX
 	}
@@ -103,7 +103,7 @@ bool Dir::exists() const
 	const auto attributes = GetFileAttributesA(path_.toCString());
 	return attributes != 0xFFFFFFFF && (attributes & FILE_ATTRIBUTE_DIRECTORY);
 #elif defined OS_LINUX
-	DIR *dir = opendir(path_.toCString());
+	DIR* dir = opendir(path_.toCString());
 	return dir != nullptr;
 #endif // OS_LINUX
 }
@@ -167,9 +167,9 @@ const AVector<std::filesystem::directory_entry>& Dir::getFiles()
 
 AString Dir::getDir(Directory directory)
 {
-	if (directory == Directory::CurrentApplication) {
 #ifdef OS_WIN
-		char buffer[_MAX_PATH + 1];
+	char buffer[_MAX_PATH + 1];
+	if (directory == Directory::CurrentApplication) {
 		GetModuleFileName(nullptr, buffer, _MAX_PATH);
 		auto string = AString(buffer);
 		string = string.left(static_cast<uint>(string.lastIndexOf('\\')));
@@ -178,7 +178,8 @@ AString Dir::getDir(Directory directory)
 	SHGetFolderPath(nullptr, static_cast<int>(directory), nullptr, 0, buffer);
 	return AString(buffer);
 #elif defined OS_LINUX || defined OS_UNIX
-		char buffer[PATH_MAX];
+	char buffer[PATH_MAX];
+	if (directory == Directory::CurrentApplication) {
 		auto result = getcwd(buffer, sizeof buffer);
 		if (result != nullptr) {
 			return buffer;
