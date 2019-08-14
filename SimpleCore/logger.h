@@ -32,13 +32,13 @@ public:
 	 *
 	 * @param text the text to print
 	 * @param newLine whether there should be a new line appended
-	 * @param color the foreground color of the text (default is Turquoise)
+	 * @param color the foreground color of the text (default is Cyan)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
 	SIMPLECORE_API static void print(const AString& text,
 		bool newLine = true,
-		ConsoleColor color = ConsoleColor::Turquoise,
-		ConsoleColor backgroundColor = ConsoleColor::Black);
+		ConsoleColor::Type color = ConsoleColor::Type::Cyan,
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
 
 	/**
 	 * Prints debug text to the console.
@@ -46,13 +46,13 @@ public:
 	 *
 	 * @param text the text to print
 	 * @param newLine whether there should be a new line appended
-	 * @param color the foreground color of the text (default is Turquoise)
+	 * @param color the foreground color of the text (default is Cyan)
 	 * @param backgroundColor the background color of the text (default is Black)
 	 */
 	SIMPLECORE_API static void debug(const AString& text,
 		bool newLine = true,
-		ConsoleColor color = ConsoleColor::Turquoise,
-		ConsoleColor backgroundColor = ConsoleColor::Black);
+		ConsoleColor::Type color = ConsoleColor::Type::Cyan,
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
 
 	/**
 	 * Prints information text to the console.
@@ -65,8 +65,8 @@ public:
 	 */
 	SIMPLECORE_API static void info(const AString& text,
 		bool newLine = true,
-		ConsoleColor color = ConsoleColor::LightGray,
-		ConsoleColor backgroundColor = ConsoleColor::Black);
+		ConsoleColor::Type color = ConsoleColor::Type::LightGray,
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
 
 	/**
 	 * Prints error text to the console.
@@ -79,8 +79,8 @@ public:
 	 */
 	SIMPLECORE_API static void error(const AString& text,
 		bool newLine = true,
-		ConsoleColor color = ConsoleColor::LightGray,
-		ConsoleColor backgroundColor = ConsoleColor::Black);
+		ConsoleColor::Type color = ConsoleColor::Type::LightGray,
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
 
 	/**
 	 * Prints warning text to the console.
@@ -93,8 +93,8 @@ public:
 	 */
 	SIMPLECORE_API static void warn(const AString& text,
 		bool newLine = true,
-		ConsoleColor color = ConsoleColor::LightGray,
-		ConsoleColor backgroundColor = ConsoleColor::Black);
+		ConsoleColor::Type color = ConsoleColor::Type::LightGray,
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
 
 private:
 	static File file_;

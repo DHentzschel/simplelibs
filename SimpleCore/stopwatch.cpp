@@ -1,6 +1,6 @@
 #include "stopwatch.h"
 
-Stopwatch::TimePoint Stopwatch::startupTime_ = std::chrono::high_resolution_clock::now();
+Stopwatch::TimePoint Stopwatch::startupTime_ = std::chrono::steady_clock::now();
 
 Stopwatch::Stopwatch()
 {
@@ -9,7 +9,7 @@ Stopwatch::Stopwatch()
 
 void Stopwatch::restart()
 {
-    time_ = std::chrono::high_resolution_clock::now();
+    time_ = std::chrono::steady_clock::now();
 }
 
 std::chrono::duration<float, std::milli> Stopwatch::getElapsedSystemTimeInSeconds()
@@ -24,15 +24,15 @@ std::chrono::duration<float, std::milli> Stopwatch::getElapsedTimeInSeconds() co
 
 std::chrono::duration<float, std::milli> Stopwatch::getElapsedSystemTimeInMillis()
 {
-    return std::chrono::duration_cast<std::chrono::duration<float, std::milli>>(std::chrono::high_resolution_clock::now() - startupTime_);
+    return std::chrono::duration_cast<std::chrono::duration<float, std::milli>>(std::chrono::steady_clock::now() - startupTime_);
 }
 
 std::chrono::duration<float, std::milli> Stopwatch::getElapsedTimeInMillis() const
 {
-    return std::chrono::duration_cast<std::chrono::duration<float, std::milli>>(std::chrono::high_resolution_clock::now() - time_);
+    return std::chrono::duration_cast<std::chrono::duration<float, std::milli>>(std::chrono::steady_clock::now() - time_);
 }
 
 std::chrono::time_point<std::chrono::steady_clock> Stopwatch::getSystemTimeInSeconds()
 {
-    return std::chrono::high_resolution_clock::now();
+    return std::chrono::steady_clock::now();
 }

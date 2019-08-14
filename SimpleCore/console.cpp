@@ -2,46 +2,44 @@
 
 #include <iostream>
 
-Console Console::consoleInitializer_ = Console();
-
-#ifdef OS_WIN32
+#ifdef OS_WIN
 CONSOLE_SCREEN_BUFFER_INFO Console::consoleBufferInfo_;
 
 HANDLE Console::inputHandle_;
 
 HANDLE Console::outputHandle_;
+#elif defined (OS_LINUX) || defined (OS_UNIX)
+# include <sys/ioctl.h> 
+#endif // OS_LINUX || OS_UNIX
 
-int Console::defaultColor_;
-#endif // OS_WIN32
+ConsoleColor::Type Console::defaultColor_;
+
+Console Console::consoleInitializer_ = Console();
 
 Console::Console()
 {
-#ifdef OS_WIN32
+#ifdef OS_WIN
 	inputHandle_ = GetStdHandle(STD_INPUT_HANDLE);
 	outputHandle_ = GetStdHandle(STD_OUTPUT_HANDLE);
-	defaultColor_ = static_cast<int>(ConsoleColor::LightGray);
-	//   setControlEventHandler();
-#endif OS_WIN32
+	// setControlEventHandler();
+#endif OS_WIN
+	defaultColor_ = ConsoleColor::LightGray;
 }
 
 void Console::print(const AString& string,
 	const bool newLine,
-	const ConsoleColor color,
-	const ConsoleColor backgroundColor,
+	const ConsoleColor::Type color,
+	const ConsoleColor::Type backgroundColor,
 	const bool centered)
 {
-#ifdef OS_WIN
 	const auto colorChanged = color != ConsoleColor::LightGray || backgroundColor != ConsoleColor::Black;
-#elif defined (OS_LINUX)
-	const auto colorChanged = color != ConsoleColor::Default || backgroundColor != (static_cast<int>(ConsoleColor::Default) + 10);
-#endif // OS_LINUX
 
 	if (colorChanged) {
 #ifdef OS_WIN
-		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color) + static_cast<int>(backgroundColor) * 16);
-#elif defined (OS_LINUX) // OS_WIN
-		std::cout << "\033[0" << ';' << AString::toString(color) << ';' << backgroundColor << 'm';
-#endif //OS_LINUX
+		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color) + static_cast<int>(tempBackgroundColor) * 16);
+#elif defined (OS_LINUX) || defined (OS_UNIX)
+		std::cout << "\033[0" << ';' << color << ';' << backgroundColor + 10 << 'm';
+#endif // OS_LINUX || OS_UNIX
 	}
 	if (centered) {
 		const auto factor = (getConsoleWidth() - string.size()) * 0.5F;
@@ -53,28 +51,20 @@ void Console::print(const AString& string,
 	if (colorChanged) {
 #ifdef OS_WIN
 		SetConsoleTextAttribute(outputHandle_, defaultColor_);
-#elif defined (OS_LINUX) // OS_WIN
+#elif defined (OS_LINUX) || defined (OS_UNIX)
 		std::cout << "\033[0m";
-#endif // OS_LINUX
+#endif // OS_LINUX || OS_UNIX
 	}
 }
 
-void Console::printLine(const ConsoleColor color, const ConsoleColor backgroundColor)
+void Console::printLine(const ConsoleColor::Type color, const ConsoleColor::Type backgroundColor)
 {
-	const auto colorChanged = color != ConsoleColor::LightGray || backgroundColor != ConsoleColor::Black;
-
-	if (colorChanged) {
-		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color) + static_cast<int>(backgroundColor) * 16);
-	}
-
 	const auto width = getConsoleWidth();
-	for (auto i = 0; i < width; ++i) {
-		std::cout << '-';
+	AString line = "-";
+	for (auto i = 0; line.size() < width; ++i) {
+		line += '-';
 	}
-
-	if (colorChanged) {
-		SetConsoleTextAttribute(outputHandle_, defaultColor_);
-	}
+	print(line, true, color, backgroundColor);
 }
 
 void Console::keep()
@@ -82,55 +72,70 @@ void Console::keep()
 	std::cin.get();
 }
 
-#ifdef OS_WIN32
+#ifdef OS_WIN
 void Console::setControlEventHandler()
 {
 	DWORD mode = 0;
 	GetConsoleMode(inputHandle_, &mode);
 	SetConsoleMode(inputHandle_, mode &= ~ENABLE_PROCESSED_INPUT);
 }
-#endif // OS_WIN32
+#endif // OS_WIN
 
-#ifdef OS_WIN32
+#ifdef OS_WIN
 void Console::disableCloseButton()
 {
 	const auto hmenu = GetSystemMenu(GetConsoleWindow(), FALSE);
 	while (DeleteMenu(hmenu, 0, MF_BYPOSITION));
 }
-#endif // OS_WIN32
+#endif // OS_WIN
 
 void Console::setConsoleTitle(const AString & title)
 {
-#ifdef OS_WIN32
+#ifdef OS_WIN
 	SetConsoleTitleA(title.c_str());
-#endif // OS_WIN32
+#elif defined (OS_LINUX) || defined (OS_UNIX) 
+	std::cout << "\033]0;" << title << "\007";
+#endif // OS_LINUX || OS_UNIX
 }
 
 int Console::getConsoleWidth()
 {
-#ifdef OS_WIN32
+#ifdef OS_WIN
 	ZeroMemory(&consoleBufferInfo_, sizeof CONSOLE_SCREEN_BUFFER_INFO);
 	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &consoleBufferInfo_);
 	return consoleBufferInfo_.srWindow.Right - consoleBufferInfo_.srWindow.Left + 1;
-#endif // OS_WIN32
+#elif defined(OS_LINUX) || defined(OS_UNIX)
+	winsize tempWinsize;
+	ioctl(0, TIOCGWINSZ, &tempWinsize);
+	return tempWinsize.ws_col;
+#endif // OS_LINUX || OS_UNIX
 }
 
 int Console::getConsoleHeight()
 {
-#ifdef OS_WIN32
+#ifdef OS_WIN
 	ZeroMemory(&consoleBufferInfo_, sizeof CONSOLE_SCREEN_BUFFER_INFO);
 	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &consoleBufferInfo_);
 	return consoleBufferInfo_.srWindow.Bottom - consoleBufferInfo_.srWindow.Top + 1;
-#endif // OS_WIN32
-
+#elif defined(OS_LINUX) || defined(OS_UNIX)
+	winsize tempWinsize;
+	ioctl(0, TIOCGWINSZ, &tempWinsize);
+	return tempWinsize.ws_row;
+#endif // OS_LINUX || OS_UNIX
 }
 
 void Console::printColorExample()
 {
-#ifdef OS_WIN32
+#ifdef OS_WIN
 	for (int i = 1; i < 0x10; i++) {
 		SetConsoleTextAttribute(outputHandle_, i);
-		std::cout << i << "This is a test!" << std::endl;
+		std::cout "This is a test!" << std::endl;
 	}
-#endif //OS_WIN32
+#elif defined(OS_LINUX) || defined(OS_UNIX)
+	for (auto color : ConsoleColor::all) {
+		for (auto backgroundColor : ConsoleColor::all) {
+			print("This is a test!", true, color, backgroundColor);
+		}
+	}
+#endif // OS_LINUX || OS_UNIX
 }

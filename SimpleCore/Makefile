@@ -5,7 +5,7 @@ CXX := g++ -Wall -Wextra -g --std=c++17 -fPIC
 .o: %.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $<
 
-SimpleCore.so.1.0.1: $(OBJECTS)
+SimpleCore.so: $(OBJECTS)
 	$(CXX) -shared -Wl,-soname,SimpleCore.so.1 -o $@ $^ -lc
 
 #simplecore.so: SimpleCore.so

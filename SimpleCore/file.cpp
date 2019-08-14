@@ -83,7 +83,7 @@ AString File::getDirectory() const
 	// TODO: Return absolute directory from relative
 	auto lastIndexOfSlash = filepath_.lastIndexOf('/');
 
-	if (lastIndexOfSlash == static_cast<uint64>(-1)) {
+	if (lastIndexOfSlash == static_cast<size_t>(-1)) {
 		return AString();
 	}
 
@@ -95,15 +95,15 @@ AString File::getDirectory() const
 AString File::getFilename() const
 {
 	auto lastIndexOfSlash = filepath_.lastIndexOf('/');
-	if (lastIndexOfSlash == -1) {
+	if (lastIndexOfSlash == static_cast<size_t>(-1)) {
 		lastIndexOfSlash = filepath_.lastIndexOf('\\');
-		if (lastIndexOfSlash == -1) {
+		if (lastIndexOfSlash == static_cast<size_t>(-1)) {
 			return filepath_;
 		}
 	}
 
 	auto copy = filepath_;
-	copy.erase(0, static_cast<size_t>(lastIndexOfSlash) + 1);
+	copy.erase(0, lastIndexOfSlash + 1);
 	return copy;
 }
 
@@ -133,7 +133,7 @@ bool File::open(int openModeFlags)
 		return false;
 	}
 	openModeFlags_ = openModeFlags;
-	fstream_.open(filepath_.toCString(), openModeFlags_);
+	fstream_.open(filepath_.toCString(), static_cast<std::ios_base::openmode>(openModeFlags_));
 	return result && isOpen();
 }
 

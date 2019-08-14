@@ -5,9 +5,9 @@
 #include "astring.h"
 #include "consolecolor.h"
 
-#ifdef OS_WIN32
+#ifdef OS_WIN
 #include <Windows.h>
-#endif // OS_WIN32
+#endif // OS_WIN
 
 /**
  * This class provides easy functions concerning the console window.
@@ -33,8 +33,10 @@ public:
 	 * @param backgroundColor the background color of the string to print
 	 * @param centered whether the string should be printed centered
 	 */
-	SIMPLECORE_API static void print(const AString& string, bool newLine = true, ConsoleColor color = ConsoleColor::LightGray,
-		ConsoleColor backgroundColor = ConsoleColor::Black, bool centered = false);
+	SIMPLECORE_API static void print(const AString& string, bool newLine = true, 
+		ConsoleColor::Type color = ConsoleColor::Type::LightGray,
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black,
+		bool centered = false);
 
 	/**
 	 * Prints a line consisting of minuses to console in the amount of columns.
@@ -42,7 +44,8 @@ public:
 	 * @param color the foreground color of the string to print
 	 * @param backgroundColor the background color of the string to print
 	 */
-	SIMPLECORE_API static void printLine(ConsoleColor color = ConsoleColor::LightGray, ConsoleColor backgroundColor = ConsoleColor::Black);
+	SIMPLECORE_API static void printLine(ConsoleColor::Type color = ConsoleColor::Type::LightGray,
+	 ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
 
 	/**
 	 * Keeps console alive. Cancel by pressing return.
@@ -83,14 +86,14 @@ public:
 private:
 	static Console consoleInitializer_;
 
+	static ConsoleColor::Type defaultColor_;
+
 #ifdef OS_WIN
 	static CONSOLE_SCREEN_BUFFER_INFO consoleBufferInfo_;
 
 	static HANDLE inputHandle_;
 
 	static HANDLE outputHandle_;
-
-	static int defaultColor_;
 
 	/**
 	 * Initializes the console mode and sets the some default stuff.

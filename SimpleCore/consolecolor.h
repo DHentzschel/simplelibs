@@ -8,12 +8,13 @@
  *
  * @author Daniel Hentzschel on 11.05.2019.
  */
+namespace ConsoleColor {
 #ifdef OS_WIN
-enum class ConsoleColor {
+enum Type {
 	Black = 0,
 	DarkBlue,
 	DarkGreen,
-	DarkTurquoise,
+	DarkCyan,
 	DarkRed,
 	DarkPurple,
 	DarkYellow,
@@ -21,32 +22,54 @@ enum class ConsoleColor {
 	DarkGray,
 	Blue,
 	Green,
-	Turquoise,
+	Cyan,
 	Red,
 	Purple,
 	Yellow,
 	White
 };
 #elif defined (OS_LINUX) // OS_WIN
-enum class ConsoleColor {
-	Default = 39,
+enum Type {
 	Black = 30,
+	DarkRed,
+	DarkGreen,
+	DarkYellow,
+	DarkBlue,
+	DarkMagenta,
+	DarkCyan,
+	LightGray,
+	Reset = 39,
+	DarkGray = 90,
 	Red,
 	Green,
 	Yellow,
 	Blue,
 	Magenta,
 	Cyan,
+	White
+};
+
+static const Type all[] = {
+	Black,
+	DarkRed,
+	DarkGreen,
+	DarkYellow,
+	DarkBlue,
+	DarkMagenta,
+	DarkCyan,
 	LightGray,
-	DarkGray = 90,
-	LightRed,
-	LightGreen,
-	LightYellow,
-	LightBlue,
-	LightMagenta,
-	LightCyan,
+	DarkGray,
+	Reset,
+	DarkGray,
+	Red,
+	Green,
+	Yellow,
+	Blue,
+	Magenta,
+	Cyan,
 	White
 };
 #endif // OS_LINUX
+};
 
 #endif // CONSOLECOLOR_H
