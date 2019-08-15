@@ -1,6 +1,5 @@
 ﻿#include "logger.h"
 
-#include "console.h"
 #include "datetime.h"
 
 File Logger::file_;

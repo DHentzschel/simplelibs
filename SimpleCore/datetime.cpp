@@ -30,7 +30,7 @@ DateTime DateTime::now()
 {
 	char buffer[20];
 	auto tm = getTm();
-	std::strftime(buffer, sizeof buffer, "%d.%m.%Y %H:%M:%S", tm);
+	std::strftime(buffer, sizeof buffer, "%d.%m.%Y %H:%M:%S", &tm);
 	DateTime dateTime;
 	dateTime.parse(buffer);
 	return dateTime;
@@ -40,7 +40,7 @@ AString DateTime::getDatestamp()
 {
 	char buffer[11];
 	auto tm = getTm();
-	std::strftime(buffer, sizeof buffer, "%d.%m.%Y", tm);
+	std::strftime(buffer, sizeof buffer, "%d.%m.%Y", &tm);
 	return buffer;
 }
 
@@ -48,7 +48,7 @@ AString DateTime::getTimestamp()
 {
 	char buffer[9];
 	auto tm = getTm();
-	std::strftime(buffer, sizeof buffer, "%H.%M.%S", tm);
+	std::strftime(buffer, sizeof buffer, "%H.%M.%S", &tm);
 	return buffer;
 }
 
@@ -93,12 +93,12 @@ DateTime DateTime::fromUnixTimestamp(const int64 timestamp)
 
 	DateTime result;
 	DateTimeInfo dateTimeInfo;
-	dateTimeInfo.day = tm->tm_mday;
-	dateTimeInfo.month = tm->tm_mon + 1;
-	dateTimeInfo.year = tm->tm_year;
-	dateTimeInfo.hour = tm->tm_hour;
-	dateTimeInfo.minute = tm->tm_min;
-	dateTimeInfo.second = tm->tm_sec;
+	dateTimeInfo.day = tm.tm_mday;
+	dateTimeInfo.month = tm.tm_mon + 1;
+	dateTimeInfo.year = tm.tm_year;
+	dateTimeInfo.hour = tm.tm_hour;
+	dateTimeInfo.minute = tm.tm_min;
+	dateTimeInfo.second = tm.tm_sec;
 	result.dateTimeInfo_ = dateTimeInfo;
 	result.unixTimestamp_ = timestamp;
 	return result;
@@ -418,13 +418,13 @@ int64 DateTime::getDaysCountUntil(byte month, bool leapYear)
 	return daysResult;
 }
 
-std::tm* DateTime::getTm(std::time_t* timestamp)
+std::tm DateTime::getTm(std::time_t* timestamp)
 {
-	std::tm* tm = nullptr;
+	std::tm tm;
 	std::time_t timeNow = time(timestamp);
 #ifdef OS_WIN
 #  pragma warning (disable : 6001)
-	localtime_s(tm, &timeNow);
+	localtime_s(&tm, &timeNow);
 #  pragma warning (default : 6001)
 #else
 	tm = std::localtime(&timeNow);

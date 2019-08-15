@@ -6,6 +6,7 @@
 #include "plogtp.h"
 #include "file.h"
 #include "simplecore.h"
+#include "console.h"
 
 /**
  * Provides a simple logger with four predefined log types.
@@ -97,10 +98,24 @@ public:
 		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
 
 #ifdef SIMPLELIBS_TEST
-#  include "console.h"
-#  define LOGGER_LOG_TEST_INIT(x) Logger::info(x, true, ConsoleColor::Type::Yellow)
-#  define LOGGER_LOG_TEST_BEGIN(x) Logger::info(x + AString(": "), false, ConsoleColor::Type::DarkYellow)
-#  define LOGGER_LOG_RESULT(x) ConsoleColor::Type type = (x ? ConsoleColor::Type::DarkGreen : ConsoleColor::Type::DarkRed); Console::print(x, true, type); return x;
+
+	static void logTestInit(const AString& text)
+	{
+		Logger::info(text, true, ConsoleColor::Type::Yellow);
+	}
+
+	static void logTestBegin(const AString& text)
+	{
+		Logger::info(text + AString(": "), false, ConsoleColor::Type::DarkYellow);
+	}
+
+	static bool logTestResult(bool successful)
+	{
+		ConsoleColor::Type type = (successful ? ConsoleColor::Type::DarkGreen : ConsoleColor::Type::DarkRed);
+		Console::print(successful ? "passed" : "failed", true, type);
+		return successful;
+	}
+
 #endif // SIMPLELIBS_TEST
 
 private:

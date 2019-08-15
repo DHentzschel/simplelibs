@@ -4,16 +4,16 @@
 class VectorTest {
 public:
 	int testAll() {
-		LOGGER_LOG_TEST_INIT("VectorTest");
+		Logger::logTestInit("VectorTest");
 
 		int result = 0;
-		result += LOGGER_LOG_RESULT(testAppend());
-		result += LOGGER_LOG_RESULT(testPrepend());
-
+		result += Logger::logTestResult(testAppend());
+		result += Logger::logTestResult(testPrepend());
+		return result;
 	}
 
 	bool testAppend() {
-		LOGGER_LOG_TEST_BEGIN("testAppend");
+		Logger::logTestBegin("testAppend");
 		init();
 
 		vector_.append(6);
@@ -31,7 +31,7 @@ public:
 	}
 
 	bool testPrepend() {
-		LOGGER_LOG_TEST_BEGIN("testPrepend");
+		Logger::logTestBegin("testPrepend");
 		init();
 
 		vector_.prepend(0);
@@ -40,16 +40,15 @@ public:
 		}
 
 		for (byte i = 0; i < vector_.size(); ++i) {
-			if (vector_[i] == i) {
-				continue;
+			if (vector_[i] != i) {
+				return false;
 			}
-			return false;
 		}
 		return true;
 	}
 
 private:
-	Vector<int> vector_;
+	AVector<int> vector_;
 
 	void init() {
 		vector_ = { 1, 2, 3, 4, 5 };
