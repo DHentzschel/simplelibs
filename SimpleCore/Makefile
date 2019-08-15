@@ -1,12 +1,15 @@
-SOURCES := $(wildcard *.cpp)
-OBJECTS := $(patsubst %.cpp,%.o,$(SOURCES))
+SRC := $(wildcard *.cpp)
+OBJ := $(patsubst %.cpp,%.o,$(SRC))
+BIN := libsimplecore.so
 CXX := g++ -Wall -Wextra -g --std=c++17 -fPIC
 
 .o: %.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $<
 
-SimpleCore.so: $(OBJECTS)
-	$(CXX) -shared -Wl,-soname,SimpleCore.so.1 -o $@ $^ -lc
+$(BIN): $(OBJ)
+	$(CXX) -shared -Wl,-soname,simplecore.so.1 -o $@ $^ -lc
+	mv $(BIN) ../bin/
 
-#simplecore.so: SimpleCore.so
-#	g++ -DSIMPLELIBS_EXPORTS --std=c++17 -shared $(inputs) -o $(output)
+.PHONY: clean
+clean:
+	rm -rf ../bin/$(BIN) $(OBJ)
