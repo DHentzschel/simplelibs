@@ -96,6 +96,13 @@ public:
 		ConsoleColor::Type color = ConsoleColor::Type::LightGray,
 		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
 
+#ifdef SIMPLELIBS_TEST
+#  include "console.h"
+#  define LOGGER_LOG_TEST_INIT(x) Logger::info(x, true, ConsoleColor::Type::Yellow)
+#  define LOGGER_LOG_TEST_BEGIN(x) Logger::info(x + AString(": "), false, ConsoleColor::Type::DarkYellow)
+#  define LOGGER_LOG_RESULT(x) ConsoleColor::Type type = (x ? ConsoleColor::Type::DarkGreen : ConsoleColor::Type::DarkRed); Console::print(x, true, type); return x;
+#endif // SIMPLELIBS_TEST
+
 private:
 	static File file_;
 

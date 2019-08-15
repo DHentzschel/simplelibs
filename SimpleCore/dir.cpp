@@ -119,28 +119,6 @@ bool Dir::erase(const bool recursively) const
 		return std::filesystem::remove_all(path_.toStdString()) > 0;
 	}
 	return std::filesystem::remove(path_.toStdString());
-	/*
-	if (recursively) {
-		const auto length = path_.size() + 2;
-
-		AVector<char> str;
-		str.resize(length);
-
-		const auto* cstr = path_.toCString();
-		for (uint i = 0; i < length - 2; ++i) {
-			str[i] = cstr[i];
-		}
-
-#ifdef OS_WIN
-		SHFILEOPSTRUCT fileOp = { nullptr, FO_DELETE, str.data(), "", FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_SILENT,
-								  false, nullptr, "" };
-		return !SHFileOperationA(&fileOp);
-	}
-	return RemoveDirectoryA(path_.c_str());
-#elif defined(OS_LINUX)
-	return false;
-#endif // OS_LINUX
-*/
 }
 
 bool Dir::erase(const AString& path, const bool recursively)
