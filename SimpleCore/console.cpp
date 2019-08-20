@@ -9,7 +9,7 @@ HANDLE Console::inputHandle_;
 
 HANDLE Console::outputHandle_;
 #elif defined OS_LINUX || defined OS_UNIX
-# include <sys/ioctl.h> 
+# include <sys/ioctl.h>
 #endif // OS_LINUX || OS_UNIX
 
 ConsoleColor::Type Console::defaultColor_;
@@ -22,7 +22,7 @@ Console::Console()
 	inputHandle_ = GetStdHandle(STD_INPUT_HANDLE);
 	outputHandle_ = GetStdHandle(STD_OUTPUT_HANDLE);
 	// setControlEventHandler();
-#endif OS_WIN
+#endif // OS_WIN
 	defaultColor_ = ConsoleColor::LightGray;
 }
 
