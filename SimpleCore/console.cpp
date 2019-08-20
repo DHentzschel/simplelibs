@@ -47,16 +47,18 @@ void Console::print(const AString& string,
 			std::cout << ' ';
 		}
 	}
-	std::cout << string ;
+	std::cout << string;
 	if (colorChanged) {
 #ifdef OS_WIN
-		std::cout << (newLine ? "\n" : "");
+		if (newLine) {
+			std::cout << "\n";
+		}
 		SetConsoleTextAttribute(outputHandle_, defaultColor_);
 #elif defined OS_LINUX || defined OS_UNIX
-		std::cout << (newLine ? "\n" : "") << "\x1B[0m";
+		std::cout << "\x1B[0m" << (newLine ? "\n" : "");
 #endif // OS_LINUX || OS_UNIX
+		}
 	}
-}
 
 void Console::printLine(const ConsoleColor::Type color, const ConsoleColor::Type backgroundColor)
 {
@@ -136,7 +138,7 @@ void Console::printColorExample()
 	for (auto color : ConsoleColor::all) {
 		for (auto backgroundColor : ConsoleColor::all) {
 			print("This is a test!", true, color, backgroundColor);
-		}
 	}
+}
 #endif // OS_LINUX || OS_UNIX
 }
