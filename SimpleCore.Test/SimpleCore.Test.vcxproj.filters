@@ -37,17 +37,19 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="cleanup.bat">
-      <Filter>Source Files</Filter>
+    <None Include="testfile2.bin">
+      <Filter>Resource Files</Filter>
     </None>
     <None Include="setup.bat">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
     </None>
-    <None Include="testfile2.bin">
+    <None Include="cleanup.bat">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="testfile.txt" />
+    <Text Include="testfile.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
