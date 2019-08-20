@@ -45,7 +45,7 @@ AString DateTime::getDatestamp()
 {
 	char buffer[11];
 	auto tm = getTm();
-	std::strftime(buffer, sizeof buffer, "%d.%m.%Y", &tm);
+	std::strftime(buffer, sizeof buffer, "%d:%m:%Y", &tm);
 	return buffer;
 }
 
