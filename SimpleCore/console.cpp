@@ -21,7 +21,6 @@ Console::Console()
 #ifdef OS_WIN
 	inputHandle_ = GetStdHandle(STD_INPUT_HANDLE);
 	outputHandle_ = GetStdHandle(STD_OUTPUT_HANDLE);
-	// setControlEventHandler();
 #endif // OS_WIN
 	defaultColor_ = ConsoleColor::LightGray;
 }
@@ -135,8 +134,8 @@ void Console::printColorExample()
 		std::cout << "This is a test!" << std::endl;
 	}
 #elif defined(OS_LINUX) || defined(OS_UNIX)
-	for (auto color : ConsoleColor::all) {
-		for (auto backgroundColor : ConsoleColor::all) {
+	for (auto backgroundColor : ConsoleColor::all) {
+		for (auto color : ConsoleColor::all) {
 			print("This is a test!", true, color, backgroundColor);
 		}
 	}
