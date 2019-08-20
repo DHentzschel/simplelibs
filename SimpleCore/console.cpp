@@ -32,11 +32,11 @@ void Console::print(const AString& string,
 	const ConsoleColor::Type backgroundColor,
 	const bool centered)
 {
-	const auto colorChanged = color != ConsoleColor::LightGray || backgroundColor != ConsoleColor::Black;
+	const auto colorChanged = color != ConsoleColor::LightGray || backgroundColor != ConsoleColor::Reset;
 
 	if (colorChanged) {
 #ifdef OS_WIN
-		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color) + static_cast<int>(backgroundColor) * 16);
+		SetConsoleTextAttribute(outputHandle_, color + backgroundColor * 16);
 #elif defined OS_LINUX || defined OS_UNIX
 		std::cout << "\033[0" << ';' << color << ';' << backgroundColor + 10 << 'm';
 #endif // OS_LINUX || OS_UNIX
@@ -89,7 +89,7 @@ void Console::disableCloseButton()
 }
 #endif // OS_WIN
 
-void Console::setConsoleTitle(const AString & title)
+void Console::setConsoleTitle(const AString& title)
 {
 #ifdef OS_WIN
 	SetConsoleTitleA(title.c_str());
