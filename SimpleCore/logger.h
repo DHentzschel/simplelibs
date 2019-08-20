@@ -99,7 +99,11 @@ public:
 
 #ifdef SIMPLELIBS_TEST
 
-#  define FINISH return true;
+#  define TEST_ALL_METHODS(name) int name()
+
+#  define TEST_METHOD(name) bool name()
+
+#  define TEST_FINISH return true
 
 #  define ASSERT_EQUALS(expected, actual) if (expected != actual) { return false; }
 

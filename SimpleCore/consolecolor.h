@@ -26,7 +26,8 @@ enum Type {
 	Red,
 	Purple,
 	Yellow,
-	White
+	White,
+	Reset = Black
 };
 #elif defined OS_LINUX || defined OS_UNIX
 enum Type {

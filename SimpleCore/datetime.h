@@ -40,6 +40,13 @@ public:
 	SIMPLECORE_API static DateTime now();
 
 	/**
+	 * Returns the current datestaml and timestamp in the format "dd.MM.yyyy hh:mm:ss".
+	 *
+	 * @return the datestamp and timestamp as concatenated string
+	 */
+	SIMPLECORE_API static AString getDateTimestamp();
+
+	/**
 	 * Returns the current datestamp in the format "dd.MM.yyyy".
 	 *
 	 * @return the datestamp as string

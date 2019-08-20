@@ -35,7 +35,7 @@ public:
 	 */
 	SIMPLECORE_API static void print(const AString& string, bool newLine = true, 
 		ConsoleColor::Type color = ConsoleColor::Type::LightGray,
-		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black,
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Reset,
 		bool centered = false);
 
 	/**
@@ -45,7 +45,7 @@ public:
 	 * @param backgroundColor the background color of the string to print
 	 */
 	SIMPLECORE_API static void printLine(ConsoleColor::Type color = ConsoleColor::Type::LightGray,
-	 ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
+	 ConsoleColor::Type backgroundColor = ConsoleColor::Type::Reset);
 
 	/**
 	 * Keeps console alive. Cancel by pressing return.

@@ -28,12 +28,17 @@ DateTime::DateTime(const AString& string) :
 
 DateTime DateTime::now()
 {
+	DateTime dateTime;
+	dateTime.parse(getDateTimestamp());
+	return dateTime;
+}
+
+AString DateTime::getDateTimestamp()
+{
 	char buffer[20];
 	auto tm = getTm();
 	std::strftime(buffer, sizeof buffer, "%d.%m.%Y %H:%M:%S", &tm);
-	DateTime dateTime;
-	dateTime.parse(buffer);
-	return dateTime;
+	return buffer;
 }
 
 AString DateTime::getDatestamp()
@@ -48,7 +53,7 @@ AString DateTime::getTimestamp()
 {
 	char buffer[9];
 	auto tm = getTm();
-	std::strftime(buffer, sizeof buffer, "%H.%M.%S", &tm);
+	std::strftime(buffer, sizeof buffer, "%H:%M:%S", &tm);
 	return buffer;
 }
 
