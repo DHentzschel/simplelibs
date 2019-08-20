@@ -32,7 +32,6 @@ public:
 		result += Logger::logTestResult(testTakeFirst());
 		result += Logger::logTestResult(testTakeLast());
 		result += Logger::logTestResult(testToList());
-		Console::printColorExample();
 		return result;
 	}
 
