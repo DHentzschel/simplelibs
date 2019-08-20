@@ -38,7 +38,7 @@ void Console::print(const AString& string,
 #ifdef OS_WIN
 		SetConsoleTextAttribute(outputHandle_, color + backgroundColor * 16);
 #elif defined OS_LINUX || defined OS_UNIX
-		std::cout << "\033[0;" << color << ';' << backgroundColor + 10 << 'm';
+		std::cout << "\033[" << color << ';' << backgroundColor + 10 << 'm';
 #endif // OS_LINUX || OS_UNIX
 	}
 	if (centered) {
@@ -52,7 +52,7 @@ void Console::print(const AString& string,
 #ifdef OS_WIN
 		SetConsoleTextAttribute(outputHandle_, defaultColor_);
 #elif defined OS_LINUX || defined OS_UNIX
-		std::cout << "\033c";
+		std::cout << "\x1B[0m";
 #endif // OS_LINUX || OS_UNIX
 	}
 }
