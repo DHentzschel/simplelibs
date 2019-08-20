@@ -166,7 +166,7 @@ AString Dir::getDir(Directory directory)
 	} 
 	else if (directory == Directory::Desktop) {
 		passwd* tempPasswd = getpwuid(getuid());
-		return pw->pw_dir;
+		return tempPasswd->pw_dir;
 	}
 
 	return AString();
