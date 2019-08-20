@@ -53,7 +53,7 @@ void Console::print(const AString& string,
 		std::cout << (newLine ? "\n" : "");
 		SetConsoleTextAttribute(outputHandle_, defaultColor_);
 #elif defined OS_LINUX || defined OS_UNIX
-		std::cout << (newLine ? "\n" : ""); << "\x1B[0m";
+		std::cout << (newLine ? "\n" : "") << "\x1B[0m";
 #endif // OS_LINUX || OS_UNIX
 	}
 }
