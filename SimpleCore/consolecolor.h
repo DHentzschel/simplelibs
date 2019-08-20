@@ -16,7 +16,7 @@ enum Type {
 	DarkGreen,
 	DarkCyan,
 	DarkRed,
-	DarkPurple,
+	DarkMagenta,
 	DarkYellow,
 	LightGray,
 	DarkGray,
@@ -24,7 +24,7 @@ enum Type {
 	Green,
 	Cyan,
 	Red,
-	Purple,
+	Magenta,
 	Yellow,
 	White,
 	Reset = Black
@@ -49,27 +49,26 @@ enum Type {
 	Cyan,
 	White
 };
+#endif // OS_LINUX || OS_UNIX
 
 static const Type all[] = {
-	Black,
-	DarkRed,
-	DarkGreen,
-	DarkYellow,
-	DarkBlue,
-	DarkMagenta,
-	DarkCyan,
-	LightGray,
-	Reset,
-	DarkGray,
-	Red,
-	Green,
-	Yellow,
-	Blue,
-	Magenta,
-	Cyan,
-	White
+	Type::Black,
+	Type::DarkRed,
+	Type::DarkGreen,
+	Type::DarkYellow,
+	Type::DarkBlue,
+	Type::DarkMagenta,
+	Type::DarkCyan,
+	Type::LightGray,
+	Type::DarkGray,
+	Type::Red,
+	Type::Green,
+	Type::Yellow,
+	Type::Blue,
+	Type::Magenta,
+	Type::Cyan,
+	Type::White
 };
-#endif // OS_LINUX || OS_UNIX
 };
 
 #endif // CONSOLECOLOR_H
