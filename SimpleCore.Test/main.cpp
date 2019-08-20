@@ -2,6 +2,7 @@
 #include "queuetest.cpp"
 #include "vectortest.cpp"
 #include "stopwatchtest.cpp"
+#include "dirtest.cpp"
 
 int main(int argc, char** argv)
 {
@@ -13,6 +14,9 @@ int main(int argc, char** argv)
 
 	QueueTest queueTest;
 	queueTest.testAll();
+
+	DirTest dirTest;
+	dirTest.testAll();
 
 	return EXIT_SUCCESS;
 }

@@ -27,10 +27,27 @@
     <ClCompile Include="queuetest.cpp">
       <Filter>Source Files\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="dirtest.cpp">
+      <Filter>Source Files\Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stopwatchtest.cpp">
       <Filter>Source Files\Tests</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cleanup.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="setup.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="testfile2.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="testfile.txt" />
   </ItemGroup>
 </Project>
