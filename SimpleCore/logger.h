@@ -99,6 +99,12 @@ public:
 
 #ifdef SIMPLELIBS_TEST
 
+#  define FINISH return true;
+
+#  define ASSERT_EQUALS(expected, actual) if (expected != actual) { return false; }
+
+#  define ASSERT(actual) return actual;
+
 	static void logTestInit(const AString& text)
 	{
 		Logger::info(text, true, ConsoleColor::Type::Yellow);
