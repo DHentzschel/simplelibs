@@ -10,6 +10,7 @@
 #  include <limits.h>
 #  include <sys/stat.h>
 #  include <dirent.h> 
+#  include <pwd.h>
 #endif // OS_LINUX || OS_UNIX
 
 #include "console.h"
@@ -162,7 +163,12 @@ AString Dir::getDir(Directory directory)
 		if (result != nullptr) {
 			return buffer;
 		}
+	} 
+	else if (directory == Directory::Desktop) {
+		passwd* tempPasswd = getpwuid(getuid());
+		return pw->pw_dir;
 	}
+
 	return AString();
 #endif // OS_LINUX || OS_UNIX
 }

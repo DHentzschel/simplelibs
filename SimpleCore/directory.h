@@ -156,7 +156,8 @@ enum class Directory {
 };
 #elif defined OS_LINUX || defined OS_UNIX
 enum class Directory {
-	CurrentApplication
+	CurrentApplication,
+	Desktop
 };
 #endif // OS_LINUX || OS_UNIX
 
