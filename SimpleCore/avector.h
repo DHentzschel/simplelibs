@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <unordered_set>
 
+#include "osdetection.h"
 #include "functions.h"
 #include "types.h"
 #include "alist.h"
@@ -15,7 +16,10 @@
 template<class T>
 class AList;
 
-#pragma warning (disable : 4251)
+#ifdef OS_WIN
+#  pragma warning (disable : 4251)
+#endif // OS_WIN
+
 /**
  * This class extends the std::vector class by auxiliary functions.
  *
@@ -269,9 +273,11 @@ private:
 	using vector_t = std::vector<T>;
 };
 
-#pragma warning (default : 4251)
+#ifdef OS_WIN
+#  pragma warning (default : 4251)
+#endif // OS_WIN
 
-template<class T>
+template <class T>
 using Vector = AVector<T>;
 
 template<class T>
@@ -360,7 +366,7 @@ int AVector<T>::firstIndexOf(const T& value) const
 template<class T>
 int AVector<T>::indexOf(const T& value) const
 {
-	for (auto i = 0; i != vector_t::size(); ++i) {
+	for (std::size_t i = 0; i != vector_t::size(); ++i) {
 		if (vector_t::operator[](i) == value) {
 			return i;
 		}

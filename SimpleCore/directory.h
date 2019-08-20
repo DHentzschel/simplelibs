@@ -154,10 +154,10 @@ enum class Directory {
 	/** The CD burn area path e. g. C:\Users\Test\AppData\Local\Microsoft\Windows\Burn\Burn */
 	CdBurnArea = CSIDL_CDBURN_AREA
 };
-#elif defined(OS_LINUX)
+#elif defined OS_LINUX || defined OS_UNIX
 enum class Directory {
 	CurrentApplication
 };
-#endif // OS_LINUX
+#endif // OS_LINUX || OS_UNIX
 
 #endif // !DIRECTORY_H

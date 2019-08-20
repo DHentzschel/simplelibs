@@ -8,8 +8,8 @@ CONSOLE_SCREEN_BUFFER_INFO Console::consoleBufferInfo_;
 HANDLE Console::inputHandle_;
 
 HANDLE Console::outputHandle_;
-#elif defined (OS_LINUX) || defined (OS_UNIX)
-# include <sys/ioctl.h> 
+#elif defined OS_LINUX || defined OS_UNIX
+# include <sys/ioctl.h>
 #endif // OS_LINUX || OS_UNIX
 
 ConsoleColor::Type Console::defaultColor_;
@@ -22,7 +22,7 @@ Console::Console()
 	inputHandle_ = GetStdHandle(STD_INPUT_HANDLE);
 	outputHandle_ = GetStdHandle(STD_OUTPUT_HANDLE);
 	// setControlEventHandler();
-#endif OS_WIN
+#endif // OS_WIN
 	defaultColor_ = ConsoleColor::LightGray;
 }
 
@@ -36,8 +36,8 @@ void Console::print(const AString& string,
 
 	if (colorChanged) {
 #ifdef OS_WIN
-		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color) + static_cast<int>(tempBackgroundColor) * 16);
-#elif defined (OS_LINUX) || defined (OS_UNIX)
+		SetConsoleTextAttribute(outputHandle_, static_cast<int>(color) + static_cast<int>(backgroundColor) * 16);
+#elif defined OS_LINUX || defined OS_UNIX
 		std::cout << "\033[0" << ';' << color << ';' << backgroundColor + 10 << 'm';
 #endif // OS_LINUX || OS_UNIX
 	}
@@ -51,7 +51,7 @@ void Console::print(const AString& string,
 	if (colorChanged) {
 #ifdef OS_WIN
 		SetConsoleTextAttribute(outputHandle_, defaultColor_);
-#elif defined (OS_LINUX) || defined (OS_UNIX)
+#elif defined OS_LINUX || defined OS_UNIX
 		std::cout << "\033[0m";
 #endif // OS_LINUX || OS_UNIX
 	}
@@ -93,7 +93,7 @@ void Console::setConsoleTitle(const AString & title)
 {
 #ifdef OS_WIN
 	SetConsoleTitleA(title.c_str());
-#elif defined (OS_LINUX) || defined (OS_UNIX) 
+#elif defined OS_LINUX || defined OS_UNIX
 	std::cout << "\033]0;" << title << "\007";
 #endif // OS_LINUX || OS_UNIX
 }
@@ -129,7 +129,7 @@ void Console::printColorExample()
 #ifdef OS_WIN
 	for (int i = 1; i < 0x10; i++) {
 		SetConsoleTextAttribute(outputHandle_, i);
-		std::cout "This is a test!" << std::endl;
+		std::cout << "This is a test!" << std::endl;
 	}
 #elif defined(OS_LINUX) || defined(OS_UNIX)
 	for (auto color : ConsoleColor::all) {

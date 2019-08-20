@@ -1,8 +1,21 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required(VERSION 3.13.4 FATAL_ERROR)
 
-project (SimpleCore)
+project(simplecore)
 
-add_compile_definitions(SIMPLECORE_EXPORTS)
-set(CMAKE_CXX_STANDARD 17)
-file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.cpp")
-add_library(SimpleCore SHARED ${SOURCES})
+add_compile_options("-std=c++17")
+
+# Source files
+file(GLOB SOURCES *.cpp)
+
+# Header files
+include_directories(.)
+
+# Create shared library
+add_library(${PROJECT_NAME} SHARED ${SOURCES})
+
+# Install library
+install(TARGETS ${PROJECT_NAME} DESTINATION lib/${PROJECT_NAME})
+
+# Install library headers
+file(GLOB HEADERS *.h)
+install(FILES ${HEADERS} DESTINATION ${PROJECT_NAME})

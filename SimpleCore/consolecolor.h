@@ -28,7 +28,7 @@ enum Type {
 	Yellow,
 	White
 };
-#elif defined (OS_LINUX) // OS_WIN
+#elif defined OS_LINUX || defined OS_UNIX
 enum Type {
 	Black = 30,
 	DarkRed,
@@ -69,7 +69,7 @@ static const Type all[] = {
 	Cyan,
 	White
 };
-#endif // OS_LINUX
+#endif // OS_LINUX || OS_UNIX
 };
 
 #endif // CONSOLECOLOR_H
