@@ -39,7 +39,7 @@ enum Type {
 	DarkMagenta,
 	DarkCyan,
 	LightGray,
-	Reset = 0,
+	Reset = 39,
 	DarkGray = 90,
 	Red,
 	Green,
