@@ -1,5 +1,5 @@
-#ifndef IQUEUE_H
-#define IQUEUE_H
+#ifndef BASEQUEUE_H
+#define BASEQUEUE_H
 
 /**
  * This class is an interface for queue data structures.
@@ -7,7 +7,7 @@
  * @author Daniel Hentzschel on 07.08.2019.
  */
 template <class T>
-class IQueue {
+class BaseQueue {
 public:
 	/**
 	  * Enqueues the specified element to the queue.
@@ -35,4 +35,4 @@ public:
 	virtual bool isEmpty() = 0;
 };
 
-#endif // !IQUEUE_H
+#endif // !BASEQUEUE_H

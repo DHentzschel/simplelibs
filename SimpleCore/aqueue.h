@@ -1,16 +1,16 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef AQUEUE_H
+#define AQUEUE_H
 
 #include "alist.h"
-#include "iqueue.h"
+#include "basequeue.h"
 
 /**
- * This class implements the IQueue interface and an advanced queue data structure.
+ * This class implements the BaseQueue interface and an advanced queue data structure.
  *
  * @author Daniel Hentzschel on 07.08.2019.
  */
 template<class T>
-class AQueue : protected AList<T>, public IQueue<T> {
+class AQueue : protected AList<T>, public BaseQueue<T> {
 public:
 	/**
 	  * Initializes the class with an empty queue.
@@ -40,6 +40,9 @@ public:
 	bool isEmpty() override;
 };
 
+template <class T>
+using Queue = AQueue<T>;
+
 template<class T>
 inline AQueue<T>::AQueue() :
 	AList<T>()
@@ -64,4 +67,4 @@ bool AQueue<T>::isEmpty()
 	return AList<T>::size() == 0;
 }
 
-#endif // !QUEUE_H
+#endif // !AQUEUE_H

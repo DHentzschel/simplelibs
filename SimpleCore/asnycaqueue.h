@@ -7,7 +7,7 @@
 #include <mutex>
 
 /**
- * This class implements the IQueue interface thread safely and an advanced queue data structure.
+ * This class implements the BaseQueue interface thread safely and an advanced queue data structure.
  *
  * @author Daniel Hentzschel on 07.08.2019.
  */
@@ -40,6 +40,9 @@ private:
 	std::mutex mutex_;
 
 };
+
+template <class T>
+using AsyncQueue = AsyncAQueue<T>;
 
 template<class T>
 inline void AsyncAQueue<T>::enqueue(const T& value)
