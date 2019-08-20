@@ -128,16 +128,9 @@ int Console::getConsoleHeight()
 
 void Console::printColorExample()
 {
-#ifdef OS_WIN
-	for (int i = 1; i < 0x10; i++) {
-		SetConsoleTextAttribute(outputHandle_, i);
-		std::cout << "This is a test!" << std::endl;
-	}
-#elif defined(OS_LINUX) || defined(OS_UNIX)
 	for (auto backgroundColor : ConsoleColor::all) {
 		for (auto color : ConsoleColor::all) {
 			print("This is a test!", true, color, backgroundColor);
 		}
 	}
-#endif // OS_LINUX || OS_UNIX
 }
