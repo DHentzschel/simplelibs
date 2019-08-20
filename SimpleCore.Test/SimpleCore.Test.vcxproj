@@ -160,6 +160,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="queuetest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="vectortest.cpp" />
   </ItemGroup>
@@ -167,6 +168,9 @@
     <ProjectReference Include="..\SimpleCore\SimpleCore.vcxproj">
       <Project>{870473c8-979d-42ad-9499-922c9d1a551a}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stopwatchtest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
