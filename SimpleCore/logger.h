@@ -39,7 +39,7 @@ public:
 	SIMPLECORE_API static void print(const AString& text,
 		bool newLine = true,
 		ConsoleColor::Type color = ConsoleColor::Type::Cyan,
-		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Reset);
 
 	/**
 	 * Prints debug text to the console.
@@ -53,7 +53,7 @@ public:
 	SIMPLECORE_API static void debug(const AString& text,
 		bool newLine = true,
 		ConsoleColor::Type color = ConsoleColor::Type::Cyan,
-		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Reset);
 
 	/**
 	 * Prints information text to the console.
@@ -67,7 +67,7 @@ public:
 	SIMPLECORE_API static void info(const AString& text,
 		bool newLine = true,
 		ConsoleColor::Type color = ConsoleColor::Type::LightGray,
-		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Reset);
 
 	/**
 	 * Prints error text to the console.
@@ -81,7 +81,7 @@ public:
 	SIMPLECORE_API static void error(const AString& text,
 		bool newLine = true,
 		ConsoleColor::Type color = ConsoleColor::Type::LightGray,
-		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Reset);
 
 	/**
 	 * Prints warning text to the console.
@@ -95,7 +95,7 @@ public:
 	SIMPLECORE_API static void warn(const AString& text,
 		bool newLine = true,
 		ConsoleColor::Type color = ConsoleColor::Type::LightGray,
-		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Black);
+		ConsoleColor::Type backgroundColor = ConsoleColor::Type::Reset);
 
 #ifdef SIMPLELIBS_TEST
 
