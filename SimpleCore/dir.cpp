@@ -152,7 +152,7 @@ AString Dir::getDir(Directory directory)
 		GetModuleFileName(nullptr, buffer, _MAX_PATH);
 		auto string = AString(buffer);
 		string = string.left(static_cast<uint>(string.lastIndexOf('\\')));
-		return string;
+		return string.replaceAll("\\", "/");
 	}
 	SHGetFolderPath(nullptr, static_cast<int>(directory), nullptr, 0, buffer);
 	return AString(buffer);

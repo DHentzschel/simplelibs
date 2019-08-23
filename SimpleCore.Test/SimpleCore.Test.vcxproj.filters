@@ -30,6 +30,9 @@
     <ClCompile Include="dirtest.cpp">
       <Filter>Source Files\Tests</Filter>
     </ClCompile>
+    <ClCompile Include="filetest.cpp">
+      <Filter>Source Files\Tests</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stopwatchtest.cpp">
@@ -44,6 +47,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="cleanup.bat">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="C:\Users\dhent\Desktop\SimpleCore.Test\cleanup.sh">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="C:\Users\dhent\Desktop\SimpleCore.Test\setup.sh">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

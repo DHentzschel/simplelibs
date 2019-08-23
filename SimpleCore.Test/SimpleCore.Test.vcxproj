@@ -161,6 +161,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dirtest.cpp" />
+    <ClCompile Include="filetest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="queuetest.cpp" />
     <ClCompile Include="vectortest.cpp" />
@@ -174,6 +175,8 @@
     <ClInclude Include="stopwatchtest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="C:\Users\dhent\Desktop\SimpleCore.Test\cleanup.sh" />
+    <None Include="C:\Users\dhent\Desktop\SimpleCore.Test\setup.sh" />
     <None Include="cleanup.bat" />
     <None Include="setup.bat" />
     <None Include="testfile2.bin" />

@@ -6,7 +6,7 @@ class DirTest {
 public:
 	TEST_ALL_METHODS(testAll)
 	{
-		Logger::logTestInit("testAll");
+		Logger::logTestInit("DirTest");
 
 		int result = 0;
 		result += Logger::logTestResult(testSetPath());
@@ -24,12 +24,7 @@ public:
 
 		/* Testing relative path. */
 		Dir dir("test");
-#ifdef OS_WIN
-		/* All relative paths will be concatenated at the end with the sub path of the VS test unit */
-		auto result = dir.getPath().contains(Dir::getDir(Directory::CurrentApplication), false);
-		ASSERT_TRUE(dir.getPath().contains(Dir::getDir(Directory::CurrentApplication), false));
-#elif defined OS_LINUX || defined OS_UNIX
-#endif // OS_LINUX || OS_UNIX
+		ASSERT_TRUE(dir.getPath().contains(Dir::getDir(Directory::CurrentApplication).replaceAll("\\", "/"), false));
 		dispose();
 		TEST_FINISH;
 	}
@@ -102,8 +97,7 @@ private:
 #elif defined OS_LINUX || defined OS_UNIX
 		system("sh setup.sh");
 #endif // OS_LINUX || OS_UNIX
-		using namespace std::chrono_literals;
-		std::this_thread::sleep_for(10ms);
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 
 	void dispose()
@@ -113,7 +107,6 @@ private:
 #elif defined OS_LINUX || defined OS_UNIX
 		system("sh cleanup.sh");
 #endif // OS_LINUX || OS_UNIX
-		using namespace std::chrono_literals;
-		std::this_thread::sleep_for(10ms);
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 };

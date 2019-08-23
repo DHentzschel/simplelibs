@@ -206,6 +206,8 @@ private:
 
 	int openModeFlags_;
 
+	bool atEnd_;
+
 	/**
 	 * Returns whether the filestream is open.
 	 *

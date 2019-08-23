@@ -105,11 +105,11 @@ public:
 
 #  define TEST_FINISH return true
 
-#  define ASSERT_TRUE(actual) if (!actual) { return false; }
+#  define ASSERT_TRUE(actual) if (!(actual)) { return false; }
 
-#  define ASSERT_FALSE(actual) if (actual) { return false; }
+#  define ASSERT_FALSE(actual) if ((actual)) { return false; }
 
-#  define ASSERT_EQUALS(expected, actual) if (expected != actual) { return false; }
+#  define ASSERT_EQUALS(expected, actual) if ((expected) != (actual)) { return false; }
 
 #  define ASSERT(actual) return actual;
 

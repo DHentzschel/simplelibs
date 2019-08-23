@@ -26,7 +26,7 @@ void Logger::print(const AString & text,
 {
 	Console::print(text, newLine, color, backgroundColor);
 	if (file_.isOpen()) {
-		file_ << text + (newLine ? "\n" : "");
+		file_.append(text + (newLine ? "\n" : ""));
 	}
 }
 

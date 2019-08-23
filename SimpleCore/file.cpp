@@ -8,7 +8,8 @@
 #include "logger.h"
 
 File::File() :
-	openModeFlags_(static_cast<int>(OpenMode::NotOpen))
+	openModeFlags_(OpenMode::NotOpen),
+	atEnd_(false)
 {}
 
 File::File(const File& file) :
@@ -21,7 +22,7 @@ File::File(const File& file) :
 }
 
 File::File(const AString& filepath) noexcept :
-	openModeFlags_(static_cast<int>(OpenMode::NotOpen))
+	File()
 {
 	setFilepath(filepath);
 }
@@ -74,10 +75,11 @@ bool File::exists(const AString& filepath)
 	return File(filepath).exists();
 }
 
+
 AString File::getDirectory() const
 {
 	if (filepath_.count("/") == 0 && filepath_.count("\\") == 0) {
-		return AString(Dir::getDir(Directory::CurrentApplication)).replaceAll("\\", "/");
+		return AString(Dir::getDir(Directory::CurrentApplication));
 	}
 
 	// TODO: Return absolute directory from relative
@@ -112,7 +114,7 @@ AString File::getFilepath() const
 	return filepath_;
 }
 
-void File::setFilepath(const AString & filepath)
+void File::setFilepath(const AString& filepath)
 {
 	filepath_ = filepath;
 	filepath_.replaceAll("\\", "/");
@@ -134,6 +136,7 @@ bool File::open(int openModeFlags)
 	}
 	openModeFlags_ = openModeFlags;
 	fstream_.open(filepath_.toCString(), static_cast<std::ios_base::openmode>(openModeFlags_));
+	atEnd_ = false;
 	return result && isOpen();
 }
 
@@ -141,8 +144,7 @@ void File::close()
 {
 	fstream_.close();
 }
-
-void File::operator=(const File & file)
+void File::operator=(const File& file)
 {
 	filepath_ = file.filepath_;
 	openModeFlags_ = file.openModeFlags_;
@@ -152,38 +154,38 @@ void File::operator=(const File & file)
 	}
 }
 
-std::fstream& File::operator<<(const AString & string)
+std::fstream& File::operator<<(const AString& string)
 {
 	if (!printFileOpen() || !printFlagWriteOnly()) {
 		return fstream_;
 	}
-	if (static_cast<int>(openModeFlags_) & static_cast<int>(OpenMode::NewOnly) && exists()) {
+	if ((openModeFlags_ & OpenMode::NewOnly) && exists()) {
 		Logger::error("Failed to write to file, Flag NewOnly was set.");
 		return fstream_;
 	}
-	if (static_cast<int>(openModeFlags_) & static_cast<int>(OpenMode::ExistingOnly) && !exists()) {
+	if ((openModeFlags_ & OpenMode::ExistingOnly) && !exists()) {
 		Logger::error("Failed to write to file, Flag NewOnly was set.");
 		return fstream_;
 	}
 
-	fstream_ << string.toCString();
+	fstream_ << string;
 	fstream_.flush();
 	return fstream_;
 }
 
-void File::append(const AString & string)
+void File::append(const AString& string)
 {
 	if (!printFileOpen() || !printFlagWriteOnly()) {
 		return;
 	}
 
-	if (!(openModeFlags_ & static_cast<int>(OpenMode::Append))) {
+	if (!(openModeFlags_ & OpenMode::Append)) {
 		Logger::error("Failed writing to file '" + filepath_ +
 			"'. Flag Append was not set.");
 		return;
 	}
 
-	fstream_ << string.toCString();
+	fstream_ << string;
 	fstream_.flush();
 }
 
@@ -192,21 +194,20 @@ AString File::readAllText()
 	if (isOpen()) {
 		close();
 	}
-	open(static_cast<int>(OpenMode::ReadOnly));
-	AString result((std::istreambuf_iterator<char>(fstream_)), std::istreambuf_iterator<char>());
-	return result;
+	open(OpenMode::ReadOnly);
+	return AString(std::istreambuf_iterator<char>(fstream_), std::istreambuf_iterator<char>());
 }
 
-void File::writeAllText(const AString & text)
+void File::writeAllText(const AString& text)
 {
 	if (isOpen()) {
 		close();
 	}
-	if (!open(static_cast<int>(OpenMode::WriteOnly))) {
+	if (!open(OpenMode::WriteOnly)) {
 		Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
 		return;
 	}
-	fstream_ << text.toCString();
+	fstream_ << text;
 	fstream_.flush();
 }
 
@@ -215,7 +216,7 @@ ByteArray File::readAllBytes()
 	if (isOpen()) {
 		close();
 	}
-	if (!open(static_cast<int>(OpenMode::ReadOnly) | static_cast<int>(OpenMode::Binary) | static_cast<int>(OpenMode::AtTheEnd))) {
+	if (!open(OpenMode::ReadOnly | OpenMode::Binary | OpenMode::AtTheEnd)) {
 		Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
 		return ByteArray();
 	}
@@ -229,12 +230,12 @@ ByteArray File::readAllBytes()
 	return ByteArray(buffer.get(), pos);
 }
 
-void File::writeAllBytes(const ByteArray & bytes)
+void File::writeAllBytes(const ByteArray& bytes)
 {
 	if (isOpen()) {
 		close();
 	}
-	if (!open(static_cast<int>(OpenMode::WriteOnly) | static_cast<int>(OpenMode::Binary))) {
+	if (!open(OpenMode::WriteOnly | OpenMode::Binary)) {
 		Logger::error("Couldn't reopen file '" + filepath_ + "' to get bytes.");
 		return;
 	}
@@ -247,14 +248,16 @@ AString File::readLine()
 	if (!printFileOpen() || !printFlagReadOnly()) {
 		return "empty";
 	}
+
 	AString temp;
 	std::getline(fstream_, temp);
+	atEnd_ = fstream_.peek() == EOF;
 	return temp;
 }
 
 bool File::atEnd() const
 {
-	return isOpen() && fstream_.eof();
+	return isOpen() && atEnd_;
 }
 
 bool File::printFileOpen() const
@@ -269,7 +272,7 @@ bool File::printFileOpen() const
 
 bool File::printFlagReadOnly() const
 {
-	if (!(openModeFlags_ & static_cast<int>(OpenMode::ReadOnly))) {
+	if (!(openModeFlags_ & OpenMode::ReadOnly)) {
 		Logger::error("Failed writing to file '" + filepath_ +
 			"'. Flag ReadOnly was not set.");
 		return false;
@@ -279,7 +282,7 @@ bool File::printFlagReadOnly() const
 
 bool File::printFlagWriteOnly() const
 {
-	if (!(openModeFlags_ & static_cast<int>(OpenMode::WriteOnly))) {
+	if (!(openModeFlags_ & OpenMode::WriteOnly)) {
 		Logger::error("Failed writing to file '" + filepath_ +
 			"'. Flag WriteOnly was not set.");
 		return false;

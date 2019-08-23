@@ -3,6 +3,8 @@
 #include "vectortest.cpp"
 #include "stopwatchtest.cpp"
 #include "dirtest.cpp"
+#include "filetest.cpp"
+
 
 int main(int argc, char** argv)
 {
@@ -17,6 +19,9 @@ int main(int argc, char** argv)
 
 	DirTest dirTest;
 	dirTest.testAll();
+
+	FileTest fileTest;
+	fileTest.testAll();
 
 	return EXIT_SUCCESS;
 }
