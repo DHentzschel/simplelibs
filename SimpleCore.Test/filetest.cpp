@@ -42,10 +42,9 @@ public:
 		Logger::logTestBegin("testOpen");
 		init();
 
-		/* This file should exists on desktop path */
+		/* This file should exists on current application path */
 		ASSERT_TRUE(file_.open(OpenMode::ReadOnly));
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -54,19 +53,18 @@ public:
 		Logger::logTestBegin("testExists");
 		init();
 
-		const auto filename2 = Dir::getDir(Directory::Desktop) + "/testfile2.txt";
+		const auto filename2 = Dir::getDir(Directory::CurrentApplication) + "/test/testfile2.txt";
 		File file(filename2);
 		if (file.exists()) {
 			file.erase();
 		}
 
 		/* This file should exist */
-		ASSERT_TRUE(File(Dir::getDir(Directory::Desktop) + "/testfile.txt").exists());
+		ASSERT_TRUE(File(Dir::getDir(Directory::CurrentApplication) + "/test/testfile.txt").exists());
 
 		/* This file should NOT exist */
 		ASSERT_TRUE(!File(filename2).exists());
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -75,9 +73,9 @@ public:
 		Logger::logTestBegin("testCreate");
 		init();
 
-		Dir::erase(Dir::getDir(Directory::Desktop) + "/test_level1", true);
+		Dir::erase(Dir::getDir(Directory::CurrentApplication) + "/test/test_level1", true);
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
-		File file(Dir::getDir(Directory::Desktop) + "/testfile4.txt");
+		File file(Dir::getDir(Directory::CurrentApplication) + "/test/testfile4.txt");
 		if (file.exists()) {
 			file.erase();
 		}
@@ -87,14 +85,13 @@ public:
 		ASSERT_TRUE(file.erase());
 
 		/* Test recursive file creation */
-		const auto recursiveFilePath = Dir::getDir(Directory::Desktop) + "/test_level1/test_level2/test_level3/testfile.txt";
+		const auto recursiveFilePath = Dir::getDir(Directory::CurrentApplication) + "/test/test_level1/test_level2/test_level3/testfile.txt";
 		ASSERT_TRUE(File(recursiveFilePath).create(true));
 		ASSERT_TRUE(File(recursiveFilePath).erase());
 
 		/* Remove folder from recursive creation test for cleanup, true test of functionality is in extra class dirtest */
-		ASSERT_TRUE(Dir(Dir::getDir(Directory::Desktop) + "/test_level1").erase());
+		ASSERT_TRUE(Dir(Dir::getDir(Directory::CurrentApplication) + "/test/test_level1").erase());
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -104,7 +101,7 @@ public:
 		init();
 
 		/* Make sure the file exists */
-		File file(Dir::getDir(Directory::Desktop) + "/testfile3.txt");
+		File file(Dir::getDir(Directory::CurrentApplication) + "/test/testfile3.txt");
 		if (!file.exists()) {
 			ASSERT_TRUE(file.create());
 		}
@@ -121,7 +118,6 @@ public:
 
 		ASSERT_TRUE(file_.readAllText() == exampleFileContent_);
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -130,7 +126,7 @@ public:
 		Logger::logTestBegin("testWriteAllText");
 		init();
 
-		File file(Dir::getDir(Directory::Desktop) + "/testfile2.txt");
+		File file(Dir::getDir(Directory::CurrentApplication) + "/test/testfile2.txt");
 		if (file.exists()) {
 			file.erase();
 			file.create();
@@ -141,7 +137,6 @@ public:
 		file.close();
 		file.erase();
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -152,7 +147,6 @@ public:
 
 		ASSERT_TRUE(file2_.readAllBytes().isEqual(byteArray_.data(), byteArray_.size()));
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -161,7 +155,7 @@ public:
 		Logger::logTestBegin("testWriteAllBytes");
 		init();
 
-		File file(Dir::getDir(Directory::Desktop) + "/testfile2.txt");
+		File file(Dir::getDir(Directory::CurrentApplication) + "/test/testfile2.txt");
 		if (file.exists()) {
 			file.erase();
 			file.create();
@@ -172,7 +166,6 @@ public:
 		file.close();
 		file.erase();
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -190,7 +183,6 @@ public:
 
 		ASSERT_TRUE(AString(exampleFileContent_).removeAll('\n') == buffer);
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -199,7 +191,7 @@ public:
 		Logger::logTestBegin("testAppend");
 		init();
 
-		File file(Dir::getDir(Directory::Desktop) + "/testfile2.txt");
+		File file(Dir::getDir(Directory::CurrentApplication) + "/test/testfile2.txt");
 		if (file.exists()) {
 			file.erase();
 			file.create();
@@ -212,7 +204,6 @@ public:
 		file.close();
 		file.erase();
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -236,7 +227,6 @@ public:
 		file = File(filename);
 		ASSERT_TRUE(file.getDirectory().contains(Dir::getDir(Directory::CurrentApplication), false));
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -252,14 +242,13 @@ public:
 		File file("/home/test/" + filename);
 #endif // OS_LINUX || OS_UNIX
 		auto assertFilenameEqualsExpected = [filename, file]() {
-			ASSERT_TRUE(filename == file.getFilename());
+			return filename == file.getFilename();
 		};
 
-		assertFilenameEqualsExpected();
+		ASSERT_TRUE(assertFilenameEqualsExpected());
 		file = File(file.getFilename());
-		assertFilenameEqualsExpected();
+		ASSERT_TRUE(assertFilenameEqualsExpected());
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -278,7 +267,6 @@ public:
 		File file(filepath);
 		ASSERT_TRUE(filepath.replaceAll("\\", "/") == file.getFilepath());
 
-		dispose();
 		TEST_FINISH;
 	}
 
@@ -296,25 +284,7 @@ private:
 	{
 		file_.close();
 		file2_.close();
-		file_ = File(Dir::getDir(Directory::Desktop) + "/testfile.txt");
-		file2_ = File(Dir::getDir(Directory::Desktop) + "/testfile2.bin");
-#ifdef OS_WIN
-		system("setup.bat");
-#elif defined OS_LINUX || defined OS_UNIX
-		system("sh setup.sh");
-#endif // OS_LINUX || OS_UNIX
-		using namespace std::chrono_literals;
-		std::this_thread::sleep_for(10ms);
-	}
-
-	void dispose()
-	{
-#ifdef OS_WIN
-		system("cleanup.bat");
-#elif defined OS_LINUX || defined OS_UNIX
-		system("sh cleanup.sh");
-#endif // OS_LINUX || OS_UNIX
-		using namespace std::chrono_literals;
-		std::this_thread::sleep_for(10ms);
+		file_ = File(Dir::getDir(Directory::CurrentApplication) + "/test/testfile.txt");
+		file2_ = File(Dir::getDir(Directory::CurrentApplication) + "/test/testfile2.bin");
 	}
 };

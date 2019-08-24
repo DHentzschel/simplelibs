@@ -151,9 +151,7 @@ AString& AString::replaceFirst(const AString& from, const AString& to, const boo
 	size_t position = 0;
 	if ((position = find(copyFrom, position)) != npos) {
 		replace(position, copyFrom.length(), to);
-		// ReSharper disable CppAssignedValueIsNeverUsed
 		position += to.length();
-		// ReSharper restore CppAssignedValueIsNeverUsed
 	}
 	return *this;
 }

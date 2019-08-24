@@ -20,93 +20,64 @@ public:
 	TEST_METHOD(testSetPath)
 	{
 		Logger::logTestBegin("testSetPath");
-		init();
 
 		/* Testing relative path. */
 		Dir dir("test");
 		ASSERT_TRUE(dir.getPath().contains(Dir::getDir(Directory::CurrentApplication).replaceAll("\\", "/"), false));
-		dispose();
+		
 		TEST_FINISH;
 	}
 
 	TEST_METHOD(testCreate)
 	{
 		Logger::logTestBegin("testCreate");
-		init();
 
 		/* This directory MUST NOT exist */
-		Dir dir(Dir::getDir(Directory::Desktop) + "/testdir2");
+		Dir dir(Dir::getDir(Directory::CurrentApplication) + "/test/testdir2");
 		if (dir.exists()) {
 			dir.erase();
 		}
 		ASSERT_TRUE(dir.create());
 		dir.erase();
 
-		dispose();
 		TEST_FINISH;
 	}
 
 	TEST_METHOD(testExists)
 	{
 		Logger::logTestBegin("testExists");
-		init();
 
 		/* This directory has to exist */
-		Dir dir(Dir::getDir(Directory::Desktop) + "/testdir");
+		Dir dir(Dir::getDir(Directory::CurrentApplication) + "/test/testdir");
 		ASSERT_TRUE(dir.exists());
 
-		dispose();
 		TEST_FINISH;
 	}
 
 	TEST_METHOD(testErase)
 	{
 		Logger::logTestBegin("testErase");
-		init();
 
-		Dir dir(Dir::getDir(Directory::Desktop) + "/testdir2");
+		Dir dir(Dir::getDir(Directory::CurrentApplication) + "/test/testdir2");
 		if (!dir.exists()) {
 			dir.create();
 		}
 		ASSERT_TRUE(dir.erase());
 
-		dispose();
 		TEST_FINISH;
 	}
 
 	TEST_METHOD(testGetFileCount)
 	{
 		Logger::logTestBegin("testGetFileCount");
-		init();
 
-		Dir dir(Dir::getDir(Directory::Desktop) + "/testdir");
+		Dir dir(Dir::getDir(Directory::CurrentApplication) + "/test/testdir");
 		if (dir.exists()) {
 			dir.erase();
 		}
 		dir.create();
 		File file(dir.getPath());
 
-		dispose();
 		TEST_FINISH;
-	}
-private:
-	void init()
-	{
-#ifdef OS_WIN
-		system("setup.bat");
-#elif defined OS_LINUX || defined OS_UNIX
-		system("sh setup.sh");
-#endif // OS_LINUX || OS_UNIX
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
-	}
-
-	void dispose()
-	{
-#ifdef OS_WIN
-		system("cleanup.bat");
-#elif defined OS_LINUX || defined OS_UNIX
-		system("sh cleanup.sh");
-#endif // OS_LINUX || OS_UNIX
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 };

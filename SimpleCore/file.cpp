@@ -195,7 +195,9 @@ AString File::readAllText()
 		close();
 	}
 	open(OpenMode::ReadOnly);
-	return AString(std::istreambuf_iterator<char>(fstream_), std::istreambuf_iterator<char>());
+	const auto result = AString(std::istreambuf_iterator<char>(fstream_), std::istreambuf_iterator<char>());
+	close();
+	return result;
 }
 
 void File::writeAllText(const AString& text)

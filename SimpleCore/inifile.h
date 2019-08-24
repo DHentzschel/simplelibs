@@ -2,16 +2,17 @@
 #define INIFILE_H
 
 #include "osdetection.h"
+#include "file.h"
 
-#ifdef OS_WIN
 #include "astring.h"
+#include <map>
 
 /**
  * This class makes it easy to parse an INI file.
  *
  * @author Daniel Hentzschel on 13.05.2019.
  */
-class IniFile {
+class IniFile : protected File {
 public:
 	/**
 	 * Calls the default constructor.
@@ -40,9 +41,9 @@ public:
 	SIMPLECORE_API void beginGroup(const AString& group);
 
 	/**
-	 * Sets the current group focus to none.
+	 * Deletes the current group and writes the changes to file.
 	 */
-	SIMPLECORE_API void endGroup();
+	SIMPLECORE_API void deleteGroup(const AString& group = "");
 
 	/**
 	 * Returns the group count.
@@ -65,7 +66,7 @@ public:
 	 * @param key the key to find
 	 * @return the value
 	 */
-	SIMPLECORE_API AString value(const AString& key) const;
+	SIMPLECORE_API AString value(const AString& key, const AString& defaultValue = "null") const;
 
 	/**
 	 * Sets the value of the key specified.
@@ -73,30 +74,28 @@ public:
 	 * @param key the key to find
 	 * @param value the value to set
 	 */
-	SIMPLECORE_API void setValue(const AString& key, const AString& value) const;
+	SIMPLECORE_API void setValue(const AString& key, const AString& value);
 
 private:
-	AString filepath_;
+	struct Group {
+		AString name;
+		
+		std::map<AString, AString> keyValues;
+	};
+
+	Vector<Group> groups_;
 
 	AString group_;
-
-	AVector<AString> fileContent_;
 
 	uint groupCount_;
 
 	uint keyCount_;
+	
+	void read();
 
-	/**
-	 * Calculates the group count.
-	 */
-	void calculateGroupCount();
+	void writeGroup(const AString& group);
 
-	/**
-	 * Calculates the key count.
-	 */
-	void calculateKeyCount();
+	void writeValue(const AString& key, const AString& value);
 };
-#elif defined(OS_LINUX)
 
-#endif // OSLINUX_H
 #endif // INIFILE_H

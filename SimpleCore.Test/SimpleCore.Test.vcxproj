@@ -162,6 +162,7 @@
   <ItemGroup>
     <ClCompile Include="dirtest.cpp" />
     <ClCompile Include="filetest.cpp" />
+    <ClCompile Include="inifiletest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="queuetest.cpp" />
     <ClCompile Include="vectortest.cpp" />

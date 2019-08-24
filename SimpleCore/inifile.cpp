@@ -1,44 +1,61 @@
 #include "inifile.h"
-#ifdef OS_WIN
-#include <Windows.h>
+
 #include "file.h"
 #include "logger.h"
 #include "dir.h"
 #include <filesystem>
 
 IniFile::IniFile() :
-	groupCount_(0),
-	keyCount_(0)
+	IniFile("")
 {
 }
 
 IniFile::IniFile(const AString& filepath) :
-	IniFile()
+	File(filepath),
+	groupCount_(0),
+	keyCount_(0)
 {
 	setFilepath(filepath);
+	read();
 }
 
 void IniFile::setFilepath(const AString& filepath)
 {
-	if (filepath.size() > 1 && filepath[1] != ':') {
-		filepath_ = std::filesystem::current_path().string() + "\\" + filepath;
-	}
-	else {
-		filepath_ = filepath;
-	}
-	fileContent_ = File(filepath_).readAllText().split('\n');
-	calculateGroupCount();
-	calculateKeyCount();
+	File::setFilepath(filepath);
 }
 
 void IniFile::beginGroup(const AString& group)
 {
 	group_ = group;
+
+	auto containsGroup = false;
+	for (auto& tempGroup : groups_) {
+		if (tempGroup.name == group) {
+			containsGroup = true;
+			break;
+		}
+	}
+
+	if (!containsGroup) {
+		Group newGroup;
+		newGroup.name = group_;
+		groups_.append(newGroup);
+	}
 }
 
-void IniFile::endGroup()
+void IniFile::deleteGroup(const AString& group)
 {
-	group_.clear();
+	auto tempGroup = (group.isEmpty() ? group_ : group);
+	for (auto it = groups_.begin(); it != groups_.end(); ++it) {
+		if ((*it).name.equals(tempGroup, false)) {
+			--it;
+			groups_.erase(it+1);
+			if (group_.equals(group, false)) {
+				group_.clear();
+			}
+			setValue("", "");
+		}
+	}
 }
 
 uint IniFile::getGroupCount()
@@ -51,48 +68,93 @@ uint IniFile::getKeyCount()
 	return keyCount_;
 }
 
-AString IniFile::value(const AString& key) const
+AString IniFile::value(const AString& key, const AString& defaultValue) const
 {
-	if (!File::exists(filepath_)) {
-		Logger::error("Error at IniFile::value(): File does not exist: '" + filepath_ + "'!");
+	if (!exists()) {
+		Logger::error("Error at IniFile::value(): File does not exist: '" + getFilepath() + "'!");
+		return defaultValue;
 	}
 
-	AVector<char> buffer;
-	buffer.resize(0xFF);
-	GetPrivateProfileStringA(group_.toCString(), key.toCString(), "empty",
-		buffer.data(), static_cast<DWORD>(buffer.size()),
-		filepath_.toCString());
-	return AString(buffer.data());
-}
-
-void IniFile::setValue(const AString& key, const AString& value) const
-{
-	const AString formattedValue = value.startsWith(" ") ? AString(value) : " " + AString(value);
-	WritePrivateProfileStringA(group_.toCString(), key.toCString(),
-		formattedValue.toCString(), filepath_.toCString());
-}
-
-void IniFile::calculateGroupCount()
-{
-	uint counter = 0;
-	for (auto& line : fileContent_) {
-		if (line.startsWith("[")) {
-			++counter;
+	for (auto& group : groups_) {
+		if (group.name.equals(group_, false)) {
+			AString result = defaultValue;
+			try {
+				result = group.keyValues.at(key);
+			}
+			catch (std::exception& e) {
+			}
+			return result;
 		}
 	}
-	groupCount_ = counter;
+	return defaultValue;
 }
 
-void IniFile::calculateKeyCount()
+void IniFile::setValue(const AString& key, const AString& value)
 {
-	uint counter = 0;
-	for (auto& line : fileContent_) {
-		if (!line.startsWith("[") && !line.startsWith(";")) {
-			++counter;
-		}
-	}
-	keyCount_ = counter;
-}
-#elif defined(OS_LINUX)
+	groupCount_ = 0;
+	keyCount_ = 0;
 
-#endif // OS_LINUX
+	erase();
+	const auto formattedValue = AString(value).trim();
+	if (!open(OpenMode::WriteOnly | OpenMode::Append)) {
+		Logger::error("Error at IniFile::setValue(): Cannot open file " + getFilepath());
+		return;
+	}
+
+	for (auto& group : groups_) {
+		writeGroup(group.name);
+		++groupCount_;
+		if (!key.isEmpty() && group.name.equals(group_, false)) {
+			group.keyValues[key] = value;
+		}
+
+		for (auto it = group.keyValues.begin(); it != group.keyValues.end(); ++it) {
+			++keyCount_;
+			auto derefIt = *it;
+			writeValue(derefIt.first, derefIt.second);
+		}
+		append("\n");
+	}
+	close();
+}
+
+void IniFile::read()
+{
+	groupCount_ = 0;
+	keyCount_ = 0;
+
+	Group group;
+	auto fileContent = readAllText().split('\n');
+	for (auto& line : fileContent) {
+		line = line.trim();
+		/* Case group */
+		if (line.startsWith("[") && line.endsWith("]")) {
+			if (!group.name.isEmpty()) {
+				groups_.append(group);
+				group = Group();
+			}
+
+			group.name = line.removeFirst('[')
+				.removeFirst(']')
+				.trim();
+		}
+		/* Case key and value */
+		else if (!group.name.isEmpty() && !line.startsWith(";") && !line.startsWith("[")) {
+			const auto index = line.firstIndexOf('=');
+			group.keyValues[line.left(index)] = line.right(index);
+			++keyCount_;
+		}
+		groups_.append(group);
+	}
+	groupCount_ = groups_.size();
+}
+
+void IniFile::writeGroup(const AString& group)
+{
+	append(AString("[%1]\n").arg(group));
+}
+
+void IniFile::writeValue(const AString& key, const AString& value)
+{
+	append(AString("%1 = %2\n").arg(key).arg(value));
+}
