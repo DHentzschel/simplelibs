@@ -165,6 +165,7 @@
     <ClCompile Include="inifiletest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="queuetest.cpp" />
+    <ClCompile Include="stringtest.cpp" />
     <ClCompile Include="vectortest.cpp" />
   </ItemGroup>
   <ItemGroup>

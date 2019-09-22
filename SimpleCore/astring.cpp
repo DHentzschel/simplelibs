@@ -18,17 +18,12 @@ AString::AString(const char* string) : std::string(string)
 AString AString::arg(const AString& value)
 {
 	// TODO: compare performance to find and then replace
-	AString copy = *this;
-	for (auto i = 0; i < 20; ++i) {
-		const auto replacable = "%" + AString::toString(i);
+	String copy = *this;
+	for (auto i = 1; i <= 100; ++i) {
+		const auto replacable = "%" + String::toString(i);
 		if (copy.contains(replacable)) {
-			copy.replaceFirst(replacable, value);
-			if (copy.contains(replacable)) {
-				continue;
-			}
-			else {
-				break;
-			}
+			copy.replaceAll(replacable, value);
+			break;
 		}
 	}
 	return copy;
@@ -36,10 +31,10 @@ AString AString::arg(const AString& value)
 
 AString AString::left(const size_t n) const
 {
-	AString result;
+	String result;
 	if (n < size()) {
-		for (uint64 i = 0; i < n && i != static_cast<uint64>(-1); ++i) {
-			result += at(static_cast<uint>(i));
+		for (size_t i = 0; i < n && i != UINT32_MAX; ++i) {
+			result += at(i);
 		}
 	}
 	return result;
@@ -49,8 +44,8 @@ AString AString::right(const size_t n) const
 {
 	AString result;
 	if (n < size()) {
-		for (uint64 i = size() - n; i < size() && i != static_cast<uint64>(-1); ++i) {
-			result += at(static_cast<size_t>(i));
+		for (uint i = size() - n; i < size() && i != UINT32_MAX; ++i) {
+			result += at(i);
 		}
 	}
 	return result;
@@ -70,15 +65,14 @@ AString& AString::append(const AString& string)
 
 AString& AString::fill(const char c, const size_t size)
 {
-	if (size == -1) {
+	if (size == UINT32_MAX) {
 		for (auto& i : *this) {
 			i = c;
 		}
 	}
 	else {
-		clear();
-		for (uint64 i = 0; i < size && i != static_cast<uint64>(-1); ++i) {
-			*this += c;
+		for (uint i = 0; i < size && i != UINT32_MAX; ++i) {
+			(*this)[i] = c;
 		}
 	}
 	return *this;
@@ -86,17 +80,19 @@ AString& AString::fill(const char c, const size_t size)
 
 AString& AString::prepend(const char c)
 {
-	return *this = c + *this;
+	*this = c + *this;
+	return *this;
 }
 
 AString& AString::prepend(const AString& string)
 {
-	return *this = string + *this;
+	*this = string + *this;
+	return *this;
 }
 
 AString& AString::removeAll(const char c, const bool caseSensitive)
 {
-	return replaceAll(AString().prepend(c), "", caseSensitive);
+	return replaceAll(String().prepend(c), "", caseSensitive);
 }
 
 AString& AString::removeAll(const AString& string, const bool caseSensitive)
@@ -106,7 +102,7 @@ AString& AString::removeAll(const AString& string, const bool caseSensitive)
 
 AString& AString::removeFirst(const char c, const bool caseSensitive)
 {
-	return replaceFirst(AString().prepend(c), "", caseSensitive);
+	return replaceFirst(String().prepend(c), "", caseSensitive);
 }
 
 AString& AString::removeFirst(const AString& string, const bool caseSensitive)
@@ -130,28 +126,45 @@ AString& AString::repeat(const int times)
 
 AString& AString::replaceAll(const AString& from, const AString& to, const bool caseSensitive)
 {
+	if (from.isEmpty()) {
+		return *this;
+	}
+
+	auto copyThis = *this;
 	auto copyFrom = from;
+
 	if (!caseSensitive) {
+		copyThis.toLower();
 		copyFrom.toLower();
 	}
-	size_t position = 0;
-	while ((position = find(copyFrom, position)) != npos) {
-		replace(position, copyFrom.length(), to);
-		position += to.length();
+	auto position = copyThis.find(copyFrom);
+	while (position != std::string::npos) {
+		std::string::replace(position, copyFrom.size(), to);
+		copyThis.replace(position, copyFrom.size(), to);
+		position = copyThis.find(copyFrom);
 	}
 	return *this;
 }
 
 AString& AString::replaceFirst(const AString& from, const AString& to, const bool caseSensitive)
 {
+	if (from.isEmpty()) {
+		return *this;
+	}
+
+	auto copyThis = *this;
 	auto copyFrom = from;
+
 	if (!caseSensitive) {
+		copyThis.toLower();
 		copyFrom.toLower();
 	}
-	size_t position = 0;
-	if ((position = find(copyFrom, position)) != npos) {
-		replace(position, copyFrom.length(), to);
-		position += to.length();
+	auto position = copyThis.find(copyFrom);
+	while (position != std::string::npos) {
+		std::string::replace(position, copyFrom.size(), to);
+		copyThis.replace(position, copyFrom.size(), to);
+		position = copyThis.find(copyFrom);
+		return *this;
 	}
 	return *this;
 }
@@ -170,31 +183,21 @@ AString& AString::toUpper()
 
 AString& AString::trim()
 {
-	AString result;
-	auto nonWhitespaceFound = false;
-	for (size_t i = size(); i > 0; --i) {
-		if (nonWhitespaceFound) {
-			result.prepend(at(--i));
-		}
-		else {
-			if (!Char::isWhitespace(at(--i))) {
-				nonWhitespaceFound = true;
-				result.prepend(at(i));
-			}
-		}
-	}
-	return *this = result;
+	static auto chars = "\t\n\v\f\r ";
+	erase(find_last_not_of(chars) + 1);
+	erase(0, find_first_not_of(chars));
+	return *this;
 }
 
 StringVector AString::split(const char separator, const bool caseSensitive) const
 {
-	return split(AString().append(separator), caseSensitive);
+	return split(String().append(separator), caseSensitive);
 }
 
 StringVector AString::split(const AString& separator, const bool caseSensitive) const
 {
-	auto copySeparator = AString(separator);
-	auto copyThis = AString(*this);
+	auto copySeparator = String(separator);
+	auto copyThis = String(*this);
 
 	if (!caseSensitive) {
 		copySeparator.toLower();
@@ -204,7 +207,7 @@ StringVector AString::split(const AString& separator, const bool caseSensitive) 
 	StringVector result;
 	auto start = copyThis.find_first_not_of(separator);
 
-	size_t end;
+	uint end;
 	while ((end = copyThis.find_first_of(copySeparator, start)) != npos) {
 		result.push_back(substr(start, end - start));
 		start = copyThis.find_first_not_of(copySeparator, end);
@@ -217,44 +220,12 @@ StringVector AString::split(const AString& separator, const bool caseSensitive) 
 
 StringVector AString::splitByNonNumerics() const
 {
-	StringVector result;
-
-	bool wasNumber = false;
-	AString tempString;
-	for (size_t i = 0; i <= size(); ++i) {
-		wasNumber = i < size() ? AString(1, at(i)).isNumber() : false;
-		if (wasNumber && i < size()) {
-			tempString.append(at(i));
-		}
-		else {
-			if (!tempString.isEmpty()) {
-				result.append(tempString);
-				tempString.clear();
-			}
-		}
-	}
-	return result;
+	return splitByCharset(false);
 }
 
 StringVector AString::splitByNumerics() const
 {
-	StringVector result;
-
-	bool wasNumber = false;
-	AString tempString;
-	for (size_t i = 0; i < size(); ++i) {
-		wasNumber = AString(1, at(i)).isNumber();
-		if (!wasNumber) {
-			tempString.append(at(i));
-		}
-		else {
-			if (!tempString.isEmpty()) {
-				result.append(tempString);
-				tempString.clear();
-			}
-		}
-	}
-	return result;
+	return splitByCharset(true);
 }
 
 ByteArray AString::toByteArray() const
@@ -266,18 +237,18 @@ ByteArray AString::toByteArray() const
 
 bool AString::contains(const char c, const bool caseSensitive) const
 {
-	return contains(AString(1, c), caseSensitive);
+	return contains(String(1, c), caseSensitive);
 }
 
-bool AString::contains(const AString & string, const bool caseSensitive) const
+bool AString::contains(const AString& string, const bool caseSensitive) const
 {
 	if (!caseSensitive) {
-		return AString(*this).toLower().find(AString(string).toLower()) != npos;
+		return String(*this).toLower().find(String(string).toLower()) != npos;
 	}
 	return find(string) != npos;
 }
 
-bool AString::endsWith(const AString & string, const bool caseSensitive) const
+bool AString::endsWith(const AString& string, const bool caseSensitive) const
 {
 	/* Save calculating time by comparing length of both */
 	if (size() < string.size()) {
@@ -286,14 +257,15 @@ bool AString::endsWith(const AString & string, const bool caseSensitive) const
 
 	/* Only lower both strings if desired */
 	if (!caseSensitive) {
-		return AString(*this).toLower().rfind(AString(string).toLower()) == string.size();
+		return String(*this).toLower().rfind(String(string).toLower()) == string.size();
 	}
 
 	/* Store data in var for faster access */
 	const auto data = this->data();
 
 	auto result = true;
-	for (auto i = size() - 1, j = string.size() - 1; i >= 0 && j > 0; --i) {
+	for (auto i = size() - 1, j = string.size() - 1;
+		i >= 0 && j > 0 && i < UINT32_MAX && j < UINT32_MAX; --i) {
 		/* Compare chars exactly */
 		if (data[i] != string[j]) {
 			result = false;
@@ -304,7 +276,7 @@ bool AString::endsWith(const AString & string, const bool caseSensitive) const
 	return result;
 }
 
-bool AString::equals(const AString & string, const bool caseSensitive) const
+bool AString::equals(const AString& string, const bool caseSensitive) const
 {
 	auto copyThis = *this;
 	auto copyString = string;
@@ -361,7 +333,7 @@ bool AString::isWithoutWhitespaces() const
 	return true;
 }
 
-bool AString::startsWith(const AString & string, const bool caseSensitive) const
+bool AString::startsWith(const AString& string, const bool caseSensitive) const
 {
 	/* Save calculating time by comparing length of both */
 	if (size() < string.size()) {
@@ -370,12 +342,11 @@ bool AString::startsWith(const AString & string, const bool caseSensitive) const
 
 	/* Only lower both strings if desired */
 	if (!caseSensitive) {
-		return AString(*this).toLower().rfind(AString(string).toLower(), 0) == 0;
+		return String(*this).toLower().rfind(String(string).toLower(), 0) == 0;
 	}
 
 	/* Store data in vars for faster access */
 	const auto data = this->data();
-	const auto indexSizeI = size() - 1;
 	const auto indexSizeJ = string.size() - 1;
 
 	for (size_t i = 0, j = 0; i < size() && j <= indexSizeJ; ++i, ++j) {
@@ -390,27 +361,26 @@ bool AString::startsWith(const AString & string, const bool caseSensitive) const
 size_t AString::count(const char c, const bool caseSensitive) const
 {
 	if (!caseSensitive) {
-		auto lowerThis = AString(*this).toLower();
-		return std::count(lowerThis.begin(), lowerThis.end(),
-			Char::toLower(c));
+		auto lowerThis = String(*this).toLower();
+		return std::count(lowerThis.begin(), lowerThis.end(), Char::toLower(c));
 	}
 	return std::count(begin(), end(), c);
 }
 
-size_t AString::count(const AString & string, const bool caseSensitive) const
+size_t AString::count(const AString& string, const bool caseSensitive) const
 {
 	uint result = 0;
-	size_t position = 0;
-	auto copyThis = AString(*this);
-	auto copyString = AString(string);
+	uint position = 0;
+	auto copyThis = String(*this);
+	auto copyString = String(string);
 
 	if (!caseSensitive) {
 		copyThis.toLower();
 		copyString.toLower();
 	}
 	else {
-		copyThis = AString(*this);
-		copyString = AString(string);
+		copyThis = String(*this);
+		copyString = String(string);
 	}
 	while ((position = copyThis.find(copyString, position)) != npos) {
 		++result;
@@ -431,24 +401,22 @@ size_t AString::firstIndexOf(const char c) const
 
 size_t AString::indexOf(const char c) const
 {
-	for (size_t i = 0; i < size(); ++i) {
+	for (uint i = 0; i < size(); ++i) {
 		if (at(i) == c) {
 			return i;
 		}
 	}
-	return -1;
+	return UINT32_MAX;
 }
 
 size_t AString::lastIndexOf(const char c) const
 {
-#pragma warning (disable : 4244)
-	for (uint64 i = size() - 1; i >= 0 && i != static_cast<uint64>(-1); --i) {
+	for (uint i = size() - 1; i >= 0 && i < UINT32_MAX; --i) {
 		if (at(i) == c) {
 			return i;
 		}
 	}
-	return static_cast<size_t>(-1);
-#pragma warning (default : 4244)
+	return UINT32_MAX;
 }
 
 bool AString::toBool() const
@@ -574,4 +542,32 @@ AString AString::toString(const float n)
 AString AString::toString(const double n)
 {
 	return std::to_string(n);
+}
+
+void AString::setLocaleGermany()
+{
+	std::locale::global(std::locale("de-DE"));
+}
+
+StringVector AString::splitByCharset(bool splitByNumeric) const
+{
+	StringVector result;
+
+	bool isNumber = false;
+	String tempString;
+	for (auto it = begin(); it != end(); ++it) {
+		auto value = *it;
+		isNumber = String(1, value).isNumber();
+		if (splitByNumeric ? !isNumber : isNumber) {
+			tempString.append(value);
+			if (it + 1 == end()) {
+				result.append(tempString);
+			}
+		}
+		else if (!tempString.isEmpty()) {
+			result.append(tempString);
+			tempString.clear();
+		}
+	}
+	return result;
 }

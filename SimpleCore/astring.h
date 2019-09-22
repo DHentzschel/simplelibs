@@ -2,6 +2,7 @@
 #define ASTRING_H
 
 #include <string>
+#include <climits>
 #include <variant>
 
 #include "functions.h"
@@ -51,6 +52,9 @@ public:
 
 	/**
 	 * Replaces the next placeholder (%number) by the specified string.
+	 * Works until %100.
+	 * When there is a replacable but no replacable before, say there is %2 but no %1,
+	 * then there won't be replaced anything.
 	 *
 	 * @param value the string to copy from
 	 * @return the replaced string
@@ -91,14 +95,14 @@ public:
 
 	/**
 	 * Fills the string with the specified char from index 0 up to index size-1.
-	 * If the size is -1 (default), each char of the string will be replaced by the specified char.
-	 * If the size is not -1, the string will be cleared and filled with the specified char size times.
+	 * If the size is UINT32_MAX (default), each char of the string will be replaced by the specified char.
+	 * If the size is not UINT32_MAX, the string will be cleared and filled with the specified char size times.
 	 *
 	 * @param c the char to set
 	 * @param size the size of the string to fill
 	 * @return the reference to the current instance
 	 */
-	SIMPLECORE_API AString& fill(char c, size_t size = -1);
+	SIMPLECORE_API AString& fill(char c, size_t size = UINT32_MAX);
 
 	/**
 	 * Prepends the specified char to the string and returns the reference to the current instance.
@@ -202,7 +206,7 @@ public:
 	SIMPLECORE_API AString& toUpper();
 
 	/**
-	 * Removes all trailing whitespaces and returns the reference to the current instance.
+	 * Removes all leading and trailing whitespaces and returns the reference to the current instance.
 	 *
 	 * @return the reference to the current instance
 	 */
@@ -370,7 +374,7 @@ public:
 
 	/**
 	 * Returns the first index of the specified character occurrence.
-	 * Returns (uint64)-1 if there is no such char.
+	 * Returns UINT32_MAX if there is no such char.
 	 *
 	 * @param c the char to find
 	 * @return the first index of the specified char
@@ -379,7 +383,7 @@ public:
 
 	/**
 	 * Returns the first index of the specified character occurrence.
-	 * Returns (uint64)-1 if there is no such char.
+	 * Returns UINT32_MAX if there is no such char.
 	 *
 	 * @param c the char to find
 	 * @return the first index of the specified char
@@ -388,7 +392,7 @@ public:
 
 	/**
 	 * Returns the last index of the specified character occurrence.
-	 * Returns (uint64)-1 if there is no such char.
+	 * Returns UINT32_MAX if there is no such char.
 	 *
 	 * @param c the char to find
 	 * @return the last index of the specified char
@@ -586,6 +590,15 @@ public:
 	 */
 	SIMPLECORE_API static AString toString(double n);
 
+	/**
+	 * Enables German umlauts for functions such as toLower() and toUpper().
+	 */
+	SIMPLECORE_API static void setLocaleGermany();
+
+private:
+	StringVector splitByCharset(bool splitByNumeric) const;
 };
+
+using String = AString;
 
 #endif   // ASTRING_H

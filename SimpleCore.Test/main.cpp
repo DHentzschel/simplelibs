@@ -5,6 +5,7 @@
 #include "dirtest.cpp"
 #include "filetest.cpp"
 #include "inifiletest.cpp"
+#include "stringtest.cpp"
 
 
 int main(int argc, char** argv)
@@ -26,6 +27,9 @@ int main(int argc, char** argv)
 
 	IniFileTest iniFileTest;
 	iniFileTest.testAll();
+
+	StringTest stringTest;
+	stringTest.testAll();
 
 	return EXIT_SUCCESS;
 }
