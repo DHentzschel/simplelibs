@@ -81,7 +81,7 @@ AString IniFile::value(const AString& key, const AString& defaultValue) const
 			try {
 				result = group.keyValues.at(key);
 			}
-			catch (std::exception& e) {
+			catch (std::exception&) {
 			}
 			return result;
 		}
